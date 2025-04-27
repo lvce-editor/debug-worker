@@ -343,8 +343,6 @@ export const dispose = (state: RunAndDebugState): RunAndDebugState => {
   }
 }
 
-export const hasFunctionalResize = true
-
 export const resize = (state: RunAndDebugState, dimensions: any): RunAndDebugState => {
   return { ...state, ...dimensions }
 }

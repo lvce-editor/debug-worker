@@ -1,4 +1,4 @@
-import * as GetInnerChildScopeChain from '../GetInnerChildScopeChain/GetInnerChildScopeChain.js'
+import * as GetInnerChildScopeChain from '../GetInnerChildScopeChain/GetInnerChildScopeChain.ts'
 
 export const getChildScopeChain = async (cache: any, index: number, debugId: any, scopeChain: any): Promise<readonly any[]> => {
   const element = scopeChain[index]
