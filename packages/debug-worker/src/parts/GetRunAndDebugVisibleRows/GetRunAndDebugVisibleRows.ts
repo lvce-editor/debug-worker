@@ -1,4 +1,5 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType.ts'
@@ -7,7 +8,7 @@ import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoi
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-const getRunAndDebugVisibleRowsWatch = (state: any): readonly DebugRow[] => {
+const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonly DebugRow[] => {
   const { watchExpanded } = state
   return [
     {
@@ -23,7 +24,7 @@ const getRunAndDebugVisibleRowsWatch = (state: any): readonly DebugRow[] => {
   ]
 }
 
-const getRunAndDebugVisibleRowsBreakPoints = (state: any): readonly DebugRow[] => {
+const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): readonly DebugRow[] => {
   const { breakPointsExpanded, exceptionBreakPoints } = state
   if (breakPointsExpanded) {
     return [
@@ -156,7 +157,7 @@ const getScopeRenderer = (type: any): any => {
   }
 }
 
-const getRunAndDebugVisibleRowsScope = (state: any): readonly DebugRow[] => {
+const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonly DebugRow[] => {
   const rows: DebugRow[] = []
   const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex } = state
   if (scopeExpanded) {
@@ -203,7 +204,7 @@ const getRunAndDebugVisibleRowsScope = (state: any): readonly DebugRow[] => {
   return rows
 }
 
-const getRunAndDebugVisibleRowsCallStack = (state: any): readonly DebugRow[] => {
+const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
   const { callStack, callStackExpanded } = state
   const rows: DebugRow[] = []
   if (callStackExpanded) {
@@ -257,7 +258,7 @@ const getRunAndDebugVisibleRowsCallStack = (state: any): readonly DebugRow[] => 
   return rows
 }
 
-export const getRunAndDebugVisibleRows = (state: any): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly DebugRow[] => {
   const rows = [
     ...getRunAndDebugVisibleRowsWatch(state),
     ...getRunAndDebugVisibleRowsBreakPoints(state),
