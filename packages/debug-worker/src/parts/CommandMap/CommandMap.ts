@@ -6,6 +6,7 @@ import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
+import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
@@ -45,4 +46,5 @@ export const commandMap = {
   'RunAndDebug.renderActions': RenderActions.renderActions,
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.render2': Render2.render2,
+  'RunAndDebug.renderEventListeners': RenderEventListeners.renderEventListeners,
 }
