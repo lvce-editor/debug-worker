@@ -10,7 +10,7 @@ import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
   'RunAndDebug.create': Create.create,
-  'RunAndDebug.loadContent': LoadContent.loadContent,
+  'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'RunAndDebug.getKeyBindings': GetKeyBindings.getKeyBindings,
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
