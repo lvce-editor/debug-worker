@@ -6,7 +6,7 @@ test('local', () => {
 })
 
 test('namedClosure', () => {
-  expect(DebugStrings.namedClosure('test')).toBe('test')
+  expect(DebugStrings.namedClosure('test')).toBe('Closure (test)')
 })
 
 test('closure', () => {
@@ -38,19 +38,19 @@ test('script', () => {
 })
 
 test('withScope', () => {
-  expect(DebugStrings.withScope()).toBe('With')
+  expect(DebugStrings.withScope()).toBe('`With` block')
 })
 
 test('catchScope', () => {
-  expect(DebugStrings.catchScope()).toBe('Catch')
+  expect(DebugStrings.catchScope()).toBe('`Catch` block')
 })
 
 test('debuggerPaused', () => {
-  expect(DebugStrings.debuggerPaused()).toBe('Debugger Paused')
+  expect(DebugStrings.debuggerPaused()).toBe('Debugger paused')
 })
 
 test('debuggerPausedOnException', () => {
-  expect(DebugStrings.debuggerPausedOnException()).toBe('Debugger Paused On Exception')
+  expect(DebugStrings.debuggerPausedOnException()).toBe('Paused on exception')
 })
 
 test('stepInto', () => {
@@ -74,7 +74,7 @@ test('watch', () => {
 })
 
 test('breakPoints', () => {
-  expect(DebugStrings.breakPoints()).toBe('Break Points')
+  expect(DebugStrings.breakPoints()).toBe('BreakPoints')
 })
 
 test('scope', () => {
@@ -102,9 +102,9 @@ test('stop', () => {
 })
 
 test('pauseOnExceptions', () => {
-  expect(DebugStrings.pauseOnExceptions()).toBe('Pause On Exceptions')
+  expect(DebugStrings.pauseOnExceptions()).toBe('Pause on Exceptions')
 })
 
 test('pauseOnUncaughtExceptions', () => {
-  expect(DebugStrings.pauseOnUncaughtExceptions()).toBe('Pause On Uncaught Exceptions')
+  expect(DebugStrings.pauseOnUncaughtExceptions()).toBe('Pause on uncaught Exceptions')
 })
