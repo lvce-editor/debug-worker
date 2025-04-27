@@ -335,14 +335,6 @@ export const handleClickCheckBox = (state: RunAndDebugState, name: string): Prom
   }
 }
 
-// TODO make sure dispose is actually called
-export const dispose = (state: RunAndDebugState): RunAndDebugState => {
-  return {
-    ...state,
-    disposed: true,
-  }
-}
-
 export const resize = (state: RunAndDebugState, dimensions: any): RunAndDebugState => {
   return { ...state, ...dimensions }
 }
