@@ -4,6 +4,7 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
+import * as Render2 from '../Render2/Render2.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
@@ -41,4 +42,5 @@ export const commandMap = {
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.resize': WrapCommand.wrapCommand(HandlePaused.resize),
   'RunAndDebug.diff2': Diff2.diff2,
+  'RunAndDebug.render2': Render2.render2,
 }
