@@ -14,7 +14,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     watchExpanded: false,
     breakPointsExpanded: false,
     scopeExpanded: false,
-    callstackExpanded: false,
+    callStackExpanded: false,
     scopeChain: [],
     callStack: [],
     parsedScripts: Object.create(null),
