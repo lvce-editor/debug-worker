@@ -1,23 +1,23 @@
 export interface RunAndDebugState {
   readonly id: number
   readonly disposed: boolean
-  readonly processes: []
+  readonly processes: readonly any[]
   readonly debugState: number
   readonly watchExpanded: boolean
   readonly breakPointsExpanded: boolean
   readonly scopeExpanded: boolean
   readonly callStackExpanded: boolean
-  readonly scopeChain: []
-  readonly callStack: []
+  readonly scopeChain: readonly any[]
+  readonly callStack: readonly any[]
   readonly parsedScripts: any
   readonly pausedReason: string
-  readonly pausedMessage: ''
-  readonly debugInputValue: ''
-  readonly debugOutputValue: ''
-  readonly callFrameId: ''
-  readonly expandedIds: []
-  readonly scopeFocusedIndex: -1
-  readonly focusedIndex: -1
+  readonly pausedMessage: string
+  readonly debugInputValue: string
+  readonly debugOutputValue: string
+  readonly callFrameId: string
+  readonly expandedIds: readonly any[]
+  readonly scopeFocusedIndex: number
+  readonly focusedIndex: number
   readonly pauseOnExceptionState: string
   readonly cache: any // TODO maybe store cache in extension host worker
   readonly exceptionBreakPoints: number
