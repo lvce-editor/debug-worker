@@ -5,71 +5,56 @@ import * as InputSource from '../InputSource/InputSource.ts'
 export const renderEventListeners = (): readonly DomEventListener[] => {
   return [
     {
-      name: DomEventListenerFunctions.HandleInput2,
-      params: ['handleInput2', 'event.target.name', 'event.target.value', InputSource.User],
+      name: DomEventListenerFunctions.HandleClickContinue,
+      params: ['handleClickContinue'],
     },
     {
-      name: DomEventListenerFunctions.HandleExcludeInput,
-      params: ['handleExcludeInput', 'event.target.value'],
+      name: DomEventListenerFunctions.HandleClickPause,
+      params: ['handleClickPause'],
     },
     {
-      name: DomEventListenerFunctions.HandleIncludeInput,
-      params: ['handleIncludeInput', 'event.target.value'],
+      name: DomEventListenerFunctions.HandleClickStepOver,
+      params: ['handleClickStepOver'],
     },
     {
-      name: DomEventListenerFunctions.HandleReplaceInput,
-      params: ['handleReplaceInput', 'event.target.value'],
+      name: DomEventListenerFunctions.HandleClickStepInto,
+      params: ['handleClickStepInto'],
     },
     {
-      name: DomEventListenerFunctions.HandleInput,
-      params: ['handleInput', 'event.target.value', InputSource.User],
+      name: DomEventListenerFunctions.HandleClickStepOut,
+      params: ['handleClickStepOut'],
     },
     {
-      name: DomEventListenerFunctions.HandleClick,
-      params: ['handleClickAt', 'event.clientX', 'event.clientY'],
+      name: DomEventListenerFunctions.HandleClickSectionWatch,
+      params: ['HandleClickSectionWatch'],
     },
     {
-      name: DomEventListenerFunctions.HandleToggleButtonClick,
-      params: ['handleToggleButtonClick'],
+      name: DomEventListenerFunctions.HandleClickSectionBreakPoints,
+      params: ['handleClickSectionBreakpoints'],
     },
     {
-      name: DomEventListenerFunctions.HandleListFocus,
-      params: ['handleListFocus'],
+      name: DomEventListenerFunctions.HandleClickSectionScope,
+      params: ['handleClickSectionScope'],
     },
     {
-      name: DomEventListenerFunctions.HandleListBlur,
-      params: ['handleListBlur'],
+      name: DomEventListenerFunctions.HandleClickSectionCallstack,
+      params: ['handleClickSectionCallstack'],
     },
     {
-      name: DomEventListenerFunctions.HandleContextMenu,
-      params: ['handleContextMenu', 'event.button', 'event.clientX', 'event.clientY'],
-      preventDefault: true,
+      name: DomEventListenerFunctions.HandleClickSectionBreakPoints,
+      params: ['handleClickSectionBreakPoints'],
     },
     {
-      name: DomEventListenerFunctions.HandleHeaderContextMenu,
-      params: ['handleHeaderContextMenu'],
-      preventDefault: true,
+      name: DomEventListenerFunctions.HandleDebugInput,
+      params: ['handleDebugInput', 'event.target.value'],
     },
     {
-      name: DomEventListenerFunctions.HandleWheel,
-      params: ['handleWheel', 'event.deltaMode', 'event.deltaY'],
-      passive: true,
+      name: DomEventListenerFunctions.HandleClickSectionHeading,
+      params: ['handleClickSectionHeading'],
     },
     {
-      name: DomEventListenerFunctions.HandleHeaderClick2,
-      params: ['handleHeaderClick', 'event.target.name'],
-    },
-    {
-      name: DomEventListenerFunctions.HandleHeaderFocusIn,
-      params: ['handleHeaderFocusIn'],
-    },
-    {
-      name: DomEventListenerFunctions.HandleHeaderFocusOut,
-      params: ['handleHeaderFocusOut'],
-    },
-    {
-      name: DomEventListenerFunctions.HandleScrollBarPointerDown,
-      params: ['handleScrollBarClick', 'event.deltaY'],
+      name: DomEventListenerFunctions.HandleClickCheckBox,
+      params: ['HandleClickCheckBox', 'event.target.name'],
     },
   ]
 }
