@@ -1,4 +1,5 @@
 import * as Create from '../Create/Create.ts'
+import * as Diff2 from '../Diff2/Diff2.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
@@ -38,4 +39,5 @@ export const commandMap = {
   'RunAndDebug.handleClickCheckBox': WrapCommand.wrapCommand(HandlePaused.handleClickCheckBox),
   'RunAndDebug.dispose': WrapCommand.wrapCommand(HandlePaused.dispose),
   'RunAndDebug.resize': WrapCommand.wrapCommand(HandlePaused.resize),
+  'RunAndDebug.diff2': Diff2.diff2,
 }
