@@ -1,7 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { set } from './RunAndDebugStates.ts'
 
-export const createDefaultState = (uid: number): RunAndDebugState => {
+export const createDefaultState = (uid: number = 0): RunAndDebugState => {
   const state: RunAndDebugState = {
     id: uid,
     disposed: false,
