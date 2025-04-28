@@ -1,15 +1,17 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
+import type { DebugButton } from '../DebugButton/DebugButton.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
-const DebugButton = ClassNames.IconButton + ' ' + ClassNames.DebugButton
+const DebugButtonClass = ClassNames.IconButton + ' ' + ClassNames.DebugButton
 
-export const getDebugButtonVirtualDom = (button: any): readonly VirtualDomNode[] => {
+export const getDebugButtonVirtualDom = (button: DebugButton): readonly VirtualDomNode[] => {
   const { title, icon, fn } = button
   return [
     {
       type: VirtualDomElements.Button,
-      className: DebugButton + ' ' + icon,
+      className: MergeClassNames.mergeClassNames(DebugButtonClass, icon),
       title,
       childCount: 1,
       // onPointerDown: fn,
