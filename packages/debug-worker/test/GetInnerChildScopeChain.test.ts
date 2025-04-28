@@ -1,7 +1,7 @@
 import { test, expect, jest } from '@jest/globals'
 
 const mockDebug = {
-  getProperties: async () => ({
+  getProperties: async (): Promise<any> => ({
     result: {
       result: [
         {
@@ -12,7 +12,7 @@ const mockDebug = {
     },
   }),
 }
-await jest.unstable_mockModule('../src/parts/Debug/Debug.ts', () => mockDebug)
+jest.unstable_mockModule('../src/parts/Debug/Debug.ts', () => mockDebug)
 
 const { getInnerChildScopeChain } = await import('../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts')
 
