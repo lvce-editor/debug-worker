@@ -14,7 +14,7 @@ test('returns value type when child has value with type', () => {
 
 test('returns Getter when child has get method', () => {
   const child = {
-    get: () => {},
+    get: (): void => {},
   }
   const result = getDebugValueType(child)
   expect(result).toBe(DebugValueType.Getter)
