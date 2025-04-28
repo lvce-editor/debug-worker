@@ -55,5 +55,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: DomEventListenerFunctions.HandleClickCheckBox,
       params: ['HandleClickCheckBox', 'event.target.name'],
     },
+    {
+      name: DomEventListenerFunctions.HandleClickDebugButton,
+      params: ['handleClickDebugButton', 'event.target.name'],
+    },
   ]
 }
