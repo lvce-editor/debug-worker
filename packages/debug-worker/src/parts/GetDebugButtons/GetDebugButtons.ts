@@ -1,7 +1,7 @@
 import * as DebugState from '../DebugState/DebugState.ts'
 import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
 
-export const getDebugButtons = (debugState: any): readonly any[] => {
+export const getDebugButtons = (debugState: number): readonly any[] => {
   const debugButtons = []
   if (debugState === DebugState.Paused) {
     debugButtons.push({

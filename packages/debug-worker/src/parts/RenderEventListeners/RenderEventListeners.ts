@@ -49,7 +49,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListenerFunctions.HandleClickSectionHeading,
-      params: ['handleClickSectionHeading'],
+      params: ['handleClickSectionHeading', 'event.target.dataset.name'],
     },
     {
       name: DomEventListenerFunctions.HandleClickCheckBox,
