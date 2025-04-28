@@ -1,6 +1,7 @@
 import type { DebugButton } from '../DebugButton/DebugButton.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
 import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
+import * as InputName from '../InputName/InputName.ts'
 import * as MaskIcon from '../MaskIcon/MaskIcon.ts'
 
 export const getDebugButtons = (debugState: number): readonly DebugButton[] => {
@@ -9,40 +10,40 @@ export const getDebugButtons = (debugState: number): readonly DebugButton[] => {
     debugButtons.push({
       title: ViewletRunAndDebugStrings.resume(),
       icon: MaskIcon.DebugContinue,
-      fn: 'resume',
+      fn: InputName.DebugResume,
     })
   } else {
     debugButtons.push({
       title: ViewletRunAndDebugStrings.pause(),
       icon: MaskIcon.DebugPause,
-      fn: 'pause',
+      fn: InputName.DebugPause,
     })
   }
   debugButtons.push(
     {
       title: ViewletRunAndDebugStrings.stepOver(),
       icon: MaskIcon.DebugStepOver,
-      fn: 'stepOver',
+      fn: InputName.DebugStepOver,
     },
     {
       title: ViewletRunAndDebugStrings.stepInto(),
       icon: MaskIcon.DebugStepInto,
-      fn: 'stepInto',
+      fn: InputName.DebugStepInto,
     },
     {
       title: ViewletRunAndDebugStrings.stepOut(),
       icon: MaskIcon.DebugStepOut,
-      fn: 'stepOut',
+      fn: InputName.DebugStepOut,
     },
     {
       title: ViewletRunAndDebugStrings.restart(),
       icon: MaskIcon.DebugRestart,
-      fn: 'restart',
+      fn: InputName.DebugRestart,
     },
     {
       title: ViewletRunAndDebugStrings.stop(),
       icon: MaskIcon.DebugStop,
-      fn: 'stop',
+      fn: InputName.DebugStop,
     },
   )
   return debugButtons
