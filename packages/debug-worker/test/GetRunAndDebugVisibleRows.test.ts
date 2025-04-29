@@ -76,7 +76,7 @@ test('should return scope section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: 'Scope',
   })
 })
 
@@ -94,7 +94,7 @@ test('should return expanded scope section with not paused message', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: 'Scope',
   })
   expect(rows[3]).toEqual({
     type: DebugRowType.Message,
@@ -119,7 +119,7 @@ test('should return call stack section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: 'CallStack',
   })
 })
 
@@ -137,7 +137,7 @@ test('should return expanded call stack section with not paused message', () => 
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: 'CallStack',
   })
   expect(rows[4]).toEqual({
     type: DebugRowType.Message,
