@@ -2,15 +2,12 @@ import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
 import * as Assert from '../Assert/Assert.ts'
 import * as Debug from '../Debug/Debug.ts'
-import * as DebugPausedReason from '../DebugPausedReason/DebugPausedReason.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
-import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as Focus from '../Focus/Focus.ts'
 import * as GetCallStack from '../GetCallStack/GetCallStack.ts'
 import * as GetChildScopeChain from '../GetChildScopeChain/GetChildScopeChain.ts'
 import * as GetDebugPausedMessage from '../GetDebugPausedMessage/GetDebugPausedMessage.ts'
 import * as GetScopeChain from '../GetScopeChain/GetScopeChain.ts'
-import * as InputName from '../InputName/InputName.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
@@ -36,29 +33,6 @@ export const handlePaused = async (state: RunAndDebugState, params: any): Promis
     pausedMessage,
     callFrameId,
     expandedIds: [objectId],
-  }
-}
-
-export const handleResumed = (state: RunAndDebugState): RunAndDebugState => {
-  return {
-    ...state,
-    debugState: DebugState.Default,
-    scopeChain: [],
-    callStack: [],
-    pausedMessage: '',
-    pausedReason: DebugPausedReason.None,
-    callFrameId: '',
-  }
-}
-
-export const handleScriptParsed = (state: RunAndDebugState, parsedScript: any): RunAndDebugState => {
-  const { parsedScripts } = state
-  return {
-    ...state,
-    parsedScripts: {
-      ...parsedScripts,
-      [parsedScript.id]: parsedScript,
-    },
   }
 }
 
@@ -234,54 +208,6 @@ export const focusPrevious = (state: RunAndDebugState): RunAndDebugState => {
 
 export const focusNext = (state: RunAndDebugState): RunAndDebugState => {
   return state
-}
-
-export const setPauseOnExceptions = async (state: RunAndDebugState, value: any): Promise<RunAndDebugState> => {
-  const { debugId } = state
-  await Debug.setPauseOnExceptions(debugId, value)
-  return {
-    ...state,
-    exceptionBreakPoints: value,
-  }
-}
-
-export const handleClickPauseOnExceptions = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
-  const { exceptionBreakPoints } = state
-  switch (exceptionBreakPoints) {
-    case ExceptionBreakPoints.None:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.All)
-    case ExceptionBreakPoints.Uncaught:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.All)
-    case ExceptionBreakPoints.All:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.None)
-    default:
-      return state
-  }
-}
-
-export const handleClickPauseOnUncaughtExceptions = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
-  const { exceptionBreakPoints } = state
-  switch (exceptionBreakPoints) {
-    case ExceptionBreakPoints.None:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.Uncaught)
-    case ExceptionBreakPoints.Uncaught:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.None)
-    case ExceptionBreakPoints.All:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.None)
-    default:
-      return state
-  }
-}
-
-export const handleClickCheckBox = (state: RunAndDebugState, name: string): Promise<RunAndDebugState> => {
-  switch (name) {
-    case InputName.PauseOnExceptions:
-      return handleClickPauseOnExceptions(state)
-    case InputName.PauseOnUncaughtExceptions:
-      return handleClickPauseOnUncaughtExceptions(state)
-    default:
-      throw new Error('unknown input name')
-  }
 }
 
 export const resize = (state: RunAndDebugState, dimensions: any): RunAndDebugState => {
