@@ -3,6 +3,7 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -21,14 +22,14 @@ const textNotPaused = text(ViewletRunAndDebugStrings.notPaused())
 
 const headerCallStack = {
   type: VirtualDomElements.Div,
-  className: ClassNames.DebugSectionHeader,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderCallstack'),
   ariaExpanded: false,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionCallstack,
 }
 const headerCallStackExpanded = {
   type: VirtualDomElements.Div,
-  className: ClassNames.DebugSectionHeader,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderCallstack'),
   ariaExpanded: true,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionCallstack,
