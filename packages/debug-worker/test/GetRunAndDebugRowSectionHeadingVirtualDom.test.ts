@@ -1,6 +1,5 @@
 import { test, expect } from '@jest/globals'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
-import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../src/parts/GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
