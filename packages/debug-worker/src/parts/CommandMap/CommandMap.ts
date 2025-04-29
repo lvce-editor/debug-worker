@@ -4,6 +4,10 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
+import * as HandleClickSectionBreakPoints from '../HandleClickSectionBreakPoints/HandleClickSectionBreakPoints.ts'
+import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
+import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
+import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClickSectionScope.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
@@ -29,10 +33,10 @@ export const commandMap = {
   'RunAndDebug.handleClickPauseOnExceptions': WrapCommand.wrapCommand(HandlePaused.handleClickPauseOnExceptions),
   'RunAndDebug.handleClickPauseOnUncaughtExceptions': WrapCommand.wrapCommand(HandlePaused.handleClickPauseOnUncaughtExceptions),
   'RunAndDebug.handleClickScopeValue': WrapCommand.wrapCommand(HandlePaused.handleClickScopeValue),
-  'RunAndDebug.handleClickSectionBreakPoints': WrapCommand.wrapCommand(HandlePaused.handleClickSectionBreakPoints),
-  'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandlePaused.handleClickSectionCallstack),
-  'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandlePaused.handleClickSectionHeading),
-  'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandlePaused.handleClickSectionScope),
+  'RunAndDebug.handleClickSectionBreakPoints': WrapCommand.wrapCommand(HandleClickSectionBreakPoints.handleClickSectionBreakPoints),
+  'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandleClickSectionCallstack.handleClickSectionCallstack),
+  'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandleClickSectionHeading.handleClickSectionHeading),
+  'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
