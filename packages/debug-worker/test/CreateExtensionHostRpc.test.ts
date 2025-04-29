@@ -2,7 +2,10 @@ import { expect, jest, test } from '@jest/globals'
 import * as RpcId from '../src/parts/RpcId/RpcId.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
-const mockCreateRpc = jest.fn()
+const mockExtensionHostRpc = {}
+const mockCreateRpc = jest.fn(() => {
+  return mockExtensionHostRpc
+})
 
 jest.unstable_mockModule('@lvce-editor/rpc', () => ({
   MessagePortRpcParent: {
@@ -12,11 +15,8 @@ jest.unstable_mockModule('@lvce-editor/rpc', () => ({
 
 const { createExtensionHostRpc } = await import('../src/parts/CreateExtensionHostRpc/CreateExtensionHostRpc.ts')
 
-test.skip('createExtensionHostRpc', async () => {
-  const extensionHostRpc = {}
-  const mockInvokeRendererWorker = jest.fn(() => {
-    return extensionHostRpc
-  })
+test('createExtensionHostRpc', async () => {
+  const mockInvokeRendererWorker = jest.fn()
   const mockRpc = {
     invokeAndTransfer: mockInvokeRendererWorker,
   } as any
@@ -24,5 +24,5 @@ test.skip('createExtensionHostRpc', async () => {
   const rpc = await createExtensionHostRpc()
   expect(mockInvokeRendererWorker).toHaveBeenCalledTimes(1)
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith('SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker', expect.anything())
-  expect(rpc).toBe(extensionHostRpc)
+  expect(rpc).toBe(mockExtensionHostRpc)
 })
