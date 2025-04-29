@@ -180,57 +180,6 @@ export const stepOut = async (state: RunAndDebugState): Promise<RunAndDebugState
   return state
 }
 
-export const handleClickSectionWatch = (state: RunAndDebugState): RunAndDebugState => {
-  const { watchExpanded } = state
-  return {
-    ...state,
-    watchExpanded: !watchExpanded,
-    focusedIndex: 0, // TODO don't hardcode number
-  }
-}
-
-export const handleClickSectionBreakPoints = (state: RunAndDebugState): RunAndDebugState => {
-  const { breakPointsExpanded } = state
-  return {
-    ...state,
-    breakPointsExpanded: !breakPointsExpanded,
-    focusedIndex: 1, // TODO don't hardcode number
-  }
-}
-
-export const handleClickSectionScope = (state: RunAndDebugState): RunAndDebugState => {
-  const { scopeExpanded } = state
-  return {
-    ...state,
-    scopeExpanded: !scopeExpanded,
-    focusedIndex: 2, // TODO don't hardcode number
-  }
-}
-
-export const handleClickSectionCallstack = (state: RunAndDebugState): RunAndDebugState => {
-  const { callStackExpanded } = state
-  return {
-    ...state,
-    callStackExpanded: !callStackExpanded,
-  }
-}
-
-export const handleClickSectionHeading = (state: RunAndDebugState, text: string): any => {
-  switch (text) {
-    case 'Watch':
-      return handleClickSectionWatch(state)
-    case 'Breakpoints':
-    case 'BreakPoints':
-      return handleClickSectionBreakPoints(state)
-    case 'Scope':
-      return handleClickSectionScope(state)
-    case 'Call Stack':
-      return handleClickSectionCallstack(state)
-    default:
-      return state
-  }
-}
-
 export const handleDebugInput = (state: RunAndDebugState, value: any): RunAndDebugState => {
   return {
     ...state,
