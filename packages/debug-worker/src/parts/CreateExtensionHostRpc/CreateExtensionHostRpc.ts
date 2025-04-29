@@ -13,6 +13,8 @@ export const createExtensionHostRpc = async (): Promise<Rpc> => {
       messagePort: port1,
       isMessagePortOpen: true,
     })
+    // TODO createMessageportRpcParent should call port start
+    port1.start()
     return rpc
   } catch (error) {
     throw new VError(error, `Failed to create extension host rpc`)
