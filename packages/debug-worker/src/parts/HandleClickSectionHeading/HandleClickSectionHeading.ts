@@ -24,6 +24,3 @@ export const handleClickSectionHeading = async (state: RunAndDebugState, text: s
       return state
   }
 }
-
-//
-console.log('a')

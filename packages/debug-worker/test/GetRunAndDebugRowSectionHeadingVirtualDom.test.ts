@@ -18,7 +18,7 @@ test('renderSectionHeading - expanded', () => {
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row)
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
-    className: ClassNames.DebugSectionHeader,
+    className: 'DebugSectionHeader DebugSectionHeaderTest Section',
     role: AriaRoles.TreeItem,
     ariaExpanded: true,
     ariaLevel: 1,
@@ -46,7 +46,7 @@ test('renderSectionHeading - collapsed', () => {
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row)
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
-    className: ClassNames.DebugSectionHeader,
+    className: 'DebugSectionHeader DebugSectionHeaderTest Section',
     role: AriaRoles.TreeItem,
     ariaExpanded: false,
     ariaLevel: 1,
