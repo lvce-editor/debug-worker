@@ -8,6 +8,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleClickContinue'],
     },
     {
+      name: DomEventListenerFunctions.HandleClickDebugButton,
+      params: ['handleClickDebugButton', 'event.target.name'],
+    },
+    {
       name: DomEventListenerFunctions.HandleClickPause,
       params: ['handleClickPause'],
     },
