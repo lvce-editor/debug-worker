@@ -16,6 +16,7 @@ export interface RendererWorkerApi {
   readonly 'Main.openUri': (uri: string, focus?: boolean, props?: any) => Promise<void>
   readonly 'RecentlyOpened.getRecentlyOpened': () => Promise<readonly string[]>
   readonly 'SearchProcess.invoke': (command: string, ...args: readonly any[]) => Promise<any>
+  readonly 'SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker': (port: MessagePort) => Promise<void>
   readonly 'Viewlet.closeWidget': (id: number) => Promise<void>
   readonly 'Viewlet.openWidget': (id: string) => Promise<void>
   readonly 'Workspace.getPath': () => Promise<string>
