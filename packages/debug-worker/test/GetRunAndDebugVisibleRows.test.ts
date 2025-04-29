@@ -17,7 +17,7 @@ test('should return watch section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: 'Watch',
   })
 })
 
