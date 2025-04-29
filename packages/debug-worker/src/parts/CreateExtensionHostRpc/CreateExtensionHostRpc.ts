@@ -3,7 +3,6 @@ import * as GetPortTuple from '../GetPortTuple/GetPortTuple.ts'
 import * as ParentRpc from '../Rpc/Rpc.ts'
 
 export const createExtensionHostRpc = async (): Promise<Rpc> => {
-  // TODO
   const { port1, port2 } = GetPortTuple.getPortTuple()
   await ParentRpc.invokeAndTransfer('SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker', port2)
   const rpc = await MessagePortRpcParent.create({
