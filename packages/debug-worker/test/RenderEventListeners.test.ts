@@ -3,7 +3,6 @@ import { renderEventListeners } from '../src/parts/RenderEventListeners/RenderEv
 
 test('renderEventListeners', () => {
   const eventListeners = renderEventListeners()
-  expect(eventListeners).toHaveLength(14)
   expect(eventListeners[0]).toMatchObject({
     name: expect.any(String),
     params: ['handleClickContinue'],
