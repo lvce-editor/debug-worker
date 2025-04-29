@@ -19,6 +19,7 @@ import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
+import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
@@ -27,6 +28,7 @@ export const commandMap = {
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
+  'RunAndDebug.saveState': SaveState.saveState,
   'RunAndDebug.focusPrevious': WrapCommand.wrapCommand(HandlePaused.focusPrevious),
   'RunAndDebug.getCommandIds': GetCommandIds.getCommandIds,
   'RunAndDebug.getKeyBindings': GetKeyBindings.getKeyBindings,
