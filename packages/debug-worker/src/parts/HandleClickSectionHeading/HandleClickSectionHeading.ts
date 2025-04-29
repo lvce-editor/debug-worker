@@ -11,7 +11,6 @@ export const handleClickSectionHeading = async (state: RunAndDebugState, text: s
       return handleClickSectionWatch(state)
     case 'Breakpoints':
     case 'BreakPoints':
-    case 'BreakPoints':
     case 'DebugSectionHeader DebugSectionHeaderBreakPoints':
       return handleClickSectionBreakPoints(state)
     case 'Scope':
