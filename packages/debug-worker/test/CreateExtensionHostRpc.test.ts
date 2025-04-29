@@ -1,5 +1,4 @@
 import { expect, jest, test } from '@jest/globals'
-import { VError } from '@lvce-editor/verror'
 import * as RpcId from '../src/parts/RpcId/RpcId.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
