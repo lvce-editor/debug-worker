@@ -1,21 +1,19 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
-import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType.ts'
 import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
-import * as GetScopeExceptionVirtualDom from '../GetScopeExceptionVirtualDom/GetScopeExceptionVirtualDom.ts'
-import * as GetScopePropertyVirtualDom from '../GetScopePropertyVirtualDom/GetScopePropertyVirtualDom.ts'
-import * as GetScopeScopeVirtualDom from '../GetScopeScopeVirtualDom/GetScopeScopeVirtualDom.ts'
-import * as GetScopeThisVirtualDom from '../GetScopeThisVirtualDom/GetScopeThisVirtualDom.ts'
+import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-const scopeHeader = {
+const scopeHeader: VirtualDomNode = {
   type: VirtualDomElements.Div,
-  className: ClassNames.DebugSectionHeader,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderScope'),
   role: AriaRoles.TreeItem,
   ariaLevel: 1,
   ariaExpanded: false,
@@ -24,9 +22,9 @@ const scopeHeader = {
   onPointerDown: DomEventListenerFunctions.HandleClickSectionScope,
 }
 
-const scopeHeaderExpanded = {
+const scopeHeaderExpanded: VirtualDomNode = {
   type: VirtualDomElements.Div,
-  className: ClassNames.DebugSectionHeader,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderScope'),
   role: AriaRoles.TreeItem,
   ariaLevel: 1,
   ariaExpanded: true,
@@ -34,7 +32,7 @@ const scopeHeaderExpanded = {
   onPointerDown: DomEventListenerFunctions.HandleClickSectionScope,
 }
 
-const debugPausedMessage = {
+const debugPausedMessage: VirtualDomNode = {
   type: VirtualDomElements.Div,
   className: ClassNames.DebugPausedMessage,
   childCount: 1,
@@ -43,26 +41,7 @@ const textNotPaused = text(ViewletRunAndDebugStrings.notPaused())
 
 const textScope = text(ViewletRunAndDebugStrings.scope())
 
-const getNoopVirtualDom = (): readonly any[] => {
-  return []
-}
-
-const getScopeRenderer = (type: number): any => {
-  switch (type) {
-    case DebugScopeChainType.This:
-      return GetScopeThisVirtualDom.getScopeThisVirtualDom
-    case DebugScopeChainType.Exception:
-      return GetScopeExceptionVirtualDom.getScopeExceptionVirtualDom
-    case DebugScopeChainType.Scope:
-      return GetScopeScopeVirtualDom.getScopeScopeVirtualDom
-    case DebugScopeChainType.Property:
-      return GetScopePropertyVirtualDom.getScopePropertyVirtualDom
-    default:
-      return getNoopVirtualDom
-  }
-}
-
-export const getRunAndDebugScopeVirtualDom = (state: any): readonly VirtualDomNode[] => {
+export const getRunAndDebugScopeVirtualDom = (state: RunAndDebugState): readonly VirtualDomNode[] => {
   const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex } = state
   const elements = []
   if (scopeExpanded) {
