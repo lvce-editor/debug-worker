@@ -4,7 +4,7 @@ import { handleClickSectionCallstack } from '../HandleClickSectionCallstack/Hand
 import { handleClickSectionScope } from '../HandleClickSectionScope/HandleClickSectionScope.ts'
 import { handleClickSectionWatch } from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
 
-export const handleClickSectionHeading = (state: RunAndDebugState, text: string): any => {
+export const handleClickSectionHeading = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
   switch (text) {
     case 'Watch':
       return handleClickSectionWatch(state)
