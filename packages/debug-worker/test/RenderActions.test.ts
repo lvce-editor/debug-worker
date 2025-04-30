@@ -6,8 +6,7 @@ import { RendererWorker } from '../src/parts/RpcId/RpcId.ts'
 import { createDefaultState } from '../src/parts/RunAndDebugStates/createDefaultState.ts'
 
 test('renderActions - returns virtual dom nodes', async () => {
-  const mockRpc = await MockRpc.create({
-    commandMap: {},
+  const mockRpc = MockRpc.create({
     invoke: (method: string) => {
       if (method === 'FileSystem.readDirWithFileTypes') {
         return Promise.resolve([])
