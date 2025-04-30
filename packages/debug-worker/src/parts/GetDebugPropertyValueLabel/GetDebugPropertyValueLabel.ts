@@ -6,6 +6,9 @@ import * as GetDebugPropertyValueLabelString from '../GetDebugPropertyValueLabel
 import * as GetDebugPropertyValueLabelUndefined from '../GetDebugPropertyValueLabelUndefined/GetDebugPropertyValueLabelUndefined.ts'
 
 export const getDebugPropertyValueLabel = (property: any): string => {
+  if (!property) {
+    return 'n/a'
+  }
   switch (property.type) {
     case DebugValueType.Number:
     case DebugValueType.Symbol:
