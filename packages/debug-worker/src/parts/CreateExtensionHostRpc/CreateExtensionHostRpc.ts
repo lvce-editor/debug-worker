@@ -8,13 +8,13 @@ export const createExtensionHostRpc = async (): Promise<Rpc> => {
     const { port1, port2 } = GetPortTuple.getPortTuple()
     const command = 'HandleMessagePort.handleMessagePort'
     await ParentRpc.invokeAndTransfer('SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker', port2, command)
+    port1.start()
     const rpc = await MessagePortRpcParent.create({
       commandMap: {},
       messagePort: port1,
-      isMessagePortOpen: true,
+      isMessagePortOpen: false,
     })
     // TODO createMessageportRpcParent should call port start
-    port1.start()
     return rpc
   } catch (error) {
     throw new VError(error, `Failed to create extension host rpc`)
