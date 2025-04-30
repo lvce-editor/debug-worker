@@ -17,7 +17,7 @@ export const getScopeLabel = (element: any): string => {
     case DebugScopeType.WasmExpressionStack:
       return DebugStrings.expression()
     case DebugScopeType.Module:
-      return DebugStrings.module()
+      return DebugStrings.module2()
     case DebugScopeType.Eval:
       return DebugStrings.evalScope()
     case DebugScopeType.Script:
