@@ -1,7 +1,7 @@
 {
   "name": "@lvce-editor/debug-worker",
   "version": "0.0.0-dev",
-  "description": "",
+  "description": "Debug Worker",
   "keywords": [
     "debug",
     "Lvce Editor"
