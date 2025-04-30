@@ -1,4 +1,5 @@
 import * as Create from '../Create/Create.ts'
+import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
@@ -63,4 +64,7 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
+  'Debug.scriptParsed': Debug.scriptParsed,
+  'Debug.paused': Debug.paused,
+  'Debug.resumed': Debug.resumed,
 }
