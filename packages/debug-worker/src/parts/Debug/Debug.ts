@@ -1,4 +1,5 @@
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
+import * as Rpc from '../Rpc/Rpc.ts'
 
 export const create = (debugId: any): any => {
   return {
@@ -50,14 +51,16 @@ export const evaluate = async (id: any, expression: any, callFrameId: any): Prom
   return ExtensionHostDebug.evaluate(id, expression, callFrameId)
 }
 
-export const scriptParsed = (script: any): void => {
-  // TODO
+export const scriptParsed = async (script: any): Promise<void> => {
+  // TODO find a better way to inform renderer worker about
+  // without sending the data to renderer worker
+  await Rpc.invoke('Run And Debug.handleScriptParsed', script)
 }
 
-export const paused = (params: any): void => {
-  // TODO
+export const paused = async (params: any): Promise<void> => {
+  await Rpc.invoke('Run And Debug.handlePaused', params)
 }
 
-export const resumed = (params: any): void => {
-  // TODO
+export const resumed = async (params: any): Promise<void> => {
+  await Rpc.invoke('Run And Debug.handleResumed', params)
 }
