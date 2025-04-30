@@ -27,6 +27,7 @@ test('createExtensionHostRpc - success', async () => {
     'SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker',
     expect.anything(),
     'HandleMessagePort.handleMessagePort',
+    55,
   )
   expect(rpc).toBe(mockExtensionHostRpc)
 })
