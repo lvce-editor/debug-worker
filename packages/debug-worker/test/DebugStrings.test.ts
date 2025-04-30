@@ -26,7 +26,7 @@ test('expression', () => {
 })
 
 test('module', () => {
-  expect(DebugStrings.module()).toBe('Module')
+  expect(DebugStrings.module2()).toBe('Module')
 })
 
 test('evalScope', () => {

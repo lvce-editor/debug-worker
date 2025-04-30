@@ -27,7 +27,7 @@ export const expression = (): string => {
   return I18NString.i18nString(UiStrings.Expression)
 }
 
-export const module = (): string => {
+export const module2 = (): string => {
   return I18NString.i18nString(UiStrings.Module)
 }
 

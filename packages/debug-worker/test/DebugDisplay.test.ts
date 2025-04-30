@@ -43,7 +43,7 @@ test('getScopeLabel - wasm expression stack', () => {
 test('getScopeLabel - module', () => {
   const element = { type: DebugScopeType.Module }
   const result = DebugDisplay.getScopeLabel(element)
-  expect(result).toBe(DebugStrings.module())
+  expect(result).toBe(DebugStrings.module2())
 })
 
 test('getScopeLabel - eval', () => {
