@@ -15,6 +15,7 @@ import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClick
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
+import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
@@ -25,11 +26,14 @@ import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExcepti
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
+  'Debug.paused': Debug.paused,
+  'Debug.resumed': Debug.resumed,
+  'Debug.scriptParsed': Debug.scriptParsed,
+  'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.create': Create.create,
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
-  'RunAndDebug.saveState': SaveState.saveState,
   'RunAndDebug.focusPrevious': WrapCommand.wrapCommand(HandlePaused.focusPrevious),
   'RunAndDebug.getCommandIds': GetCommandIds.getCommandIds,
   'RunAndDebug.getKeyBindings': GetKeyBindings.getKeyBindings,
@@ -58,13 +62,11 @@ export const commandMap = {
   'RunAndDebug.renderEventListeners': RenderEventListeners.renderEventListeners,
   'RunAndDebug.resize': WrapCommand.wrapCommand(HandlePaused.resize),
   'RunAndDebug.resume': WrapCommand.wrapCommand(HandlePaused.resume),
+  'RunAndDebug.saveState': SaveState.saveState,
   'RunAndDebug.setPauseOnExceptions': WrapCommand.wrapCommand(SetPauseOnExceptions.setPauseOnExceptions),
   'RunAndDebug.stepInto': WrapCommand.wrapCommand(HandlePaused.stepInto),
   'RunAndDebug.stepOut': WrapCommand.wrapCommand(HandlePaused.stepOut),
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
-  'Debug.scriptParsed': Debug.scriptParsed,
-  'Debug.paused': Debug.paused,
-  'Debug.resumed': Debug.resumed,
 }
