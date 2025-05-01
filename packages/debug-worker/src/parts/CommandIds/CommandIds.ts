@@ -25,6 +25,7 @@ export const commandIds: readonly string[] = [
   'handleResumed',
   'handleScriptParsed',
   'loadContent',
+  'loadContentLater',
   'pause',
   'render2',
   'renderActions',
