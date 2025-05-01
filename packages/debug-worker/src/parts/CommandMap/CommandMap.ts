@@ -17,6 +17,7 @@ import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
 import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
+import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
@@ -56,6 +57,7 @@ export const commandMap = {
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
+  'RunAndDebug.loadContentLater': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
   'RunAndDebug.render2': Render2.render2,
   'RunAndDebug.renderActions': RenderActions.renderActions,
