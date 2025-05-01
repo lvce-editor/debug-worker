@@ -1,6 +1,5 @@
 import { WebWorkerRpcClient } from '@lvce-editor/rpc'
 import * as CommandMap from '../CommandMap/CommandMap.ts'
-import * as Initialize from '../Initialize/Initialize.ts'
 import * as RpcId from '../RpcId/RpcId.ts'
 import * as RpcRegistry from '../RpcRegistry/RpcRegistry.ts'
 
@@ -9,7 +8,4 @@ export const listen = async (): Promise<void> => {
     commandMap: CommandMap.commandMap,
   })
   RpcRegistry.set(RpcId.RendererWorker, rpc)
-
-  // TODO race condition
-  await Initialize.initialize()
 }
