@@ -8,7 +8,7 @@ const mockCreateRpc = jest.fn(() => {
 })
 
 jest.unstable_mockModule('@lvce-editor/rpc', () => ({
-  MessagePortRpcParent: {
+  PlainMessagePortRpcParent: {
     create: mockCreateRpc,
   },
 }))
