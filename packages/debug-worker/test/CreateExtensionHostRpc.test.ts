@@ -11,6 +11,9 @@ jest.unstable_mockModule('@lvce-editor/rpc', () => ({
   MessagePortRpcParent: {
     create: mockCreateRpc,
   },
+  PlainMessagePortRpcParent: {
+    create: mockCreateRpc,
+  },
 }))
 
 const { createExtensionHostRpc } = await import('../src/parts/CreateExtensionHostRpc/CreateExtensionHostRpc.ts')
@@ -26,7 +29,7 @@ test('createExtensionHostRpc - success', async () => {
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith(
     'SendMessagePortToExtensionHostWorker.sendMessagePortToExtensionHostWorker',
     expect.anything(),
-    'HandleMessagePort.handleMessagePort',
+    'HandleMessagePort.handleMessagePort2',
     55,
   )
   expect(rpc).toBe(mockExtensionHostRpc)
