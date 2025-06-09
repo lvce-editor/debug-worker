@@ -1,13 +1,6 @@
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
-import {
-  renderCallStack,
-  renderCheckBox,
-  renderMessage,
-  renderNoop,
-  renderScope,
-  renderValue,
-} from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
+import { renderCallStack, renderCheckBox, renderMessage, renderNoop, renderScope, renderValue } from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 
 export const getRowRenderer = (type: number): any => {
   switch (type) {

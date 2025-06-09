@@ -85,14 +85,7 @@ const collapse = (state: RunAndDebugState, expandedIds: readonly any[], scopeCha
   }
 }
 
-const expand = async (
-  state: RunAndDebugState,
-  expandedIds: any,
-  scopeChain: any,
-  element: any,
-  index: any,
-  debugId: any,
-): Promise<RunAndDebugState> => {
+const expand = async (state: RunAndDebugState, expandedIds: any, scopeChain: any, element: any, index: any, debugId: any): Promise<RunAndDebugState> => {
   const { cache } = state
   const newScopeChain = await GetChildScopeChain.getChildScopeChain(cache, index, debugId, scopeChain)
   const objectId = scopeChain[index].objectId
