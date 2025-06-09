@@ -73,11 +73,10 @@ export const paused = async (params: any): Promise<void> => {
   const { callStack } = newState
   const first = callStack[0]
   const { functionLocation } = first
-  const { scriptId } = functionLocation
-
+  const { scriptId, lineNumber, columnNumber } = functionLocation
   const uri = `debug:///${key}/${scriptId}`
-  const rowIndex = 0
-  const columnIndex = 0
+  const rowIndex = lineNumber
+  const columnIndex = columnNumber
   const languageId = 'javascript' // TODO
   await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
   // const source=await ExtensionHostDebug.getScriptSource()
