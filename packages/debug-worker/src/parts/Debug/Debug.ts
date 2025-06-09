@@ -1,5 +1,5 @@
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
-import * as Rpc from '../ParentRpc/ParentRpc.ts'
+import * as Rpc from '../RendererWorker/RendererWorker.ts'
 
 export const create = (debugId: any): any => {
   return {
