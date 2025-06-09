@@ -78,7 +78,8 @@ export const paused = async (params: any): Promise<void> => {
   const uri = `debug:///${key}/${scriptId}`
   const rowIndex = 0
   const columnIndex = 0
-  await OpenUri.openUri(uri, rowIndex, columnIndex)
+  const languageId = 'javascript' // TODO
+  await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
   // const source=await ExtensionHostDebug.getScriptSource()
 
   // @ts-ignore
