@@ -90,3 +90,11 @@ export const evaluate = (debugId: any, expression: any, callFrameId: any): Promi
     params: [debugId, expression, callFrameId],
   })
 }
+
+export const getScriptSource = (debugId: any, scriptId: string): Promise<string> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.getScriptSource',
+    params: [debugId, scriptId],
+  })
+}
