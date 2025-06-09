@@ -8,8 +8,8 @@ interface ParsedUri {
 
 const parseUri = (uri: string): ParsedUri => {
   const parts = uri.split('/')
-  const key = Number.parseInt(parts[0])
-  const scriptId = parts[1]
+  const key = Number.parseInt(parts[1])
+  const scriptId = parts[2]
   return {
     key,
     scriptId,
@@ -18,7 +18,11 @@ const parseUri = (uri: string): ParsedUri => {
 
 export const readFile = async (uri: string): Promise<string> => {
   const { key, scriptId } = parseUri(uri)
-  const { newState } = RunAndDebugStates.get(key)
+  const instance = RunAndDebugStates.get(key)
+  if (!instance) {
+    return ''
+  }
+  const { newState } = instance
   const { debugId } = newState
   const content = await ExtensionHostDebug.getScriptSource(debugId, scriptId)
   return content
