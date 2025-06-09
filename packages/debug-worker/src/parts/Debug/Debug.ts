@@ -65,8 +65,7 @@ const getKey = (): number => {
   return keys[0]
 }
 
-export const paused = async (params: any): Promise<void> => {
-  await RendererWorker.invoke('Run And Debug.handlePaused', params)
+const openAtPausedLocation = async () => {
   const key = getKey()
   // TODO ask renderer worker to open file
   const { newState } = RunAndDebugStates.get(key)
@@ -79,10 +78,14 @@ export const paused = async (params: any): Promise<void> => {
   const columnIndex = columnNumber
   const languageId = 'javascript' // TODO
   await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
-  // const source=await ExtensionHostDebug.getScriptSource()
 
   // @ts-ignore
   await EditorWorker.invoke('Editor.updateDebugInfo', key)
+}
+
+export const paused = async (params: any): Promise<void> => {
+  await RendererWorker.invoke('Run And Debug.handlePaused', params)
+  await openAtPausedLocation()
 }
 
 export const resumed = async (params: any): Promise<void> => {
