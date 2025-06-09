@@ -7,11 +7,18 @@ export const getHighlight = (uid: number): Highlight => {
     return {
       uri: '',
       rowIndex: 0,
+      columnIndex: 0,
     }
   }
-  // TODO get highlight from paused callframe
+  const { newState } = state
+  const { parsedScripts, callStack } = newState
+  const top = callStack[0]
+  const { functionLocation } = top
+  const { scriptId, lineNumber, columnNumber } = functionLocation
+  const script = parsedScripts[scriptId]
   return {
-    uri: '',
-    rowIndex: 0,
+    uri: script.url,
+    rowIndex: lineNumber,
+    columnIndex: columnNumber,
   }
 }
