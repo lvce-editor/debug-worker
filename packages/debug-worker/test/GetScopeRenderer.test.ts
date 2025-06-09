@@ -1,13 +1,7 @@
 import { test, expect } from '@jest/globals'
 import * as DebugScopeChainType from '../src/parts/DebugScopeChainType/DebugScopeChainType.ts'
 import { getScopeRenderer } from '../src/parts/GetScopeRenderer/GetScopeRenderer.ts'
-import {
-  getNoopRows,
-  getScopeExceptionRows,
-  getScopePropertyRows,
-  getScopeScopeRows,
-  getScopeThisRows,
-} from '../src/parts/ScopeRenderers/ScopeRenderers.ts'
+import { getNoopRows, getScopeExceptionRows, getScopePropertyRows, getScopeScopeRows, getScopeThisRows } from '../src/parts/ScopeRenderers/ScopeRenderers.ts'
 
 test('should return getScopeThisRows for This type', () => {
   const renderer = getScopeRenderer(DebugScopeChainType.This)
