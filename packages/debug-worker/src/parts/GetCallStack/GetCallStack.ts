@@ -7,6 +7,7 @@ export const getCallStack = (callFrames: readonly any[]): any[] => {
     callStack.push({
       functionName: callFrame.functionName || '(anonymous)',
       functionLocation: callFrame.functionLocation,
+      location: callFrame.location,
     })
   }
   return callStack
