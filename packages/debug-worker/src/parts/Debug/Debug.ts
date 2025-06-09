@@ -1,8 +1,7 @@
-import * as EditorWorker from '../EditorWorker/EditorWorker.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
-import * as OpenUri from '../OpenUri/OpenUri.ts'
+import { getKey, openAtPausedLocation } from '../OpenAtPausedLocation/OpenAtPausedLocation.ts'
 import * as RendererWorker from '../RendererWorker/RendererWorker.ts'
-import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
+import { updateDebugInfo } from '../UpdateDebugInfo/UpdateDebugInfo.ts'
 
 export const create = (debugId: any): any => {
   return {
@@ -60,29 +59,6 @@ export const scriptParsed = async (script: any): Promise<void> => {
   await RendererWorker.invoke('Run And Debug.handleScriptParsed', script)
 }
 
-const getKey = (): number => {
-  const keys = RunAndDebugStates.getKeys()
-  return keys[0]
-}
-
-const openAtPausedLocation = async (): Promise<void> => {
-  const key = getKey()
-  // TODO ask renderer worker to open file
-  const { newState } = RunAndDebugStates.get(key)
-  const { callStack } = newState
-  const first = callStack[0]
-  const { functionLocation } = first
-  const { scriptId, lineNumber, columnNumber } = functionLocation
-  const uri = `debug:///${key}/${scriptId}`
-  const rowIndex = lineNumber
-  const columnIndex = columnNumber
-  const languageId = 'javascript' // TODO
-  await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
-
-  // @ts-ignore
-  await EditorWorker.invoke('Editor.updateDebugInfo', key)
-}
-
 export const paused = async (params: any): Promise<void> => {
   await RendererWorker.invoke('Run And Debug.handlePaused', params)
   await openAtPausedLocation()
@@ -91,6 +67,5 @@ export const paused = async (params: any): Promise<void> => {
 export const resumed = async (params: any): Promise<void> => {
   await RendererWorker.invoke('Run And Debug.handleResumed', params)
   const key = getKey()
-  // @ts-ignore
-  await EditorWorker.invoke('Editor.updateDebugInfo', key)
+  await updateDebugInfo(key)
 }
