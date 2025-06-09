@@ -65,7 +65,7 @@ const getKey = (): number => {
   return keys[0]
 }
 
-const openAtPausedLocation = async () => {
+const openAtPausedLocation = async (): Promise<void> => {
   const key = getKey()
   // TODO ask renderer worker to open file
   const { newState } = RunAndDebugStates.get(key)
