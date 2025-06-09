@@ -1,3 +1,5 @@
+import type { ParsedScript } from '../ParsedScript/ParsedScript.ts'
+
 export interface RunAndDebugState {
   readonly id: number
   readonly disposed: boolean
@@ -9,7 +11,7 @@ export interface RunAndDebugState {
   readonly callStackExpanded: boolean
   readonly scopeChain: readonly any[]
   readonly callStack: readonly any[]
-  readonly parsedScripts: any
+  readonly parsedScripts: Record<string, ParsedScript>
   readonly pausedReason: string
   readonly pausedMessage: string
   readonly debugInputValue: string
