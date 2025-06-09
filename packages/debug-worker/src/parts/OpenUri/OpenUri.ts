@@ -4,6 +4,8 @@ export const openUri = async (uri: string, languageId: string, rowIndex: number,
   const focus = true
   const options = {
     languageId,
+    rowIndex,
+    columnIndex,
   }
   await RendererWorker.invoke('Main.openUri', uri, focus, options)
 }
