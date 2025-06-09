@@ -1,7 +1,11 @@
-import { createExtensionHostRpc } from '../CreateExtensionHostRpc/CreateExtensionHostRpc.ts'
-import * as ExtensionHost from '../ExtensionHost/ExtensionHost.ts'
+import { createEditorWorkerRpc } from '../CreateEditorWorkerRpc/CreateEditorWorkerRpc.ts'
+import * as EditorWorker from '../EditorWorker/EditorWorker.ts'
 
 export const initializEditorWorker = async (): Promise<void> => {
-  const rpc = await createExtensionHostRpc()
-  ExtensionHost.set(rpc)
+  try {
+    const rpc = await createEditorWorkerRpc()
+    EditorWorker.set(rpc)
+  } catch {
+    // ignore
+  }
 }
