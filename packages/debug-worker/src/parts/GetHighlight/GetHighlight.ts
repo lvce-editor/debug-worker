@@ -18,8 +18,8 @@ export const getHighlight = (uid: number): Highlight => {
     return emptyHighlight
   }
   const top = callStack[0]
-  const { functionLocation } = top
-  const { scriptId, lineNumber, columnNumber } = functionLocation
+  const { location } = top
+  const { scriptId, lineNumber, columnNumber } = location
   const script = parsedScripts[scriptId]
   return {
     uri: script.url,
