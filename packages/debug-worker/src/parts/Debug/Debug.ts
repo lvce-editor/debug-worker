@@ -1,5 +1,6 @@
 import * as EditorWorker from '../EditorWorker/EditorWorker.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
+import * as OpenUri from '../OpenUri/OpenUri.ts'
 import * as RendererWorker from '../RendererWorker/RendererWorker.ts'
 import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
@@ -68,6 +69,18 @@ export const paused = async (params: any): Promise<void> => {
   await RendererWorker.invoke('Run And Debug.handlePaused', params)
   const key = getKey()
   // TODO ask renderer worker to open file
+  const { newState } = RunAndDebugStates.get(key)
+  const { callStack } = newState
+  const first = callStack[0]
+  const { functionLocation } = first
+  const { scriptId } = functionLocation
+
+  const uri = `debug:///${key}/${scriptId}`
+  const rowIndex = 0
+  const columnIndex = 0
+  await OpenUri.openUri(uri, rowIndex, columnIndex)
+  // const source=await ExtensionHostDebug.getScriptSource()
+
   // @ts-ignore
   await EditorWorker.invoke('Editor.updateDebugInfo', key)
 }
