@@ -3,6 +3,7 @@ import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
+import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
@@ -33,6 +34,7 @@ export const commandMap = {
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.create': Create.create,
   'RunAndDebug.diff2': Diff2.diff2,
+  'RunAndDebug.getHighlight': GetHighlight.getHighlight,
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
   'RunAndDebug.focusPrevious': WrapCommand.wrapCommand(HandlePaused.focusPrevious),
