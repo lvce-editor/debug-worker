@@ -1,5 +1,7 @@
+import * as EditorWorker from '../EditorWorker/EditorWorker.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
 import * as Rpc from '../RendererWorker/RendererWorker.ts'
+import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const create = (debugId: any): any => {
   return {
@@ -57,10 +59,21 @@ export const scriptParsed = async (script: any): Promise<void> => {
   await Rpc.invoke('Run And Debug.handleScriptParsed', script)
 }
 
+const getKey = (): number => {
+  const keys = RunAndDebugStates.getKeys()
+  return keys[0]
+}
+
 export const paused = async (params: any): Promise<void> => {
   await Rpc.invoke('Run And Debug.handlePaused', params)
+  const key = getKey()
+  // @ts-ignore
+  await EditorWorker.invoke('Editor.updateDebugInfo', key)
 }
 
 export const resumed = async (params: any): Promise<void> => {
   await Rpc.invoke('Run And Debug.handleResumed', params)
+  const key = getKey()
+  // @ts-ignore
+  await EditorWorker.invoke('Editor.updateDebugInfo', key)
 }
