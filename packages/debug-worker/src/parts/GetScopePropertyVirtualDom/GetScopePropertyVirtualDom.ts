@@ -6,8 +6,8 @@ import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtual
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
+import { separator } from '../Separator/Separator.ts'
 
-const separator = text(': ')
 const debugPropertyKey = {
   type: VirtualDomElements.Span,
   className: ClassNames.DebugValue + ' ' + ClassNames.DebugPropertyKey,
