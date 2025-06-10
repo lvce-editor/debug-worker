@@ -6,9 +6,9 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
-import { separator } from '../Separator/Separator.ts'
 
 export const renderNoop = (row: DebugRow): readonly VirtualDomNode[] => {
   return [
