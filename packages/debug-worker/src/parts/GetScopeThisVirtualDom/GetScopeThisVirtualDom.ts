@@ -2,9 +2,9 @@ import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
+import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
-import { separator } from '../Separator/Separator.ts'
 
 export const getScopeThisVirtualDom = (scope: any): readonly VirtualDomNode[] => {
   const { indent, key, value, valueType } = scope
