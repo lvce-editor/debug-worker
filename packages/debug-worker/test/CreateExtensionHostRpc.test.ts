@@ -1,6 +1,6 @@
 import { expect, jest, test } from '@jest/globals'
-import * as RpcId from '../src/parts/RpcId/RpcId.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
+import { RpcId } from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
 const mockExtensionHostRpc = {}
 const mockCreateRpc = jest.fn(() => {
