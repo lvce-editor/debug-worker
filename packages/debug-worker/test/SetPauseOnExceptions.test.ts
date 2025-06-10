@@ -2,8 +2,8 @@ import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RpcId } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 import { setPauseOnExceptions } from '../src/parts/SetPauseOnExceptions/SetPauseOnExceptions.ts'
+import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
 const setupRendererWorker = async (): Promise<void> => {
   const mockRendererWorkerRpc = MockRpc.create({
