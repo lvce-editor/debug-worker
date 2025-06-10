@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { isEqual } from '../src/parts/DiffItems/DiffItems.ts'
-import { createDefaultState } from '../src/parts/RunAndDebugStates/createDefaultState.ts'
 
 test('isEqual - identical states', () => {
   const state = createDefaultState(0)
