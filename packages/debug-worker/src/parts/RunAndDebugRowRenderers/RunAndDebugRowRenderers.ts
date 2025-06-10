@@ -5,6 +5,7 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 import { separator } from '../Separator/Separator.ts'
@@ -36,7 +37,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow + ' DebugRowCallStack',
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCallStack'),
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 1,
@@ -50,7 +51,7 @@ export const renderCheckBox = (row: DebugRow): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow + ' DebugRowCheckBox',
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCheckBox'),
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
@@ -83,7 +84,7 @@ export const renderScope = (row: DebugRow): readonly VirtualDomNode[] => {
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     {
       type: VirtualDomElements.Span,
-      className: 'DebugValue DebugValueScopeName',
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, 'DebugValueScopeName'),
       childCount: 1,
     },
     VirtualDomHelpers.text(key),
