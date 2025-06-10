@@ -1,6 +1,7 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -10,8 +11,6 @@ const debugRow3 = {
   childCount: 3,
   onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
 }
-
-const separator = text(': ')
 
 export const getScopeExceptionVirtualDom = (scope: any): readonly VirtualDomNode[] => {
   const { key, value } = scope

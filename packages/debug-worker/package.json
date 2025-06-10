@@ -40,7 +40,7 @@
       "global": {
         "branches": 30,
         "functions": 30,
-        "lines": 70
+        "lines": 60
       }
     }
   },

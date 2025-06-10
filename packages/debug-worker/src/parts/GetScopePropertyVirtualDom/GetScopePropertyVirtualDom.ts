@@ -4,10 +4,10 @@ import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
+import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-const separator = text(': ')
 const debugPropertyKey = {
   type: VirtualDomElements.Span,
   className: ClassNames.DebugValue + ' ' + ClassNames.DebugPropertyKey,
