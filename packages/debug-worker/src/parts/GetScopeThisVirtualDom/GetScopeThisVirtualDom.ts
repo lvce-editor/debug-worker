@@ -4,8 +4,7 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
-
-const separator = text(': ')
+import { separator } from '../Separator/Separator.ts'
 
 export const getScopeThisVirtualDom = (scope: any): readonly VirtualDomNode[] => {
   const { indent, key, value, valueType } = scope
