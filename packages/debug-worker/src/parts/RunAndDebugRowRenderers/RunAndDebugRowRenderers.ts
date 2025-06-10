@@ -7,8 +7,7 @@ import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtual
 import * as GetDebugValueClassName from '../GetDebugValueClassName/GetDebugValueClassName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
-
-const separator = VirtualDomHelpers.text(': ')
+import { separator } from '../Separator/Separator.ts'
 
 export const renderNoop = (row: DebugRow): readonly VirtualDomNode[] => {
   return [
