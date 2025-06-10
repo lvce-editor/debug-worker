@@ -2,7 +2,6 @@ import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { renderActions } from '../src/parts/RenderActions/RenderActions.ts'
-import { RendererWorker } from '../src/parts/RpcId/RpcId.ts'
 import { createDefaultState } from '../src/parts/RunAndDebugStates/createDefaultState.ts'
 
 test('renderActions - returns virtual dom nodes', async () => {
@@ -14,7 +13,7 @@ test('renderActions - returns virtual dom nodes', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RendererWorker, mockRpc)
+  RpcRegistry.RendererWorker.set(mockRpc)
 
   const uid = 1
   createDefaultState(uid)
