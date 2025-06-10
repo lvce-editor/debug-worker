@@ -4,6 +4,7 @@ import { handleClickSectionCallstack } from '../HandleClickSectionCallstack/Hand
 import { handleClickSectionScope } from '../HandleClickSectionScope/HandleClickSectionScope.ts'
 import { handleClickSectionWatch } from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
 
+// TODO use input name
 export const handleClickSectionHeading = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
   switch (text) {
     case 'Watch':
