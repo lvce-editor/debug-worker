@@ -5,7 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 import { setPauseOnExceptions } from '../src/parts/SetPauseOnExceptions/SetPauseOnExceptions.ts'
 
-const setupRendererWorker = async () => {
+const setupRendererWorker = async (): Promise<void> => {
   const mockRendererWorkerRpc = MockRpc.create({
     commandMap: {},
     invoke: () => {},
