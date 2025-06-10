@@ -4,7 +4,7 @@ import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { getRunAndDebugVisibleRows } from '../src/parts/GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import { createDefaultState } from '../src/parts/RunAndDebugStates/createDefaultState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('should return watch section with default state', () => {
   const state = createDefaultState()

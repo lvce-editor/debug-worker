@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { renderActions } from '../src/parts/RenderActions/RenderActions.ts'
-import { createDefaultState } from '../src/parts/RunAndDebugStates/createDefaultState.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('renderActions - returns virtual dom nodes', async () => {
   const mockRpc = MockRpc.create({
