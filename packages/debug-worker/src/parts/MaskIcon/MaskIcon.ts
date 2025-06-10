@@ -1,7 +1,3 @@
-export const CollapseAll = 'CollapseAll'
-export const NewFile = 'NewFile'
-export const NewFolder = 'NewFolder'
-export const Refresh = 'Refresh'
 export const DebugContinue = 'DebugContinue'
 export const DebugPause = 'DebugPause'
 export const DebugStepOver = 'DebugStepOver'

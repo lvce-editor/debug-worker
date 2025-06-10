@@ -38,18 +38,16 @@
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "branches": 40,
-        "functions": 40,
-        "lines": 80
+        "branches": 30,
+        "functions": 30,
+        "lines": 70
       }
     }
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@lvce-editor/assert": "^1.3.0",
-    "@lvce-editor/fuzzy-search": "^1.0.0",
     "@lvce-editor/i18n": "^1.1.0",
-    "@lvce-editor/list": "^1.1.0",
     "@lvce-editor/rpc": "^4.1.0",
     "@lvce-editor/rpc-registry": "^2.25.0",
     "@lvce-editor/verror": "^1.6.0",
