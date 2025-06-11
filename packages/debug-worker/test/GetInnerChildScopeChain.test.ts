@@ -1,20 +1,39 @@
-import { test, expect, jest } from '@jest/globals'
+import { expect, test } from '@jest/globals'
+import { MockRpc } from '@lvce-editor/rpc'
+import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import { getInnerChildScopeChain } from '../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
-const mockDebug = {
-  getProperties: async (): Promise<any> => ({
-    result: {
-      result: [
-        {
-          name: 'test',
-          value: { type: 'string', value: 'test-value' },
+const mockRpc = MockRpc.create({
+  commandMap: {},
+  invoke: (method: string) => {
+    if (method === 'ExtensionHostManagement.activateByEvent') {
+      return Promise.resolve([])
+    }
+    throw new Error(`unexpected method ${method}`)
+  },
+})
+RendererWorker.set(mockRpc)
+
+const mockExtensionHost = MockRpc.create({
+  invoke(method: string) {
+    if (method === 'ExtensionHostDebug.getProperties') {
+      return {
+        result: {
+          result: [
+            {
+              name: 'test',
+              value: { type: 'string', value: 'test-value' },
+            },
+          ],
         },
-      ],
-    },
-  }),
-}
-jest.unstable_mockModule('../src/parts/Debug/Debug.ts', () => mockDebug)
+      }
+    }
+    throw new Error(`unexpected method ${method}`)
+  },
+})
 
-const { getInnerChildScopeChain } = await import('../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts')
+ExtensionHost.set(mockExtensionHost)
 
 test('should return cached value if available', async () => {
   const cache = {
