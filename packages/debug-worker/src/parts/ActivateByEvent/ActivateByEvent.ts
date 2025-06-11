@@ -1,5 +1,5 @@
-import * as Rpc from '../RendererWorker/RendererWorker.ts'
+import * as RendererWorker from '../RendererWorker/RendererWorker.ts'
 
 export const activateByEvent = (event: string): Promise<void> => {
-  return Rpc.invoke('ExtensionHostManagement.activateByEvent', event)
+  return RendererWorker.invoke('ExtensionHostManagement.activateByEvent', event)
 }

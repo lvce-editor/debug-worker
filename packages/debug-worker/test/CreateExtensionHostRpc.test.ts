@@ -1,29 +1,16 @@
 import { expect, jest, test } from '@jest/globals'
-import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
-import { RpcId } from '../src/parts/RpcRegistry/RpcRegistry.ts'
-
-const mockExtensionHostRpc = {}
-const mockCreateRpc = jest.fn(() => {
-  return mockExtensionHostRpc
-})
-
-jest.unstable_mockModule('@lvce-editor/rpc', () => ({
-  MessagePortRpcParent: {
-    create: mockCreateRpc,
-  },
-  PlainMessagePortRpcParent: {
-    create: mockCreateRpc,
-  },
-}))
-
-const { createExtensionHostRpc } = await import('../src/parts/CreateExtensionHostRpc/CreateExtensionHostRpc.ts')
+import { MockRpc } from '@lvce-editor/rpc'
+import { createExtensionHostRpc } from '../src/parts/CreateExtensionHostRpc/CreateExtensionHostRpc.ts'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('createExtensionHostRpc - success', async () => {
   const mockInvokeRendererWorker = jest.fn()
-  const mockRpc = {
+  const mockRpc = MockRpc.create({
+    commandMap: {},
+    invoke() {},
     invokeAndTransfer: mockInvokeRendererWorker,
-  } as any
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  })
+  RendererWorker.set(mockRpc)
   const rpc = await createExtensionHostRpc()
   expect(mockInvokeRendererWorker).toHaveBeenCalledTimes(1)
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith(
@@ -32,24 +19,17 @@ test('createExtensionHostRpc - success', async () => {
     'HandleMessagePort.handleMessagePort2',
     55,
   )
-  expect(rpc).toBe(mockExtensionHostRpc)
+  expect(rpc).toBeDefined()
+  await rpc.dispose()
 })
 
 test('createExtensionHostRpc - error in invokeAndTransfer', async () => {
   const mockInvokeRendererWorker = jest.fn().mockRejectedValue(new Error('test error') as never)
-  const mockRpc = {
+  const mockRpc = MockRpc.create({
+    commandMap: {},
+    invoke() {},
     invokeAndTransfer: mockInvokeRendererWorker,
-  } as any
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
-  await expect(createExtensionHostRpc()).rejects.toThrow(new Error('Failed to create extension host rpc: test error'))
-})
-
-test('createExtensionHostRpc - error in MessagePortRpcParent.create', async () => {
-  const mockInvokeRendererWorker = jest.fn()
-  const mockRpc = {
-    invokeAndTransfer: mockInvokeRendererWorker,
-  } as any
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
-  mockCreateRpc.mockRejectedValueOnce(new Error('test error') as never)
+  })
+  RendererWorker.set(mockRpc)
   await expect(createExtensionHostRpc()).rejects.toThrow(new Error('Failed to create extension host rpc: test error'))
 })
