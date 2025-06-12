@@ -46,28 +46,6 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
   ]
 }
 
-export const renderCheckBox = (row: DebugRow): readonly VirtualDomNode[] => {
-  const { text, expanded, name } = row
-  return [
-    {
-      type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCheckBox'),
-      role: AriaRoles.TreeItem,
-      ariaLevel: 2,
-      childCount: 2,
-    },
-    {
-      type: VirtualDomElements.Input,
-      inputType: 'checkbox',
-      name,
-      checked: expanded,
-      childCount: 0,
-      onChange: 'handleClickCheckBox',
-    },
-    VirtualDomHelpers.text(text),
-  ]
-}
-
 export const renderScope = (row: DebugRow): readonly VirtualDomNode[] => {
   const { key, expanded } = row
   const className = ClassNames.DebugRow

@@ -1,0 +1,29 @@
+import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
+import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
+import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
+
+export const renderCheckBox = (row: DebugRow): readonly VirtualDomNode[] => {
+  const { text, expanded, name } = row
+  return [
+    {
+      type: VirtualDomElements.Div,
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCheckBox'),
+      role: AriaRoles.TreeItem,
+      ariaLevel: 2,
+      childCount: 2,
+    },
+    {
+      type: VirtualDomElements.Input,
+      inputType: 'checkbox',
+      name,
+      checked: expanded,
+      childCount: 0,
+      onChange: 'handleClickCheckBox',
+    },
+    VirtualDomHelpers.text(text),
+  ]
+}
