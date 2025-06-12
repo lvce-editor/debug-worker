@@ -20,6 +20,6 @@ export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] =
       onClick: DomEventListenerFunctions.HandleClickSectionHeading,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
-    VirtualDomHelpers.text(row.text),
+    VirtualDomHelpers.text(text),
   ]
 }
