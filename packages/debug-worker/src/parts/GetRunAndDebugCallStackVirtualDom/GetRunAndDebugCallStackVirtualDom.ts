@@ -22,14 +22,14 @@ const textNotPaused = text(ViewletRunAndDebugStrings.notPaused())
 
 const headerCallStack = {
   type: VirtualDomElements.Div,
-  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderCallstack'),
+  className: ClassNames.DebugSectionHeader,
   ariaExpanded: false,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionCallstack,
 }
 const headerCallStackExpanded = {
   type: VirtualDomElements.Div,
-  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderCallstack'),
+  className: ClassNames.DebugSectionHeader,
   ariaExpanded: true,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionCallstack,

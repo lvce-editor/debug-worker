@@ -13,7 +13,7 @@ import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 const scopeHeader: VirtualDomNode = {
   type: VirtualDomElements.Div,
-  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderScope'),
+  className: ClassNames.DebugSectionHeader,
   role: AriaRoles.TreeItem,
   ariaLevel: 1,
   ariaExpanded: false,
@@ -24,7 +24,7 @@ const scopeHeader: VirtualDomNode = {
 
 const scopeHeaderExpanded: VirtualDomNode = {
   type: VirtualDomElements.Div,
-  className: MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, 'DebugSectionHeaderScope'),
+  className: ClassNames.DebugSectionHeader,
   role: AriaRoles.TreeItem,
   ariaLevel: 1,
   ariaExpanded: true,
