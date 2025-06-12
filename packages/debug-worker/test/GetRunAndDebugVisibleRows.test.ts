@@ -28,7 +28,7 @@ test('should return breakpoints section with default state', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.breakPoints(),
     expanded: false,
-    key: '',
+    key: 'breakpoints',
     value: '',
     indent: 0,
     valueType: '',
