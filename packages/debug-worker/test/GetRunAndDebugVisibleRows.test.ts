@@ -72,7 +72,7 @@ test('should return scope section with default state', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.scope(),
     expanded: false,
-    key: '',
+    key: 'scope',
     value: '',
     indent: 0,
     valueType: '',
