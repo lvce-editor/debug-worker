@@ -7,6 +7,13 @@ import * as GetDebugPropertyValueLabel from '../GetDebugPropertyValueLabel/GetDe
 import * as GetDebugValueObjectId from '../GetDebugValueObjectId/GetDebugValueObjectId.ts'
 import * as GetDebugValueType from '../GetDebugValueType/GetDebugValueType.ts'
 
+const getDescriptionValueLabel = (params: any): string => {
+  if (params.data && params.data.description) {
+    return params.data.description.replaceAll(Character.NewLine, Character.Space)
+  }
+  return `${params.data.value}`
+}
+
 export const getScopeChain = (params: any, thisObject: any, scopeChain: any, knownProperties: any): any => {
   const elements = []
   for (const scope of scopeChain) {
@@ -23,7 +30,7 @@ export const getScopeChain = (params: any, thisObject: any, scopeChain: any, kno
     // if(params.reason)
     if (scope.type === DebugScopeType.Local) {
       if (params.reason === DebugPausedReason.Exception) {
-        const value = params.data.description.replaceAll(Character.NewLine, Character.Space)
+        const value = getDescriptionValueLabel(params)
         elements.push({
           type: DebugScopeChainType.Exception,
           key: 'Exception',
