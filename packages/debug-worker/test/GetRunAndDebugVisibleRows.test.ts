@@ -47,7 +47,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.breakPoints(),
     expanded: true,
-    key: '',
+    key: 'breakpoints',
     value: '',
     indent: 0,
     valueType: '',
