@@ -90,7 +90,7 @@ test('should return expanded scope section with not paused message', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.scope(),
     expanded: true,
-    key: '',
+    key: 'scope',
     value: '',
     indent: 0,
     valueType: '',

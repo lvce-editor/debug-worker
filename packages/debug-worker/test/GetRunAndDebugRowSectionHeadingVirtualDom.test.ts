@@ -23,7 +23,7 @@ test('renderSectionHeading - expanded', () => {
     ariaLevel: 1,
     childCount: 2,
     onClick: 'handleClickSectionHeading',
-    'data-name': 'test-section',
+    'data-name': 'test-key',
   })
   expect(result[2]).toEqual({
     type: VirtualDomElements.Text,
