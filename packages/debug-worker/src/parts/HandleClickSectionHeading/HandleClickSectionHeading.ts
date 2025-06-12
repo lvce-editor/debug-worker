@@ -3,5 +3,6 @@ import { getSectionClickHandler } from '../GetSectionClickHandler/GetSectionClic
 
 export const handleClickSectionHeading = async (state: RunAndDebugState, id: string): Promise<RunAndDebugState> => {
   const fn = getSectionClickHandler(id)
+  console.log({ id, fn })
   return fn(state)
 }
