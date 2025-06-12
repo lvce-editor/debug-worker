@@ -6,15 +6,13 @@ import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-const watchHeader = {
+const watchHeader: VirtualDomNode = {
   type: VirtualDomElements.Div,
   className: ClassNames.DebugSectionHeader,
   tabIndex: 0,
   childCount: 2,
 }
 
-const textWatch = text(ViewletRunAndDebugStrings.watch())
-
 export const renderWatch = (state: RunAndDebugState): readonly VirtualDomNode[] => {
-  return [watchHeader, GetChevronVirtualDom.getChevronRightVirtualDom(), textWatch]
+  return [watchHeader, GetChevronVirtualDom.getChevronRightVirtualDom(), text(ViewletRunAndDebugStrings.watch())]
 }
