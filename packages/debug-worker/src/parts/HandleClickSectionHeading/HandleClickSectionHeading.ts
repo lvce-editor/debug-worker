@@ -8,14 +8,11 @@ import { handleClickSectionWatch } from '../HandleClickSectionWatch/HandleClickS
 export const handleClickSectionHeading = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
   switch (text) {
     case 'Watch':
-    case 'DebugSectionHeader':
       return handleClickSectionWatch(state)
     case 'Breakpoints':
     case 'BreakPoints':
-    case 'DebugSectionHeader':
       return handleClickSectionBreakPoints(state)
     case 'Scope':
-    case 'DebugSectionHeader':
       return handleClickSectionScope(state)
     case 'Call Stack':
     case 'DebugSectionHeader Stack':
