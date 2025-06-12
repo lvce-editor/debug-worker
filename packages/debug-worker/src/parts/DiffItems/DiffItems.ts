@@ -9,6 +9,8 @@ export const isEqual = (oldState: RunAndDebugState, newState: RunAndDebugState):
     oldState.scopeExpanded === newState.scopeExpanded &&
     oldState.callFrameId === newState.callFrameId &&
     oldState.breakPointsExpanded === newState.breakPointsExpanded &&
-    oldState.debugState === newState.debugState
+    oldState.debugState === newState.debugState &&
+    oldState.watchExpanded === newState.watchExpanded &&
+    oldState.callStackExpanded === newState.callStackExpanded
   )
 }

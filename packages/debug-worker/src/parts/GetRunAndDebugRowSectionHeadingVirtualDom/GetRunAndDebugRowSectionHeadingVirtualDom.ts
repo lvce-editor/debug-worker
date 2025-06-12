@@ -8,7 +8,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] => {
-  const { expanded, text } = row
+  const { expanded, text, key } = row
   return [
     {
       type: VirtualDomElements.Div,
@@ -18,7 +18,7 @@ export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] =
       ariaLevel: 1,
       childCount: 2,
       onClick: DomEventListenerFunctions.HandleClickSectionHeading,
-      'data-name': text,
+      'data-name': key,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     VirtualDomHelpers.text(text),

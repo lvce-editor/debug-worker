@@ -2,6 +2,7 @@ import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 
 export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
@@ -12,7 +13,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       type: DebugRowType.SectionHeading,
       text: DebugStrings.callStack(),
       expanded: true,
-      key: '',
+      key: DebugSectionId.CallStack,
       value: '',
       indent: 0,
       valueType: '',
@@ -35,7 +36,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           type: DebugRowType.CallStack,
           text: item.functionName,
           expanded: false,
-          key: '',
+          key: DebugSectionId.CallStack,
           value: '',
           indent: 0,
           valueType: '',
