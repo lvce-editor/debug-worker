@@ -133,7 +133,7 @@ test('should return expanded call stack section with not paused message', () => 
     type: DebugRowType.SectionHeading,
     text: DebugStrings.callStack(),
     expanded: true,
-    key: '',
+    key: 'callstack',
     value: '',
     indent: 0,
     valueType: '',
