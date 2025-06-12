@@ -3,19 +3,18 @@ import { handleClickSectionBreakPoints } from '../HandleClickSectionBreakPoints/
 import { handleClickSectionCallstack } from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import { handleClickSectionScope } from '../HandleClickSectionScope/HandleClickSectionScope.ts'
 import { handleClickSectionWatch } from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 
 // TODO use input name
 export const handleClickSectionHeading = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
   switch (text) {
-    case 'Watch':
+    case DebugSectionId.Watch:
       return handleClickSectionWatch(state)
-    case 'Breakpoints':
-    case 'BreakPoints':
+    case DebugSectionId.BreakPoints:
       return handleClickSectionBreakPoints(state)
-    case 'Scope':
+    case DebugSectionId.Scope:
       return handleClickSectionScope(state)
-    case 'Call Stack':
-    case 'DebugSectionHeader Stack':
+    case DebugSectionId.CallStack:
       return handleClickSectionCallstack(state)
     default:
       return state
