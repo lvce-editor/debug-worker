@@ -1,13 +1,13 @@
 import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
-import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -20,6 +20,7 @@ const scopeHeader: VirtualDomNode = {
   tabIndex: 0,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionScope,
+  'data-name': DebugSectionId.Scope,
 }
 
 const scopeHeaderExpanded: VirtualDomNode = {
@@ -30,6 +31,7 @@ const scopeHeaderExpanded: VirtualDomNode = {
   ariaExpanded: true,
   childCount: 2,
   onPointerDown: DomEventListenerFunctions.HandleClickSectionScope,
+  'data-name': DebugSectionId.Scope,
 }
 
 const debugPausedMessage: VirtualDomNode = {
