@@ -52,7 +52,7 @@ test('renderSectionHeading - collapsed', () => {
     ariaLevel: 1,
     childCount: 2,
     onClick: 'handleClickSectionHeading',
-    'data-name': 'Test Section',
+    'data-name': 'test-key',
   })
   expect(result[2]).toEqual({
     type: VirtualDomElements.Text,

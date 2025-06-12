@@ -13,7 +13,7 @@ test('should return watch section with default state', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.watch(),
     expanded: false,
-    key: '',
+    key: 'watch',
     value: '',
     indent: 0,
     valueType: '',
