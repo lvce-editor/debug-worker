@@ -4,6 +4,7 @@ import * as ViewletRunAndDebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import { text } from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 const watchHeader: VirtualDomNode = {
@@ -11,6 +12,7 @@ const watchHeader: VirtualDomNode = {
   className: ClassNames.DebugSectionHeader,
   tabIndex: 0,
   childCount: 2,
+  'data-name': DebugSectionId.Watch,
 }
 
 export const renderWatch = (state: RunAndDebugState): readonly VirtualDomNode[] => {
