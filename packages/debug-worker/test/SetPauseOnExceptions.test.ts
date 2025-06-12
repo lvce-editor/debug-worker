@@ -29,6 +29,7 @@ test('setPauseOnExceptions - success', async () => {
   const state = createDefaultState()
   const value = true
 
+  // @ts-ignore
   const result = await setPauseOnExceptions(state, value)
 
   expect(result).toEqual({
@@ -53,5 +54,6 @@ test('setPauseOnExceptions - error', async () => {
   const state = createDefaultState()
   const value = true
 
+  // @ts-ignore
   await expect(setPauseOnExceptions(state, value)).rejects.toThrow('test error')
 })
