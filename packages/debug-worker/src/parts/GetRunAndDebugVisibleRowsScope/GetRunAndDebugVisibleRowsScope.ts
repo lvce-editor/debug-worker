@@ -2,6 +2,7 @@ import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
@@ -14,7 +15,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       type: DebugRowType.SectionHeading,
       text: DebugStrings.scope(),
       expanded: true,
-      key: '',
+      key: DebugSectionId.Scope,
       value: '',
       indent: 0,
       valueType: '',
@@ -43,7 +44,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       type: DebugRowType.SectionHeading,
       text: DebugStrings.scope(),
       expanded: false,
-      key: '',
+      key: DebugSectionId.Scope,
       value: '',
       indent: 0,
       valueType: '',
