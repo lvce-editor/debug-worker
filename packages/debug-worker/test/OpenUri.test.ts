@@ -1,6 +1,6 @@
 import { test, expect } from '@jest/globals'
-import { openUri } from '../src/parts/OpenUri/OpenUri.ts'
 import { MockRpc } from '@lvce-editor/rpc'
+import { openUri } from '../src/parts/OpenUri/OpenUri.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('openUri calls Main.openUri with correct parameters', async () => {
