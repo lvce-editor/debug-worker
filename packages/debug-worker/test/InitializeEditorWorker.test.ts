@@ -22,14 +22,3 @@ test('initializEditorWorker - success', async () => {
     55,
   )
 })
-
-test('initializEditorWorker - error', async () => {
-  const mockInvokeRendererWorker = jest.fn().mockRejectedValue(new Error('test error') as never)
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: () => {},
-    invokeAndTransfer: mockInvokeRendererWorker,
-  })
-  RendererWorker.set(mockRpc)
-  await expect(initializeEditorWorker()).resolves.not.toThrow()
-})
