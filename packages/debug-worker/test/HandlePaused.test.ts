@@ -1,30 +1,36 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
+import { ExtensionHost } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
 
-test('handlePaused updates state correctly', async () => {
+const setupMocks = async (invokeImpl: (method: string) => Promise<any>) => {
   const mockRpc = await MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.getProperties') {
-        return Promise.resolve([])
-      }
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
-      }
-      if (method === 'Run And Debug.handleScriptParsed') {
-        return Promise.resolve()
-      }
-      if (method === 'Run And Debug.handlePaused') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
+    invoke: invokeImpl,
   })
   RendererWorker.set(mockRpc)
+  ExtensionHost.set(mockRpc)
+}
+
+test('handlePaused updates state correctly', async () => {
+  await setupMocks((method: string) => {
+    if (method === 'ExtensionHostDebug.getProperties') {
+      return Promise.resolve([])
+    }
+    if (method === 'ExtensionHostManagement.activateByEvent') {
+      return Promise.resolve()
+    }
+    if (method === 'Run And Debug.handleScriptParsed') {
+      return Promise.resolve()
+    }
+    if (method === 'Run And Debug.handlePaused') {
+      return Promise.resolve()
+    }
+    return Promise.resolve()
+  })
 
   const state = createDefaultState()
   const params = {
@@ -53,25 +59,21 @@ test('handlePaused updates state correctly', async () => {
 })
 
 test('togglePause switches between pause and resume', async () => {
-  const mockRpc = await MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.pause' || method === 'ExtensionHostDebug.resume') {
-        return Promise.resolve()
-      }
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
-      }
-      if (method === 'Run And Debug.handleScriptParsed') {
-        return Promise.resolve()
-      }
-      if (method === 'Run And Debug.handlePaused') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
+  await setupMocks((method: string) => {
+    if (method === 'ExtensionHostDebug.pause' || method === 'ExtensionHostDebug.resume') {
+      return Promise.resolve()
+    }
+    if (method === 'ExtensionHostManagement.activateByEvent') {
+      return Promise.resolve()
+    }
+    if (method === 'Run And Debug.handleScriptParsed') {
+      return Promise.resolve()
+    }
+    if (method === 'Run And Debug.handlePaused') {
+      return Promise.resolve()
+    }
+    return Promise.resolve()
   })
-  RendererWorker.set(mockRpc)
 
   const state = createDefaultState()
   const pausedState = { ...state, debugState: DebugState.Paused }
