@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
-import { handleClickPauseOnExceptions } from '../src/parts/HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
+import { MockRpc } from '@lvce-editor/rpc'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
-import { MockRpc } from '@lvce-editor/rpc'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import { handleClickPauseOnExceptions } from '../src/parts/HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('handleClickPauseOnExceptions toggles from None to All', async () => {
   const mockRendererWorker = MockRpc.create({
