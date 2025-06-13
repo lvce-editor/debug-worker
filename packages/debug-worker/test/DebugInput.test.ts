@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import { ExtensionHost } from '@lvce-editor/rpc-registry'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleDebugInput, handleEvaluate } from '../src/parts/DebugInput/DebugInput.ts'
 
@@ -14,7 +14,7 @@ test('handleEvaluate evaluates expression and updates state', async () => {
   const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
-      if (method === 'ExtensionHost.invoke') {
+      if (method === 'ExtensionHostManagement.activateByEvent') {
         return Promise.resolve({
           result: {
             result: {
@@ -26,7 +26,7 @@ test('handleEvaluate evaluates expression and updates state', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  ExtensionHost.set(mockRpc)
+  RendererWorker.set(mockRpc)
 
   const state = {
     ...createDefaultState(),
