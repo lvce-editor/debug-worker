@@ -77,7 +77,7 @@ test('handlePaused updates state correctly', async () => {
 })
 
 test('togglePause switches between pause and resume', async () => {
-  await setupMocks((method: string) => {
+  await setupMocks((method: string): Promise<any> => {
     if (method === 'ExtensionHostDebug.pause' || method === 'ExtensionHostDebug.resume') {
       return Promise.resolve()
     }
