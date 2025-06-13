@@ -10,6 +10,12 @@ test('renderNoop', () => {
   const row: DebugRow = {
     type: 0,
     text: 'test',
+    expanded: false,
+    key: '',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
   }
   const result = RunAndDebugRowRenderers.renderNoop(row)
   expect(result).toEqual([
@@ -25,6 +31,12 @@ test('renderMessage', () => {
   const row: DebugRow = {
     type: DebugRowType.Message,
     text: 'test message',
+    expanded: false,
+    key: '',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
   }
   const result = RunAndDebugRowRenderers.renderMessage(row)
   expect(result).toEqual([
@@ -41,6 +53,12 @@ test('renderCallStack', () => {
   const row: DebugRow = {
     type: DebugRowType.CallStack,
     text: 'test stack',
+    expanded: false,
+    key: '',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
   }
   const result = RunAndDebugRowRenderers.renderCallStack(row)
   expect(result).toEqual([
@@ -60,6 +78,11 @@ test('renderScope', () => {
     type: DebugRowType.Scope,
     key: 'testScope',
     expanded: true,
+    text: '',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
   }
   const result = RunAndDebugRowRenderers.renderScope(row)
   expect(result).toEqual([
@@ -90,6 +113,8 @@ test('renderValue', () => {
     value: 'testValue',
     valueType: 'string',
     expanded: false,
+    text: '',
+    name: '',
   }
   const result = RunAndDebugRowRenderers.renderValue(row)
   expect(result).toEqual([
