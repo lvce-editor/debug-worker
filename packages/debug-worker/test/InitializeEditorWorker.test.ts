@@ -1,6 +1,6 @@
 import { expect, jest, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import { initializEditorWorker } from '../src/parts/InitializeEditorWorker/InitializeEditorWorker.ts'
+import { initializeEditorWorker } from '../src/parts/InitializeEditorWorker/InitializeEditorWorker.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('initializEditorWorker - success', async () => {
@@ -11,7 +11,7 @@ test('initializEditorWorker - success', async () => {
     invokeAndTransfer: mockInvokeRendererWorker,
   })
   RendererWorker.set(mockRpc)
-  await initializEditorWorker()
+  await initializeEditorWorker()
   expect(mockInvokeRendererWorker).toHaveBeenCalledTimes(1)
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith(
     'SendMessagePortToExtensionHostWorker.sendMessagePortToEditorWorker',
@@ -29,5 +29,5 @@ test('initializEditorWorker - error', async () => {
     invokeAndTransfer: mockInvokeRendererWorker,
   })
   RendererWorker.set(mockRpc)
-  await expect(initializEditorWorker()).resolves.not.toThrow()
+  await expect(initializeEditorWorker()).resolves.not.toThrow()
 })
