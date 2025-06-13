@@ -18,6 +18,7 @@ test('sendMessagePortToEditorWorker sends port to editor worker', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   }
+  // @ts-ignore
   RendererWorker.set(mockRpc)
 
   const mockPort = {
