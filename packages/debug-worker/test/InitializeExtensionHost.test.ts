@@ -1,8 +1,8 @@
 import { expect, jest, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { initializeExtensionHost } from '../src/parts/InitializeExtensionHost/InitializeExtensionHost.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 
 test('initializeExtensionHost - success', async () => {
   const mockInvokeRendererWorker = jest.fn()
