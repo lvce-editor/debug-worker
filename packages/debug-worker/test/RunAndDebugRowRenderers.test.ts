@@ -5,6 +5,7 @@ import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as RunAndDebugRowRenderers from '../src/parts/RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
+import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHelpers.ts'
 
 test('renderNoop', () => {
   const row: DebugRow = {
@@ -23,7 +24,7 @@ test('renderNoop', () => {
       type: VirtualDomElements.Div,
       childCount: 1,
     },
-    'unknown row type',
+    VirtualDomHelpers.text('unknown row type'),
   ])
 })
 
@@ -45,7 +46,7 @@ test('renderMessage', () => {
       className: ClassNames.DebugPausedMessage,
       childCount: 1,
     },
-    'test message',
+    VirtualDomHelpers.text('test message'),
   ])
 })
 
@@ -69,7 +70,7 @@ test('renderCallStack', () => {
       ariaLevel: 2,
       childCount: 1,
     },
-    'test stack',
+    VirtualDomHelpers.text('test stack'),
   ])
 })
 
@@ -93,7 +94,7 @@ test('renderScope', () => {
       ariaExpanded: true,
       ariaLevel: 2,
       childCount: 2,
-      onPointerDown: expect.any(Function),
+      onPointerDown: 'handleClickScopeValue',
     },
     expect.any(Object),
     {
@@ -101,7 +102,7 @@ test('renderScope', () => {
       className: 'DebugValue DebugValueScopeName',
       childCount: 1,
     },
-    'testScope',
+    VirtualDomHelpers.text('testScope'),
   ])
 })
 
@@ -125,7 +126,7 @@ test('renderValue', () => {
       ariaExpanded: false,
       ariaLevel: 3,
       paddingLeft: 10,
-      onPointerDown: expect.any(Function),
+      onPointerDown: 'handleClickScopeValue',
       childCount: 3,
     },
     {
@@ -133,13 +134,13 @@ test('renderValue', () => {
       className: 'DebugValue DebugPropertyKey',
       childCount: 1,
     },
-    'testKey',
+    VirtualDomHelpers.text('testKey'),
     expect.any(Object),
     {
       type: VirtualDomElements.Span,
       className: 'DebugValue DebugValueString',
       childCount: 1,
     },
-    'testValue',
+    VirtualDomHelpers.text('testValue'),
   ])
 })
