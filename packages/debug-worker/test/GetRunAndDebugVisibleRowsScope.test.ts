@@ -64,6 +64,7 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
         variables: [],
         key: '1',
         objectId: '1',
+
         valueType: 'object',
       },
     ],
