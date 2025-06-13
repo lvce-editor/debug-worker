@@ -14,7 +14,7 @@ test('initializEditorWorker - success', async () => {
   await initializEditorWorker()
   expect(mockInvokeRendererWorker).toHaveBeenCalledTimes(1)
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith(
-    'SendMessagePortToEditorWorker.sendMessagePortToEditorWorker',
+    'SendMessagePortToExtensionHostWorker.sendMessagePortToEditorWorker',
     expect.anything(),
     'HandleMessagePort.handleMessagePort',
     55,
