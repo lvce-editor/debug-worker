@@ -56,11 +56,15 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
   const state = {
     ...createDefaultState(),
     scopeExpanded: true,
+    expandedIds: ['1'],
     scopeChain: [
       {
-        type: 'local',
+        type: 'Scope',
         name: 'Local',
         variables: [],
+        key: '1',
+        objectId: '1',
+        valueType: 'object',
       },
     ],
   }
@@ -75,5 +79,14 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     valueType: '',
     name: DebugRowName.Scope,
   })
-  expect(rows.length).toBeGreaterThan(1)
+  expect(rows[1]).toEqual({
+    type: DebugRowType.Scope,
+    text: '',
+    expanded: true,
+    key: '1',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+  })
 })
