@@ -6,7 +6,7 @@ import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
-const setupMocks = async (invokeImpl: (method: string) => Promise<any>) => {
+const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise<void> => {
   const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: invokeImpl,
