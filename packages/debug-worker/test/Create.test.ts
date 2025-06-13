@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
 import { create } from '../src/parts/Create/Create.ts'
-import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
-import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as DebugPausedReason from '../src/parts/DebugPausedReason/DebugPausedReason.ts'
-import * as PauseOnExceptionState from '../src/parts/PauseOnExceptionState/PauseOnExceptionState.ts'
+import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
+import * as PauseOnExceptionState from '../src/parts/PauseOnExceptionState/PauseOnExceptionState.ts'
+import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
 
 test('create sets state with correct parameters', () => {
   create(1, 'file:///test.ts', 100, 200, 800, 600)
