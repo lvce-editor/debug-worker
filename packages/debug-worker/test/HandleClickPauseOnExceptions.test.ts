@@ -4,9 +4,10 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { MockRpc } from '@lvce-editor/rpc'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import * as ExtensionHostWorker from '../src/parts/ExtensionHostWorker/ExtensionHostWorker.ts'
 
 test('handleClickPauseOnExceptions toggles from None to All', async () => {
-  const mockRpc = MockRpc.create({
+  const mockRendererWorker = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
@@ -18,7 +19,15 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RendererWorker.set(mockRpc)
+  RendererWorker.set(mockRendererWorker)
+
+  const mockExtensionHostWorker = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      return Promise.resolve()
+    },
+  })
+  ExtensionHostWorker.set(mockExtensionHostWorker)
 
   const state = createDefaultState()
   const newState = await handleClickPauseOnExceptions(state)
@@ -26,7 +35,7 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
 })
 
 test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
-  const mockRpc = MockRpc.create({
+  const mockRendererWorker = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
@@ -38,7 +47,15 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RendererWorker.set(mockRpc)
+  RendererWorker.set(mockRendererWorker)
+
+  const mockExtensionHostWorker = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      return Promise.resolve()
+    },
+  })
+  ExtensionHostWorker.set(mockExtensionHostWorker)
 
   const state = {
     ...createDefaultState(),
@@ -49,7 +66,7 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
 })
 
 test('handleClickPauseOnExceptions toggles from All to None', async () => {
-  const mockRpc = MockRpc.create({
+  const mockRendererWorker = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
@@ -61,7 +78,15 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RendererWorker.set(mockRpc)
+  RendererWorker.set(mockRendererWorker)
+
+  const mockExtensionHostWorker = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      return Promise.resolve()
+    },
+  })
+  ExtensionHostWorker.set(mockExtensionHostWorker)
 
   const state = {
     ...createDefaultState(),
