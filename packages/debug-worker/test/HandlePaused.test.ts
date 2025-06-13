@@ -7,7 +7,7 @@ import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
 
 const setupMocks = async (invokeImpl: (method: string) => Promise<any>) => {
-  const mockRpc = await MockRpc.create({
+  const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: invokeImpl,
   })
