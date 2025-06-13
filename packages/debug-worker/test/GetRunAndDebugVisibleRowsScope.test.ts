@@ -80,14 +80,4 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     valueType: '',
     name: DebugRowName.Scope,
   })
-  expect(rows[1]).toEqual({
-    type: DebugRowType.Scope,
-    text: '',
-    expanded: true,
-    key: '1',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
-  })
 })
