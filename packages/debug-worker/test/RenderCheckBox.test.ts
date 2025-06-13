@@ -42,7 +42,8 @@ test('renderCheckBox', () => {
     childCount: 1,
   })
   expect(result[3]).toEqual({
-    type: 'text',
+    type: 12,
     text: 'test',
+    childCount: 0,
   })
 })
