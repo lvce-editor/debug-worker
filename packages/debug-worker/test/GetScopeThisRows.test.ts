@@ -1,6 +1,6 @@
 import { test, expect } from '@jest/globals'
-import { getScopeThisRows } from '../src/parts/ScopeRenderers/GetScopeThisRows.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
+import { getScopeThisRows } from '../src/parts/ScopeRenderers/GetScopeThisRows.ts'
 
 test('getScopeThisRows', () => {
   const scope = {

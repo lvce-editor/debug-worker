@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { getScopeScopeRows } from '../src/parts/ScopeRenderers/GetScopeScopeRows.ts'
-import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugItemFlags from '../src/parts/DebugItemFlags/DebugItemFlags.ts'
+import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
+import { getScopeScopeRows } from '../src/parts/ScopeRenderers/GetScopeScopeRows.ts'
 
 test('getScopeScopeRows', () => {
   const scope = {
