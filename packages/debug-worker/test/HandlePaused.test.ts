@@ -12,6 +12,9 @@ test('handlePaused updates state correctly', async () => {
       if (method === 'Debug.getProperties') {
         return Promise.resolve([])
       }
+      if (method === 'ExtensionHostManagement.activateByEvent') {
+        return Promise.resolve()
+      }
       throw new Error(`unexpected method ${method}`)
     },
   })
@@ -48,6 +51,9 @@ test('togglePause switches between pause and resume', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debug.pause' || method === 'Debug.resume') {
+        return Promise.resolve()
+      }
+      if (method === 'ExtensionHostManagement.activateByEvent') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
