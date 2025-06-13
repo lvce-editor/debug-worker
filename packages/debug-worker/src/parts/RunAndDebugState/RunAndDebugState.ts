@@ -1,3 +1,4 @@
+import type { CallStackItem } from '../CallStackItem/CallStackItem.ts'
 import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
 
 export interface RunAndDebugState {
@@ -10,7 +11,7 @@ export interface RunAndDebugState {
   readonly scopeExpanded: boolean
   readonly callStackExpanded: boolean
   readonly scopeChain: readonly any[]
-  readonly callStack: readonly any[]
+  readonly callStack: readonly CallStackItem[]
   readonly parsedScripts: ParsedScriptMap
   readonly pausedReason: string
   readonly pausedMessage: string
