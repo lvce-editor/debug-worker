@@ -9,8 +9,8 @@ import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/Excepti
 test('create sets state with correct parameters', () => {
   create(1, 'file:///test.ts', 100, 200, 800, 600)
 
-  const state = RunAndDebugStates.get(1)
-  expect(state).toEqual({
+  const { newState } = RunAndDebugStates.get(1)
+  expect(newState).toEqual({
     id: 1,
     disposed: false,
     processes: [],
