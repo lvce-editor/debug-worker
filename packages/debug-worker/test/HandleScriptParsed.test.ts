@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { handleScriptParsed } from '../src/parts/HandleScriptParsed/HandleScriptParsed.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { handleScriptParsed } from '../src/parts/HandleScriptParsed/HandleScriptParsed.ts'
 
 test('handleScriptParsed adds parsed script to state', () => {
   const state = createDefaultState()
