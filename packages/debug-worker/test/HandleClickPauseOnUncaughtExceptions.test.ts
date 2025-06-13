@@ -18,7 +18,7 @@ const setupRendererAndExtensionHost = async (): Promise<void> => {
   })
   RendererWorker.set(mockRendererWorker)
 
-  const mockExtensionHost = await MockRpc.create({
+  const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.setPauseOnExceptions') {
