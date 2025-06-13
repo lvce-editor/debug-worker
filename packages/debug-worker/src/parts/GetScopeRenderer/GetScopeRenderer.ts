@@ -1,5 +1,9 @@
 import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType.ts'
-import { getNoopRows, getScopeExceptionRows, getScopePropertyRows, getScopeScopeRows, getScopeThisRows } from '../ScopeRenderers/ScopeRenderers.ts'
+import { getNoopRows } from '../ScopeRenderers/GetNoopRows.ts'
+import { getScopeExceptionRows } from '../ScopeRenderers/GetScopeExceptionRows.ts'
+import { getScopePropertyRows } from '../ScopeRenderers/GetScopePropertyRows.ts'
+import { getScopeScopeRows } from '../ScopeRenderers/GetScopeScopeRows.ts'
+import { getScopeThisRows } from '../ScopeRenderers/GetScopeThisRows.ts'
 
 export const getScopeRenderer = (type: any): any => {
   switch (type) {
