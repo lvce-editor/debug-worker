@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
 import { openUri } from '../src/parts/OpenUri/OpenUri.ts'
 import { MockRpc } from '@lvce-editor/rpc'
-import * as RpcRegistry from '@lvce-editor/rpc-registry'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 import { RpcId } from '@lvce-editor/rpc-registry'
 
 test('openUri calls Main.openUri with correct parameters', async () => {
@@ -23,7 +23,7 @@ test('openUri calls Main.openUri with correct parameters', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  RendererWorker.set(mockRpc)
 
   await openUri('file:///test.ts', 'typescript', 1, 2)
 })
