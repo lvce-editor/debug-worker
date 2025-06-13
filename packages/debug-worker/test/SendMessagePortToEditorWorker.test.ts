@@ -1,5 +1,4 @@
 import { test } from '@jest/globals'
-import { MockRpc } from '@lvce-editor/rpc'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 import { sendMessagePortToEditorWorker } from '../src/parts/SendMessagePortToEditorWorker/SendMessagePortToEditorWorker.ts'
 
