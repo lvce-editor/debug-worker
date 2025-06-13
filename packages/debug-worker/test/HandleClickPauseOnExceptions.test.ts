@@ -3,8 +3,7 @@ import { handleClickPauseOnExceptions } from '../src/parts/HandleClickPauseOnExc
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { MockRpc } from '@lvce-editor/rpc'
-import * as RpcRegistry from '@lvce-editor/rpc-registry'
-import { RpcId } from '@lvce-editor/rpc-registry'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('handleClickPauseOnExceptions toggles from None to All', async () => {
   const mockRpc = MockRpc.create({
@@ -19,7 +18,7 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  RendererWorker.set(mockRpc)
 
   const state = createDefaultState()
   const newState = await handleClickPauseOnExceptions(state)
@@ -39,7 +38,7 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  RendererWorker.set(mockRpc)
 
   const state = {
     ...createDefaultState(),
@@ -62,7 +61,7 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  RendererWorker.set(mockRpc)
 
   const state = {
     ...createDefaultState(),
