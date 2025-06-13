@@ -19,6 +19,7 @@ test('getScopeScopeRows', () => {
       indent: 0,
       valueType: '',
       name: '',
+      description: '',
     },
   ])
 })

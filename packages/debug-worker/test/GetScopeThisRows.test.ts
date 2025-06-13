@@ -20,6 +20,7 @@ test('getScopeThisRows', () => {
       indent: 1,
       valueType: 'string',
       name: '',
+      description: '',
     },
   ])
 })

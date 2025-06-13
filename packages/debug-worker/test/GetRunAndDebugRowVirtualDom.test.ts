@@ -12,6 +12,7 @@ test('getRunAndDebugRowVirtualDom - returns virtual dom for row', () => {
     text: '',
     value: '0',
     valueType: '',
+    description: '',
   }
 
   const result = getRunAndDebugRowVirtualDom(row)

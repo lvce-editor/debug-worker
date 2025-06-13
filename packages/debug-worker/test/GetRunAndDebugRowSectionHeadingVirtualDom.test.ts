@@ -13,6 +13,7 @@ test('renderSectionHeading - expanded', () => {
     indent: 0,
     valueType: 'string',
     name: 'test-name',
+    description: '',
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row)
   expect(result[0]).toEqual({
@@ -42,6 +43,7 @@ test('renderSectionHeading - collapsed', () => {
     indent: 0,
     valueType: 'string',
     name: 'test-name',
+    description: '',
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row)
   expect(result[0]).toEqual({

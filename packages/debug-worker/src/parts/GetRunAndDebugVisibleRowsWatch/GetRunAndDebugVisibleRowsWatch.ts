@@ -17,6 +17,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       indent: 0,
       valueType: '',
       name: DebugRowName.Watch, // TODO i18n
+      description: '',
     },
   ]
 }

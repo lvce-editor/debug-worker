@@ -20,6 +20,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       indent: 0,
       valueType: '',
       name: DebugRowName.Scope,
+      description: '',
     })
     if (scopeChain.length === 0) {
       rows.push({
@@ -31,6 +32,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
         indent: 0,
         valueType: '',
         name: '',
+        description: '',
       })
     } else {
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
@@ -49,6 +51,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       indent: 0,
       valueType: '',
       name: DebugRowName.Scope,
+      description: '',
     })
   }
   return rows

@@ -16,6 +16,7 @@ test('renderCheckBox', () => {
     indent: 0,
     valueType: 'string',
     name: 'test-name',
+    description: '',
   }
   const result = renderCheckBox(row)
   expect(result).toHaveLength(4)
