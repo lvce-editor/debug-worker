@@ -1,28 +1,15 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
-import * as Assert from '../Assert/Assert.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
 import * as Focus from '../Focus/Focus.ts'
-import * as GetCallStack from '../GetCallStack/GetCallStack.ts'
 import * as GetChildScopeChain from '../GetChildScopeChain/GetChildScopeChain.ts'
-import * as GetDebugPausedMessage from '../GetDebugPausedMessage/GetDebugPausedMessage.ts'
-import * as GetScopeChain from '../GetScopeChain/GetScopeChain.ts'
+import { getPausedInfo } from '../GetPausedInfo/GetPausedInfo.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
   const { debugId } = state
-  const callStack = GetCallStack.getCallStack(params.callFrames)
-  const objectId = params.callFrames[0].scopeChain[0].object.objectId
-  const callFrameId = params.callFrames[0].callFrameId
-  const properties = await Debug.getProperties(debugId, objectId)
-  const thisObject = params.callFrames[0].this
-  Assert.object(thisObject)
-  const scopeChain = GetScopeChain.getScopeChain(params, thisObject, params.callFrames[0].scopeChain, {
-    [objectId]: properties,
-  })
-  const pausedReason = params.reason
-  const pausedMessage = GetDebugPausedMessage.getDebugPausedMessage(params.reason)
+  const { scopeChain, callFrameId, pausedReason, pausedMessage, callStack, expandedIds } = await getPausedInfo(debugId, params)
   return {
     ...state,
     debugState: DebugState.Paused,
@@ -32,7 +19,7 @@ export const handlePaused = async (state: RunAndDebugState, params: any): Promis
     pausedReason,
     pausedMessage,
     callFrameId,
-    expandedIds: [objectId],
+    expandedIds,
   }
 }
 
