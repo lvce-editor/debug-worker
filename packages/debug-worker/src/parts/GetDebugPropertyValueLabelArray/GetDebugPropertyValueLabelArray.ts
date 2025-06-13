@@ -1,7 +1,7 @@
 const RE_ARRAY_DESCRIPTION = /\((\d+)\)/
 
 const parseLength = (description: string): string => {
-  const match = description.match(RE_ARRAY_DESCRIPTION)
+  const match = RE_ARRAY_DESCRIPTION.exec(description)
   if (match) {
     return match[1]
   }
