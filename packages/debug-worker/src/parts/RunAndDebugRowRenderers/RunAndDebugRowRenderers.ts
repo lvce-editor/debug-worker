@@ -37,7 +37,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
   return [
     {
       type: VirtualDomElements.Div,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCallStack'),
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, ClassNames.DebugRowCallStack),
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
@@ -67,7 +67,7 @@ export const renderScope = (row: DebugRow): readonly VirtualDomNode[] => {
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     {
       type: VirtualDomElements.Span,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, 'DebugValueScopeName'),
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugValueScopeName),
       childCount: 1,
     },
     VirtualDomHelpers.text(key),
@@ -98,7 +98,7 @@ export const renderValue = (row: DebugRow): readonly VirtualDomNode[] => {
     separator,
     {
       type: VirtualDomElements.Span,
-      className: 'DebugValue ' + className,
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, className),
       childCount: 1,
     },
     VirtualDomHelpers.text(value),
