@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getHighlight } from '../src/parts/GetHighlight/GetHighlight.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('returns empty highlight when state does not exist', () => {
   const highlight = getHighlight(1)
