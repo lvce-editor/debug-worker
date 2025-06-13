@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getHighlight } from '../src/parts/GetHighlight/GetHighlight.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
@@ -23,8 +24,8 @@ test('returns empty highlight when call stack is empty', () => {
 })
 
 test('returns highlight from top of call stack', () => {
-  const state = createDefaultState(1)
-  const newState = {
+  const state: RunAndDebugState = createDefaultState(1)
+  const newState: RunAndDebugState = {
     ...state,
     callStack: [
       {
@@ -33,7 +34,7 @@ test('returns highlight from top of call stack', () => {
           lineNumber: 10,
           columnNumber: 5,
         },
-      },
+      } as any,
     ],
     parsedScripts: {
       script1: {
