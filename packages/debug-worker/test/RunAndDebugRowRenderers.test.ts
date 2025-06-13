@@ -4,17 +4,18 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
+import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 
 test('renderNoop', () => {
   const row: DebugRow = {
-    type: 'noop',
+    type: 0,
     text: 'test',
   }
   const result = RunAndDebugRowRenderers.renderNoop(row)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
-      childCount: 1 as const,
+      childCount: 1,
     },
     'unknown row type',
   ])
@@ -22,7 +23,7 @@ test('renderNoop', () => {
 
 test('renderMessage', () => {
   const row: DebugRow = {
-    type: 'message',
+    type: DebugRowType.Message,
     text: 'test message',
   }
   const result = RunAndDebugRowRenderers.renderMessage(row)
@@ -30,7 +31,7 @@ test('renderMessage', () => {
     {
       type: VirtualDomElements.Div,
       className: ClassNames.DebugPausedMessage,
-      childCount: 1 as const,
+      childCount: 1,
     },
     'test message',
   ])
@@ -38,7 +39,7 @@ test('renderMessage', () => {
 
 test('renderCallStack', () => {
   const row: DebugRow = {
-    type: 'callStack',
+    type: DebugRowType.CallStack,
     text: 'test stack',
   }
   const result = RunAndDebugRowRenderers.renderCallStack(row)
@@ -48,7 +49,7 @@ test('renderCallStack', () => {
       className: 'DebugRow DebugRowCallStack',
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
-      childCount: 1 as const,
+      childCount: 1,
     },
     'test stack',
   ])
@@ -56,7 +57,7 @@ test('renderCallStack', () => {
 
 test('renderScope', () => {
   const row: DebugRow = {
-    type: 'scope',
+    type: DebugRowType.Scope,
     key: 'testScope',
     expanded: true,
   }
@@ -68,14 +69,14 @@ test('renderScope', () => {
       role: AriaRoles.TreeItem,
       ariaExpanded: true,
       ariaLevel: 2,
-      childCount: 2 as const,
+      childCount: 2,
       onPointerDown: expect.any(Function),
     },
     expect.any(Object),
     {
       type: VirtualDomElements.Span,
       className: 'DebugValue DebugValueScopeName',
-      childCount: 1 as const,
+      childCount: 1,
     },
     'testScope',
   ])
@@ -83,7 +84,7 @@ test('renderScope', () => {
 
 test('renderValue', () => {
   const row: DebugRow = {
-    type: 'value',
+    type: DebugRowType.Value,
     indent: 10,
     key: 'testKey',
     value: 'testValue',
@@ -100,19 +101,19 @@ test('renderValue', () => {
       ariaLevel: 3,
       paddingLeft: 10,
       onPointerDown: expect.any(Function),
-      childCount: 3 as const,
+      childCount: 3,
     },
     {
       type: VirtualDomElements.Span,
       className: 'DebugValue DebugPropertyKey',
-      childCount: 1 as const,
+      childCount: 1,
     },
     'testKey',
     expect.any(Object),
     {
       type: VirtualDomElements.Span,
       className: 'DebugValue DebugValueString',
-      childCount: 1 as const,
+      childCount: 1,
     },
     'testValue',
   ])
