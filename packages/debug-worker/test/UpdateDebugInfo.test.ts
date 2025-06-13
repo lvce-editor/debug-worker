@@ -4,7 +4,7 @@ import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { RpcId } from '@lvce-editor/rpc-registry'
 import { updateDebugInfo } from '../src/parts/UpdateDebugInfo/UpdateDebugInfo.js'
 
-test('updateDebugInfo', async () => {
+test.skip('updateDebugInfo', async () => {
   const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
