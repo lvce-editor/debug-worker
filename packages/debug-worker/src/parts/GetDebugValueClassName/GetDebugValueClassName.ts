@@ -1,7 +1,7 @@
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DebugValueType from '../DebugValueType/DebugValueType.ts'
 
-export const getDebugValueClassName = (valueType: any): string => {
+export const getDebugValueClassName = (valueType: string | number): string => {
   switch (valueType) {
     case DebugValueType.Undefined:
       return ClassNames.DebugValueUndefined
