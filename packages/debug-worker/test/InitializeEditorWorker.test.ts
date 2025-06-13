@@ -13,7 +13,7 @@ test('initializEditorWorker - success', async () => {
   })
   RendererWorker.set(mockRpc)
   await initializeEditorWorker()
-  EditorWorker.dispose()
+  await EditorWorker.dispose()
   expect(mockInvokeRendererWorker).toHaveBeenCalledTimes(1)
   expect(mockInvokeRendererWorker).toHaveBeenCalledWith(
     'SendMessagePortToExtensionHostWorker.sendMessagePortToEditorWorker',
