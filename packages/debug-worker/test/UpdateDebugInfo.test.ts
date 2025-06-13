@@ -5,7 +5,7 @@ import { RpcId } from '@lvce-editor/rpc-registry'
 import { updateDebugInfo } from '../src/parts/UpdateDebugInfo/UpdateDebugInfo.js'
 
 test('updateDebugInfo', async () => {
-  const mockRpc = await MockRpc.create({
+  const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Editor.updateDebugInfo') {
