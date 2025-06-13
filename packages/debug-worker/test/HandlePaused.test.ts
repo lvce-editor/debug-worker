@@ -16,7 +16,7 @@ const setupMocks = async (invokeImpl: (method: string) => Promise<any>) => {
 }
 
 test('handlePaused updates state correctly', async () => {
-  await setupMocks((method: string) => {
+  await setupMocks((method: string): Promise<any> => {
     if (method === 'ExtensionHostDebug.getProperties') {
       return Promise.resolve({
         result: {
