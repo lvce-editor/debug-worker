@@ -4,7 +4,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { MockRpc } from '@lvce-editor/rpc'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
-import * as ExtensionHostWorker from '../src/parts/ExtensionHostWorker/ExtensionHostWorker.ts'
+import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 
 test('handleClickPauseOnExceptions toggles from None to All', async () => {
   const mockRendererWorker = MockRpc.create({
@@ -21,13 +21,13 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
   })
   RendererWorker.set(mockRendererWorker)
 
-  const mockExtensionHostWorker = MockRpc.create({
+  const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       return Promise.resolve()
     },
   })
-  ExtensionHostWorker.set(mockExtensionHostWorker)
+  ExtensionHost.set(mockExtensionHost)
 
   const state = createDefaultState()
   const newState = await handleClickPauseOnExceptions(state)
@@ -49,13 +49,13 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
   })
   RendererWorker.set(mockRendererWorker)
 
-  const mockExtensionHostWorker = MockRpc.create({
+  const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       return Promise.resolve()
     },
   })
-  ExtensionHostWorker.set(mockExtensionHostWorker)
+  ExtensionHost.set(mockExtensionHost)
 
   const state = {
     ...createDefaultState(),
@@ -80,14 +80,13 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
   })
   RendererWorker.set(mockRendererWorker)
 
-  const mockExtensionHostWorker = MockRpc.create({
+  const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       return Promise.resolve()
     },
   })
-  ExtensionHostWorker.set(mockExtensionHostWorker)
-
+  ExtensionHost.set(mockExtensionHost)
   const state = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.All,
