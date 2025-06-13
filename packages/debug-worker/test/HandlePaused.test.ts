@@ -18,7 +18,16 @@ const setupMocks = async (invokeImpl: (method: string) => Promise<any>) => {
 test('handlePaused updates state correctly', async () => {
   await setupMocks((method: string) => {
     if (method === 'ExtensionHostDebug.getProperties') {
-      return Promise.resolve([])
+      return Promise.resolve({
+        result: {
+          result: [
+            {
+              name: 'test',
+              value: { type: 'string', value: 'test-value' },
+            },
+          ],
+        },
+      })
     }
     if (method === 'ExtensionHostManagement.activateByEvent') {
       return Promise.resolve()
@@ -28,6 +37,15 @@ test('handlePaused updates state correctly', async () => {
     }
     if (method === 'Run And Debug.handlePaused') {
       return Promise.resolve()
+    }
+    if (method === 'ExtensionHostDebug.evaluate') {
+      return Promise.resolve({
+        result: {
+          result: {
+            value: 42,
+          },
+        },
+      })
     }
     return Promise.resolve()
   })
@@ -71,6 +89,15 @@ test('togglePause switches between pause and resume', async () => {
     }
     if (method === 'Run And Debug.handlePaused') {
       return Promise.resolve()
+    }
+    if (method === 'ExtensionHostDebug.evaluate') {
+      return Promise.resolve({
+        result: {
+          result: {
+            value: 42,
+          },
+        },
+      })
     }
     return Promise.resolve()
   })
