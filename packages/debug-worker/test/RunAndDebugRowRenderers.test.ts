@@ -71,9 +71,14 @@ test('renderCallStack', () => {
       className: 'DebugRow DebugRowCallStack',
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
-      childCount: 1,
+      childCount: 2,
     },
     VirtualDomHelpers.text('test stack'),
+    {
+      className: 'CallStackDescription',
+      type: 4,
+    },
+    VirtualDomHelpers.text(''),
   ])
 })
 

@@ -33,16 +33,21 @@ export const renderMessage = (row: DebugRow): readonly VirtualDomNode[] => {
 }
 
 export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
-  const { text } = row
+  const { text, description } = row
   return [
     {
       type: VirtualDomElements.Div,
       className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, 'DebugRowCallStack'),
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
-      childCount: 1,
+      childCount: 2,
     },
     VirtualDomHelpers.text(text),
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.CallStackDescription,
+    },
+    VirtualDomHelpers.text(description),
   ]
 }
 
