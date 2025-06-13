@@ -4,9 +4,10 @@ import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
+import { formatLocation } from '../FormatLocation/FormatLocation.ts'
 
 export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
-  const { callStack, callStackExpanded } = state
+  const { callStack, callStackExpanded, parsedScripts } = state
   const rows: DebugRow[] = []
   if (callStackExpanded) {
     rows.push({
@@ -34,6 +35,9 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       })
     } else {
       for (const item of callStack) {
+        const { scriptId, lineNumber, columnNumber } = item.functionLocation
+        const script = parsedScripts[scriptId]
+        const description = formatLocation(script.url, lineNumber, columnNumber)
         rows.push({
           type: DebugRowType.CallStack,
           text: item.functionName,
@@ -43,7 +47,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           indent: 0,
           valueType: '',
           name: '',
-          description: '',
+          description,
         })
       }
     }
