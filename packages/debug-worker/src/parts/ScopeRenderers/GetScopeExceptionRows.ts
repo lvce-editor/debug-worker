@@ -19,6 +19,7 @@ export const getScopeExceptionRows = (scope: Scope): readonly DebugRow[] => {
       indent,
       valueType: '',
       name: '',
+      description: '',
     },
   ]
 }

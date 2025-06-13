@@ -17,6 +17,7 @@ test('renderNoop', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   }
   const result = RunAndDebugRowRenderers.renderNoop(row)
   expect(result).toEqual([
@@ -38,6 +39,7 @@ test('renderMessage', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   }
   const result = RunAndDebugRowRenderers.renderMessage(row)
   expect(result).toEqual([
@@ -60,6 +62,7 @@ test('renderCallStack', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   }
   const result = RunAndDebugRowRenderers.renderCallStack(row)
   expect(result).toEqual([
@@ -84,6 +87,7 @@ test('renderScope', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   }
   const result = RunAndDebugRowRenderers.renderScope(row)
   expect(result).toEqual([
@@ -116,6 +120,7 @@ test('renderValue', () => {
     expanded: false,
     text: '',
     name: '',
+    description: '',
   }
   const result = RunAndDebugRowRenderers.renderValue(row)
   expect(result).toEqual([

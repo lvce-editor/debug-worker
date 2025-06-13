@@ -20,6 +20,7 @@ export const getScopeThisRows = (scope: Scope): readonly DebugRow[] => {
       indent,
       valueType,
       name: '',
+      description: '',
     },
   ]
 }

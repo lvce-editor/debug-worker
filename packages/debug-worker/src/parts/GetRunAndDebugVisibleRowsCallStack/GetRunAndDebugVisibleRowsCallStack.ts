@@ -18,6 +18,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       indent: 0,
       valueType: '',
       name: DebugRowName.CallStack,
+      description: '',
     })
     if (callStack.length === 0) {
       rows.push({
@@ -29,6 +30,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
         indent: 0,
         valueType: '',
         name: '',
+        description: '',
       })
     } else {
       for (const item of callStack) {
@@ -41,6 +43,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           indent: 0,
           valueType: '',
           name: '',
+          description: '',
         })
       }
     }
@@ -54,6 +57,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       indent: 0,
       valueType: '',
       name: DebugRowName.CallStack,
+      description: '',
     })
   }
   return rows

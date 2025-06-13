@@ -10,6 +10,7 @@ import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
   const { debugId } = state
   const { scopeChain, callFrameId, pausedReason, pausedMessage, callStack, expandedIds } = await getPausedInfo(debugId, params)
+  console.log({ callStack })
   return {
     ...state,
     debugState: DebugState.Paused,
