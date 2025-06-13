@@ -46,6 +46,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
     {
       type: VirtualDomElements.Div,
       className: ClassNames.CallStackDescription,
+      childCount: 1,
     },
     VirtualDomHelpers.text(description),
   ]

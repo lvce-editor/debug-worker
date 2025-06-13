@@ -77,6 +77,7 @@ test('renderCallStack', () => {
     {
       className: 'CallStackDescription',
       type: 4,
+      childCount: 1,
     },
     VirtualDomHelpers.text(''),
   ])
