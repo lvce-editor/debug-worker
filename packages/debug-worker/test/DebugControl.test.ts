@@ -8,8 +8,8 @@ import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 test('resume calls ExtensionHost with correct parameters', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -19,89 +19,8 @@ test('resume calls ExtensionHost with correct parameters', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.resume') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionRpc)
-
-  const state = createDefaultState()
-  await resume(state)
-})
-
-test('pause calls ExtensionHost with correct parameters', async () => {
-  const mockRendererRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  RendererWorker.set(mockRendererRpc)
-
-  const mockExtensionRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.pause') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionRpc)
-
-  const state = createDefaultState()
-  await pause(state)
-})
-
-test('togglePause calls pause when in Default state', async () => {
-  const mockRendererRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  RendererWorker.set(mockRendererRpc)
-
-  const mockExtensionRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.pause') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionRpc)
-
-  const state = createDefaultState()
-  await togglePause(state)
-})
-
-test('togglePause calls resume when in Paused state', async () => {
-  const mockRendererRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  RendererWorker.set(mockRendererRpc)
-
-  const mockExtensionRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.resume') {
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.resume' && debugId === '1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -111,6 +30,97 @@ test('togglePause calls resume when in Paused state', async () => {
 
   const state = {
     ...createDefaultState(),
+    debugId: '1',
+  }
+  await resume(state)
+})
+
+test('pause calls ExtensionHost with correct parameters', async () => {
+  const mockRendererRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RendererWorker.set(mockRendererRpc)
+
+  const mockExtensionRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.pause' && debugId === '1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  ExtensionHost.set(mockExtensionRpc)
+
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
+  await pause(state)
+})
+
+test('togglePause calls pause when in Default state', async () => {
+  const mockRendererRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RendererWorker.set(mockRendererRpc)
+
+  const mockExtensionRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.pause' && debugId === '1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  ExtensionHost.set(mockExtensionRpc)
+
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
+  await togglePause(state)
+})
+
+test('togglePause calls resume when in Paused state', async () => {
+  const mockRendererRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RendererWorker.set(mockRendererRpc)
+
+  const mockExtensionRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.resume' && debugId === '1') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  ExtensionHost.set(mockExtensionRpc)
+
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
     debugState: DebugState.Paused,
   }
   await togglePause(state)
@@ -119,8 +129,8 @@ test('togglePause calls resume when in Paused state', async () => {
 test('stepOver calls ExtensionHost with correct parameters', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -130,8 +140,8 @@ test('stepOver calls ExtensionHost with correct parameters', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepOver') {
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.stepOver' && debugId === '1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -139,15 +149,18 @@ test('stepOver calls ExtensionHost with correct parameters', async () => {
   })
   ExtensionHost.set(mockExtensionRpc)
 
-  const state = createDefaultState()
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
   await stepOver(state)
 })
 
 test('stepInto calls ExtensionHost with correct parameters', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -157,8 +170,8 @@ test('stepInto calls ExtensionHost with correct parameters', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepInto') {
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.stepInto' && debugId === '1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -166,15 +179,18 @@ test('stepInto calls ExtensionHost with correct parameters', async () => {
   })
   ExtensionHost.set(mockExtensionRpc)
 
-  const state = createDefaultState()
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
   await stepInto(state)
 })
 
 test('stepOut calls ExtensionHost with correct parameters', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -184,8 +200,8 @@ test('stepOut calls ExtensionHost with correct parameters', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepOut') {
+    invoke: (method: string, debugId: string) => {
+      if (method === 'ExtensionHostDebug.stepOut' && debugId === '1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -193,6 +209,9 @@ test('stepOut calls ExtensionHost with correct parameters', async () => {
   })
   ExtensionHost.set(mockExtensionRpc)
 
-  const state = createDefaultState()
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
   await stepOut(state)
 })

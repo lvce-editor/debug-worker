@@ -13,8 +13,8 @@ test('handleDebugInput updates debugInputValue', async () => {
 test('handleEvaluate evaluates expression and updates state', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -24,8 +24,8 @@ test('handleEvaluate evaluates expression and updates state', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.evaluate') {
+    invoke: (method: string, debugId: string, expression: string, callFrameId: string) => {
+      if (method === 'ExtensionHostDebug.evaluate' && debugId === '1' && expression === 'test' && callFrameId === '1') {
         return Promise.resolve({
           result: 'test',
           type: 'string',
@@ -38,7 +38,9 @@ test('handleEvaluate evaluates expression and updates state', async () => {
 
   const state = {
     ...createDefaultState(),
+    debugId: '1',
     debugInputValue: 'test',
+    callFrameId: '1',
   }
   const newState = await handleEvaluate(state)
   expect(newState.debugInputValue).toBe('')

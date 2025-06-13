@@ -8,8 +8,8 @@ import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 test('handlePaused updates state with debug information', async () => {
   const mockRendererRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
+    invoke: (method: string, event: string) => {
+      if (method === 'ExtensionHostManagement.activateByEvent' && event === 'onDebug:1') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
@@ -19,8 +19,8 @@ test('handlePaused updates state with debug information', async () => {
 
   const mockExtensionRpc = MockRpc.create({
     commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.getProperties') {
+    invoke: (method: string, debugId: string, objectId: string) => {
+      if (method === 'ExtensionHostDebug.getProperties' && debugId === '1' && objectId === '1') {
         return Promise.resolve([
           {
             name: 'test',
@@ -34,7 +34,10 @@ test('handlePaused updates state with debug information', async () => {
   })
   ExtensionHost.set(mockExtensionRpc)
 
-  const state = createDefaultState()
+  const state = {
+    ...createDefaultState(),
+    debugId: '1',
+  }
   const newState = await handlePaused(state, {
     callFrames: [
       {
