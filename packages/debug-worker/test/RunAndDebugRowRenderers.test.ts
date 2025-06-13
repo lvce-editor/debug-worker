@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
+import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
+import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
+import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as RunAndDebugRowRenderers from '../src/parts/RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
-import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
-import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
-import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
-import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 
 test('renderNoop', () => {
   const row: DebugRow = {
