@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
 
 test('handlePaused updates state correctly', async () => {
