@@ -36,8 +36,19 @@ test('handlePaused updates state with debug information', async () => {
 
   const state = createDefaultState()
   const newState = await handlePaused(state, {
-    callFrameId: '1',
-    debugId: '1',
+    callFrames: [
+      {
+        callFrameId: '1',
+        scopeChain: [
+          {
+            object: {
+              objectId: '1',
+            },
+          },
+        ],
+        this: {},
+      },
+    ],
     reason: 'test',
   })
   expect(newState.debugState).toBe(DebugState.Paused)
