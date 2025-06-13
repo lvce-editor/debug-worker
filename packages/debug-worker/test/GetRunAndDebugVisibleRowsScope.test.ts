@@ -19,6 +19,7 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
     indent: 0,
     valueType: '',
     name: DebugRowName.Scope,
+    description: '',
   })
 })
 
@@ -39,6 +40,7 @@ test('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpand
     indent: 0,
     valueType: '',
     name: DebugRowName.Scope,
+    description: '',
   })
   expect(rows[1]).toEqual({
     type: DebugRowType.Message,
@@ -49,6 +51,7 @@ test('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpand
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   })
 })
 
@@ -79,5 +82,6 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     indent: 0,
     valueType: '',
     name: DebugRowName.Scope,
+    description: '',
   })
 })

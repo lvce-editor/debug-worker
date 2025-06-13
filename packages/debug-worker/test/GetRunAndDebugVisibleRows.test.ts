@@ -18,6 +18,7 @@ test('should return watch section with default state', () => {
     indent: 0,
     valueType: '',
     name: 'Watch',
+    description: '',
   })
 })
 
@@ -33,6 +34,7 @@ test('should return breakpoints section with default state', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   })
 })
 
@@ -52,6 +54,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CheckBox,
@@ -62,6 +65,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     indent: 0,
     valueType: '',
     name: InputName.PauseOnExceptions,
+    description: '',
   })
 })
 
@@ -77,6 +81,7 @@ test('should return scope section with default state', () => {
     indent: 0,
     valueType: '',
     name: 'Scope',
+    description: '',
   })
 })
 
@@ -95,6 +100,7 @@ test('should return expanded scope section with not paused message', () => {
     indent: 0,
     valueType: '',
     name: 'Scope',
+    description: '',
   })
   expect(rows[3]).toEqual({
     type: DebugRowType.Message,
@@ -105,6 +111,7 @@ test('should return expanded scope section with not paused message', () => {
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   })
 })
 
@@ -120,6 +127,7 @@ test('should return call stack section with default state', () => {
     indent: 0,
     valueType: '',
     name: 'CallStack',
+    description: '',
   })
 })
 
@@ -138,6 +146,7 @@ test('should return expanded call stack section with not paused message', () => 
     indent: 0,
     valueType: '',
     name: 'CallStack',
+    description: '',
   })
   expect(rows[4]).toEqual({
     type: DebugRowType.Message,
@@ -148,5 +157,6 @@ test('should return expanded call stack section with not paused message', () => 
     indent: 0,
     valueType: '',
     name: '',
+    description: '',
   })
 })

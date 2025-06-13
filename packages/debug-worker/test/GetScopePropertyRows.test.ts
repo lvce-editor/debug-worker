@@ -22,6 +22,7 @@ test('getScopePropertyRows', () => {
       indent: 1,
       valueType: 'string',
       name: '',
+      description: '',
     },
   ])
 })

@@ -19,6 +19,7 @@ test('getScopeExceptionRows', () => {
       indent: 1,
       valueType: '',
       name: '',
+      description: '',
     },
   ])
 })
