@@ -4,13 +4,13 @@ import { sendMessagePortToEditorWorker } from '../src/parts/SendMessagePortToEdi
 
 test('sendMessagePortToEditorWorker sends port to editor worker', async () => {
   const mockRpc = {
-    invoke: (method: string) => {
+    invoke: (method: string): Promise<any> => {
       if (method === 'SendMessagePortToExtensionHostWorker.sendMessagePortToEditorWorker') {
         return Promise.resolve()
       }
       throw new Error(`unexpected method ${method}`)
     },
-    invokeAndTransfer: (method: string, port: unknown, command: string, rpcId: unknown) => {
+    invokeAndTransfer: (method: string, port: unknown, command: string, rpcId: unknown): Promise<any> => {
       if (method === 'SendMessagePortToExtensionHostWorker.sendMessagePortToEditorWorker') {
         return Promise.resolve()
       }
@@ -21,9 +21,9 @@ test('sendMessagePortToEditorWorker sends port to editor worker', async () => {
   RendererWorker.set(mockRpc)
 
   const mockPort = {
-    postMessage: () => {},
-    start: () => {},
-    close: () => {},
+    postMessage: (): void => {},
+    start: (): void => {},
+    close: (): void => {},
   } as unknown as MessagePort
 
   await sendMessagePortToEditorWorker(mockPort)
