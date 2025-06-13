@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
+import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
+import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import * as InputType from '../src/parts/InputType/InputType.ts'
 import { renderCheckBox } from '../src/parts/RenderCheckBox/RenderCheckBox.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
-import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
-import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
-import * as InputType from '../src/parts/InputType/InputType.ts'
-import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 
 test('renderCheckBox', () => {
   const row = {
