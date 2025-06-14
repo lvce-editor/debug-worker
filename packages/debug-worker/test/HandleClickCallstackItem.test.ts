@@ -45,6 +45,6 @@ test('handleClickCallstackItem', async () => {
     callStack,
     parsedScripts,
   }
-  const result = await handleClickCallstackItem(newState, 0)
+  const result = await handleClickCallstackItem(newState, '0')
   expect(result).toBe(newState)
 })
