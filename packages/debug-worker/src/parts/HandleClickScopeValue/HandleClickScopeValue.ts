@@ -14,6 +14,7 @@ const getElementIndex = (debugId: any, scopeChain: any, text: string): number =>
   return -1
 }
 
+// TODO pass index to function instead of text
 export const handleClickScopeValue = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
   const { scopeChain, debugId, expandedIds } = state
   Focus.setFocus(WhenExpression.FocusDebugScope)
