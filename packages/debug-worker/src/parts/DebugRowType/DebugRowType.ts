@@ -6,3 +6,4 @@ export const Property = 5
 export const Message = 6
 export const CallStack = 7
 export const CheckBox = 8
+export const WatchMessage = 9

@@ -4,6 +4,7 @@ import { renderCallStack } from '../RenderCallStack/RenderCallStack.ts'
 import { renderCheckBox } from '../RenderCheckBox/RenderCheckBox.ts'
 import { renderScope } from '../RenderScope/RenderScope.ts'
 import { renderValue } from '../RenderValue/RenderValue.ts'
+import { renderWatchMessage } from '../RenderWatchMessage/RenderWatchMessage.ts'
 import { renderMessage, renderNoop } from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 
 export const getRowRenderer = (type: number): any => {
@@ -22,6 +23,8 @@ export const getRowRenderer = (type: number): any => {
       return renderValue
     case DebugRowType.CheckBox:
       return renderCheckBox
+    case DebugRowType.WatchMessage:
+      return renderWatchMessage
     default:
       return renderNoop
   }
