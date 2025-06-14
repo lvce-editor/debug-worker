@@ -6,6 +6,18 @@ import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const labelNode: VirtualDomNode = {
+  type: VirtualDomElements.Div,
+  className: ClassNames.CallStackLabel,
+  childCount: 1,
+}
+
+const descriptionNode: VirtualDomNode = {
+  type: VirtualDomElements.Div,
+  className: ClassNames.CallStackDescription,
+  childCount: 1,
+}
+
 export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
   const { text, description } = row
   return [
@@ -16,12 +28,9 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
       ariaLevel: 2,
       childCount: 2,
     },
+    labelNode,
     VirtualDomHelpers.text(text),
-    {
-      type: VirtualDomElements.Div,
-      className: ClassNames.CallStackDescription,
-      childCount: 1,
-    },
+    descriptionNode,
     VirtualDomHelpers.text(description),
   ]
 }
