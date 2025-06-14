@@ -1,10 +1,17 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { ParsedScript } from '../ParsedScript/ParsedScript.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { formatLocation } from '../FormatLocation/FormatLocation.ts'
+
+const unknownScript: ParsedScript = {
+  scriptId: '',
+  scriptLanguage: '',
+  url: 'unknown',
+}
 
 export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
   const { callStack, callStackExpanded, parsedScripts } = state
@@ -36,7 +43,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
     } else {
       for (const item of callStack) {
         const { scriptId, lineNumber, columnNumber } = item.location
-        const script = parsedScripts[scriptId]
+        const script = parsedScripts[scriptId] || unknownScript
         const description = formatLocation(script.url, lineNumber, columnNumber)
         const hasArrow = item === callStack[0]
         rows.push({
