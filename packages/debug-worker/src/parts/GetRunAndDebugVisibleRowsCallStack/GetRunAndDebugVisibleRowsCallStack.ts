@@ -50,6 +50,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           name: '',
           description,
           hasArrow,
+          index: callStack.indexOf(item), // TODO use for loop
         })
       }
     }
