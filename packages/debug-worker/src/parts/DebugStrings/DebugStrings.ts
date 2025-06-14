@@ -110,3 +110,7 @@ export const pauseOnExceptions = (): string => {
 export const pauseOnUncaughtExceptions = (): string => {
   return I18NString.i18nString(UiStrings.PauseOnUncaughtExceptions)
 }
+
+export const noWatchExpression = (): string => {
+  return I18NString.i18nString(UiStrings.NoWatchExpression)
+}
