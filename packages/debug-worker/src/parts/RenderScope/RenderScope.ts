@@ -20,6 +20,7 @@ export const renderScope = (row: DebugRow): readonly VirtualDomNode[] => {
       ariaLevel: 2,
       childCount: 2,
       onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
+      'data-name': key,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     {

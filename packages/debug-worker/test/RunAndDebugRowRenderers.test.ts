@@ -115,6 +115,7 @@ test('renderScope', () => {
       ariaLevel: 2,
       childCount: 2,
       onPointerDown: 'handleClickScopeValue',
+      'data-name': 'testScope',
     },
     expect.any(Object),
     {
