@@ -1,7 +1,7 @@
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
 import { getPausedInfo } from '../GetPausedInfo/GetPausedInfo.ts'
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
   const { debugId } = state
