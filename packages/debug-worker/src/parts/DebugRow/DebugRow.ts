@@ -1,3 +1,5 @@
+// TODO instead of reusing debug row for all different kinds of debug items,
+// maybe use separate interfaces for checkboxes, headings, callstacks, values, scopes
 export interface DebugRow {
   readonly type: number
   readonly text: string
@@ -8,4 +10,5 @@ export interface DebugRow {
   readonly valueType: string | number // TODO convert to number
   readonly name: string
   readonly description: string
+  readonly hasArrow?: boolean
 }
