@@ -1,11 +1,7 @@
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
-import * as Arrays from '../Arrays/Arrays.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
-import * as Focus from '../Focus/Focus.ts'
-import * as GetChildScopeChain from '../GetChildScopeChain/GetChildScopeChain.ts'
 import { getPausedInfo } from '../GetPausedInfo/GetPausedInfo.ts'
-import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
   const { debugId } = state
@@ -20,27 +16,6 @@ export const handlePaused = async (state: RunAndDebugState, params: any): Promis
     pausedMessage,
     callFrameId,
     expandedIds,
-  }
-}
-
-const getCollapsedScopeChain = (cache: any, scopeChain: any, element: any, index: number): any => {
-  const indent = element.indent
-  for (let i = index + 1; i < scopeChain.length; i++) {
-    if (scopeChain[i].indent <= indent) {
-      const newItems = scopeChain.slice(index + 1, i)
-      const newCache = {
-        ...cache,
-        [scopeChain[index].objectId]: newItems,
-      }
-      return {
-        newScopeChain: [...scopeChain.slice(0, index + 1), ...scopeChain.slice(i)],
-        newCache,
-      }
-    }
-  }
-  return {
-    newScopeChain: scopeChain,
-    newCache: cache,
   }
 }
 
@@ -147,6 +122,4 @@ export const resize = (state: RunAndDebugState, dimensions: any): RunAndDebugSta
   return { ...state, ...dimensions }
 }
 
-
-
-export {handleClickScopeValue} from '../HandleClickScopeValue/HandleClickScopeValue.ts'
+export { handleClickScopeValue } from '../HandleClickScopeValue/HandleClickScopeValue.ts'
