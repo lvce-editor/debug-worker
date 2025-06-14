@@ -1,5 +1,5 @@
-export const PauseOnExceptions = 'pause-on-exceptions'
-export const PauseOnUncaughtExceptions = 'pause-on-uncaught-exceptions'
+export const PauseOnExceptions = 'PauseOnExceptions'
+export const PauseOnUncaughtExceptions = 'PauseOnUncaughtExceptions'
 
 export const DebugResume = 'DebugResume'
 export const DebugPause = 'DebugPause'
