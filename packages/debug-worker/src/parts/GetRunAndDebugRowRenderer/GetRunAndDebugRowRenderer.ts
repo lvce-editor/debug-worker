@@ -1,7 +1,10 @@
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
+import { renderCallStack } from '../RenderCallStack/RenderCallStack.ts'
 import { renderCheckBox } from '../RenderCheckBox/RenderCheckBox.ts'
-import { renderCallStack, renderMessage, renderNoop, renderScope, renderValue } from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
+import { renderScope } from '../RenderScope/RenderScope.ts'
+import { renderValue } from '../RenderValue/RenderValue.ts'
+import { renderMessage, renderNoop } from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 
 export const getRowRenderer = (type: number): any => {
   switch (type) {
