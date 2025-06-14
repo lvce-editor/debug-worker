@@ -7,6 +7,33 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 
 export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonly DebugRow[] => {
   const { watchExpanded } = state
+  if (watchExpanded) {
+    const message = DebugStrings.noWatchExpression()
+    return [
+      {
+        type: DebugRowType.SectionHeading,
+        text: DebugStrings.watch(),
+        expanded: watchExpanded,
+        key: DebugSectionId.Watch,
+        value: '',
+        indent: 0,
+        valueType: '',
+        name: DebugRowName.Watch, // TODO i18n
+        description: '',
+      },
+      {
+        type: DebugRowType.WatchMessage,
+        text: message,
+        expanded: false,
+        key: '',
+        value: '',
+        indent: 0,
+        valueType: '',
+        name: '',
+        description: '',
+      },
+    ]
+  }
   return [
     {
       type: DebugRowType.SectionHeading,
