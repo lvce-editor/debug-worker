@@ -6,6 +6,9 @@ export const handleClickCallstackItem = async (state: RunAndDebugState, dataInde
   const index = Number.parseInt(dataIndex)
   const { callStack, parsedScripts } = state
   const item = callStack[index]
+  if (!item) {
+    return state
+  }
   const { uri, languageId, rowIndex, columnIndex } = getOpenInfo(parsedScripts, item)
   await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
   return state
