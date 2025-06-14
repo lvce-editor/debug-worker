@@ -18,6 +18,9 @@ export const handleClickScopeValue = async (state: RunAndDebugState, text: strin
   const { scopeChain, debugId, expandedIds } = state
   Focus.setFocus(WhenExpression.FocusDebugScope)
   const index = getElementIndex(debugId, scopeChain, text)
+  if (index === -1) {
+    return state
+  }
   const element = scopeChain[index]
   if (expandedIds.includes(element.objectId)) {
     return collapseScopeChain(state, expandedIds, scopeChain, element, index)
