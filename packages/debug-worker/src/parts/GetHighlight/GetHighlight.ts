@@ -21,6 +21,9 @@ export const getHighlight = (uid: number): Highlight => {
   const { location } = top
   const { scriptId, lineNumber, columnNumber } = location
   const script = parsedScripts[scriptId]
+  if (!script) {
+    return emptyHighlight
+  }
   return {
     uri: script.url,
     rowIndex: lineNumber,
