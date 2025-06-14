@@ -2,6 +2,7 @@ import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { getArrowNodes } from '../GetArrowNodes/GetArrowNodes.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
@@ -30,7 +31,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount,
-      onPointerDown: 'handleClickCallstackItem',
+      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
     },
     ...arrowNodes,
     labelNode,

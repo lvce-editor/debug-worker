@@ -3,6 +3,7 @@ import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { renderCallStack } from '../src/parts/RenderCallStack/RenderCallStack.ts'
 import { renderScope } from '../src/parts/RenderScope/RenderScope.ts'
 import { renderValue } from '../src/parts/RenderValue/RenderValue.ts'
@@ -75,7 +76,7 @@ test('renderCallStack', () => {
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
-      onPointerDown: 'handleClickCallstackItem',
+      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
     },
     {
       className: 'CallStackLabel',
