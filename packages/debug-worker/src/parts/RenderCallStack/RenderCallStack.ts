@@ -31,7 +31,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount,
-      onPointerDown: DomEventListenerFunctions.HandleClickCallstackItem,
+      onPointerDown: 'handleClickCallstackItem',
     },
     ...arrowNodes,
     labelNode,
