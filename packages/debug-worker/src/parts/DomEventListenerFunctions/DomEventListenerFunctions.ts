@@ -1,5 +1,6 @@
 export const HandleClickContinue = 'handleClickContinue'
 export const HandleClickDebugButton = 'handleClickDebugButton'
+export const HandleClickCallStackItem = 'handleClickCallStackItem'
 export const HandleClickPause = 'handleClickPause'
 export const HandleClickScopeValue = 'handleClickScopeValue'
 export const HandleClickSectionBreakPoints = 'handleClickSectionBreakPoints'

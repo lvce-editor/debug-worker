@@ -63,5 +63,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: DomEventListenerFunctions.HandleClickDebugButton,
       params: ['handleClickDebugButton', 'event.target.name'],
     },
+    {
+      name: DomEventListenerFunctions.HandleClickCallStackItem,
+      params: ['handleClickCallStackItem', 'event.target.dataset.index'],
+    },
   ]
 }
