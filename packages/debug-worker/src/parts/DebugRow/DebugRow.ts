@@ -11,4 +11,5 @@ export interface DebugRow {
   readonly name: string
   readonly description: string
   readonly hasArrow?: boolean
+  readonly index?: number
 }
