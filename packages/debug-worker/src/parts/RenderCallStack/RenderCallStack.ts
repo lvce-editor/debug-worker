@@ -21,7 +21,7 @@ const descriptionNode: VirtualDomNode = {
 }
 
 export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
-  const { text, description, hasArrow } = row
+  const { text, description, hasArrow, index } = row
   const childCount = hasArrow ? 3 : 2
   const arrowNodes = getArrowNodes(hasArrow)
   return [
@@ -32,6 +32,7 @@ export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
       ariaLevel: 2,
       childCount,
       onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      'data-index': index,
     },
     ...arrowNodes,
     labelNode,
