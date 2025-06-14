@@ -75,6 +75,7 @@ test('renderCallStack', () => {
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
+      onPointerDown: 'handleClickCallstackItem',
     },
     {
       className: 'CallStackLabel',
