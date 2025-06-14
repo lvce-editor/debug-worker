@@ -23,9 +23,9 @@ test('getOpenInfo', () => {
       columnNumber: 1,
     },
   }
-  const result = getOpenInfo(parsedScripts, item)
+  const result = getOpenInfo(0, parsedScripts, item)
   expect(result).toEqual({
-    uri: 'test.js',
+    uri: 'debug:///0/1',
     languageId: 'javascript',
     rowIndex: 1,
     columnIndex: 1,
