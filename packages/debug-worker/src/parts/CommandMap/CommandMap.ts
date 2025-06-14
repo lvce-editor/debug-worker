@@ -5,6 +5,7 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
+import * as HandleClickCallstackItem from '../HandleClickCallstackItem/HandleClickCallstackItem.ts'
 import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
 import * as HandleClickPauseOnExceptions from '../HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
@@ -52,6 +53,7 @@ export const commandMap = {
   'RunAndDebug.handleClickScopeValue': WrapCommand.wrapCommand(HandlePaused.handleClickScopeValue),
   'RunAndDebug.handleClickSectionBreakPoints': WrapCommand.wrapCommand(HandleClickSectionBreakPoints.handleClickSectionBreakPoints),
   'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandleClickSectionCallstack.handleClickSectionCallstack),
+  'RunAndDebug.handleClickCallstackItem': WrapCommand.wrapCommand(HandleClickCallstackItem.handleClickCallstackItem),
   'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandleClickSectionHeading.handleClickSectionHeading),
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
