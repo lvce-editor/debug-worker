@@ -5,6 +5,7 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
+import * as HandleClickCallstackItem from '../HandleClickCallstackItem/HandleClickCallstackItem.ts'
 import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
 import * as HandleClickPauseOnExceptions from '../HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
@@ -27,7 +28,6 @@ import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
-import * as HandleClickCallstackItem from '../HandleClickCallstackItem/HandleClickCallstackItem.ts'
 
 export const commandMap = {
   'Debug.paused': Debug.paused,

@@ -1,12 +1,12 @@
-import { jest, test, expect } from '@jest/globals'
-import { handleClickCallstackItem } from '../src/parts/HandleClickCallstackItem/HandleClickCallstackItem.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { handleClickCallstackItem } from '../src/parts/HandleClickCallstackItem/HandleClickCallstackItem.ts'
 
 test('handleClickCallstackItem', async () => {
-  const mockRpc = await MockRpc.create({
+  const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Main.openUri') {

@@ -1,6 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
-import * as OpenUri from '../OpenUri/OpenUri.ts'
 import { getOpenInfo } from '../GetOpenInfo/GetOpenInfo.ts'
+import * as OpenUri from '../OpenUri/OpenUri.ts'
 
 export const handleClickCallstackItem = async (state: RunAndDebugState, index: number): Promise<RunAndDebugState> => {
   const { callStack, parsedScripts } = state
