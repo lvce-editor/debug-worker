@@ -21,6 +21,7 @@ import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
 import * as ReadFile from '../ReadFile/ReadFile.ts'
+import * as Refresh from '../Refresh/Refresh.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
@@ -66,6 +67,7 @@ export const commandMap = {
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
   'RunAndDebug.readFile': ReadFile.readFile,
   'RunAndDebug.render2': Render2.render2,
+  'RunAndDebug.refresh': WrapCommand.wrapCommand(Refresh.refresh),
   'RunAndDebug.renderActions': RenderActions.renderActions,
   'RunAndDebug.renderEventListeners': RenderEventListeners.renderEventListeners,
   'RunAndDebug.resize': WrapCommand.wrapCommand(HandlePaused.resize),
