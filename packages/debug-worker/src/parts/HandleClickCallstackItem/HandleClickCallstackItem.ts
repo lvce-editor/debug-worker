@@ -3,7 +3,7 @@ import { getOpenInfo } from '../GetOpenInfo/GetOpenInfo.ts'
 import * as OpenUri from '../OpenUri/OpenUri.ts'
 
 export const handleClickCallstackItem = async (state: RunAndDebugState, dataIndex: string): Promise<RunAndDebugState> => {
-  const index = parseInt(dataIndex)
+  const index = Number.parseInt(dataIndex)
   const { callStack, parsedScripts } = state
   const item = callStack[index]
   const { uri, languageId, rowIndex, columnIndex } = getOpenInfo(parsedScripts, item)
