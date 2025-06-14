@@ -1,12 +1,6 @@
 import type { CallStackItem } from '../CallStackItem/CallStackItem.ts'
+import type { OpenInfo } from '../OpenInfo/OpenInfo.ts'
 import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
-
-export interface OpenInfo {
-  readonly uri: string
-  readonly languageId: string
-  readonly rowIndex: number
-  readonly columnIndex: number
-}
 
 export const getOpenInfo = (parsedScripts: ParsedScriptMap, item: CallStackItem): OpenInfo => {
   const { location } = item
