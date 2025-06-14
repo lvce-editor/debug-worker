@@ -13,6 +13,9 @@ export const openAtPausedLocation = async (): Promise<void> => {
   // TODO ask renderer worker to open file
   const { newState } = RunAndDebugStates.get(key)
   const { callStack } = newState
+  if (callStack.length === 0) {
+    return
+  }
   const first = callStack[0]
   const { functionLocation } = first
   const { scriptId, lineNumber, columnNumber } = functionLocation
