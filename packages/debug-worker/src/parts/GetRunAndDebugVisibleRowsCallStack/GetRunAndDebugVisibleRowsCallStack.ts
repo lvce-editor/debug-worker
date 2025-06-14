@@ -38,6 +38,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
         const { scriptId, lineNumber, columnNumber } = item.location
         const script = parsedScripts[scriptId]
         const description = formatLocation(script.url, lineNumber, columnNumber)
+        const hasArrow = item === callStack[0]
         rows.push({
           type: DebugRowType.CallStack,
           text: item.functionName,
@@ -48,6 +49,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           valueType: '',
           name: '',
           description,
+          hasArrow,
         })
       }
     }
