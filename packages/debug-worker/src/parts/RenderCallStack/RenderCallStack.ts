@@ -1,0 +1,27 @@
+import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
+import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
+import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
+import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
+import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
+
+export const renderCallStack = (row: DebugRow): readonly VirtualDomNode[] => {
+  const { text, description } = row
+  return [
+    {
+      type: VirtualDomElements.Div,
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, ClassNames.DebugRowCallStack),
+      role: AriaRoles.TreeItem,
+      ariaLevel: 2,
+      childCount: 2,
+    },
+    VirtualDomHelpers.text(text),
+    {
+      type: VirtualDomElements.Div,
+      className: ClassNames.CallStackDescription,
+      childCount: 1,
+    },
+    VirtualDomHelpers.text(description),
+  ]
+}

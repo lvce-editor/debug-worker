@@ -1,9 +1,12 @@
-import { test, expect } from '@jest/globals'
+import { expect, test } from '@jest/globals'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as GetRunAndDebugRowRenderer from '../src/parts/GetRunAndDebugRowRenderer/GetRunAndDebugRowRenderer.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../src/parts/GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
+import { renderCallStack } from '../src/parts/RenderCallStack/RenderCallStack.ts'
 import { renderCheckBox } from '../src/parts/RenderCheckBox/RenderCheckBox.ts'
-import { renderCallStack, renderMessage, renderNoop, renderScope, renderValue } from '../src/parts/RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
+import { renderScope } from '../src/parts/RenderScope/RenderScope.ts'
+import { renderValue } from '../src/parts/RenderValue/RenderValue.ts'
+import { renderMessage, renderNoop } from '../src/parts/RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 
 test('getRowRenderer - Message', () => {
   const renderer = GetRunAndDebugRowRenderer.getRowRenderer(DebugRowType.Message)

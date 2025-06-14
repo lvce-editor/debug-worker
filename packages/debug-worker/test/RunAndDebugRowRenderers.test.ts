@@ -3,6 +3,9 @@ import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
+import { renderCallStack } from '../src/parts/RenderCallStack/RenderCallStack.ts'
+import { renderScope } from '../src/parts/RenderScope/RenderScope.ts'
+import { renderValue } from '../src/parts/RenderValue/RenderValue.ts'
 import * as RunAndDebugRowRenderers from '../src/parts/RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHelpers.ts'
@@ -64,7 +67,7 @@ test('renderCallStack', () => {
     name: '',
     description: '',
   }
-  const result = RunAndDebugRowRenderers.renderCallStack(row)
+  const result = renderCallStack(row)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -95,7 +98,7 @@ test('renderScope', () => {
     name: '',
     description: '',
   }
-  const result = RunAndDebugRowRenderers.renderScope(row)
+  const result = renderScope(row)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -128,7 +131,7 @@ test('renderValue', () => {
     name: '',
     description: '',
   }
-  const result = RunAndDebugRowRenderers.renderValue(row)
+  const result = renderValue(row)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
