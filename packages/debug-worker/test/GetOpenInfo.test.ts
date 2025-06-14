@@ -1,6 +1,6 @@
 import { test, expect } from '@jest/globals'
-import { getOpenInfo } from '../src/parts/GetOpenInfo/GetOpenInfo.ts'
 import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
+import { getOpenInfo } from '../src/parts/GetOpenInfo/GetOpenInfo.ts'
 
 test('getOpenInfo', () => {
   const parsedScripts = {
