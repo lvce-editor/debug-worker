@@ -35,7 +35,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       })
     } else {
       for (const item of callStack) {
-        const { scriptId, lineNumber, columnNumber } = item.functionLocation
+        const { scriptId, lineNumber, columnNumber } = item.location
         const script = parsedScripts[scriptId]
         const description = formatLocation(script.url, lineNumber, columnNumber)
         rows.push({
