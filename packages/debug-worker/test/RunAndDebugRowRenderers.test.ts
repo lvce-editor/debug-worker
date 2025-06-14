@@ -76,6 +76,11 @@ test('renderCallStack', () => {
       ariaLevel: 2,
       childCount: 2,
     },
+    {
+      className: 'CallStackLabel',
+      type: 4,
+      childCount: 1,
+    },
     VirtualDomHelpers.text('test stack'),
     {
       className: 'CallStackDescription',
