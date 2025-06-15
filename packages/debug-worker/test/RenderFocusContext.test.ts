@@ -9,5 +9,5 @@ test('renderFocusContext - no focus', () => {
 
 test('renderFocusContext - with focus', () => {
   const state = { ...createDefaultState(), focus: 1 }
-  expect(renderFocusContext(state)).toEqual(['viewlet.setFocusContext', 1])
+  expect(renderFocusContext(state)).toEqual(['Viewlet.setFocusContext', 1])
 })
