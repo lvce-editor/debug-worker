@@ -1,8 +1,9 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
 export const renderFocus = (state: RunAndDebugState): readonly any[] => {
-  if (!state.focus) {
-    return []
+  const { id, focus } = state
+  if (!focus) {
+    return ['Viewlet.focusElementByName', id, '']
   }
-  return ['Viewlet.setFocus', state.id, state.focus]
+  return ['Viewlet.focusElementByName', id, focus]
 }
