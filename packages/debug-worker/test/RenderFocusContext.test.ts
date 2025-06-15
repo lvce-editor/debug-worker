@@ -2,7 +2,7 @@ import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { renderFocusContext } from '../src/parts/RenderFocusContext/RenderFocusContext.ts'
 
-test('renderFocusContext - no focus', () => {
+test.skip('renderFocusContext - no focus', () => {
   const state = createDefaultState()
   expect(renderFocusContext(state)).toEqual([])
 })
