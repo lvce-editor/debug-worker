@@ -7,6 +7,7 @@ export const addWatchExpression = (state: RunAndDebugState, expression: string):
   const watchExpression: WatchExpression = {
     expression,
     value: null,
+    isEditing: true,
   }
   return {
     ...state,
