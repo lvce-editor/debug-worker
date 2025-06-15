@@ -17,7 +17,7 @@ test('expandScopeChain', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getProperties') {
-        return Promise.resolve({
+        return {
           result: {
             result: [
               {
@@ -26,10 +26,10 @@ test('expandScopeChain', async () => {
               },
             ],
           },
-        })
+        }
       }
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },

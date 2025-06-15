@@ -42,10 +42,10 @@ test('openAtPausedLocation - with call stack', async () => {
     invoke: (method: string, ...args: any[]) => {
       if (method === 'Main.openUri') {
         calledWith = [method, ...args]
-        return Promise.resolve(undefined)
+        return undefined
       }
       if (method === 'Editor.updateDebugInfo') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -81,10 +81,10 @@ test('openAtPausedLocation - empty call stack', async () => {
     invoke: (method: string) => {
       if (method === 'Main.openUri') {
         called = true
-        return Promise.resolve(undefined)
+        return undefined
       }
       if (method === 'Editor.updateDebugInfo') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },

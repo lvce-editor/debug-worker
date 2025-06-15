@@ -14,7 +14,7 @@ test('listProcesses', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.listProcesses') {
-        return Promise.resolve(mockProcesses)
+        return mockProcesses
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -23,7 +23,7 @@ test('listProcesses', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -39,7 +39,7 @@ test('resume', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.resume') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -48,7 +48,7 @@ test('resume', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -64,7 +64,7 @@ test('pause', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.pause') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -73,7 +73,7 @@ test('pause', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -90,7 +90,7 @@ test('stepOver', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.stepOver') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -99,7 +99,7 @@ test('stepOver', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -116,7 +116,7 @@ test('stepInto', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.stepInto') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -125,7 +125,7 @@ test('stepInto', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -142,7 +142,7 @@ test('stepOut', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.stepOut') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -151,7 +151,7 @@ test('stepOut', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -169,7 +169,7 @@ test('setPauseOnExceptions', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.setPauseOnExceptions') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -178,7 +178,7 @@ test('setPauseOnExceptions', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -196,7 +196,7 @@ test('getProperties', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getProperties') {
-        return Promise.resolve(mockProperties)
+        return mockProperties
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -205,7 +205,7 @@ test('getProperties', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -224,7 +224,7 @@ test('evaluate', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.evaluate') {
-        return Promise.resolve(mockResult)
+        return mockResult
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -233,7 +233,7 @@ test('evaluate', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -251,7 +251,7 @@ test('getScriptSource', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getScriptSource') {
-        return Promise.resolve(mockSource)
+        return mockSource
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -260,7 +260,7 @@ test('getScriptSource', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -276,7 +276,7 @@ test.skip('addWatchExpression', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.addWatchExpression') {
-        return Promise.resolve({})
+        return {}
       }
       throw new Error(`unexpected method ${method}`)
     },

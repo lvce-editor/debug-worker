@@ -8,7 +8,7 @@ test('renderActions - returns virtual dom nodes', async () => {
   const mockRpc = MockRpc.create({
     invoke: (method: string) => {
       if (method === 'FileSystem.readDirWithFileTypes') {
-        return Promise.resolve([])
+        return []
       }
       throw new Error(`unexpected method ${method}`)
     },
