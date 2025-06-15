@@ -27,4 +27,5 @@ export interface RunAndDebugState {
   readonly exceptionBreakPoints: number
   readonly debugId?: any
   readonly watchExpressions: readonly WatchExpression[]
+  readonly focus?: string
 }
