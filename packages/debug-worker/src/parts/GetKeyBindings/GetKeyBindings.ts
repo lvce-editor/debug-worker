@@ -104,5 +104,10 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       command: 'Run And Debug.cancelWatchExpressionEdit',
       when: WhenExpression.FocusDebugWatchInput,
     },
+    {
+      key: KeyCode.Enter,
+      command: 'Run And Debug.acceptWatchExpressionEdit',
+      when: WhenExpression.FocusDebugWatchInput,
+    },
   ]
 }
