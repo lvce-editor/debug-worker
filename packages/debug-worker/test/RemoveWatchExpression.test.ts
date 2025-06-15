@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { removeWatchExpression } from '../src/parts/RemoveWatchExpression/RemoveWatchExpression.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { removeWatchExpression } from '../src/parts/RemoveWatchExpression/RemoveWatchExpression.ts'
 
 test('removeWatchExpression', () => {
   const state = createDefaultState()

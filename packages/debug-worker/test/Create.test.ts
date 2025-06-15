@@ -33,5 +33,6 @@ test('create sets state with correct parameters', () => {
     pauseOnExceptionState: PauseOnExceptionState.None,
     cache: Object.create(null),
     exceptionBreakPoints: ExceptionBreakPoints.None,
+    watchExpressions: [],
   })
 })

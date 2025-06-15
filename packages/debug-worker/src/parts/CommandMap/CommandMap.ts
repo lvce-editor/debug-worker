@@ -1,3 +1,5 @@
+import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
+import * as CommandIds from '../CommandIds/CommandIds.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
@@ -23,6 +25,7 @@ import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
 import * as ReadFile from '../ReadFile/ReadFile.ts'
 import * as Refresh from '../Refresh/Refresh.ts'
+import { removeWatchExpression } from '../RemoveWatchExpression/RemoveWatchExpression.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
@@ -30,9 +33,6 @@ import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
-import * as CommandIds from '../CommandIds/CommandIds.ts'
-import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
-import { removeWatchExpression } from '../RemoveWatchExpression/RemoveWatchExpression.ts'
 
 export const commandMap = {
   'Debug.paused': Debug.paused,
