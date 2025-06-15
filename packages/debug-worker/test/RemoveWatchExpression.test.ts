@@ -11,5 +11,6 @@ test('removeWatchExpression', () => {
   expect(newState.watchExpressions[0]).toEqual({
     expression: 'a + b',
     value: null,
+    isEditing: true,
   })
 })
