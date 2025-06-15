@@ -1,5 +1,4 @@
 import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
-import * as CommandIds from '../CommandIds/CommandIds.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
