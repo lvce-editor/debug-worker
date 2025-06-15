@@ -34,5 +34,6 @@ test('create sets state with correct parameters', () => {
     cache: Object.create(null),
     exceptionBreakPoints: ExceptionBreakPoints.None,
     watchExpressions: [],
+    focus: 0,
   })
 })
