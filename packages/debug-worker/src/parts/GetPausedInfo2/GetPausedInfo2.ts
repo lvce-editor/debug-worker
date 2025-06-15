@@ -1,4 +1,6 @@
+import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
 import * as Assert from '../Assert/Assert.ts'
+import { createScriptMap } from '../CreateScriptMap/CreateScriptMap.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
 import * as GetCallStack from '../GetCallStack/GetCallStack.ts'
@@ -12,12 +14,15 @@ export interface PausedInfo2 {
   readonly pausedMessage: string
   readonly callFrameId: any
   readonly expandedIds: readonly any[]
+  readonly scriptMap: ParsedScriptMap
 }
 
 export const getPausedInfo2 = async (debugId: any): Promise<PausedInfo2> => {
   const callFrames = await ExtensionHostDebug.getCallStack(debugId)
   const callStack = GetCallStack.getCallStack(callFrames)
   const { reason } = await ExtensionHostDebug.getPausedStatus(debugId)
+  const scripts = await ExtensionHostDebug.getScripts(debugId)
+  const scriptMap = createScriptMap(scripts)
   const objectId = callFrames[0].scopeChain[0].object.objectId
   const callFrameId = callFrames[0].callFrameId
   const properties = await Debug.getProperties(debugId, objectId)
@@ -39,5 +44,6 @@ export const getPausedInfo2 = async (debugId: any): Promise<PausedInfo2> => {
     pausedMessage,
     callFrameId,
     expandedIds: [objectId],
+    scriptMap,
   }
 }

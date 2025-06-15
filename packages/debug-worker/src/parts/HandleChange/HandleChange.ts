@@ -7,7 +7,7 @@ import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 const handlePaused = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
   const { debugId } = state
   try {
-    const { callFrameId, callStack, scopeChain, pausedMessage, pausedReason, expandedIds } = await getPausedInfo2(debugId)
+    const { callFrameId, callStack, scopeChain, pausedMessage, pausedReason, expandedIds, scriptMap } = await getPausedInfo2(debugId)
     return {
       ...state,
       debugState: DebugState.Paused,
@@ -18,6 +18,7 @@ const handlePaused = async (state: RunAndDebugState): Promise<RunAndDebugState> 
       pausedMessage,
       callFrameId,
       expandedIds,
+      parsedScripts: scriptMap,
     }
   } catch {
     return state
