@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { handleWatchValueChange } from '../src/parts/HandleWatchValueChange/HandleWatchValueChange.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { handleWatchValueChange } from '../src/parts/HandleWatchValueChange/HandleWatchValueChange.ts'
 
 test('should update last empty watch expression', () => {
   const state = createDefaultState()
