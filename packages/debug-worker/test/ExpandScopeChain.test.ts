@@ -4,6 +4,9 @@ import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { RpcId } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
+
+// DebugScopeChainType.Property = 3
 
 test('expandScopeChain', async () => {
   const state = createDefaultState()
@@ -12,7 +15,6 @@ test('expandScopeChain', async () => {
   const element = {}
   const index = 1
   const debugId = 'debug1'
-  const newScopeChain = ['newScope1', 'newScope2']
 
   const mockRpc = MockRpc.create({
     commandMap: {},
@@ -42,7 +44,18 @@ test('expandScopeChain', async () => {
 
   expect(result).toEqual({
     ...state,
-    scopeChain: newScopeChain,
+    scopeChain: [
+      { objectId: 'scope1' },
+      { objectId: 'scope2' },
+      {
+        type: 3,
+        key: 'prop1',
+        value: '{"value":"value1"}',
+        valueType: '',
+        objectId: '',
+        indent: NaN,
+      },
+    ],
     expandedIds: ['id1', 'scope2'],
     scopeFocusedIndex: 1,
   })
