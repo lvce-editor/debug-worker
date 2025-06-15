@@ -1,4 +1,5 @@
 import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
+import { cancelWatchExpressionEdit } from '../CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
@@ -69,6 +70,7 @@ export const commandMap = {
   // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.addWatchExpression': addWatchExpression,
+  'RunAndDebug.cancelWatchExpressionEdit': cancelWatchExpressionEdit,
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
   'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
