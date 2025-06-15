@@ -1,3 +1,4 @@
+import { acceptWatchExpressionEdit } from '../AcceptWatchExpressionEdit/AcceptWatchExpressionEdit.ts'
 import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
 import { cancelWatchExpressionEdit } from '../CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import * as Create from '../Create/Create.ts'
@@ -71,6 +72,7 @@ export const commandMap = {
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.addWatchExpression': addWatchExpression,
   'RunAndDebug.cancelWatchExpressionEdit': cancelWatchExpressionEdit,
+  'RunAndDebug.acceptWatchExpressionEdit': acceptWatchExpressionEdit,
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
   'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
