@@ -7,7 +7,7 @@ import * as InputName from '../src/parts/InputName/InputName.ts'
 test('should update new watch expression', () => {
   const state = createDefaultState()
   const stateWithNewExpression = addWatchExpression(state, '')
-  const newState = handleInputFieldChange(stateWithNewExpression, InputName.NewWatchExpression, 'x + y')
+  const newState = handleInputFieldChange(stateWithNewExpression, InputName.WatchExpressionInput, 'x + y')
   expect(newState.editingValue).toBe('x + y')
 })
 

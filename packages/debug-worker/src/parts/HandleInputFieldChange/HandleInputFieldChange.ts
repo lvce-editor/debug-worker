@@ -3,7 +3,7 @@ import { handleWatchValueChange } from '../HandleWatchValueChange/HandleWatchVal
 import * as InputName from '../InputName/InputName.ts'
 
 export const handleInputFieldChange = (state: RunAndDebugState, name: string, value: string): RunAndDebugState => {
-  if (name === InputName.NewWatchExpression) {
+  if (name === InputName.WatchExpressionInput) {
     return handleWatchValueChange(state, value)
   }
   return state
