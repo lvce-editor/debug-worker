@@ -70,16 +70,6 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       when: WhenExpression.FocusDebugScope,
     },
     {
-      key: KeyCode.Escape,
-      command: 'Run And Debug.cancelEdit',
-      when: WhenExpression.FocusDebugScopeEditBox,
-    },
-    {
-      key: KeyCode.Enter,
-      command: 'Run And Debug.acceptEdit',
-      when: WhenExpression.FocusDebugScopeEditBox,
-    },
-    {
       key: KeyCode.Delete,
       command: 'Run And Debug.removeDirent',
       when: WhenExpression.FocusDebugScope,
