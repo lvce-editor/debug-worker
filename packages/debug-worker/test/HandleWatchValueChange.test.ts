@@ -3,30 +3,17 @@ import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpr
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleWatchValueChange } from '../src/parts/HandleWatchValueChange/HandleWatchValueChange.ts'
 
-test('should update last empty watch expression', () => {
+test('should update editingValue', () => {
   const state = createDefaultState()
-  const stateWithNewExpression = addWatchExpression(state, '')
-  const newState = handleWatchValueChange(stateWithNewExpression, 'x + y')
-  expect(newState.watchExpressions).toHaveLength(1)
-  expect(newState.watchExpressions[0]).toEqual({
-    expression: 'x + y',
-    value: null,
-  })
+  const stateWithEditingValue = handleWatchValueChange(state, 'x + y')
+  expect(stateWithEditingValue.editingValue).toBe('x + y')
+  expect(stateWithEditingValue.watchExpressions).toEqual(state.watchExpressions)
 })
 
-test('should not update if last expression is not empty', () => {
+test('should not change watchExpressions', () => {
   const state = createDefaultState()
   const stateWithExpression = addWatchExpression(state, 'a + b')
-  const newState = handleWatchValueChange(stateWithExpression, 'x + y')
-  expect(newState.watchExpressions).toHaveLength(1)
-  expect(newState.watchExpressions[0]).toEqual({
-    expression: 'a + b',
-    value: null,
-  })
-})
-
-test('should not update if no watch expressions exist', () => {
-  const state = createDefaultState()
-  const newState = handleWatchValueChange(state, 'x + y')
-  expect(newState.watchExpressions).toHaveLength(0)
+  const stateWithEditingValue = handleWatchValueChange(stateWithExpression, 'x + y')
+  expect(stateWithEditingValue.editingValue).toBe('x + y')
+  expect(stateWithEditingValue.watchExpressions).toEqual(stateWithExpression.watchExpressions)
 })
