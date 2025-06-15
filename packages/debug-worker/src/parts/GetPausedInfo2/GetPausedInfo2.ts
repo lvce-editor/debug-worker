@@ -17,13 +17,16 @@ export interface PausedInfo2 {
 export const getPausedInfo2 = async (debugId: any): Promise<PausedInfo2> => {
   const callFrames = await ExtensionHostDebug.getCallStack(debugId)
   const callStack = GetCallStack.getCallStack(callFrames)
-  const reason = await ExtensionHostDebug.getPausedStatus(debugId)
+  const { reason } = await ExtensionHostDebug.getPausedStatus(debugId)
   const objectId = callFrames[0].scopeChain[0].object.objectId
   const callFrameId = callFrames[0].callFrameId
   const properties = await Debug.getProperties(debugId, objectId)
   const thisObject = callFrames[0].this
   Assert.object(thisObject)
-  const params = {} // TODO
+  const params = {
+    data: {},
+    reason,
+  } // TODO
   const scopeChain = GetScopeChain.getScopeChain(params, thisObject, callFrames[0].scopeChain, {
     [objectId]: properties,
   })
