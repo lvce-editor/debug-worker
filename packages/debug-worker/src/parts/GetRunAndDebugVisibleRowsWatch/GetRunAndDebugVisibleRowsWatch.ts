@@ -39,7 +39,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       description: '',
       actions: [
         {
-          id: 'add-watch-expression',
+          id: InputName.AddWatchExpression,
           title: 'Add new watch expression',
           icon: '+',
         },

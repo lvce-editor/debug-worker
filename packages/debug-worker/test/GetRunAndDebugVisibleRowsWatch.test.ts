@@ -23,7 +23,7 @@ test('should return watch section with default state', () => {
       description: '',
       actions: [
         {
-          id: 'add-watch-expression',
+          id: InputName.AddWatchExpression,
           title: 'Add new watch expression',
           icon: '+',
         },
@@ -52,7 +52,7 @@ test('should show no watch expression message when expanded and no expressions',
       description: '',
       actions: [
         {
-          id: 'add-watch-expression',
+          id: InputName.AddWatchExpression,
           title: 'Add new watch expression',
           icon: '+',
         },
@@ -93,7 +93,7 @@ test('should show watch expressions when expanded', () => {
       description: '',
       actions: [
         {
-          id: 'add-watch-expression',
+          id: InputName.AddWatchExpression,
           title: 'Add new watch expression',
           icon: '+',
         },
@@ -145,7 +145,7 @@ test('should show input field for new watch expression', () => {
       description: '',
       actions: [
         {
-          id: 'add-watch-expression',
+          id: InputName.AddWatchExpression,
           title: 'Add new watch expression',
           icon: '+',
         },
