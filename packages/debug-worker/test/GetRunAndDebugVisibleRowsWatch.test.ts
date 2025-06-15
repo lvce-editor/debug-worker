@@ -21,13 +21,7 @@ test('should return watch section with default state', () => {
       valueType: '',
       name: 'Watch',
       description: '',
-      actions: [
-        {
-          id: InputName.AddWatchExpression,
-          title: 'Add new watch expression',
-          icon: '+',
-        },
-      ],
+      actions: [],
     },
   ])
 })
@@ -161,6 +155,50 @@ test('should show input field for new watch expression', () => {
       valueType: '',
       name: InputName.NewWatchExpression,
       description: '',
+    },
+  ])
+})
+
+test('should not show actions when watch is not expanded', () => {
+  const state = createDefaultState()
+  const rows = getRunAndDebugVisibleRowsWatch(state)
+  expect(rows[0].actions).toEqual([])
+})
+
+test('getWatchActions should return empty array when watch is not expanded', () => {
+  const state = createDefaultState()
+  const rows = getRunAndDebugVisibleRowsWatch(state)
+  expect(rows[0].actions).toEqual([])
+})
+
+test('getWatchActions should return actions when watch is expanded', () => {
+  const state = createDefaultState()
+  const expandedState = {
+    ...state,
+    watchExpanded: true,
+  }
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState)
+  expect(rows[0].actions).toEqual([
+    {
+      id: InputName.AddWatchExpression,
+      title: 'Add new watch expression',
+      icon: '+',
+    },
+  ])
+})
+
+test('should show actions when watch is expanded', () => {
+  const state = createDefaultState()
+  const expandedState = {
+    ...state,
+    watchExpanded: true,
+  }
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState)
+  expect(rows[0].actions).toEqual([
+    {
+      id: InputName.AddWatchExpression,
+      title: 'Add new watch expression',
+      icon: '+',
     },
   ])
 })

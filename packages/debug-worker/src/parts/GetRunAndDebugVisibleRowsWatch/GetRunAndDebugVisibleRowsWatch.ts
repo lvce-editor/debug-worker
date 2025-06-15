@@ -4,6 +4,7 @@ import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
+import { getWatchActions } from '../GetWatchActions/GetWatchActions.ts'
 import * as InputName from '../InputName/InputName.ts'
 
 const formatValue = (value: any): string => {
@@ -37,13 +38,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       valueType: '',
       name: DebugRowName.Watch,
       description: '',
-      actions: [
-        {
-          id: InputName.AddWatchExpression,
-          title: 'Add new watch expression',
-          icon: '+',
-        },
-      ],
+      actions: getWatchActions(watchExpanded),
     },
   ]
 
