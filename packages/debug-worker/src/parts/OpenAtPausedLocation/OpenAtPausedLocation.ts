@@ -5,7 +5,7 @@ import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const getKey = (): number => {
   const keys = RunAndDebugStates.getKeys()
-  return keys[0]
+  return keys.at(-1) || 0
 }
 
 export const openAtPausedLocation = async (): Promise<void> => {
