@@ -99,5 +99,10 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       command: 'Run And Debug.handleClickCurrent',
       when: WhenExpression.FocusDebugScope,
     },
+    {
+      key: KeyCode.Escape,
+      command: 'Run And Debug.cancelWatchExpressionEdit',
+      when: WhenExpression.FocusDebugWatchInput,
+    },
   ]
 }
