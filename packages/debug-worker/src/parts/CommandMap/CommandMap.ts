@@ -12,6 +12,7 @@ import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
 import * as HandleClickPauseOnExceptions from '../HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
 import * as HandleClickPauseOnUncaughtExceptions from '../HandleClickPauseOnUncaughtExceptions/HandleClickPauseOnUncaughtExceptions.ts'
+import * as HandleClickSectionAction from '../HandleClickSectionAction/HandleClickSectionAction.ts'
 import * as HandleClickSectionBreakPoints from '../HandleClickSectionBreakPoints/HandleClickSectionBreakPoints.ts'
 import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
@@ -57,6 +58,7 @@ export const commandMap = {
   'RunAndDebug.handleClickPauseOnExceptions': WrapCommand.wrapCommand(HandleClickPauseOnExceptions.handleClickPauseOnExceptions),
   'RunAndDebug.handleClickPauseOnUncaughtExceptions': WrapCommand.wrapCommand(HandleClickPauseOnUncaughtExceptions.handleClickPauseOnUncaughtExceptions),
   'RunAndDebug.handleClickScopeValue': WrapCommand.wrapCommand(HandlePaused.handleClickScopeValue),
+  'RunAndDebug.handleClickSectionAction': WrapCommand.wrapCommand(HandleClickSectionAction.handleClickSectionAction),
   'RunAndDebug.handleClickSectionBreakPoints': WrapCommand.wrapCommand(HandleClickSectionBreakPoints.handleClickSectionBreakPoints),
   'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandleClickSectionCallstack.handleClickSectionCallstack),
   'RunAndDebug.handleClickCallStackItem': WrapCommand.wrapCommand(HandleClickCallstackItem.handleClickCallstackItem),
