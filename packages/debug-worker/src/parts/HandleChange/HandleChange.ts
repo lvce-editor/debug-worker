@@ -32,7 +32,5 @@ export const handleChange = async (state: RunAndDebugState, params: ChangeParams
   if (params.type === 'paused') {
     return handlePaused(state)
   }
-  return {
-    ...state,
-  }
+  return state
 }
