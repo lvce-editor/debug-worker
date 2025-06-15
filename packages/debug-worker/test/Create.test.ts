@@ -35,5 +35,6 @@ test('create sets state with correct parameters', () => {
     exceptionBreakPoints: ExceptionBreakPoints.None,
     watchExpressions: [],
     focus: 0,
+    editingValue: '',
   })
 })

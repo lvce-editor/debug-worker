@@ -27,6 +27,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     exceptionBreakPoints: 0,
     watchExpressions: [],
     focus: 0,
+    editingValue: '',
   }
   set(uid, state, state)
   return state

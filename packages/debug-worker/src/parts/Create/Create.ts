@@ -31,6 +31,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     exceptionBreakPoints: ExceptionBreakPoints.None,
     watchExpressions: [],
     focus: 0,
+    editingValue: '',
   }
   RunAndDebugStates.set(id, state, state)
 }
