@@ -15,7 +15,7 @@ export const renderInputField = (row: DebugRow): readonly VirtualDomNode[] => {
       className: MergeClassNames.mergeClassNames(ClassNames.DebugRow, ClassNames.DebugRowInputField),
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
-      childCount: 2,
+      childCount: 1,
     },
     {
       type: VirtualDomElements.Input,
