@@ -1,4 +1,5 @@
 export const AddWatchExpression = 'AddWatchExpression'
+export const WatchExpressionInput = 'WatchExpressionInput'
 export const DebugPause = 'DebugPause'
 export const DebugRestart = 'DebugRestart'
 export const DebugResume = 'DebugResume'

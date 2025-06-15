@@ -66,7 +66,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
             value: '',
             indent: 0,
             valueType: '',
-            name: InputName.NewWatchExpression,
+            name: InputName.WatchExpressionInput,
             description: '',
           })
         } else {
