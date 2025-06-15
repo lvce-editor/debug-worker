@@ -1,15 +1,13 @@
-import { test, expect } from '@jest/globals'
+import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RpcId } from '@lvce-editor/rpc-registry'
-import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 import { createScriptMap as realCreateScriptMap } from '../src/parts/CreateScriptMap/CreateScriptMap.ts'
-import * as Debug from '../src/parts/Debug/Debug.ts'
-import * as ExtensionHostDebug from '../src/parts/ExtensionHostDebug/ExtensionHostDebug.ts'
 import * as GetCallStack from '../src/parts/GetCallStack/GetCallStack.ts'
 import * as GetDebugPausedMessage from '../src/parts/GetDebugPausedMessage/GetDebugPausedMessage.ts'
 import { getPausedInfo2 } from '../src/parts/GetPausedInfo2/GetPausedInfo2.ts'
 import * as GetScopeChain from '../src/parts/GetScopeChain/GetScopeChain.ts'
 import type { ParsedScriptMap } from '../src/parts/ParsedScriptMap/ParsedScriptMap.ts'
+import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
 test('getPausedInfo2', async () => {
   const mockDebugId = 'test-debug-id'
