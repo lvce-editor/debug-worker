@@ -4,9 +4,6 @@ import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { RpcId } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
-import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
-
-// DebugScopeChainType.Property = 3
 
 test('expandScopeChain', async () => {
   const state = createDefaultState()
