@@ -8,8 +8,8 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] => {
-  const { expanded, text, key } = row
-  return [
+  const { expanded, text, key, actions } = row
+  const nodes: VirtualDomNode[] = [
     {
       type: VirtualDomElements.Div,
       className: ClassNames.DebugSectionHeader,
@@ -23,4 +23,25 @@ export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] =
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     VirtualDomHelpers.text(text),
   ]
+
+  if (actions) {
+    nodes.push({
+      type: VirtualDomElements.Div,
+      className: ClassNames.DebugSectionActions,
+      childCount: actions.length,
+    })
+    for (const action of actions) {
+      nodes.push({
+        type: VirtualDomElements.Button,
+        className: ClassNames.DebugSectionAction,
+        title: action.title,
+        onClick: DomEventListenerFunctions.HandleClickSectionAction,
+        'data-action-id': action.id,
+        childCount: 1,
+      })
+      nodes.push(VirtualDomHelpers.text(action.icon))
+    }
+  }
+
+  return nodes
 }
