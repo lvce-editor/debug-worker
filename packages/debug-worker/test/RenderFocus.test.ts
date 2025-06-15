@@ -8,6 +8,6 @@ test.skip('renderFocus - no focus', () => {
 })
 
 test.skip('renderFocus - with focus', () => {
-  const state = { ...createDefaultState(), focus: 'test' }
+  const state = { ...createDefaultState(), focus: 1 }
   expect(renderFocus(state)).toEqual(['Viewlet.setFocus', state.id, 'test'])
 })
