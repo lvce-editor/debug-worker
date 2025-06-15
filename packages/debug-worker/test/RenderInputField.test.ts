@@ -30,6 +30,7 @@ test('renderInputField', () => {
     {
       type: VirtualDomElements.Input,
       inputType: InputType.Text,
+      className: 'InputBox',
       name: 'test-input',
       value: 'test input',
       childCount: 0,
