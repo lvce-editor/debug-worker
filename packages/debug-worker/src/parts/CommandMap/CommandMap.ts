@@ -16,6 +16,7 @@ import * as HandleClickSectionBreakPoints from '../HandleClickSectionBreakPoints
 import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
 import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClickSectionScope.ts'
+import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
@@ -65,15 +66,18 @@ export const commandMap = {
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
-  'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
+  'RunAndDebug.addWatchExpression': addWatchExpression,
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
+  'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
+  'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'RunAndDebug.loadContentLater': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
   'RunAndDebug.readFile': ReadFile.readFile,
-  'RunAndDebug.render2': Render2.render2,
   'RunAndDebug.refresh': WrapCommand.wrapCommand(Refresh.refresh),
+  'RunAndDebug.removeWatchExpression': removeWatchExpression,
+  'RunAndDebug.render2': Render2.render2,
   'RunAndDebug.renderActions': RenderActions.renderActions,
   'RunAndDebug.renderEventListeners': RenderEventListeners.renderEventListeners,
   'RunAndDebug.resize': WrapCommand.wrapCommand(HandlePaused.resize),
@@ -85,6 +89,4 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
-  'RunAndDebug.addWatchExpression': addWatchExpression,
-  'RunAndDebug.removeWatchExpression': removeWatchExpression,
 }
