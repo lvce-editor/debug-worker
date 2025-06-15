@@ -45,4 +45,5 @@ export const commandIds: readonly string[] = [
   'addWatchExpression',
   'removeWatchExpression',
   'cancelWatchExpressionEdit',
+  'acceptWatchExpressionEdit',
 ]
