@@ -86,6 +86,6 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
-  [CommandIds.AddWatchExpression]: addWatchExpression,
-  [CommandIds.RemoveWatchExpression]: removeWatchExpression,
+  'RunAndDebug.addWatchExpression': addWatchExpression,
+  'RunAndDebug.removeWatchExpression': removeWatchExpression,
 }
