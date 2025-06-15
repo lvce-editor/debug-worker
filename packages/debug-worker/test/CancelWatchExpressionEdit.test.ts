@@ -19,6 +19,7 @@ test('should not remove non-empty watch expressions', () => {
       {
         expression: 'x + y',
         value: null,
+        isEditing: false,
       },
       {
         expression: '',
