@@ -64,6 +64,7 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
+  // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
