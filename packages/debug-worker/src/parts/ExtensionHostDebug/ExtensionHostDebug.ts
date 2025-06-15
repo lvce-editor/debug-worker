@@ -98,3 +98,27 @@ export const getScriptSource = (debugId: any, scriptId: string): Promise<string>
     params: [debugId, scriptId],
   })
 }
+
+export const getPausedStatus = (debugId: any): Promise<any> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.getPausedStatus',
+    params: [debugId],
+  })
+}
+
+export const getCallStack = (debugId: any): Promise<any> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.getCallStack',
+    params: [debugId],
+  })
+}
+
+export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.getScopeChain',
+    params: [debugId, callFrameId],
+  })
+}
