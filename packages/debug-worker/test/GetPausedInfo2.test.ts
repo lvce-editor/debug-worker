@@ -33,14 +33,12 @@ test('getPausedInfo2', async () => {
   const mockScriptMap: ParsedScriptMap = {}
   const mockProperties = {
     scope1: {
-      result: {
-        result: [
-          {
-            name: 'prop1',
-            value: { type: 'string', value: 'value1' },
-          },
-        ],
-      },
+      result: [
+        {
+          name: 'prop1',
+          value: { type: 'string', value: 'value1' },
+        },
+      ],
     },
   }
 
@@ -58,7 +56,16 @@ test('getPausedInfo2', async () => {
         return Promise.resolve(mockScripts)
       }
       if (method === 'ExtensionHostDebug.getProperties') {
-        return Promise.resolve(mockProperties)
+        return Promise.resolve({
+          scope1: {
+            result: [
+              {
+                name: 'prop1',
+                value: { type: 'string', value: 'value1' },
+              },
+            ],
+          },
+        })
       }
       if (method === 'GetCallStack.getCallStack') {
         return Promise.resolve(mockCallStack)
