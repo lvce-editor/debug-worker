@@ -3,6 +3,8 @@ import { MockRpc } from '@lvce-editor/rpc'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import * as ExtensionHostDebug from '../src/parts/ExtensionHostDebug/ExtensionHostDebug.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import * as RpcRegistry from '@lvce-editor/rpc-registry'
+import { RpcId } from '@lvce-editor/rpc-registry'
 
 const mockDebugId = 'test-debug-id'
 
@@ -267,4 +269,19 @@ test('getScriptSource', async () => {
   RendererWorker.set(mockRendererWorker)
   const result = await ExtensionHostDebug.getScriptSource(mockDebugId, mockScriptId)
   expect(result).toEqual(mockSource)
+})
+
+test('addWatchExpression', async () => {
+  const mockRpc = await MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      if (method === 'ExtensionHostDebug.addWatchExpression') {
+        return Promise.resolve({})
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+
+  await ExtensionHostDebug.addWatchExpression('debug-1', 'x + y')
 })
