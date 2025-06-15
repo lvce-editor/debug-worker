@@ -5,13 +5,17 @@ import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 
+const formatValue = (value: any): string => {
+  return value === null || value === undefined ? '' : String(value)
+}
+
 export const renderWatchExpression = (expression: string, value: unknown): DebugRow => {
   return {
     type: DebugRowType.WatchExpression,
     text: '',
     expanded: false,
     key: expression,
-    value: value === null || value === undefined ? '' : String(value),
+    value: formatValue(value),
     indent: 1,
     valueType: value === null || value === undefined ? 'undefined' : typeof value,
     name: '',
