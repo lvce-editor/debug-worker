@@ -70,7 +70,7 @@ export const resumed = async (params: any): Promise<void> => {
   await updateDebugInfo(key)
 }
 
-export const handleChange = async (): Promise<void> => {
+export const handleChange = async (params: any): Promise<void> => {
   // @ts-ignore
-  await RendererWorker.invoke('Run And Debug.handleChange')
+  await RendererWorker.invoke('Run And Debug.handleChange', params)
 }
