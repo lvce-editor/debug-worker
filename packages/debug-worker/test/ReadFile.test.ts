@@ -38,7 +38,7 @@ test('readFile', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getScriptSource') {
-        return Promise.resolve(mockContent)
+        return mockContent
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -49,7 +49,7 @@ test('readFile', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -75,7 +75,7 @@ test('readFile - no instance found', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getScriptSource') {
-        return Promise.resolve('')
+        return ''
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -86,7 +86,7 @@ test('readFile - no instance found', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },

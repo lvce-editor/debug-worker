@@ -9,7 +9,7 @@ test.skip('updateDebugInfo', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Editor.updateDebugInfo') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },

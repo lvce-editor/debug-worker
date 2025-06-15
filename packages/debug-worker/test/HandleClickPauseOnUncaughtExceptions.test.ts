@@ -11,7 +11,7 @@ const setupRendererAndExtensionHost = async (): Promise<void> => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -22,7 +22,7 @@ const setupRendererAndExtensionHost = async (): Promise<void> => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.setPauseOnExceptions') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
