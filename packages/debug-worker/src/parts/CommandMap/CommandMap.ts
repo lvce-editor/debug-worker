@@ -32,6 +32,7 @@ import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
+import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 
 export const commandMap = {
   'Debug.paused': Debug.paused,
@@ -87,4 +88,5 @@ export const commandMap = {
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
   'RunAndDebug.addWatchExpression': addWatchExpression,
   'RunAndDebug.removeWatchExpression': removeWatchExpression,
+  'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
 }
