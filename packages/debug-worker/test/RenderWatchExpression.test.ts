@@ -3,6 +3,7 @@ import { renderWatchExpression } from '../src/parts/RenderWatchExpression/Render
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
+import { text } from '@lvce-editor/virtual-dom-worker'
 
 test('should render watch expression', () => {
   const result = renderWatchExpression('x + y', '42', 'number')
@@ -18,12 +19,12 @@ test('should render watch expression', () => {
       className: ClassNames.DebugValueScopeName,
       childCount: 1,
     },
-    'x + y',
+    text('x + y'),
     {
       type: VirtualDomElements.Span,
       className: ClassNames.DebugValue,
       childCount: 1,
     },
-    '42',
+    text('42'),
   ])
 })
