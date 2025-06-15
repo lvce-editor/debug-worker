@@ -18,5 +18,6 @@ test('should not remove non-empty watch expressions', () => {
   expect(result.watchExpressions[0]).toEqual({
     expression: 'x + y',
     value: null,
+    isEditing: true,
   })
 })
