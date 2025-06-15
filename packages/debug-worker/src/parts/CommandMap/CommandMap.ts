@@ -5,6 +5,7 @@ import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
+import * as HandleChange from '../HandleChange/HandleChange.ts'
 import * as HandleClickCallstackItem from '../HandleClickCallstackItem/HandleClickCallstackItem.ts'
 import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as HandleClickDebugButton from '../HandleClickDebugButton/HandleClickDebugButton.ts'
@@ -61,6 +62,7 @@ export const commandMap = {
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
+  'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'RunAndDebug.loadContentLater': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),

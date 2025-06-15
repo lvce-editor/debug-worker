@@ -9,6 +9,7 @@ export const commandIds: readonly string[] = [
   'handleArrowDown',
   'handleArrowLeft',
   'handleArrowRight',
+  'handleChange',
   'handleArrowUp',
   'handleClickCallStackItem',
   'handleClickCheckBox',
