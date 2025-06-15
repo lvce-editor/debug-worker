@@ -30,6 +30,9 @@ import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
+import * as CommandIds from '../CommandIds/CommandIds.ts'
+import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
+import { removeWatchExpression } from '../RemoveWatchExpression/RemoveWatchExpression.ts'
 
 export const commandMap = {
   'Debug.paused': Debug.paused,
@@ -82,4 +85,6 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
+  [CommandIds.AddWatchExpression]: addWatchExpression,
+  [CommandIds.RemoveWatchExpression]: removeWatchExpression,
 }
