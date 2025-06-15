@@ -4,4 +4,4 @@ import * as DiffType from '../DiffType/DiffType.ts'
 
 export const modules = [DiffItems.isEqual, DiffFocus.isEqual]
 
-export const numbers = [DiffItems.diffType, DiffType.RenderFocus]
+export const numbers = [DiffItems.diffType, DiffType.RenderFocusContext]
