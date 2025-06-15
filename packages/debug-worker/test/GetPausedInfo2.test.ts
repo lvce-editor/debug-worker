@@ -1,8 +1,8 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RpcId } from '@lvce-editor/rpc-registry'
-import { getPausedInfo2 } from '../src/parts/GetPausedInfo2/GetPausedInfo2.ts'
 import type { ParsedScriptMap } from '../src/parts/ParsedScriptMap/ParsedScriptMap.ts'
+import { getPausedInfo2 } from '../src/parts/GetPausedInfo2/GetPausedInfo2.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
 test('getPausedInfo2', async () => {
@@ -29,12 +29,14 @@ test('getPausedInfo2', async () => {
   const mockScriptMap: ParsedScriptMap = {}
   const mockProperties = {
     scope1: {
-      result: [
-        {
-          name: 'prop1',
-          value: { type: 'string', value: 'value1' },
-        },
-      ],
+      result: {
+        result: [
+          {
+            name: 'prop1',
+            value: { type: 'string', value: 'value1' },
+          },
+        ],
+      },
     },
   }
 
@@ -52,16 +54,7 @@ test('getPausedInfo2', async () => {
         return mockScripts
       }
       if (method === 'ExtensionHostDebug.getProperties') {
-        return {
-          scope1: {
-            result: [
-              {
-                name: 'prop1',
-                value: { type: 'string', value: 'value1' },
-              },
-            ],
-          },
-        }
+        return mockProperties
       }
       if (method === 'GetCallStack.getCallStack') {
         return mockCallStack
