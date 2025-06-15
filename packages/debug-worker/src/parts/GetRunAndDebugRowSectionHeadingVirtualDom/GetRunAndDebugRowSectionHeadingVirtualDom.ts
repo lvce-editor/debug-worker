@@ -36,7 +36,7 @@ export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] =
         className: ClassNames.DebugSectionAction,
         title: action.title,
         onClick: DomEventListenerFunctions.HandleClickSectionAction,
-        'data-action-id': action.id,
+        'data-name': action.id,
         childCount: 1,
       })
       nodes.push(VirtualDomHelpers.text(action.icon))
