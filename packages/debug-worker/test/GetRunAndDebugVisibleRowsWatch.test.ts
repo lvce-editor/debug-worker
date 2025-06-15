@@ -5,6 +5,7 @@ import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsWatch } from '../src/parts/GetRunAndDebugVisibleRowsWatch/GetRunAndDebugVisibleRowsWatch.ts'
+import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('should return watch section with default state', () => {
   const state = createDefaultState()
@@ -118,6 +119,47 @@ test('should show watch expressions when expanded', () => {
       indent: 0,
       valueType: '',
       name: '',
+      description: '',
+    },
+  ])
+})
+
+test('should show input field for new watch expression', () => {
+  const state = createDefaultState()
+  const stateWithNewExpression = addWatchExpression(state, '')
+  const expandedState = {
+    ...stateWithNewExpression,
+    watchExpanded: true,
+  }
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState)
+  expect(rows).toEqual([
+    {
+      type: DebugRowType.SectionHeading,
+      text: DebugStrings.watch(),
+      expanded: true,
+      key: DebugSectionId.Watch,
+      value: '',
+      indent: 0,
+      valueType: '',
+      name: 'Watch',
+      description: '',
+      actions: [
+        {
+          id: 'add-watch-expression',
+          title: 'Add new watch expression',
+          icon: '+',
+        },
+      ],
+    },
+    {
+      type: DebugRowType.InputField,
+      text: '',
+      expanded: false,
+      key: 'new-watch-expression',
+      value: '',
+      indent: 0,
+      valueType: '',
+      name: InputName.NewWatchExpression,
       description: '',
     },
   ])

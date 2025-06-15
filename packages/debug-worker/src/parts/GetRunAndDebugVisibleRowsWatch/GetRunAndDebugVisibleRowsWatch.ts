@@ -4,6 +4,7 @@ import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
+import * as InputName from '../InputName/InputName.ts'
 
 const formatValue = (value: any): string => {
   return value === null || value === undefined ? '' : String(value)
@@ -61,7 +62,21 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       })
     } else {
       for (const watchExpression of watchExpressions) {
-        rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value))
+        if (watchExpression.expression === '') {
+          rows.push({
+            type: DebugRowType.InputField,
+            text: '',
+            expanded: false,
+            key: 'new-watch-expression',
+            value: '',
+            indent: 0,
+            valueType: '',
+            name: InputName.NewWatchExpression,
+            description: '',
+          })
+        } else {
+          rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value))
+        }
       }
     }
   }
