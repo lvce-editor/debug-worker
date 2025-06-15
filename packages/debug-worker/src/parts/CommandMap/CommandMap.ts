@@ -1,5 +1,4 @@
 import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
-import * as CommandIds from '../CommandIds/CommandIds.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
@@ -64,6 +63,7 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
+  // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
@@ -85,6 +85,6 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
-  [CommandIds.AddWatchExpression]: addWatchExpression,
-  [CommandIds.RemoveWatchExpression]: removeWatchExpression,
+  'RunAndDebug.addWatchExpression': addWatchExpression,
+  'RunAndDebug.removeWatchExpression': removeWatchExpression,
 }

@@ -41,7 +41,6 @@ export const commandIds: readonly string[] = [
   'stepOver',
   'terminate',
   'togglePause',
+  'addWatchExpression',
+  'removeWatchExpression',
 ]
-
-export const AddWatchExpression = 'addWatchExpression'
-export const RemoveWatchExpression = 'removeWatchExpression'
