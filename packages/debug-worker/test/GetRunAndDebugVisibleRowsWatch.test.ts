@@ -153,7 +153,7 @@ test('should show input field for new watch expression', () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: InputName.NewWatchExpression,
+      name: InputName.WatchExpressionInput,
       description: '',
     },
   ])

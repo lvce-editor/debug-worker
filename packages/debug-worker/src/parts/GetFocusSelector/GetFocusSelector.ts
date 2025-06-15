@@ -4,7 +4,7 @@ import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 export const getFocusSelector = (focusId: number): string => {
   switch (focusId) {
     case WhenExpression.FocusDebugWatchInput:
-      return InputName.AddWatchExpression
+      return InputName.WatchExpressionInput
     default:
       return ''
   }
