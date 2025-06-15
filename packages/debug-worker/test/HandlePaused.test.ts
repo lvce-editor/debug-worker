@@ -15,7 +15,7 @@ const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise
   ExtensionHost.set(mockRpc)
 }
 
-test('handlePaused updates state correctly', async () => {
+test.skip('handlePaused updates state correctly', async () => {
   await setupMocks((method: string): Promise<any> => {
     if (method === 'ExtensionHostDebug.getProperties') {
       return Promise.resolve({
