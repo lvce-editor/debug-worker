@@ -1,23 +1,12 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Debug from '../Debug/Debug.ts'
 import * as DebugState from '../DebugState/DebugState.ts'
-import { getPausedInfo } from '../GetPausedInfo/GetPausedInfo.ts'
 
+/**
+ * @deprecated
+ */
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
-  const { debugId } = state
-  // eslint-disable-next-line  @typescript-eslint/no-deprecated
-  const { scopeChain, callFrameId, pausedReason, pausedMessage, callStack, expandedIds } = await getPausedInfo(debugId, params)
-  return {
-    ...state,
-    debugState: DebugState.Paused,
-    scopeChain,
-    scopeExpanded: true,
-    callStack,
-    pausedReason,
-    pausedMessage,
-    callFrameId,
-    expandedIds,
-  }
+  return state
 }
 
 // TODO maybe store scope chain elements as tree
