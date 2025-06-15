@@ -50,7 +50,7 @@ test('expandScopeChain', async () => {
         value: '{"value":"value1"}',
         valueType: '',
         objectId: '',
-        indent: NaN,
+        indent: Number.NaN,
       },
     ],
     expandedIds: ['id1', 'scope2'],
