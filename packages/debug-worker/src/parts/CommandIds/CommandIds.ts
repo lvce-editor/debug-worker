@@ -44,4 +44,5 @@ export const commandIds: readonly string[] = [
   'togglePause',
   'addWatchExpression',
   'removeWatchExpression',
+  'cancelWatchExpressionEdit',
 ]
