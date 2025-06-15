@@ -1,5 +1,11 @@
 // TODO instead of reusing debug row for all different kinds of debug items,
 // maybe use separate interfaces for checkboxes, headings, callstacks, values, scopes
+export interface DebugRowAction {
+  readonly id: string
+  readonly title: string
+  readonly icon: string
+}
+
 export interface DebugRow {
   readonly type: number
   readonly text: string
@@ -12,4 +18,5 @@ export interface DebugRow {
   readonly description: string
   readonly hasArrow?: boolean
   readonly index?: number
+  readonly actions?: readonly DebugRowAction[]
 }
