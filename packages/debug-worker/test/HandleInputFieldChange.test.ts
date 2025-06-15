@@ -8,7 +8,7 @@ test('should update new watch expression', () => {
   const state = createDefaultState()
   const stateWithNewExpression = addWatchExpression(state, '')
   const newState = handleInputFieldChange(stateWithNewExpression, InputName.NewWatchExpression, 'x + y')
-  expect(newState.editingValue).toBe('x+y')
+  expect(newState.editingValue).toBe('x + y')
 })
 
 test('should not update if name is not new watch expression', () => {
