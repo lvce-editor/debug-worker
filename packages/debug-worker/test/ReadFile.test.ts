@@ -34,7 +34,7 @@ test('readFile', async () => {
   const mockContent = 'test content'
   const mockDebugId = 'debug-123'
 
-  const mockExtensionHostRpc = await MockRpc.create({
+  const mockExtensionHostRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getScriptSource') {
@@ -45,7 +45,7 @@ test('readFile', async () => {
   })
   ExtensionHost.set(mockExtensionHostRpc)
 
-  const mockRendererWorkerRpc = await MockRpc.create({
+  const mockRendererWorkerRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
@@ -71,7 +71,7 @@ test('readFile', async () => {
 test('readFile - no instance found', async () => {
   const mockUri = '/1/script1'
 
-  const mockExtensionHostRpc = await MockRpc.create({
+  const mockExtensionHostRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.getScriptSource') {
@@ -82,7 +82,7 @@ test('readFile - no instance found', async () => {
   })
   ExtensionHost.set(mockExtensionHostRpc)
 
-  const mockRendererWorkerRpc = await MockRpc.create({
+  const mockRendererWorkerRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
