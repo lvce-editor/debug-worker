@@ -31,7 +31,18 @@ test('getPausedInfo2', async () => {
   }
   const mockScripts: any[] = []
   const mockScriptMap: ParsedScriptMap = {}
-  const mockProperties = ['prop1']
+  const mockProperties = {
+    scope1: {
+      result: {
+        result: [
+          {
+            name: 'prop1',
+            value: { type: 'string', value: 'value1' },
+          },
+        ],
+      },
+    },
+  }
 
   // Register mock RPC for ExtensionHostDebug and Debug
   const mockRpc = MockRpc.create({
