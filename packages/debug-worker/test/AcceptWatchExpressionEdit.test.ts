@@ -1,11 +1,12 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { acceptWatchExpressionEdit } from '../src/parts/AcceptWatchExpressionEdit/AcceptWatchExpressionEdit.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('should return state unchanged if no expression is being edited', () => {
   const state = createDefaultState()
-  const result = acceptWatchExpressionEdit(state, 'x + y')
-  expect(result).toBe(state)
+  const result = acceptWatchExpressionEdit(state)
+  expect(result).toEqual(state)
 })
 
 test('should remove watch expression when editing value is empty', () => {
@@ -20,14 +21,14 @@ test('should remove watch expression when editing value is empty', () => {
       },
     ],
   }
-  const result = acceptWatchExpressionEdit(stateWithEditingExpression, '')
+  const result = acceptWatchExpressionEdit(stateWithEditingExpression)
   expect(result.watchExpressions).toHaveLength(0)
   expect(result.focus).toBe(0)
 })
 
 test('should update watch expression with editing value and reset focus', () => {
-  const state = createDefaultState()
-  const stateWithEditingExpression = {
+  const state: RunAndDebugState = createDefaultState()
+  const stateWithEditingExpression: RunAndDebugState = {
     ...state,
     watchExpressions: [
       {
@@ -36,8 +37,9 @@ test('should update watch expression with editing value and reset focus', () => 
         isEditing: true,
       },
     ],
+    editingValue: 'x + y',
   }
-  const result = acceptWatchExpressionEdit(stateWithEditingExpression, 'x + y')
+  const result = acceptWatchExpressionEdit(stateWithEditingExpression)
   expect(result.watchExpressions).toHaveLength(1)
   expect(result.watchExpressions[0]).toEqual({
     expression: 'x + y',
@@ -48,8 +50,8 @@ test('should update watch expression with editing value and reset focus', () => 
 })
 
 test('should update correct watch expression when multiple exist', () => {
-  const state = createDefaultState()
-  const stateWithMultipleExpressions = {
+  const state: RunAndDebugState = createDefaultState()
+  const stateWithMultipleExpressions: RunAndDebugState = {
     ...state,
     watchExpressions: [
       {
@@ -68,8 +70,9 @@ test('should update correct watch expression when multiple exist', () => {
         isEditing: false,
       },
     ],
+    editingValue: 'updated',
   }
-  const result = acceptWatchExpressionEdit(stateWithMultipleExpressions, 'updated')
+  const result = acceptWatchExpressionEdit(stateWithMultipleExpressions)
   expect(result.watchExpressions).toHaveLength(3)
   expect(result.watchExpressions[1]).toEqual({
     expression: 'updated',
