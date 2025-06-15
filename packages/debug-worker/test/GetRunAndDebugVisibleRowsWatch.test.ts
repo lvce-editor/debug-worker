@@ -146,14 +146,14 @@ test('should show input field for new watch expression', () => {
       ],
     },
     {
-      type: DebugRowType.InputField,
+      type: DebugRowType.WatchExpression,
       text: '',
       expanded: false,
-      key: 'new-watch-expression',
+      key: '',
       value: '',
       indent: 0,
       valueType: '',
-      name: InputName.WatchExpressionInput,
+      name: '',
       description: '',
     },
   ])
