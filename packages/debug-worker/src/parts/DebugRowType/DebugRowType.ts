@@ -7,3 +7,4 @@ export const Message = 6
 export const CallStack = 7
 export const CheckBox = 8
 export const WatchMessage = 9
+export const WatchExpression = 10
