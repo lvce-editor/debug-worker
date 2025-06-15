@@ -5,5 +5,5 @@ export const renderFocusContext = (state: RunAndDebugState): readonly any[] => {
   if (!focus) {
     return []
   }
-  return ['viewlet.setFocusContext', focus]
+  return ['Viewlet.setFocusContext', focus]
 }
