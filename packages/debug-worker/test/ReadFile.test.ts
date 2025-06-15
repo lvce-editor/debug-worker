@@ -1,10 +1,10 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { ExtensionHost, RendererWorker } from '@lvce-editor/rpc-registry'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ReadFile from '../src/parts/ReadFile/ReadFile.js'
 import { readFile } from '../src/parts/ReadFile/ReadFile.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('should correctly parse URI and return empty string for invalid input', async () => {
   // @ts-ignore - Testing invalid input
