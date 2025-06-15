@@ -37,7 +37,7 @@ test('openAtPausedLocation - with call stack', async () => {
   RunAndDebugStates.set(mockKey, mockState, mockState)
 
   let calledWith: any = undefined
-  const mockRpc = await MockRpc.create({
+  const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string, ...args: any[]) => {
       if (method === 'Main.openUri') {
@@ -76,7 +76,7 @@ test('openAtPausedLocation - empty call stack', async () => {
   RunAndDebugStates.set(mockKey, mockState, mockState)
 
   let called = false
-  const mockRpc = await MockRpc.create({
+  const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Main.openUri') {
