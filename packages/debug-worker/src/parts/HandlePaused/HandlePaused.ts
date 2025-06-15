@@ -5,6 +5,7 @@ import { getPausedInfo } from '../GetPausedInfo/GetPausedInfo.ts'
 
 export const handlePaused = async (state: RunAndDebugState, params: any): Promise<RunAndDebugState> => {
   const { debugId } = state
+  // eslint-disable-next-line  @typescript-eslint/no-deprecated
   const { scopeChain, callFrameId, pausedReason, pausedMessage, callStack, expandedIds } = await getPausedInfo(debugId, params)
   return {
     ...state,
