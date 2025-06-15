@@ -16,6 +16,7 @@ import * as HandleClickSectionBreakPoints from '../HandleClickSectionBreakPoints
 import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
 import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClickSectionScope.ts'
+import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
@@ -32,7 +33,6 @@ import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
-import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 
 export const commandMap = {
   'Debug.paused': Debug.paused,

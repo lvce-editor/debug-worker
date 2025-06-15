@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as InputName from '../src/parts/InputName/InputName.ts'
 import { handleInputFieldChange } from '../src/parts/HandleInputFieldChange/HandleInputFieldChange.ts'
+import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('should update new watch expression', () => {
   const state = createDefaultState()
