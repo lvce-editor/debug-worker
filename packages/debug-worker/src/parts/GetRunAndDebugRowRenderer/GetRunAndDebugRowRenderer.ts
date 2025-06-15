@@ -2,6 +2,7 @@ import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
 import { renderCallStack } from '../RenderCallStack/RenderCallStack.ts'
 import { renderCheckBox } from '../RenderCheckBox/RenderCheckBox.ts'
+import { renderInputField } from '../RenderInputField/RenderInputField.ts'
 import { renderScope } from '../RenderScope/RenderScope.ts'
 import { renderValue } from '../RenderValue/RenderValue.ts'
 import { renderWatchExpression } from '../RenderWatchExpression/RenderWatchExpression.ts'
@@ -28,6 +29,8 @@ export const getRowRenderer = (type: number): any => {
       return renderWatchMessage
     case DebugRowType.WatchExpression:
       return renderWatchExpression
+    case DebugRowType.InputField:
+      return renderInputField
     default:
       return renderNoop
   }
