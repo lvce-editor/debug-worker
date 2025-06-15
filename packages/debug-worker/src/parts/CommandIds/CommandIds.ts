@@ -17,6 +17,7 @@ export const commandIds: readonly string[] = [
   'handleClickPauseOnExceptions',
   'handleClickPauseOnUncaughtExceptions',
   'handleClickScopeValue',
+  'handleClickSectionAction',
   'handleClickSectionBreakPoints',
   'handleClickSectionCallstack',
   'handleClickSectionHeading',
