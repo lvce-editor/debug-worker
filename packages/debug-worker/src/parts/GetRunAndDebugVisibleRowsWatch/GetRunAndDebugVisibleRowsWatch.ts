@@ -11,7 +11,20 @@ const formatValue = (value: any): string => {
   return value === null || value === undefined ? '' : String(value)
 }
 
-const renderWatchExpression = (expression: string, value: any): DebugRow => {
+const renderWatchExpression = (expression: string, value: any, isEditing: boolean): DebugRow => {
+  if (isEditing) {
+    return {
+      type: DebugRowType.InputField,
+      text: '',
+      expanded: false,
+      key: 'new-watch-expression',
+      value: '',
+      indent: 0,
+      valueType: '',
+      name: InputName.WatchExpressionInput,
+      description: '',
+    }
+  }
   return {
     type: DebugRowType.WatchExpression,
     text: expression,
@@ -57,21 +70,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       })
     } else {
       for (const watchExpression of watchExpressions) {
-        if (watchExpression.expression === '') {
-          rows.push({
-            type: DebugRowType.InputField,
-            text: '',
-            expanded: false,
-            key: 'new-watch-expression',
-            value: '',
-            indent: 0,
-            valueType: '',
-            name: InputName.WatchExpressionInput,
-            description: '',
-          })
-        } else {
-          rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value))
-        }
+        rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value, watchExpression.isEditing || false))
       }
     }
   }
