@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { cancelWatchExpressionEdit } from '../src/parts/CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 
 test('should remove empty watch expression', () => {
   const state: RunAndDebugState = createDefaultState()
