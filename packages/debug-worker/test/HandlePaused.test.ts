@@ -67,7 +67,7 @@ test.skip('handlePaused updates state correctly', async () => {
     ],
     reason: 'breakpoint',
   }
-
+  // eslint-disable-next-line  @typescript-eslint/no-deprecated
   const newState = await handlePaused(state, params)
 
   expect(newState.debugState).toBe(DebugState.Paused)
