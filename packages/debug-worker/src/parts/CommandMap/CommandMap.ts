@@ -35,6 +35,7 @@ export const commandMap = {
   'Debug.paused': Debug.paused,
   'Debug.resumed': Debug.resumed,
   'Debug.scriptParsed': Debug.scriptParsed,
+  'Debug.handleChange': Debug.handleChange,
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.create': Create.create,
   'RunAndDebug.diff2': Diff2.diff2,
