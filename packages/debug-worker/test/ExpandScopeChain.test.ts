@@ -1,7 +1,9 @@
-import { test, expect, jest } from '@jest/globals'
+import { expect, test } from '@jest/globals'
+import { MockRpc } from '@lvce-editor/rpc'
+import * as RpcRegistry from '@lvce-editor/rpc-registry'
+import { RpcId } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
-import * as GetChildScopeChain from '../src/parts/GetChildScopeChain/GetChildScopeChain.ts'
 
 test('expandScopeChain', async () => {
   const state = createDefaultState()
@@ -12,7 +14,29 @@ test('expandScopeChain', async () => {
   const debugId = 'debug1'
   const newScopeChain = ['newScope1', 'newScope2']
 
-  jest.spyOn(GetChildScopeChain, 'getChildScopeChain').mockResolvedValue(newScopeChain)
+  const mockRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string) => {
+      if (method === 'ExtensionHostDebug.getProperties') {
+        return Promise.resolve({
+          result: {
+            result: [
+              {
+                name: 'prop1',
+                value: { value: 'value1' },
+              },
+            ],
+          },
+        })
+      }
+      if (method === 'ExtensionHostManagement.activateByEvent') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
 
   const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId)
 
@@ -22,6 +46,4 @@ test('expandScopeChain', async () => {
     expandedIds: ['id1', 'scope2'],
     scopeFocusedIndex: 1,
   })
-
-  expect(GetChildScopeChain.getChildScopeChain).toHaveBeenCalledWith(state.cache, index, debugId, scopeChain)
 })
