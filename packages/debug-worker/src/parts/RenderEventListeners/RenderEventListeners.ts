@@ -75,5 +75,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: DomEventListenerFunctions.HandleInputFieldChange,
       params: ['handleInputFieldChange', 'event.target.name', 'event.target.value'],
     },
+    {
+      name: DomEventListenerFunctions.HandleClickSectionAction,
+      params: ['handleClickSectionAction', 'event.target.name'],
+    },
   ]
 }
