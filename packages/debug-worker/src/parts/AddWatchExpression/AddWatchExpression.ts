@@ -1,6 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
-import * as InputName from '../InputName/InputName.ts'
+import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const addWatchExpression = (state: RunAndDebugState, expression: string): RunAndDebugState => {
   const { watchExpressions } = state
@@ -11,6 +11,6 @@ export const addWatchExpression = (state: RunAndDebugState, expression: string):
   return {
     ...state,
     watchExpressions: [...watchExpressions, watchExpression],
-    focus: InputName.AddWatchExpression,
+    focus: WhenExpression.FocusDebugWatchInput,
   }
 }

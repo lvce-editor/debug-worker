@@ -30,6 +30,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     cache: Object.create(null), // TODO maybe store cache in extension host worker
     exceptionBreakPoints: ExceptionBreakPoints.None,
     watchExpressions: [],
+    focus: 0,
   }
   RunAndDebugStates.set(id, state, state)
 }

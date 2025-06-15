@@ -26,6 +26,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     cache: {},
     exceptionBreakPoints: 0,
     watchExpressions: [],
+    focus: 0,
   }
   set(uid, state, state)
   return state
