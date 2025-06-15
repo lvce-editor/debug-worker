@@ -130,3 +130,11 @@ export const getScripts = (debugId: any): Promise<any> => {
     params: [debugId],
   })
 }
+
+export const addWatchExpression = (debugId: any, expression: string): Promise<any> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.addWatchExpression',
+    params: [debugId, expression],
+  })
+}
