@@ -1,10 +1,10 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import * as RpcRegistry from '@lvce-editor/rpc-registry'
+import { RpcId } from '@lvce-editor/rpc-registry'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import * as ExtensionHostDebug from '../src/parts/ExtensionHostDebug/ExtensionHostDebug.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
-import * as RpcRegistry from '@lvce-editor/rpc-registry'
-import { RpcId } from '@lvce-editor/rpc-registry'
 
 const mockDebugId = 'test-debug-id'
 
