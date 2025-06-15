@@ -11,6 +11,7 @@ export const isEqual = (oldState: RunAndDebugState, newState: RunAndDebugState):
     oldState.breakPointsExpanded === newState.breakPointsExpanded &&
     oldState.debugState === newState.debugState &&
     oldState.watchExpanded === newState.watchExpanded &&
-    oldState.callStackExpanded === newState.callStackExpanded
+    oldState.callStackExpanded === newState.callStackExpanded &&
+    oldState.watchExpressions === newState.watchExpressions
   )
 }
