@@ -9,15 +9,15 @@ const formatValue = (value: any): string => {
   return value === null || value === undefined ? '' : String(value)
 }
 
-export const renderWatchExpression = (expression: string, value: unknown): DebugRow => {
+const renderWatchExpression = (expression: string, value: any): DebugRow => {
   return {
     type: DebugRowType.WatchExpression,
-    text: '',
+    text: expression,
     expanded: false,
     key: expression,
     value: formatValue(value),
-    indent: 1,
-    valueType: value === null || value === undefined ? 'undefined' : typeof value,
+    indent: 0,
+    valueType: '',
     name: '',
     description: '',
   }
@@ -36,6 +36,13 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       valueType: '',
       name: DebugRowName.Watch,
       description: '',
+      actions: [
+        {
+          id: 'add-watch-expression',
+          title: 'Add new watch expression',
+          icon: '+',
+        },
+      ],
     },
   ]
 

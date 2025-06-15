@@ -20,6 +20,13 @@ test('should return watch section with default state', () => {
       valueType: '',
       name: 'Watch',
       description: '',
+      actions: [
+        {
+          id: 'add-watch-expression',
+          title: 'Add new watch expression',
+          icon: '+',
+        },
+      ],
     },
   ])
 })
@@ -42,6 +49,13 @@ test('should show no watch expression message when expanded and no expressions',
       valueType: '',
       name: 'Watch',
       description: '',
+      actions: [
+        {
+          id: 'add-watch-expression',
+          title: 'Add new watch expression',
+          icon: '+',
+        },
+      ],
     },
     {
       type: DebugRowType.WatchMessage,
@@ -76,26 +90,33 @@ test('should show watch expressions when expanded', () => {
       valueType: '',
       name: 'Watch',
       description: '',
+      actions: [
+        {
+          id: 'add-watch-expression',
+          title: 'Add new watch expression',
+          icon: '+',
+        },
+      ],
     },
     {
       type: DebugRowType.WatchExpression,
-      text: '',
+      text: 'x + y',
       expanded: false,
       key: 'x + y',
       value: '',
-      indent: 1,
-      valueType: 'undefined',
+      indent: 0,
+      valueType: '',
       name: '',
       description: '',
     },
     {
       type: DebugRowType.WatchExpression,
-      text: '',
+      text: 'a + b',
       expanded: false,
       key: 'a + b',
       value: '',
-      indent: 1,
-      valueType: 'undefined',
+      indent: 0,
+      valueType: '',
       name: '',
       description: '',
     },

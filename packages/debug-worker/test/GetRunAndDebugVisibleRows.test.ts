@@ -19,6 +19,13 @@ test('should return watch section with default state', () => {
     valueType: '',
     name: 'Watch',
     description: '',
+    actions: [
+      {
+        id: 'add-watch-expression',
+        title: 'Add new watch expression',
+        icon: '+',
+      },
+    ],
   })
 })
 
