@@ -24,7 +24,7 @@ export const renderInputField = (row: DebugRow): readonly VirtualDomNode[] => {
       name,
       value: text,
       childCount: 0,
-      onChange: DomEventListenerFunctions.HandleInputFieldChange,
+      onInput: DomEventListenerFunctions.HandleInputFieldChange,
       id: name,
     },
   ]

@@ -34,7 +34,7 @@ test('renderInputField', () => {
       name: 'test-input',
       value: 'test input',
       childCount: 0,
-      onChange: DomEventListenerFunctions.HandleInputFieldChange,
+      onInput: DomEventListenerFunctions.HandleInputFieldChange,
       id: 'test-input',
     },
   ])
