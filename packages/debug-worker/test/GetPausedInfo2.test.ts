@@ -49,25 +49,34 @@ test('getPausedInfo2', async () => {
       if (method === 'ExtensionHostDebug.getProperties') {
         return Promise.resolve(mockProperties)
       }
+      if (method === 'GetCallStack.getCallStack') {
+        return Promise.resolve(mockCallStack)
+      }
+      if (method === 'GetScopeChain.getScopeChain') {
+        return Promise.resolve(['scope1'])
+      }
+      if (method === 'GetDebugPausedMessage.getDebugPausedMessage') {
+        return Promise.resolve('test message')
+      }
+      if (method === 'CreateScriptMap.createScriptMap') {
+        return Promise.resolve(mockScriptMap)
+      }
       throw new Error(`unexpected method ${method}`)
     },
   })
   RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
 
-  // Instead of reassigning, use local helpers for utility functions
-  const originalGetCallStack = GetCallStack.getCallStack
-  const originalGetScopeChain = GetScopeChain.getScopeChain
-  const originalGetDebugPausedMessage = GetDebugPausedMessage.getDebugPausedMessage
-  const originalCreateScriptMap = realCreateScriptMap
-
-  // @ts-ignore
-  GetCallStack.getCallStack = () => mockCallStack
-  // @ts-ignore
-  GetScopeChain.getScopeChain = () => ['scope1']
-  // @ts-ignore
-  GetDebugPausedMessage.getDebugPausedMessage = () => 'test message'
-  // @ts-ignore
-  require.cache[require.resolve('../src/parts/CreateScriptMap/CreateScriptMap.ts')].exports.createScriptMap = () => mockScriptMap
+  // Register mock RPC for RendererWorker
+  const mockRendererWorkerRpc = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, ...params: any[]) => {
+      if (method === 'ExtensionHostManagement.activateByEvent') {
+        return Promise.resolve()
+      }
+      throw new Error(`unexpected method ${method}`)
+    },
+  })
+  RpcRegistry.set(RpcId.RendererWorker, mockRendererWorkerRpc)
 
   try {
     const result = await getPausedInfo2(mockDebugId)
@@ -81,14 +90,14 @@ test('getPausedInfo2', async () => {
       scriptMap: mockScriptMap,
     })
   } finally {
-    // Restore original functions
-    // @ts-ignore
-    GetCallStack.getCallStack = originalGetCallStack
-    // @ts-ignore
-    GetScopeChain.getScopeChain = originalGetScopeChain
-    // @ts-ignore
-    GetDebugPausedMessage.getDebugPausedMessage = originalGetDebugPausedMessage
-    // @ts-ignore
-    require.cache[require.resolve('../src/parts/CreateScriptMap/CreateScriptMap.ts')].exports.createScriptMap = originalCreateScriptMap
+    // Clean up RPC registrations
+    const emptyMockRpc = MockRpc.create({
+      commandMap: {},
+      invoke: () => {
+        throw new Error('Unexpected method call')
+      },
+    })
+    RpcRegistry.set(RpcId.ExtensionHostWorker, emptyMockRpc)
+    RpcRegistry.set(RpcId.RendererWorker, emptyMockRpc)
   }
 })
