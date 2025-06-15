@@ -25,6 +25,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     pauseOnExceptionState: 'none',
     cache: {},
     exceptionBreakPoints: 0,
+    watchExpressions: [],
   }
   set(uid, state, state)
   return state

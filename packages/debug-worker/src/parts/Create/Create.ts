@@ -29,6 +29,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     pauseOnExceptionState: PauseOnExceptionState.None,
     cache: Object.create(null), // TODO maybe store cache in extension host worker
     exceptionBreakPoints: ExceptionBreakPoints.None,
+    watchExpressions: [],
   }
   RunAndDebugStates.set(id, state, state)
 }

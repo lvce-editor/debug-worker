@@ -1,5 +1,6 @@
 import type { CallStackItem } from '../CallStackItem/CallStackItem.ts'
 import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
+import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 
 export interface RunAndDebugState {
   readonly id: number
@@ -25,4 +26,5 @@ export interface RunAndDebugState {
   readonly cache: any // TODO maybe store cache in extension host worker
   readonly exceptionBreakPoints: number
   readonly debugId?: any
+  readonly watchExpressions: readonly WatchExpression[]
 }
