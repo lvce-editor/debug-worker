@@ -11,10 +11,10 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
-        return Promise.resolve()
+        return
       }
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -24,7 +24,7 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
-      return Promise.resolve()
+      return
     },
   })
   ExtensionHost.set(mockExtensionHost)
@@ -39,10 +39,10 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
-        return Promise.resolve()
+        return
       }
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -52,7 +52,7 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
-      return Promise.resolve()
+      return
     },
   })
   ExtensionHost.set(mockExtensionHost)
@@ -70,10 +70,10 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Debugger.setPauseOnExceptions') {
-        return Promise.resolve()
+        return
       }
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -83,7 +83,7 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
-      return Promise.resolve()
+      return
     },
   })
   ExtensionHost.set(mockExtensionHost)

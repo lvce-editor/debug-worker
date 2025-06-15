@@ -11,7 +11,7 @@ test('handleClickCheckBox with pause-on-exceptions', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -19,7 +19,7 @@ test('handleClickCheckBox with pause-on-exceptions', async () => {
   RendererWorker.set(mockRendererWorker)
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
-    invoke: () => Promise.resolve(undefined),
+    invoke: () => undefined,
   })
   ExtensionHost.set(mockExtensionHost)
   const state = createDefaultState()
@@ -32,7 +32,7 @@ test('handleClickCheckBox with pause-on-uncaught-exceptions', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -40,7 +40,7 @@ test('handleClickCheckBox with pause-on-uncaught-exceptions', async () => {
   RendererWorker.set(mockRendererWorker)
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
-    invoke: () => Promise.resolve(undefined),
+    invoke: () => undefined,
   })
   ExtensionHost.set(mockExtensionHost)
   const state = createDefaultState()
@@ -53,7 +53,7 @@ test('handleClickCheckBox with invalid name throws error', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve(undefined)
+        return undefined
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -61,7 +61,7 @@ test('handleClickCheckBox with invalid name throws error', async () => {
   RendererWorker.set(mockRendererWorker)
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
-    invoke: () => Promise.resolve(undefined),
+    invoke: () => undefined,
   })
   ExtensionHost.set(mockExtensionHost)
   const state = createDefaultState()

@@ -19,7 +19,7 @@ test('setPauseOnExceptions - success', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'ExtensionHostDebug.setPauseOnExceptions') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },

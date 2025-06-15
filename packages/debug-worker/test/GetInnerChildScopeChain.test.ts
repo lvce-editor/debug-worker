@@ -8,7 +8,7 @@ const mockRpc = MockRpc.create({
   commandMap: {},
   invoke: (method: string) => {
     if (method === 'ExtensionHostManagement.activateByEvent') {
-      return Promise.resolve([])
+      return []
     }
     throw new Error(`unexpected method ${method}`)
   },

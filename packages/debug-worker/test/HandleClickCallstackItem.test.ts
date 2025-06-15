@@ -10,7 +10,7 @@ test('handleClickCallstackItem', async () => {
     commandMap: {},
     invoke: (method: string) => {
       if (method === 'Main.openUri') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },

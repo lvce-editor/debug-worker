@@ -16,9 +16,9 @@ const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise
 }
 
 test.skip('handlePaused updates state correctly', async () => {
-  await setupMocks((method: string): Promise<any> => {
+  await setupMocks((method: string): any => {
     if (method === 'ExtensionHostDebug.getProperties') {
-      return Promise.resolve({
+      return {
         result: {
           result: [
             {
@@ -27,27 +27,27 @@ test.skip('handlePaused updates state correctly', async () => {
             },
           ],
         },
-      })
+      }
     }
     if (method === 'ExtensionHostManagement.activateByEvent') {
-      return Promise.resolve()
+      return
     }
     if (method === 'Run And Debug.handleScriptParsed') {
-      return Promise.resolve()
+      return
     }
     if (method === 'Run And Debug.handlePaused') {
-      return Promise.resolve()
+      return
     }
     if (method === 'ExtensionHostDebug.evaluate') {
-      return Promise.resolve({
+      return {
         result: {
           result: {
             value: 42,
           },
         },
-      })
+      }
     }
-    return Promise.resolve()
+    return
   })
 
   const state = createDefaultState()
@@ -77,29 +77,29 @@ test.skip('handlePaused updates state correctly', async () => {
 })
 
 test('togglePause switches between pause and resume', async () => {
-  await setupMocks((method: string): Promise<any> => {
+  await setupMocks((method: string): any => {
     if (method === 'ExtensionHostDebug.pause' || method === 'ExtensionHostDebug.resume') {
-      return Promise.resolve()
+      return
     }
     if (method === 'ExtensionHostManagement.activateByEvent') {
-      return Promise.resolve()
+      return
     }
     if (method === 'Run And Debug.handleScriptParsed') {
-      return Promise.resolve()
+      return
     }
     if (method === 'Run And Debug.handlePaused') {
-      return Promise.resolve()
+      return
     }
     if (method === 'ExtensionHostDebug.evaluate') {
-      return Promise.resolve({
+      return {
         result: {
           result: {
             value: 42,
           },
         },
-      })
+      }
     }
-    return Promise.resolve()
+    return
   })
 
   const state = createDefaultState()
