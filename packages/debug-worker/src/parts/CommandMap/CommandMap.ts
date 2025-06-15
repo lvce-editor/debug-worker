@@ -70,9 +70,9 @@ export const commandMap = {
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
-  'RunAndDebug.addWatchExpression': addWatchExpression,
-  'RunAndDebug.cancelWatchExpressionEdit': cancelWatchExpressionEdit,
-  'RunAndDebug.acceptWatchExpressionEdit': acceptWatchExpressionEdit,
+  'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
+  'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
+  'RunAndDebug.acceptWatchExpressionEdit': WrapCommand.wrapCommand(acceptWatchExpressionEdit),
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
   'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
