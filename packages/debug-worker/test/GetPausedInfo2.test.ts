@@ -47,16 +47,16 @@ test('getPausedInfo2', async () => {
     commandMap: {},
     invoke: (method: string, ...params: any[]) => {
       if (method === 'ExtensionHostDebug.getCallStack') {
-        return Promise.resolve(mockCallFrames)
+        return mockCallFrames
       }
       if (method === 'ExtensionHostDebug.getPausedStatus') {
-        return Promise.resolve(mockPausedStatus)
+        return mockPausedStatus
       }
       if (method === 'ExtensionHostDebug.getScripts') {
-        return Promise.resolve(mockScripts)
+        return mockScripts
       }
       if (method === 'ExtensionHostDebug.getProperties') {
-        return Promise.resolve({
+        return {
           scope1: {
             result: [
               {
@@ -65,19 +65,19 @@ test('getPausedInfo2', async () => {
               },
             ],
           },
-        })
+        }
       }
       if (method === 'GetCallStack.getCallStack') {
-        return Promise.resolve(mockCallStack)
+        return mockCallStack
       }
       if (method === 'GetScopeChain.getScopeChain') {
-        return Promise.resolve(['scope1'])
+        return ['scope1']
       }
       if (method === 'GetDebugPausedMessage.getDebugPausedMessage') {
-        return Promise.resolve('test message')
+        return 'test message'
       }
       if (method === 'CreateScriptMap.createScriptMap') {
-        return Promise.resolve(mockScriptMap)
+        return mockScriptMap
       }
       throw new Error(`unexpected method ${method}`)
     },
@@ -89,7 +89,7 @@ test('getPausedInfo2', async () => {
     commandMap: {},
     invoke: (method: string, ...params: any[]) => {
       if (method === 'ExtensionHostManagement.activateByEvent') {
-        return Promise.resolve()
+        return
       }
       throw new Error(`unexpected method ${method}`)
     },
