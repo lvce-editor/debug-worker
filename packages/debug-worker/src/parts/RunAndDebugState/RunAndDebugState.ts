@@ -28,4 +28,5 @@ export interface RunAndDebugState {
   readonly debugId?: any
   readonly watchExpressions: readonly WatchExpression[]
   readonly focus: number
+  readonly editingValue: string
 }
