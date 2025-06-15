@@ -122,3 +122,11 @@ export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
     params: [debugId, callFrameId],
   })
 }
+
+export const getScripts = (debugId: any): Promise<any> => {
+  return ExecuteProvider.executeProvider({
+    event: `onDebug:${debugId}`,
+    method: 'ExtensionHostDebug.getScripts',
+    params: [debugId],
+  })
+}
