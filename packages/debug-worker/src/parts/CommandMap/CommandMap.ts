@@ -74,7 +74,7 @@ export const commandMap = {
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.acceptWatchExpressionEdit': WrapCommand.wrapCommand(acceptWatchExpressionEdit),
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
-  'RunAndDebug.handleInputFieldChange': HandleInputFieldChange.handleInputFieldChange,
+  'RunAndDebug.handleInputFieldChange': WrapCommand.wrapCommand(HandleInputFieldChange.handleInputFieldChange),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
