@@ -56,26 +56,41 @@ test('getPausedInfo2', async () => {
   })
   RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
 
-  // Stub utility functions
-  GetCallStack.getCallStack = () => mockCallStack
-  GetScopeChain.getScopeChain = () => ['scope1']
-  GetDebugPausedMessage.getDebugPausedMessage = () => 'test message'
-  // createScriptMap is imported as a function, so we can stub it
-  const createScriptMap = () => mockScriptMap
+  // Instead of reassigning, use local helpers for utility functions
+  const originalGetCallStack = GetCallStack.getCallStack
+  const originalGetScopeChain = GetScopeChain.getScopeChain
+  const originalGetDebugPausedMessage = GetDebugPausedMessage.getDebugPausedMessage
+  const originalCreateScriptMap = realCreateScriptMap
 
-  // Patch the function in the module
   // @ts-ignore
-  require.cache[require.resolve('../src/parts/CreateScriptMap/CreateScriptMap.ts')].exports.createScriptMap = createScriptMap
+  GetCallStack.getCallStack = () => mockCallStack
+  // @ts-ignore
+  GetScopeChain.getScopeChain = () => ['scope1']
+  // @ts-ignore
+  GetDebugPausedMessage.getDebugPausedMessage = () => 'test message'
+  // @ts-ignore
+  require.cache[require.resolve('../src/parts/CreateScriptMap/CreateScriptMap.ts')].exports.createScriptMap = () => mockScriptMap
 
-  const result = await getPausedInfo2(mockDebugId)
-
-  expect(result).toEqual({
-    scopeChain: ['scope1'],
-    callStack: ['stack1'],
-    pausedReason: 'test-reason',
-    pausedMessage: 'test message',
-    callFrameId: 'frame1',
-    expandedIds: ['scope1'],
-    scriptMap: mockScriptMap,
-  })
+  try {
+    const result = await getPausedInfo2(mockDebugId)
+    expect(result).toEqual({
+      scopeChain: ['scope1'],
+      callStack: ['stack1'],
+      pausedReason: 'test-reason',
+      pausedMessage: 'test message',
+      callFrameId: 'frame1',
+      expandedIds: ['scope1'],
+      scriptMap: mockScriptMap,
+    })
+  } finally {
+    // Restore original functions
+    // @ts-ignore
+    GetCallStack.getCallStack = originalGetCallStack
+    // @ts-ignore
+    GetScopeChain.getScopeChain = originalGetScopeChain
+    // @ts-ignore
+    GetDebugPausedMessage.getDebugPausedMessage = originalGetDebugPausedMessage
+    // @ts-ignore
+    require.cache[require.resolve('../src/parts/CreateScriptMap/CreateScriptMap.ts')].exports.createScriptMap = originalCreateScriptMap
+  }
 })
