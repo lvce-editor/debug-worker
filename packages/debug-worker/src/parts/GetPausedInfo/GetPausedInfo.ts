@@ -13,6 +13,9 @@ export interface PausedInfo {
   readonly expandedIds: readonly any[]
 }
 
+/**
+ * @deprecated use getPausedInfo2 instead
+ */
 export const getPausedInfo = async (debugId: any, params: any): Promise<PausedInfo> => {
   const callStack = GetCallStack.getCallStack(params.callFrames)
   const objectId = params.callFrames[0].scopeChain[0].object.objectId
