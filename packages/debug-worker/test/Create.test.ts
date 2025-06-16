@@ -36,5 +36,6 @@ test('create sets state with correct parameters', () => {
     watchExpressions: [],
     focus: 0,
     editingValue: '',
+    debugId: 0,
   })
 })

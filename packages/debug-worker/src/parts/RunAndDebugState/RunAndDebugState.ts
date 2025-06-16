@@ -25,7 +25,7 @@ export interface RunAndDebugState {
   readonly pauseOnExceptionState: string
   readonly cache: any // TODO maybe store cache in extension host worker
   readonly exceptionBreakPoints: number
-  readonly debugId?: any
+  readonly debugId: any
   readonly watchExpressions: readonly WatchExpression[]
   readonly focus: number
   readonly editingValue: string

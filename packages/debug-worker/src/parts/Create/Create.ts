@@ -32,6 +32,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     watchExpressions: [],
     focus: 0,
     editingValue: '',
+    debugId: 0,
   }
   RunAndDebugStates.set(id, state, state)
 }
