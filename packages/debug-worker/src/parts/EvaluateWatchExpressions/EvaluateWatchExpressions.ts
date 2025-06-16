@@ -4,11 +4,18 @@ import { evaluateWatchExpression } from '../EvaluateWatchExpression/EvaluateWatc
 export const evaluateWatchExpressions = async (debugId: any, callFrameId: any, watchExpressions: readonly WatchExpression[]): Promise<readonly WatchExpression[]> => {
   const results = await Promise.all(
     watchExpressions.map(async (expression) => {
-      const result = await evaluateWatchExpression(debugId, callFrameId, expression.expression)
-      const resultString = result.description
-      return {
-        ...expression,
-        value: resultString,
+      try {
+        const result = await evaluateWatchExpression(debugId, callFrameId, expression.expression)
+        const resultString = result.description
+        return {
+          ...expression,
+          value: resultString,
+        }
+      } catch (error) {
+        console.error(`Failed to evaluate expression: ${error}`)
+        return {
+          ...expression,
+        }
       }
     }),
   )

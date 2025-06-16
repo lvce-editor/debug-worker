@@ -1,6 +1,27 @@
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
+import * as DebugState from '../DebugState/DebugState.ts'
+import { evaluateWatchExpressions } from '../EvaluateWatchExpressions/EvaluateWatchExpressions.ts'
 
-export const getNewWatchExpressionsAccept = (watchExpressions: readonly WatchExpression[], editingValue: string): readonly WatchExpression[] => {
+const getNewWatchExpressions = async (
+  debugId: any,
+  callFrameId: any,
+  debugState: number,
+  watchExpressions: readonly WatchExpression[],
+): Promise<readonly WatchExpression[]> => {
+  if (debugState === DebugState.Paused) {
+    const newWatchExpressions = await evaluateWatchExpressions(debugId, callFrameId, watchExpressions)
+    return newWatchExpressions
+  }
+  return watchExpressions
+}
+
+export const getNewWatchExpressionsAccept = async (
+  debugId: any,
+  callFrameId: any,
+  debugState: number,
+  watchExpressions: readonly WatchExpression[],
+  editingValue: string,
+): Promise<readonly WatchExpression[]> => {
   const editingIndex = watchExpressions.findIndex((expr) => expr.isEditing)
 
   if (editingIndex === -1) {
@@ -17,5 +38,7 @@ export const getNewWatchExpressionsAccept = (watchExpressions: readonly WatchExp
     isEditing: false,
   }
 
-  return watchExpressions.toSpliced(editingIndex, 1, newExpression)
+  const newWatchExpressions1 = watchExpressions.toSpliced(editingIndex, 1, newExpression)
+  const newWatchExpressions2 = await getNewWatchExpressions(debugId, callFrameId, debugState, newWatchExpressions1)
+  return newWatchExpressions2
 }
