@@ -2,6 +2,7 @@ export const commandIds: readonly string[] = [
   'acceptWatchExpressionEdit',
   'addWatchExpression',
   'cancelWatchExpressionEdit',
+  'handleClickSectionWatch',
   'create',
   'diff2',
   'dispose',
