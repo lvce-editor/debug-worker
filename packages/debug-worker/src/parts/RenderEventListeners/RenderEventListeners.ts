@@ -68,6 +68,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleClickCallStackItem', 'event.target.dataset.index'],
     },
     {
+      name: DomEventListenerFunctions.HandleClickWatchExpression,
+      params: ['handleClickWatchExpression', 'event.target.dataset.index'],
+    },
+    {
       name: DomEventListenerFunctions.HandleClickScopeValue,
       params: ['handleClickScopeValue', 'event.target.dataset.name'],
     },
