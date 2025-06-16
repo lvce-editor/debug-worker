@@ -1,5 +1,5 @@
 import { test, expect } from '@jest/globals'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.js'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleClickSectionBreakPoints } from '../src/parts/HandleClickSectionBreakPoints/HandleClickSectionBreakPoints.js'
 
 test('handleClickSectionBreakPoints toggles breakPointsExpanded and sets focusedIndex', () => {
