@@ -21,5 +21,6 @@ export const handleClickWatchExpression = async (state: RunAndDebugState, dataIn
     watchExpressions: newWatchExpressions,
     focus: WhenExpression.FocusDebugWatchInput,
     inputSource: InputSource.Script,
+    editingValue: item.expression,
   }
 }
