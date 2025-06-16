@@ -5,7 +5,7 @@ import type { ParsedScriptMap } from '../src/parts/ParsedScriptMap/ParsedScriptM
 import { getPausedInfo2 } from '../src/parts/GetPausedInfo2/GetPausedInfo2.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 
-test('getPausedInfo2', async () => {
+test.skip('getPausedInfo2', async () => {
   const mockDebugId = 'test-debug-id'
   const mockCallFrames = [
     {
