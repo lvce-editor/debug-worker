@@ -7,5 +7,6 @@ export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugS
   return {
     ...state,
     watchExpressions: newWatchExpressions,
+    focus: 0,
   }
 }
