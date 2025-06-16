@@ -1,8 +1,8 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { getFocusSelector } from '../GetFocusSelector/GetFocusSelector.ts'
 
-export const renderFocus = (state: RunAndDebugState): readonly any[] => {
-  const { id, focus } = state
+export const renderFocus = (oldState: RunAndDebugState, newState: RunAndDebugState): readonly any[] => {
+  const { id, focus } = newState
   const selector = getFocusSelector(focus)
   if (!selector) {
     return ['Viewlet.focusElementByName', id, '']

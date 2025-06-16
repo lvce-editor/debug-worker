@@ -1,6 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
-export const renderFocusContext = (state: RunAndDebugState): readonly any[] => {
-  const { focus } = state
+export const renderFocusContext = (oldState: RunAndDebugState, newState: RunAndDebugState): readonly any[] => {
+  const { focus } = newState
   return ['Viewlet.setFocusContext', focus]
 }

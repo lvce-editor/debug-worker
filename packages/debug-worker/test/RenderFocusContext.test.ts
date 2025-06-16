@@ -4,10 +4,10 @@ import { renderFocusContext } from '../src/parts/RenderFocusContext/RenderFocusC
 
 test.skip('renderFocusContext - no focus', () => {
   const state = createDefaultState()
-  expect(renderFocusContext(state)).toEqual([])
+  expect(renderFocusContext(state, state)).toEqual([])
 })
 
 test('renderFocusContext - with focus', () => {
   const state = { ...createDefaultState(), focus: 1 }
-  expect(renderFocusContext(state)).toEqual(['Viewlet.setFocusContext', 1])
+  expect(renderFocusContext(state, state)).toEqual(['Viewlet.setFocusContext', 1])
 })
