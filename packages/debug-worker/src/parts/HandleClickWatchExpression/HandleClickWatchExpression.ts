@@ -1,5 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
+import * as InputSource from '../InputSource/InputSource.ts'
 import { parseIndex } from '../ParseIndex/ParseIndex.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
@@ -19,5 +20,6 @@ export const handleClickWatchExpression = async (state: RunAndDebugState, dataIn
     ...state,
     watchExpressions: newWatchExpressions,
     focus: WhenExpression.FocusDebugWatchInput,
+    inputSource: InputSource.Script,
   }
 }
