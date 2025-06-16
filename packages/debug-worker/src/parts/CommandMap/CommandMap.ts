@@ -34,6 +34,7 @@ import { removeWatchExpression } from '../RemoveWatchExpression/RemoveWatchExpre
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
 import * as RenderEventListeners from '../RenderEventListeners/RenderEventListeners.ts'
+import * as RestoreState from '../RestoreState/RestoreState.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
@@ -48,6 +49,7 @@ export const commandMap = {
   'RunAndDebug.create': Create.create,
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.dispose': Dispose.dispose,
+  'RunAndDebug.restoreState': RestoreState.restoreState,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
   'RunAndDebug.focusPrevious': WrapCommand.wrapCommand(HandlePaused.focusPrevious),
   'RunAndDebug.getCommandIds': GetCommandIds.getCommandIds,
