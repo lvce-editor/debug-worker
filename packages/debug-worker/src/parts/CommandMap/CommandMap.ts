@@ -20,6 +20,7 @@ import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/Han
 import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
 import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClickSectionScope.ts'
 import * as HandleClickSectionWatch from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
+import * as HandleClickWatchExpression from '../HandleClickWatchExpression/HandleClickWatchExpression.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
@@ -70,6 +71,7 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandleClickSectionCallstack.handleClickSectionCallstack),
   'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandleClickSectionHeading.handleClickSectionHeading),
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
+  'RunAndDebug.handleClickWatchExpression': WrapCommand.wrapCommand(HandleClickWatchExpression.handleClickWatchExpression),
   'RunAndDebug.handleClickSectionWatch': WrapCommand.wrapCommand(HandleClickSectionWatch.handleClickSectionWatch),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
