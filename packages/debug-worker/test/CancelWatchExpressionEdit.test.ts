@@ -4,9 +4,9 @@ import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpr
 import { cancelWatchExpressionEdit } from '../src/parts/CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
-test('should remove empty watch expression', () => {
+test('should remove empty watch expression', async () => {
   const state: RunAndDebugState = createDefaultState()
-  const stateWithNewExpression = addWatchExpression(state, '')
+  const stateWithNewExpression: RunAndDebugState = await addWatchExpression(state, '')
   const result = cancelWatchExpressionEdit(stateWithNewExpression)
   expect(result.watchExpressions).toHaveLength(0)
 })

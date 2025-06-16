@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
@@ -66,9 +67,9 @@ test('should show no watch expression message when expanded and no expressions',
   ])
 })
 
-test.skip('should show watch expressions when expanded', () => {
-  const state = createDefaultState()
-  const stateWithExpressions = addWatchExpression(addWatchExpression(state, 'x + y'), 'a + b')
+test.skip('should show watch expressions when expanded', async () => {
+  const state: RunAndDebugState = createDefaultState()
+  const stateWithExpressions: RunAndDebugState = await addWatchExpression(await addWatchExpression(state, 'x + y'), 'a + b')
   const expandedState = {
     ...stateWithExpressions,
     watchExpanded: true,
@@ -118,9 +119,9 @@ test.skip('should show watch expressions when expanded', () => {
   ])
 })
 
-test.skip('should show input field for new watch expression', () => {
-  const state = createDefaultState()
-  const stateWithNewExpression = addWatchExpression(state, '')
+test.skip('should show input field for new watch expression', async () => {
+  const state: RunAndDebugState = createDefaultState()
+  const stateWithNewExpression: RunAndDebugState = await addWatchExpression(state, '')
   const expandedState = {
     ...stateWithNewExpression,
     watchExpanded: true,
