@@ -1,9 +1,9 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { getNewWatchExpressionsAccept } from '../GetNewWatchExpressionsAccept/GetNewWatchExpressionsAccept.ts'
 
-export const acceptWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugState => {
-  const { watchExpressions, editingValue } = state
-  const newWatchExpressions = getNewWatchExpressionsAccept(watchExpressions, editingValue)
+export const acceptWatchExpressionEdit = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
+  const { watchExpressions, editingValue, debugId, debugState, callFrameId } = state
+  const newWatchExpressions = await getNewWatchExpressionsAccept(debugId, callFrameId, debugState, watchExpressions, editingValue)
   return {
     ...state,
     watchExpressions: newWatchExpressions,
