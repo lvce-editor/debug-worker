@@ -4,6 +4,7 @@ import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
 import { renderWatchExpression } from '../src/parts/RenderWatchExpression/RenderWatchExpression.ts'
+import { separator } from '../src/parts/Separator/Separator.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
 
 test('should render watch expression', () => {
@@ -24,7 +25,7 @@ test('should render watch expression', () => {
       type: VirtualDomElements.Div,
       className: ClassNames.DebugRow,
       role: AriaRoles.TreeItem,
-      childCount: 2,
+      childCount: 3,
     },
     {
       type: VirtualDomElements.Span,
@@ -32,6 +33,7 @@ test('should render watch expression', () => {
       childCount: 1,
     },
     text('x + y'),
+    separator,
     {
       type: VirtualDomElements.Span,
       className: ClassNames.DebugValue,
