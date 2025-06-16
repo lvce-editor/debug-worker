@@ -5,6 +5,8 @@ import { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState
 import { MockRpc } from '@lvce-editor/rpc'
 import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { RpcId } from '@lvce-editor/rpc-registry'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 
 test('evaluateWatchExpression', async () => {
   const mockRpc = MockRpc.create({
@@ -15,14 +17,11 @@ test('evaluateWatchExpression', async () => {
           result: 'evaluated result',
         }
       }
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      return undefined
+      return { result: undefined }
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
-  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
+  RendererWorker.set(mockRpc)
+  ExtensionHost.set(mockRpc)
 
   const state: RunAndDebugState = createDefaultState()
   const expression = 'x + y'
