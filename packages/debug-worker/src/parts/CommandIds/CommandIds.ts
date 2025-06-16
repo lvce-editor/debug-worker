@@ -47,5 +47,6 @@ export const commandIds: readonly string[] = [
   'stepOut',
   'stepOver',
   'terminate',
+  'restoreState',
   'togglePause',
 ]
