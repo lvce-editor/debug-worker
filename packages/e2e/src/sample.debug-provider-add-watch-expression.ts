@@ -1,8 +1,10 @@
-import type { Test } from '@lvce-editor/test-with-playwright'
+import { type Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'sample.debug-provider-add-watch-expression'
 
-export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
+export const skip = 1
+
+export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
   // arrange
   await SideBar.open('Explorer')
   const tmpDir = await FileSystem.getTmpDir()
@@ -12,12 +14,21 @@ export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Lo
   await SideBar.open('Run And Debug')
   const debugButtonOne = Locator('.DebugButton').nth(0)
   await expect(debugButtonOne).toHaveAttribute('title', 'Resume')
+  await Command.execute('Run And Debug.handleClickSectionWatch')
 
   // act
-  // TODO click watch expression button
-  // TODO type in input field
-  // TODO accept edit
-  // TODO verify watch expression appears
+  await Command.execute('Run And Debug.addWatchExpression')
 
   // assert
+  const input = Locator('#WatchExpressionInput')
+  await expect(input).toBeVisible()
+  // TODO input should be focused
+
+  // act
+  await input.type('1 + 1')
+  await Command.execute('Run And Debug.acceptWatchExpressionEdit')
+
+  // assert
+  await expect(input).toBeHidden()
+  // TODO watch expression should be visible
 }
