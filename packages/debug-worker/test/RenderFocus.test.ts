@@ -9,7 +9,7 @@ test.skip('renderFocus - with focus', () => {
     id: 1,
     focus: 1,
   }
-  const result = renderFocus(state)
+  const result = renderFocus(state, state)
   expect(result).toEqual(['Viewlet.focusElementByName', 1, '[data-focus="1"]'])
 })
 
@@ -19,6 +19,6 @@ test('renderFocus - without focus', () => {
     id: 1,
     focus: 0,
   }
-  const result = renderFocus(state)
+  const result = renderFocus(state, state)
   expect(result).toEqual(['Viewlet.focusElementByName', 1, ''])
 })
