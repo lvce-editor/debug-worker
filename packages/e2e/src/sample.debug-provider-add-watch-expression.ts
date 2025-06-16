@@ -25,10 +25,18 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Extension, Si
   // TODO input should be focused
 
   // act
-  await input.type('1 + 1')
+  await Command.execute('Run And Debug.handleWatchValueChange', '1 + 1')
   await Command.execute('Run And Debug.acceptWatchExpressionEdit')
 
   // assert
-  await expect(input).toBeHidden()
-  // TODO watch expression should be visible
+  const rows = Locator('.DebugRow')
+  await expect(rows).toHaveCount(9)
+  await expect(rows.nth(0)).toHaveText('1 + 1')
+  await expect(rows.nth(1)).toHaveText('Local')
+  await expect(rows.nth(2)).toHaveText('this: process')
+  await expect(rows.nth(3)).toHaveText('now: 1985388')
+  await expect(rows.nth(4)).toHaveText('list: undefined')
+  await expect(rows.nth(5)).toHaveText('ranAtLeastOneList: undefined')
+  await expect(rows.nth(6)).toHaveText('Closure (getTimerCallbacks)')
+  await expect(rows.nth(7)).toHaveText('Closure')
 }
