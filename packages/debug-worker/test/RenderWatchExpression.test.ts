@@ -26,6 +26,7 @@ test('should render watch expression', () => {
       className: ClassNames.DebugRow,
       role: AriaRoles.TreeItem,
       childCount: 3,
+      onClick: 'handleClickWatchExpression',
     },
     {
       type: VirtualDomElements.Span,
