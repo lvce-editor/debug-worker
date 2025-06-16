@@ -19,10 +19,12 @@ import * as HandleClickSectionBreakPoints from '../HandleClickSectionBreakPoints
 import * as HandleClickSectionCallstack from '../HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import * as HandleClickSectionHeading from '../HandleClickSectionHeading/HandleClickSectionHeading.ts'
 import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClickSectionScope.ts'
+import * as HandleClickSectionWatch from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
+import * as HandleWatchValueChange from '../HandleWatchValueChange/HandleWatchValueChange.ts'
 import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
@@ -38,10 +40,10 @@ import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExcepti
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
+  'Debug.handleChange': Debug.handleChange,
   'Debug.paused': Debug.paused,
   'Debug.resumed': Debug.resumed,
   'Debug.scriptParsed': Debug.scriptParsed,
-  'Debug.handleChange': Debug.handleChange,
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.create': Create.create,
   'RunAndDebug.diff2': Diff2.diff2,
@@ -55,6 +57,7 @@ export const commandMap = {
   'RunAndDebug.handleArrowLeft': WrapCommand.wrapCommand(HandlePaused.handleArrowLeft),
   'RunAndDebug.handleArrowRight': WrapCommand.wrapCommand(HandlePaused.handleArrowRight),
   'RunAndDebug.handleArrowUp': WrapCommand.wrapCommand(HandlePaused.handleArrowUp),
+  'RunAndDebug.handleClickCallStackItem': WrapCommand.wrapCommand(HandleClickCallstackItem.handleClickCallstackItem),
   'RunAndDebug.handleClickCheckBox': WrapCommand.wrapCommand(HandleClickCheckBox.handleClickCheckBox),
   'RunAndDebug.handleClickDebugButton': WrapCommand.wrapCommand(HandleClickDebugButton.handleClickDebugButton),
   'RunAndDebug.handleClickPauseOnExceptions': WrapCommand.wrapCommand(HandleClickPauseOnExceptions.handleClickPauseOnExceptions),
@@ -63,11 +66,12 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionAction': WrapCommand.wrapCommand(HandleClickSectionAction.handleClickSectionAction),
   'RunAndDebug.handleClickSectionBreakPoints': WrapCommand.wrapCommand(HandleClickSectionBreakPoints.handleClickSectionBreakPoints),
   'RunAndDebug.handleClickSectionCallstack': WrapCommand.wrapCommand(HandleClickSectionCallstack.handleClickSectionCallstack),
-  'RunAndDebug.handleClickCallStackItem': WrapCommand.wrapCommand(HandleClickCallstackItem.handleClickCallstackItem),
   'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandleClickSectionHeading.handleClickSectionHeading),
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
+  'RunAndDebug.handleClickSectionWatch': WrapCommand.wrapCommand(HandleClickSectionWatch.handleClickSectionWatch),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
+  'RunAndDebug.handleWatchValueChange': WrapCommand.wrapCommand(HandleWatchValueChange.handleWatchValueChange),
   // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
