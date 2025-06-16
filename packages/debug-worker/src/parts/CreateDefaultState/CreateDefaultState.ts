@@ -29,6 +29,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     focus: 0,
     editingValue: '',
     debugId: 0,
+    inputSource: 0,
   }
   set(uid, state, state)
   return state

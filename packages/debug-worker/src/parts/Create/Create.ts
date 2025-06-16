@@ -33,6 +33,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     focus: 0,
     editingValue: '',
     debugId: 0,
+    inputSource: 0,
   }
   RunAndDebugStates.set(id, state, state)
 }
