@@ -13,7 +13,7 @@ export const getRemoteUrl = (path) => {
 
 const nodeModulesPath = join(root, 'packages', 'server', 'node_modules')
 
-const fileSearchWorkerPath = join(root, '.tmp', 'dist', 'dist', 'fileSearchWorkerMain.js')
+const debugWorkerPath = join(root, '.tmp', 'dist', 'dist', 'debugWorkerMain.js')
 
 const serverStaticPath = join(nodeModulesPath, '@lvce-editor', 'static-server', 'static')
 
@@ -27,7 +27,7 @@ const commitHash = dirents.find(isCommitHash) || ''
 const rendererWorkerMainPath = join(serverStaticPath, commitHash, 'packages', 'renderer-worker', 'dist', 'rendererWorkerMain.js')
 
 const content = await readFile(rendererWorkerMainPath, 'utf-8')
-const remoteUrl = getRemoteUrl(fileSearchWorkerPath)
+const remoteUrl = getRemoteUrl(debugWorkerPath)
 if (!content.includes('// const debugWorkerUrl = ')) {
   const occurrence = `const debugWorkerUrl = \`\${assetDir}/packages/debug-worker/dist/debugWorkerMain.js\``
   const replacement = `// const debugWorkerUrl = \`\${assetDir}/packages/debug-worker/dist/debugWorkerMain.js\`
