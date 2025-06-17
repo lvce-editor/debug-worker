@@ -1,4 +1,4 @@
-import { test, expect } from '@jest/globals'
+import { test, expect, jest } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { evaluateWatchExpressions } from '../src/parts/EvaluateWatchExpressions/EvaluateWatchExpressions.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
@@ -34,6 +34,7 @@ test('evaluateWatchExpressions - all succeed', async () => {
 })
 
 test('evaluateWatchExpressions - one fails', async () => {
+  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
   const mockRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string, ...args: any[]): any => {
@@ -58,4 +59,5 @@ test('evaluateWatchExpressions - one fails', async () => {
   const result = await evaluateWatchExpressions(debugId, callFrameId, watchExpressions)
   expect(result[0]).toEqual({ expression: 'ok', value: 'result:ok', isEditing: false })
   expect(result[1]).toEqual({ expression: 'fail', value: null, isEditing: false })
+  spy.mockRestore()
 })
