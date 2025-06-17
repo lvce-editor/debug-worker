@@ -4,4 +4,5 @@ export interface RestoredState {
   readonly watchExpressions: readonly WatchExpression[]
   readonly watchExpanded: boolean
   readonly scopeExpanded: boolean
+  readonly breakPointsExpanded: boolean
 }
