@@ -28,6 +28,7 @@ export const renderInputField = (row: DebugRow): readonly VirtualDomNode[] => {
       value: text,
       childCount: 0,
       onInput: DomEventListenerFunctions.HandleInputFieldChange,
+      onBlur: DomEventListenerFunctions.HandleInputBlur,
       id: name,
     },
   ]
