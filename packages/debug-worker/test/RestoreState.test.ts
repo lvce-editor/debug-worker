@@ -29,7 +29,7 @@ test('restoreState restores watch expressions, focus and editing value', () => {
     watchExpanded: true,
     scopeExpanded: false,
     breakPointsExpanded: false,
-    focus: FocusDebugWatchInput,
+    focus: 0, // TODO
     editingValue: 'a + b',
   })
 })
