@@ -16,5 +16,6 @@ export const HandleClickStepOver = 'handleClickStepOver'
 export const HandleDebugInput = 'handleDebugInput'
 export const HandleClickSectionAction = 'handleClickSectionAction'
 export const HandleInputFieldChange = 'handleInputFieldChange'
+export const HandleInputBlur = 'handleInputBlur'
 
 // TODo use same click event listener for all debug sections
