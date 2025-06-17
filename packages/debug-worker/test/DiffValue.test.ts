@@ -1,6 +1,6 @@
 import { test, expect } from '@jest/globals'
-import { isEqual } from '../src/parts/DiffValue/DiffValue.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { isEqual } from '../src/parts/DiffValue/DiffValue.ts'
 import * as InputSource from '../src/parts/InputSource/InputSource.ts'
 
 test('isEqual returns true when inputSource is not Script', () => {
