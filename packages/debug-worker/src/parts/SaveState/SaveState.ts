@@ -1,11 +1,30 @@
 import type { SavedState } from '../SavedState/SavedState.ts'
-import { saveStateHotReload } from '../SaveStateHotReload/SaveStateHotReload.ts'
+import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 import { SaveStateReasonHotReload } from '../SaveStateReason/SaveStateReason.ts'
-import { saveStateReload } from '../SaveStateReload/SaveStateReload.ts'
 
 export const saveState = (uid: number, reason: number): SavedState => {
+  const { newState } = RunAndDebugStates.get(uid)
+  const { watchExpressions, scopeExpanded, watchExpanded, breakPointsExpanded, focus, editingValue, inputSource } = newState
+
   if (reason === SaveStateReasonHotReload) {
-    return saveStateHotReload(uid)
+    return {
+      watchExpressions,
+      scopeExpanded,
+      breakPointsExpanded,
+      watchExpanded,
+      focus,
+      editingValue,
+      inputSource,
+    }
   }
-  return saveStateReload(uid)
+
+  return {
+    watchExpressions: watchExpressions.map((expr) => ({ ...expr, isEditing: false })),
+    scopeExpanded,
+    breakPointsExpanded,
+    watchExpanded,
+    focus: 0,
+    editingValue: '',
+    inputSource: 0,
+  }
 }
