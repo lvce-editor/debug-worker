@@ -7,4 +7,5 @@ export interface SavedState {
   readonly breakPointsExpanded: boolean
   readonly focus: number
   readonly editingValue: string
+  readonly inputSource: number
 }
