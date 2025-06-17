@@ -1,10 +1,28 @@
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 import { hasProperty } from '../HasProperty/HasProperty.ts'
 
-const restoreWatchExpression = (expression: unknown): WatchExpression => {
+const restoreWatchExpression = (savedExpression: unknown): WatchExpression => {
+  if (
+    typeof savedExpression === 'object' &&
+    savedExpression !== null &&
+    hasProperty(savedExpression, 'expression') &&
+    typeof savedExpression.expression === 'string' &&
+    hasProperty(savedExpression, 'value') &&
+    hasProperty(savedExpression, 'isEditing') &&
+    typeof savedExpression.isEditing === 'boolean'
+  ) {
+    const value = savedExpression.value
+    if (value === null || value === undefined || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+      return {
+        expression: savedExpression.expression,
+        value,
+        isEditing: savedExpression.isEditing,
+      }
+    }
+  }
   return {
-    value: '',
-    expression: `${expression}`,
+    expression: '',
+    value: null,
     isEditing: false,
   }
 }

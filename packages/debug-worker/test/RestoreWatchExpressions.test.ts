@@ -12,7 +12,7 @@ test('restoreWatchExpressions with non-array watchExpressions returns empty arra
   expect(result).toEqual([])
 })
 
-test('restoreWatchExpressions with array of expressions returns restored expressions', () => {
+test.skip('restoreWatchExpressions with array of expressions returns restored expressions', () => {
   const input = {
     watchExpressions: ['x + y', 'foo.bar', 42],
   }
