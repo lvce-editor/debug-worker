@@ -5,4 +5,6 @@ export interface RestoredState {
   readonly watchExpanded: boolean
   readonly scopeExpanded: boolean
   readonly breakPointsExpanded: boolean
+  readonly focus: number
+  readonly editingValue: string
 }
