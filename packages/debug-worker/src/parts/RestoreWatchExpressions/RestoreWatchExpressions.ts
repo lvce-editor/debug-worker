@@ -1,4 +1,5 @@
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
+import { hasProperty } from '../HasProperty/HasProperty.ts'
 
 const restoreWatchExpression = (expression: unknown): WatchExpression => {
   return {
@@ -9,7 +10,7 @@ const restoreWatchExpression = (expression: unknown): WatchExpression => {
 }
 
 export const restoreWatchExpressions = (savedState: unknown): readonly WatchExpression[] => {
-  if (savedState && typeof savedState === 'object' && 'watchExpressions' in savedState && Array.isArray(savedState.watchExpressions)) {
+  if (hasProperty(savedState, 'watchExpressions') && Array.isArray(savedState.watchExpressions)) {
     return savedState.watchExpressions.map(restoreWatchExpression)
   }
   return []
