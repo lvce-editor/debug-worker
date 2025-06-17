@@ -3,7 +3,7 @@ import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 const serializeWatchExpression = (expression: WatchExpression): string => {
-  return `${expression.value}` || ''
+  return `${expression.expression}` || ''
 }
 
 export const saveState = (uid: number): SavedState => {
