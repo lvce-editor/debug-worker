@@ -8,8 +8,11 @@ const serializeWatchExpression = (expression: WatchExpression): string => {
 
 export const saveState = (uid: number): SavedState => {
   const { newState } = RunAndDebugStates.get(uid)
-  const { watchExpressions } = newState
+  const { watchExpressions, scopeExpanded, watchExpanded, breakPointsExpanded } = newState
   return {
     watchExpressions: watchExpressions.map(serializeWatchExpression),
+    scopeExpanded,
+    breakPointsExpanded,
+    watchExpanded,
   }
 }
