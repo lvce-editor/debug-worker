@@ -20,6 +20,9 @@ export const renderInputField = (row: DebugRow): readonly VirtualDomNode[] => {
     {
       type: VirtualDomElements.Input,
       inputType: InputType.Text,
+      spellcheck: false,
+      autocapitalize: 'off',
+      autocorrect: 'off',
       className: ClassNames.InputBox,
       name,
       value: text,
