@@ -13,5 +13,8 @@ test('saveState returns correct state', () => {
   const result = saveState(id)
   expect(result).toEqual({
     watchExpressions: [],
+    breakPointsExpanded: false,
+    scopeExpanded: false,
+    watchExpanded: false,
   })
 })
