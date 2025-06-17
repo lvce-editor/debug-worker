@@ -16,9 +16,18 @@ const restoreWatchExpressions = (savedState: unknown): readonly WatchExpression[
   return []
 }
 
+const restoreWatchExpanded = (savedState: unknown): boolean => {
+  if (savedState && typeof savedState === 'object' && 'watchExpanded' in savedState && typeof savedState.watchExpanded === 'boolean') {
+    return savedState.watchExpanded
+  }
+  return false
+}
+
 export const restoreState = (savedState: unknown): RestoredState => {
   const watchExpressions = restoreWatchExpressions(savedState)
+  const watchExpanded = restoreWatchExpanded(savedState)
   return {
     watchExpressions,
+    watchExpanded,
   }
 }
