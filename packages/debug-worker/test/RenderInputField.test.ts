@@ -38,6 +38,7 @@ test('renderInputField', () => {
       autocorrect: 'off',
       childCount: 0,
       onInput: DomEventListenerFunctions.HandleInputFieldChange,
+      onBlur: DomEventListenerFunctions.HandleInputBlur,
       id: 'test-input',
     },
   ])
