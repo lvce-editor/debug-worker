@@ -115,6 +115,11 @@ test('deleteWatchExpression', () => {
   expect(result).toBe('Delete Watch Expression')
 })
 
+test('deleteAllWatchExpressions', () => {
+  const result: string = DebugStrings.deleteAllWatchExpressions()
+  expect(result).toBe('Delete All Watch Expressions')
+})
+
 test('noWatchExpression', () => {
   const result: string = DebugStrings.noWatchExpression()
   expect(result).toBe('No Watch Expression')

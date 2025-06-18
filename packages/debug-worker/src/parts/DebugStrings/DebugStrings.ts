@@ -119,6 +119,10 @@ export const deleteWatchExpression = (): string => {
   return I18NString.i18nString(UiStrings.DeleteWatchExpression)
 }
 
+export const deleteAllWatchExpressions = (): string => {
+  return I18NString.i18nString(UiStrings.DeleteAllWatchExpressions)
+}
+
 export const addWatchExpression = (): string => {
   return I18NString.i18nString(UiStrings.AddWatchExpression)
 }
