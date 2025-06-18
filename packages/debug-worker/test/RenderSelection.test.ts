@@ -1,35 +1,45 @@
 import { expect, test } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import { WatchExpressionInput } from '../src/parts/InputName/InputName.ts'
 import { renderSelection } from '../src/parts/RenderSelection/RenderSelection.ts'
+import { FocusDebugWatchInput } from '../src/parts/WhenExpression/WhenExpression.ts'
 
-test.skip('renderSelection returns correct selection command', () => {
+test('renderSelection returns correct selection command', () => {
   const oldState = createDefaultState()
   const newState = { ...oldState, editingselectionstart: 5, editingselectionend: 10 }
 
   const result = renderSelection(oldState, newState)
-  expect(result).toEqual(['setSelection', 'editingValue', 5, 10])
+  expect(result).toEqual(['Viewlet.setSelectionByName', 0, '', 5, 10])
 })
 
-test.skip('renderSelection works with zero values', () => {
+test('renderSelection works with zero values', () => {
   const oldState = createDefaultState()
   const newState = { ...oldState, editingselectionstart: 0, editingselectionend: 0 }
 
   const result = renderSelection(oldState, newState)
-  expect(result).toEqual(['setSelection', 'editingValue', 0, 0])
+  expect(result).toEqual(['Viewlet.setSelectionByName', 0, '', 0, 0])
 })
 
-test.skip('renderSelection first element is setSelection', () => {
+test('renderSelection first element is Viewlet.setSelectionByName', () => {
   const oldState = createDefaultState()
   const newState = { ...oldState, editingselectionstart: 1, editingselectionend: 2 }
 
   const result = renderSelection(oldState, newState)
-  expect(result[0]).toBe('setSelection')
+  expect(result[0]).toBe('Viewlet.setSelectionByName')
 })
 
-test.skip('renderSelection uses editingValue as input name', () => {
+test('renderSelection uses correct selector when focus is on watch input', () => {
   const oldState = createDefaultState()
-  const newState = { ...oldState, editingselectionstart: 1, editingselectionend: 2 }
+  const newState = {
+    ...oldState,
+    focus: FocusDebugWatchInput,
+    editingselectionstart: 1,
+    editingselectionend: 2,
+  }
 
   const result = renderSelection(oldState, newState)
-  expect(result[1]).toBe('editingValue')
+  expect(result[1]).toBe(0) // id
+  expect(result[2]).toBe(WatchExpressionInput) // selector
+  expect(result[3]).toBe(1) // start
+  expect(result[4]).toBe(2) // end
 })
