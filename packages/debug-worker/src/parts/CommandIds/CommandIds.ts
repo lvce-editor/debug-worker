@@ -36,6 +36,7 @@ export const commandIds: readonly string[] = [
   'handleResumed',
   'handleScriptParsed',
   'handleSectionHeaderContextMenu',
+  'handleWatchExpressionContextMenu',
   'handleWatchValueChange',
   'loadContent',
   'loadContentLater',
