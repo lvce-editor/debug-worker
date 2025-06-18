@@ -1,3 +1,5 @@
+import { getArrayPropertiesPreview } from '../GetArrayPropertiesPreview/GetArrayPropertiesPreview.ts'
+
 const RE_ARRAY_DESCRIPTION = /\((\d+)\)/
 
 const parseLength = (description: string): string => {
@@ -6,15 +8,6 @@ const parseLength = (description: string): string => {
     return match[1]
   }
   return ''
-}
-
-const getArrayPropertyPreview = (item: any): string => {
-  return `"${item.value}"`
-}
-
-const getArrayPropertiesPreview = (properties: any): string => {
-  const formattedItems = properties.map(getArrayPropertyPreview)
-  return formattedItems.join(', ')
 }
 
 export const getDebugPropertyValueLabelArray = (property: any): string => {
