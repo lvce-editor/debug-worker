@@ -18,7 +18,7 @@ const makeState = (): RunAndDebugState => {
 
 test('click valid watch expression index', async () => {
   const state = makeState()
-  const result = await handleClickWatchExpression(state, '1')
+  const result = await handleClickWatchExpression(state, '1', false)
   expect(result.watchExpressions[1]).toEqual({ expression: 'x * y', value: 10, isEditing: true })
   expect(result.focus).toBe(FocusDebugWatchInput)
   expect(result.inputSource).toBe(Script)
@@ -27,12 +27,18 @@ test('click valid watch expression index', async () => {
 
 test('click out-of-bounds index returns same state', async () => {
   const state = makeState()
-  const result = await handleClickWatchExpression(state, '5')
+  const result = await handleClickWatchExpression(state, '5', false)
   expect(result).toBe(state)
 })
 
 test('click with non-numeric index returns same state', async () => {
   const state = makeState()
-  const result = await handleClickWatchExpression(state, 'foo')
+  const result = await handleClickWatchExpression(state, 'foo', false)
+  expect(result).toBe(state)
+})
+
+test('click with defaultPrevented true does not enter edit mode', async () => {
+  const state = makeState()
+  const result = await handleClickWatchExpression(state, '1', true)
   expect(result).toBe(state)
 })

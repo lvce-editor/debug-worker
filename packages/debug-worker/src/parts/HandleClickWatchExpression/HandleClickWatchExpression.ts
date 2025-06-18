@@ -4,7 +4,10 @@ import * as InputSource from '../InputSource/InputSource.ts'
 import { parseIndex } from '../ParseIndex/ParseIndex.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
-export const handleClickWatchExpression = async (state: RunAndDebugState, dataIndex: string): Promise<RunAndDebugState> => {
+export const handleClickWatchExpression = async (state: RunAndDebugState, dataIndex: string, defaultPrevented: boolean): Promise<RunAndDebugState> => {
+  if (defaultPrevented) {
+    return state
+  }
   const index = parseIndex(dataIndex)
   const { watchExpressions } = state
   const item = watchExpressions[index]
