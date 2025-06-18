@@ -24,6 +24,7 @@ test('renderSectionHeading - expanded', () => {
     ariaLevel: 1,
     childCount: 2,
     onClick: 'handleClickSectionHeading',
+    onContextMenu: 'handleSectionHeaderContextMenu',
     'data-name': 'test-key',
   })
   expect(result[2]).toEqual({
@@ -54,6 +55,7 @@ test('renderSectionHeading - collapsed', () => {
     ariaLevel: 1,
     childCount: 2,
     onClick: 'handleClickSectionHeading',
+    onContextMenu: 'handleSectionHeaderContextMenu',
     'data-name': 'test-key',
   })
   expect(result[2]).toEqual({

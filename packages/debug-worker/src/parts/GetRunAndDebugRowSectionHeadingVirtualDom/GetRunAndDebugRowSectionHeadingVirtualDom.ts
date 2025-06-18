@@ -20,6 +20,7 @@ export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] =
       ariaLevel: 1,
       childCount: hasActions ? 3 : 2,
       onClick: DomEventListenerFunctions.HandleClickSectionHeading,
+      onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
       'data-name': key,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
