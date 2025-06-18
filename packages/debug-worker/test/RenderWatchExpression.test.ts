@@ -18,6 +18,7 @@ test('should render watch expression', () => {
     indent: 0,
     name: '',
     valueType: '',
+    index: 0,
   }
   const result = renderWatchExpression(row)
   expect(result).toEqual([
@@ -25,7 +26,8 @@ test('should render watch expression', () => {
       type: VirtualDomElements.Div,
       className: ClassNames.DebugRow,
       role: AriaRoles.TreeItem,
-      childCount: 3,
+      childCount: 4,
+      'data-index': 0,
       onClick: 'handleClickWatchExpression',
     },
     {
@@ -41,5 +43,14 @@ test('should render watch expression', () => {
       childCount: 1,
     },
     text('42'),
+    {
+      type: VirtualDomElements.Button,
+      className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction}`,
+      title: 'Delete watch expression',
+      'data-index': 0,
+      onClick: 'handleClickWatchExpressionDelete',
+      childCount: 1,
+    },
+    text('×'),
   ])
 })
