@@ -30,4 +30,6 @@ export interface RunAndDebugState {
   readonly focus: number
   readonly editingValue: string
   readonly inputSource: number
+  readonly editingselectionstart: number
+  readonly editingselectionend: number
 }
