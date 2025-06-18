@@ -19,6 +19,7 @@ export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] 
       childCount: 4,
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpression, // TODO use doubleclick
+      onContextMenu: DomEventListenerFunctions.HandleWatchExpressionContextMenu,
     },
     {
       type: VirtualDomElements.Span,
