@@ -31,6 +31,7 @@ import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
 import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
+import * as HandleWatchExpressionContextMenu from '../HandleWatchExpressionContextMenu/HandleWatchExpressionContextMenu.ts'
 import * as HandleWatchValueChange from '../HandleWatchValueChange/HandleWatchValueChange.ts'
 import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
@@ -94,6 +95,7 @@ export const commandMap = {
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.handleSectionHeaderContextMenu': WrapCommand.wrapCommand(HandleSectionHeaderContextMenu.handleSectionHeaderContextMenu),
+  'RunAndDebug.handleWatchExpressionContextMenu': WrapCommand.wrapCommand(HandleWatchExpressionContextMenu.handleWatchExpressionContextMenu),
   'RunAndDebug.handleWatchExpressionDoubleClick': WrapCommand.wrapCommand(handleWatchExpressionDoubleClick),
   'RunAndDebug.handleWatchValueChange': WrapCommand.wrapCommand(HandleWatchValueChange.handleWatchValueChange),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
