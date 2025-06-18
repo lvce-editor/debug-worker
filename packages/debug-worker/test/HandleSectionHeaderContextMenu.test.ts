@@ -4,7 +4,9 @@ import { handleSectionHeaderContextMenu } from '../src/parts/HandleSectionHeader
 
 test('handleSectionHeaderContextMenu returns the same state', () => {
   const state = createDefaultState()
+  const x = 0
+  const y = 0
   const id = ''
-  const result = handleSectionHeaderContextMenu(state, id)
+  const result = handleSectionHeaderContextMenu(state, x, y, id)
   expect(result).toBe(state)
 })
