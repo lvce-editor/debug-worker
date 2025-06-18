@@ -1,9 +1,8 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as ContextMenu from '../ContextMenu/ContextMenu.ts'
+import * as MenuEntryId from '../MenuEntryId/MenuEntryId.ts'
 
 export const handleSectionHeaderContextMenu = async (state: RunAndDebugState, x: number, y: number, id: string): Promise<RunAndDebugState> => {
-  const menuId = 123 // TODO register context menu items
-  await ContextMenu.show(x, y, menuId)
-  // TODO: Implement section header context menu handling
+  await ContextMenu.show(x, y, MenuEntryId.DebugWatchSectionHeading)
   return state
 }
