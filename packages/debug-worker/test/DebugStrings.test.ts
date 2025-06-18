@@ -112,7 +112,7 @@ test('pauseOnUncaughtExceptions', () => {
 
 test('deleteWatchExpression', () => {
   const result: string = DebugStrings.deleteWatchExpression()
-  expect(result).toBe('Delete watch expression')
+  expect(result).toBe('Delete Watch Expression')
 })
 
 test('noWatchExpression', () => {
