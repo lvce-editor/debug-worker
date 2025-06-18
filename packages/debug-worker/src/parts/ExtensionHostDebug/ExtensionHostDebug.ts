@@ -20,7 +20,7 @@ export const resume = (debugId: any): Promise<void> => {
   })
 }
 
-export const pause = (debugId: any): Promise<any> => {
+export const pause = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.pause',
@@ -28,7 +28,7 @@ export const pause = (debugId: any): Promise<any> => {
   })
 }
 
-export const stepOver = (debugId: any): Promise<any> => {
+export const stepOver = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.stepOver',
@@ -36,7 +36,7 @@ export const stepOver = (debugId: any): Promise<any> => {
   })
 }
 
-export const stepInto = (debugId: any): Promise<any> => {
+export const stepInto = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.stepInto',
@@ -44,7 +44,7 @@ export const stepInto = (debugId: any): Promise<any> => {
   })
 }
 
-export const stepOut = (debugId: any): Promise<any> => {
+export const stepOut = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.stepOut',
@@ -52,7 +52,7 @@ export const stepOut = (debugId: any): Promise<any> => {
   })
 }
 
-export const step = (debugId: any): Promise<any> => {
+export const step = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.step',
@@ -60,7 +60,7 @@ export const step = (debugId: any): Promise<any> => {
   })
 }
 
-export const setPauseOnExceptions = (debugId: any, value: any): Promise<any> => {
+export const setPauseOnExceptions = (debugId: any, value: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.setPauseOnExceptions',
@@ -68,7 +68,7 @@ export const setPauseOnExceptions = (debugId: any, value: any): Promise<any> => 
   })
 }
 
-export const start = (debugId: any): Promise<any> => {
+export const start = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.start',
