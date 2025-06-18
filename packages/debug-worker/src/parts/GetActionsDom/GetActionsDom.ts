@@ -5,13 +5,12 @@ import * as GetActionDom from '../GetActionDom/GetActionDom.ts'
 import { Div } from '../VirtualDomElements/VirtualDomElements.ts'
 
 export const getActionsDom = (actions: readonly DebugRowAction[]): readonly VirtualDomNode[] => {
-  const actionNodes = actions.flatMap(GetActionDom.getActionDom)
   return [
     {
       type: Div,
       className: ClassNames.DebugSectionActions,
-      childCount: actionNodes.length,
+      childCount: actions.length,
     },
-    ...actionNodes,
+    ...actions.flatMap(GetActionDom.getActionDom),
   ]
 }
