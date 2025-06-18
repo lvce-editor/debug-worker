@@ -3,6 +3,7 @@ import { text } from '@lvce-editor/virtual-dom-worker'
 import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { renderWatchExpression } from '../src/parts/RenderWatchExpression/RenderWatchExpression.ts'
 import { separator } from '../src/parts/Separator/Separator.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
@@ -46,7 +47,7 @@ test('should render watch expression', () => {
     {
       type: VirtualDomElements.Button,
       className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction}`,
-      title: 'Delete watch expression',
+      title: DebugStrings.deleteWatchExpression(),
       'data-index': 0,
       onClick: 'handleClickWatchExpressionDelete',
       childCount: 1,

@@ -2,6 +2,7 @@ import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
+import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
@@ -34,7 +35,7 @@ export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] 
     {
       type: VirtualDomElements.Button,
       className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction}`,
-      title: 'Delete watch expression',
+      title: DebugStrings.deleteWatchExpression(),
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
       childCount: 1,
