@@ -95,6 +95,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     {
       name: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
       params: ['handleSectionHeaderContextMenu'],
+      preventDefault: true,
     },
   ]
 }
