@@ -3,6 +3,7 @@ import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
 import { cancelWatchExpressionEdit } from '../CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
+import { deleteWatchExpression } from '../DeleteWatchExpression/DeleteWatchExpression.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
 import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
@@ -93,6 +94,7 @@ export const commandMap = {
   'RunAndDebug.readFile': ReadFile.readFile,
   'RunAndDebug.refresh': WrapCommand.wrapCommand(Refresh.refresh),
   'RunAndDebug.removeWatchExpression': removeWatchExpression,
+  'RunAndDebug.deleteWatchExpression': deleteWatchExpression,
   'RunAndDebug.render2': Render2.render2,
   'RunAndDebug.renderActions': RenderActions.renderActions,
   'RunAndDebug.renderEventListeners': RenderEventListeners.renderEventListeners,
