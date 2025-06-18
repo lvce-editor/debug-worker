@@ -14,5 +14,7 @@ export const addWatchExpression = async (state: RunAndDebugState, expression: st
     ...state,
     watchExpressions: newWatchExpressions1,
     focus: WhenExpression.FocusDebugWatchInput,
+    editingselectionstart: 0,
+    editingselectionend: expression.length,
   }
 }

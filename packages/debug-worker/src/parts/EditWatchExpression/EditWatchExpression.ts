@@ -20,5 +20,7 @@ export const editWatchExpression = (state: RunAndDebugState, index: number): Run
     focus: WhenExpression.FocusDebugWatchInput,
     inputSource: InputSource.Script,
     editingValue: item.expression,
+    editingselectionstart: 0,
+    editingselectionend: item.expression.length,
   }
 }
