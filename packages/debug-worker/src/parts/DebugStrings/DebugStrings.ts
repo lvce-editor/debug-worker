@@ -114,3 +114,7 @@ export const pauseOnUncaughtExceptions = (): string => {
 export const noWatchExpression = (): string => {
   return I18NString.i18nString(UiStrings.NoWatchExpression)
 }
+
+export const deleteWatchExpression = (): string => {
+  return I18NString.i18nString(UiStrings.DeleteWatchExpression)
+}
