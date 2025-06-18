@@ -18,5 +18,6 @@ export const HandleDebugInput = 'handleDebugInput'
 export const HandleClickSectionAction = 'handleClickSectionAction'
 export const HandleInputFieldChange = 'handleInputFieldChange'
 export const HandleInputBlur = 'handleInputBlur'
+export const HandleWatchExpressionDoubleClick = 'handleWatchExpressionDoubleClick'
 
 // TODo use same click event listener for all debug sections
