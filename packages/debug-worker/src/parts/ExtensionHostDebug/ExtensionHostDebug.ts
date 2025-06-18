@@ -1,3 +1,4 @@
+import type { ParsedScript } from '../ParsedScript/ParsedScript.ts'
 import * as Assert from '../Assert/Assert.ts'
 import * as ExecuteProvider from '../ExecuteProvider/ExecuteProvider.ts'
 
@@ -123,7 +124,7 @@ export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
   })
 }
 
-export const getScripts = (debugId: any): Promise<any> => {
+export const getScripts = (debugId: any): Promise<readonly ParsedScript[]> => {
   return ExecuteProvider.executeProvider({
     event: `onDebug:${debugId}`,
     method: 'ExtensionHostDebug.getScripts',
