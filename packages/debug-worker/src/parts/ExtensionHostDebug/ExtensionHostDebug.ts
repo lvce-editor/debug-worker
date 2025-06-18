@@ -1,10 +1,11 @@
 import type { ParsedScript } from '../ParsedScript/ParsedScript.ts'
 import * as Assert from '../Assert/Assert.ts'
 import * as ExecuteProvider from '../ExecuteProvider/ExecuteProvider.ts'
+import { getDebugEvent } from '../GetDebugEvent/GetDebugEvent.ts'
 
 export const listProcesses = async (debugId: any): Promise<readonly any[]> => {
   const processes = await ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.listProcesses',
     params: [debugId],
   })
@@ -14,7 +15,7 @@ export const listProcesses = async (debugId: any): Promise<readonly any[]> => {
 
 export const resume = (debugId: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.resume',
     params: [debugId],
   })
@@ -22,7 +23,7 @@ export const resume = (debugId: any): Promise<void> => {
 
 export const pause = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.pause',
     params: [debugId],
   })
@@ -30,7 +31,7 @@ export const pause = (debugId: any): Promise<any> => {
 
 export const stepOver = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.stepOver',
     params: [debugId],
   })
@@ -38,7 +39,7 @@ export const stepOver = (debugId: any): Promise<any> => {
 
 export const stepInto = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.stepInto',
     params: [debugId],
   })
@@ -46,7 +47,7 @@ export const stepInto = (debugId: any): Promise<any> => {
 
 export const stepOut = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.stepOut',
     params: [debugId],
   })
@@ -54,7 +55,7 @@ export const stepOut = (debugId: any): Promise<any> => {
 
 export const step = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.step',
     params: [debugId],
   })
@@ -62,7 +63,7 @@ export const step = (debugId: any): Promise<any> => {
 
 export const setPauseOnExceptions = (debugId: any, value: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.setPauseOnExceptions',
     params: [debugId, value],
   })
@@ -70,7 +71,7 @@ export const setPauseOnExceptions = (debugId: any, value: any): Promise<any> => 
 
 export const start = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.start',
     params: [debugId],
   })
@@ -78,7 +79,7 @@ export const start = (debugId: any): Promise<any> => {
 
 export const getProperties = (debugId: any, objectId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getProperties',
     params: [debugId, objectId],
   })
@@ -86,7 +87,7 @@ export const getProperties = (debugId: any, objectId: any): Promise<any> => {
 
 export const evaluate = (debugId: any, expression: any, callFrameId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.evaluate',
     params: [debugId, expression, callFrameId],
   })
@@ -94,7 +95,7 @@ export const evaluate = (debugId: any, expression: any, callFrameId: any): Promi
 
 export const getScriptSource = (debugId: any, scriptId: string): Promise<string> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getScriptSource',
     params: [debugId, scriptId],
   })
@@ -102,7 +103,7 @@ export const getScriptSource = (debugId: any, scriptId: string): Promise<string>
 
 export const getPausedStatus = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getPausedStatus',
     params: [debugId],
   })
@@ -110,7 +111,7 @@ export const getPausedStatus = (debugId: any): Promise<any> => {
 
 export const getCallStack = (debugId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getCallStack',
     params: [debugId],
   })
@@ -118,7 +119,7 @@ export const getCallStack = (debugId: any): Promise<any> => {
 
 export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getScopeChain',
     params: [debugId, callFrameId],
   })
@@ -126,7 +127,7 @@ export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
 
 export const getScripts = (debugId: any): Promise<readonly ParsedScript[]> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getScripts',
     params: [debugId],
   })
@@ -134,7 +135,7 @@ export const getScripts = (debugId: any): Promise<readonly ParsedScript[]> => {
 
 export const addWatchExpression = (debugId: any, expression: string): Promise<any> => {
   return ExecuteProvider.executeProvider({
-    event: `onDebug:${debugId}`,
+    event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.addWatchExpression',
     params: [debugId, expression],
   })
