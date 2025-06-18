@@ -9,5 +9,7 @@ export const acceptWatchExpressionEdit = async (state: RunAndDebugState): Promis
     watchExpressions: newWatchExpressions,
     focus: 0,
     editingValue: '',
+    editingselectionstart: 0,
+    editingselectionend: 0,
   }
 }

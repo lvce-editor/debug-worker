@@ -34,6 +34,8 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     editingValue: '',
     debugId: 0,
     inputSource: 0,
+    editingselectionstart: 0,
+    editingselectionend: 0,
   }
   RunAndDebugStates.set(id, state, state)
 }
