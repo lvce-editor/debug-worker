@@ -14,7 +14,7 @@ export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] 
       type: VirtualDomElements.Div,
       className: ClassNames.DebugRow,
       role: AriaRoles.TreeItem,
-      childCount: 3,
+      childCount: 4,
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpression, // TODO use doubleclick
     },
@@ -31,5 +31,14 @@ export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] 
       childCount: 1,
     },
     VirtualDomHelpers.text(value),
+    {
+      type: VirtualDomElements.Button,
+      className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction}`,
+      title: 'Delete watch expression',
+      'data-index': index,
+      onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
+      childCount: 1,
+    },
+    VirtualDomHelpers.text('×'),
   ]
 }

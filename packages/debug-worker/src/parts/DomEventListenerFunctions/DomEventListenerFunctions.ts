@@ -1,5 +1,6 @@
 export const HandleClickCallStackItem = 'handleClickCallStackItem'
 export const HandleClickWatchExpression = 'handleClickWatchExpression'
+export const HandleClickWatchExpressionDelete = 'handleClickWatchExpressionDelete'
 export const HandleClickCheckBox = 'handleClickCheckBox'
 export const HandleClickContinue = 'handleClickContinue'
 export const HandleClickDebugButton = 'handleClickDebugButton'
