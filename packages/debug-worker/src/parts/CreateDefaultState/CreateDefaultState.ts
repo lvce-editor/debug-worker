@@ -30,6 +30,8 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     editingValue: '',
     debugId: 0,
     inputSource: 0,
+    editingselectionstart: 0,
+    editingselectionend: 0,
   }
   set(uid, state, state)
   return state

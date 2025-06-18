@@ -8,5 +8,7 @@ export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugS
     ...state,
     watchExpressions: newWatchExpressions,
     focus: 0,
+    editingselectionstart: 0,
+    editingselectionend: 0,
   }
 }
