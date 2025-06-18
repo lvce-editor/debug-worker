@@ -23,6 +23,7 @@ import * as HandleClickSectionScope from '../HandleClickSectionScope/HandleClick
 import * as HandleClickSectionWatch from '../HandleClickSectionWatch/HandleClickSectionWatch.ts'
 import * as HandleClickWatchExpression from '../HandleClickWatchExpression/HandleClickWatchExpression.ts'
 import * as HandleClickWatchExpressionDelete from '../HandleClickWatchExpressionDelete/HandleClickWatchExpressionDelete.ts'
+import { handleWatchExpressionDoubleClick } from '../HandleClickWatchExpressionDoubleClick/HandleClickWatchExpressionDoubleClick.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
@@ -75,6 +76,7 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionHeading': WrapCommand.wrapCommand(HandleClickSectionHeading.handleClickSectionHeading),
   'RunAndDebug.handleClickSectionScope': WrapCommand.wrapCommand(HandleClickSectionScope.handleClickSectionScope),
   'RunAndDebug.handleClickWatchExpression': WrapCommand.wrapCommand(HandleClickWatchExpression.handleClickWatchExpression),
+  'RunAndDebug.handleWatchExpressionDoubleClick': WrapCommand.wrapCommand(handleWatchExpressionDoubleClick),
   'RunAndDebug.handleClickWatchExpressionDelete': WrapCommand.wrapCommand(HandleClickWatchExpressionDelete.handleClickWatchExpressionDelete),
   'RunAndDebug.handleClickSectionWatch': WrapCommand.wrapCommand(HandleClickSectionWatch.handleClickSectionWatch),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
