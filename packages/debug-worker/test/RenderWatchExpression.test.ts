@@ -46,7 +46,7 @@ test('should render watch expression', () => {
     text('42'),
     {
       type: VirtualDomElements.Button,
-      className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction}`,
+      className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction} ${ClassNames.DeleteWatchExpression}`,
       title: DebugStrings.deleteWatchExpression(),
       'data-index': 0,
       onClick: 'handleClickWatchExpressionDelete',
