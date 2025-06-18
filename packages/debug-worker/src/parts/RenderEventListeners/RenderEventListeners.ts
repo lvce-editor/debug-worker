@@ -92,5 +92,9 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       name: DomEventListenerFunctions.HandleInputBlur,
       params: ['handleInputBlur'],
     },
+    {
+      name: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
+      params: ['handleSectionHeaderContextMenu'],
+    },
   ]
 }

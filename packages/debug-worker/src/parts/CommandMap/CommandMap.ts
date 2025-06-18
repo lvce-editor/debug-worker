@@ -29,6 +29,7 @@ import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFi
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
+import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
 import * as HandleWatchValueChange from '../HandleWatchValueChange/HandleWatchValueChange.ts'
 import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
@@ -92,6 +93,7 @@ export const commandMap = {
   'RunAndDebug.handleInputBlur': WrapCommand.wrapCommand(HandleInputBlur.handleInputBlur),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
+  'RunAndDebug.handleSectionHeaderContextMenu': WrapCommand.wrapCommand(HandleSectionHeaderContextMenu.handleSectionHeaderContextMenu),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'RunAndDebug.loadContentLater': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
