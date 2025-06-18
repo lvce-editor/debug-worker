@@ -74,6 +74,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     {
       name: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
       params: ['handleClickWatchExpressionDelete', 'event.target.dataset.index'],
+      preventDefault: true,
     },
     {
       name: DomEventListenerFunctions.HandleClickScopeValue,
