@@ -3,6 +3,7 @@ import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
 import { cancelWatchExpressionEdit } from '../CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
 import * as Create from '../Create/Create.ts'
 import * as Debug from '../Debug/Debug.ts'
+import { deleteAllWatchExpressions } from '../DeleteAllWatchExpressions/DeleteAllWatchExpressions.ts'
 import { deleteWatchExpression } from '../DeleteWatchExpression/DeleteWatchExpression.ts'
 import * as Diff2 from '../Diff2/Diff2.ts'
 import * as Dispose from '../Dispose/Dispose.ts'
@@ -59,6 +60,7 @@ export const commandMap = {
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.create': Create.create,
   'RunAndDebug.deleteWatchExpression': deleteWatchExpression,
+  'RunAndDebug.deleteAllWatchExpressions': deleteAllWatchExpressions,
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
