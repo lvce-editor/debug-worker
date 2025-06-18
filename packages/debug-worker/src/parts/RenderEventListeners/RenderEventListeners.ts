@@ -69,7 +69,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListenerFunctions.HandleClickWatchExpression,
-      params: ['handleClickWatchExpression', 'event.target.dataset.index'],
+      params: ['handleClickWatchExpression', 'event.target.dataset.index', 'event.defaultPrevented'],
     },
     {
       name: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
