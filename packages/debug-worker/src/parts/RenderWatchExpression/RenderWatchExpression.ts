@@ -36,7 +36,7 @@ export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] 
     {
       type: VirtualDomElements.Button,
       title: DebugStrings.deleteWatchExpression(),
-      className: MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction),
+      className: MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction, ClassNames.DeleteWatchExpression),
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
       childCount: 1,
