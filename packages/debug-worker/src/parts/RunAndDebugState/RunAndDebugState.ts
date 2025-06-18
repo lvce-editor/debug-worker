@@ -32,4 +32,5 @@ export interface RunAndDebugState {
   readonly inputSource: number
   readonly editingselectionstart: number
   readonly editingselectionend: number
+  readonly openFilesOnPause: boolean
 }
