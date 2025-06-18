@@ -94,7 +94,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
-      params: ['handleSectionHeaderContextMenu'],
+      params: ['handleSectionHeaderContextMenu', 'event.target.dataset.name'],
       preventDefault: true,
     },
   ]
