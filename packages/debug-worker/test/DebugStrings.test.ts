@@ -70,7 +70,8 @@ test('pause', () => {
 })
 
 test('watch', () => {
-  expect(DebugStrings.watch()).toBe('Watch')
+  const result: string = DebugStrings.watch()
+  expect(result).toBe('Watch')
 })
 
 test('breakPoints', () => {
@@ -107,4 +108,14 @@ test('pauseOnExceptions', () => {
 
 test('pauseOnUncaughtExceptions', () => {
   expect(DebugStrings.pauseOnUncaughtExceptions()).toBe('Pause on uncaught Exceptions')
+})
+
+test('deleteWatchExpression', () => {
+  const result: string = DebugStrings.deleteWatchExpression()
+  expect(result).toBe('Delete watch expression')
+})
+
+test('noWatchExpression', () => {
+  const result: string = DebugStrings.noWatchExpression()
+  expect(result).toBe('No Watch Expression')
 })
