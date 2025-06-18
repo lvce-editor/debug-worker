@@ -30,6 +30,7 @@ test('should render watch expression', () => {
       childCount: 4,
       'data-index': 0,
       onClick: 'handleClickWatchExpression',
+      onContextMenu: 'handleWatchExpressionContextMenu',
     },
     {
       type: VirtualDomElements.Span,
