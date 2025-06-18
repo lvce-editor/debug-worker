@@ -1,30 +1,34 @@
-export const CallStackArrow = 'CallStackArrow'
-export const CallStackDescription = 'CallStackDescription'
-export const CallStackLabel = 'CallStackLabel'
-export const Chevron = 'Chevron'
-export const DebugButton = 'DebugButton'
-export const DebugButtons = 'DebugButtons'
-export const DebugPausedMessage = 'DebugPausedMessage'
-export const DebugPropertyChevron = 'DebugPropertyChevron'
-export const DebugPropertyKey = 'DebugPropertyKey'
-export const DebugRow = 'DebugRow'
-export const DebugRowCallStack = 'DebugRowCallStack'
-export const DebugRowCheckBox = 'DebugRowCheckBox'
-export const DebugRowInputField = 'DebugRowInputField'
-export const DebugSectionAction = 'DebugSectionAction'
-export const DebugSectionActions = 'DebugSectionActions'
-export const DebugSectionHeader = 'DebugSectionHeader'
-export const DebugValue = 'DebugValue'
-export const DebugValueBoolean = 'DebugValueBoolean'
-export const DebugValueFunction = 'DebugValueFunction'
-export const DebugValueGetter = 'DebugValueGetter'
-export const DebugValueNumber = 'DebugValueNumber'
-export const DebugValueObject = 'DebugValueObject'
-export const DebugValueScopeName = 'DebugValueScopeName'
-export const DebugValueString = 'DebugValueString'
-export const DebugValueSymbol = 'DebugValueSymbol'
-export const DebugValueUndefined = 'DebugValueUndefined'
-export const DeleteWatchExpression = 'DeleteWatchExpression'
-export const IconButton = 'IconButton'
-export const InputBox = 'InputBox'
-export const InputLabel = 'InputLabel'
+import { ClassNames } from '@lvce-editor/virtual-dom-worker'
+
+export const {
+  CallStackArrow,
+  CallStackDescription,
+  CallStackLabel,
+  Chevron,
+  DebugButton,
+  DebugButtons,
+  DebugPausedMessage,
+  DebugPropertyChevron,
+  DebugPropertyKey,
+  DebugRow,
+  DebugRowCallStack,
+  DebugRowCheckBox,
+  DebugRowInputField,
+  DebugSectionAction,
+  DebugSectionActions,
+  DebugSectionHeader,
+  DebugValue,
+  DebugValueBoolean,
+  DebugValueFunction,
+  DebugValueGetter,
+  DebugValueNumber,
+  DebugValueObject,
+  DebugValueScopeName,
+  DebugValueString,
+  DebugValueSymbol,
+  DebugValueUndefined,
+  DeleteWatchExpression,
+  IconButton,
+  InputBox,
+  InputLabel,
+} = ClassNames
