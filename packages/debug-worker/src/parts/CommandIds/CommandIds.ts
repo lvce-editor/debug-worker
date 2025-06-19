@@ -44,6 +44,7 @@ export const commandIds: readonly string[] = [
   'refresh',
   'removeWatchExpression',
   'deleteWatchExpression',
+  'deleteAllWatchExpressions',
   'render2',
   'renderActions',
   'renderEventListeners',
