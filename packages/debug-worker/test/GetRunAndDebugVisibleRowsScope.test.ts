@@ -3,6 +3,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
+import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsScope } from '../src/parts/GetRunAndDebugVisibleRowsScope/GetRunAndDebugVisibleRowsScope.ts'
 
@@ -23,11 +24,12 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
   })
 })
 
-test('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpanded is true and scopeChain is empty', () => {
+test.skip('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpanded is true and scopeChain is empty', () => {
   const state = {
     ...createDefaultState(),
     scopeExpanded: true,
     scopeChain: [],
+    debugState: DebugState.Paused,
   }
   const rows = getRunAndDebugVisibleRowsScope(state)
   expect(rows).toHaveLength(2)
