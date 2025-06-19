@@ -5,6 +5,9 @@ import * as GetActionDom from '../GetActionDom/GetActionDom.ts'
 import { Div } from '../VirtualDomElements/VirtualDomElements.ts'
 
 export const getActionsDom = (actions: readonly DebugRowAction[]): readonly VirtualDomNode[] => {
+  if (actions.length === 0) {
+    return []
+  }
   return [
     {
       type: Div,

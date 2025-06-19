@@ -18,7 +18,7 @@ export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Lo
   const debugButtonOne = Locator('.DebugButton').nth(0)
   await expect(debugButtonOne).toHaveAttribute('title', 'Resume')
   const rows = Locator('.DebugRow')
-  await expect(rows).toHaveCount(4)
+  await expect(rows).toHaveCount(7)
   await expect(rows.nth(0)).toHaveText('Local')
   await expect(rows.nth(1)).toHaveText(
     'Exception: Error: oops     at Timeout._onTimeout (/test/index.js:5:11)     at listOnTimeout (node:internal/timers:564:17)     at process.processTimers (node:internal/timers:507:7)',

@@ -11,6 +11,10 @@ export interface RunAndDebugState {
   readonly breakPointsExpanded: boolean
   readonly scopeExpanded: boolean
   readonly callStackExpanded: boolean
+  readonly watchVisible: boolean
+  readonly breakPointsVisible: boolean
+  readonly scopeVisible: boolean
+  readonly callStackVisible: boolean
   readonly scopeChain: readonly any[]
   readonly callStack: readonly CallStackItem[]
   readonly parsedScripts: ParsedScriptMap
