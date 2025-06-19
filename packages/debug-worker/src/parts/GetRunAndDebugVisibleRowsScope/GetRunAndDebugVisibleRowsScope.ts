@@ -55,6 +55,5 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       description: '',
     })
   }
-  console.log({ rows })
   return rows
 }
