@@ -1,6 +1,7 @@
 import { test, expect } from '@jest/globals'
-import { getMenuEntries, getMenuEntriesWatchExpression } from '../src/parts/GetMenuEntries/GetMenuEntries.ts'
+import { getMenuEntries } from '../src/parts/GetMenuEntries/GetMenuEntries.ts'
 import * as MenuEntryId from '../src/parts/MenuEntryId/MenuEntryId.ts'
+import { getMenuEntriesWatchExpression } from '../src/parts/GetMenuEntriesWatchExpression/GetMenuEntriesWatchExpression.ts'
 
 test('getMenuEntriesWatchExpression should include addWatchExpression and deleteWatchExpression', () => {
   const entries = getMenuEntriesWatchExpression()
