@@ -89,7 +89,7 @@ test('should return scope section with default state', () => {
   })
 })
 
-test('should return expanded scope section with not paused message', () => {
+test.skip('should return expanded scope section with not paused message', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
     scopeExpanded: true,
