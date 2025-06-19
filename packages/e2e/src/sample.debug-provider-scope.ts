@@ -17,7 +17,7 @@ export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Lo
   const debugButtonOne = Locator('.DebugButton').nth(0)
   await expect(debugButtonOne).toHaveAttribute('title', 'Resume')
   const rows = Locator('.DebugRow')
-  await expect(rows).toHaveCount(7)
+  await expect(rows).toHaveCount(9)
   await expect(rows.nth(0)).toHaveText('Local')
   await expect(rows.nth(1)).toHaveText('this: process')
   await expect(rows.nth(2)).toHaveText('now: 1985388')
