@@ -6,11 +6,10 @@ import { getRunAndDebugVisibleRowsScope } from '../GetRunAndDebugVisibleRowsScop
 import { getRunAndDebugVisibleRowsWatch } from '../GetRunAndDebugVisibleRowsWatch/GetRunAndDebugVisibleRowsWatch.ts'
 
 export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly DebugRow[] => {
-  const rows = [
+  return [
     ...getRunAndDebugVisibleRowsWatch(state),
     ...getRunAndDebugVisibleRowsBreakPoints(state),
     ...getRunAndDebugVisibleRowsScope(state),
     ...getRunAndDebugVisibleRowsCallStack(state),
   ]
-  return rows
 }

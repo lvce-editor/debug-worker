@@ -8,7 +8,12 @@ import { getRunAndDebugVisibleRowsWatchContent } from '../GetRunAndDebugVisibleR
 import { getWatchActions } from '../GetWatchActions/GetWatchActions.ts'
 
 export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonly DebugRow[] => {
-  const { watchExpanded, watchExpressions } = state
+  const { watchExpanded, watchExpressions, watchVisible } = state
+
+  if (!watchVisible) {
+    return []
+  }
+
   const rows: DebugRow[] = [
     {
       type: DebugRowType.SectionHeading,

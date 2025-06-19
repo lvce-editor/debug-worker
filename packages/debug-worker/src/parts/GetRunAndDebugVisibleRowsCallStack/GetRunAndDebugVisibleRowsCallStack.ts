@@ -14,7 +14,12 @@ const unknownScript: ParsedScript = {
 }
 
 export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
-  const { callStack, callStackExpanded, parsedScripts } = state
+  const { callStack, callStackExpanded, parsedScripts, callStackVisible } = state
+
+  if (!callStackVisible) {
+    return []
+  }
+
   const rows: DebugRow[] = []
   if (callStackExpanded) {
     rows.push({
