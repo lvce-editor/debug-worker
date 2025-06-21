@@ -14,7 +14,7 @@ const getDescriptionValueLabel = (params: any): string => {
   return `${params.data.value}`
 }
 
-export const getScopeChain = (params: any, thisObject: any, scopeChain: any, knownProperties: any): any => {
+export const getScopeChain = (params: any, thisObject: any, scopeChain: any, knownProperties: any, descriptionLength: number): any => {
   const elements = []
   for (const scope of scopeChain) {
     const label = DebugDisplay.getScopeLabel(scope)
@@ -40,7 +40,7 @@ export const getScopeChain = (params: any, thisObject: any, scopeChain: any, kno
           indent: 20,
         })
       }
-      const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(thisObject)
+      const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(thisObject, descriptionLength)
       elements.push({
         type: DebugScopeChainType.This,
         key: 'this',
@@ -53,7 +53,7 @@ export const getScopeChain = (params: any, thisObject: any, scopeChain: any, kno
     const children = knownProperties[scope.object.objectId]
     if (children) {
       for (const child of children.result.result) {
-        const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value)
+        const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value, descriptionLength)
         elements.push({
           type: DebugScopeChainType.Property,
           key: child.name,
