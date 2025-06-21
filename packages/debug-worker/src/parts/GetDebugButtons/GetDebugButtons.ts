@@ -5,6 +5,10 @@ import * as InputName from '../InputName/InputName.ts'
 import * as MaskIcon from '../MaskIcon/MaskIcon.ts'
 
 export const getDebugButtons = (debugState: number): readonly DebugButton[] => {
+  if (debugState === DebugState.Unavailable) {
+    return []
+  }
+
   const debugButtons: DebugButton[] = []
   if (debugState === DebugState.Paused) {
     debugButtons.push({
