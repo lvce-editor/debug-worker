@@ -1,6 +1,5 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { getInnerChildScopeChain } from '../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
@@ -35,8 +34,6 @@ const mockExtensionHost = MockRpc.create({
 })
 
 ExtensionHost.set(mockExtensionHost)
-
-const mockState = createDefaultState()
 
 test('should return cached value if available', async () => {
   const cache = {
