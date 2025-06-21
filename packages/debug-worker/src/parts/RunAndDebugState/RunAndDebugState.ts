@@ -38,4 +38,5 @@ export interface RunAndDebugState {
   readonly editingselectionend: number
   readonly openFilesOnPause: boolean
   readonly maxDescriptionLength: number
+  readonly selectedIndex: number
 }

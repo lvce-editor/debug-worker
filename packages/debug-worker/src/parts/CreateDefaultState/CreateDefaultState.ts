@@ -38,6 +38,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     editingselectionend: 0,
     openFilesOnPause: true,
     maxDescriptionLength: 100,
+    selectedIndex: -1,
   }
   set(uid, state, state)
   return state
