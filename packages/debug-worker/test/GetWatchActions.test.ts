@@ -15,5 +15,10 @@ test('should return actions when watch is expanded', () => {
       title: 'Add new watch expression',
       icon: '+',
     },
+    {
+      id: InputName.RefreshWatchExpressions,
+      title: 'Refresh watch expressions',
+      icon: '↻',
+    },
   ])
 })
