@@ -4,14 +4,14 @@ import * as GetDebugPropertyValueLabel from '../GetDebugPropertyValueLabel/GetDe
 import * as GetDebugValueObjectId from '../GetDebugValueObjectId/GetDebugValueObjectId.ts'
 import * as GetDebugValueType from '../GetDebugValueType/GetDebugValueType.ts'
 
-export const getInnerChildScopeChain = async (cache: any, debugId: any, objectId: any, indent: number, maxDescriptionLength: number = 100): Promise<readonly any[]> => {
+export const getInnerChildScopeChain = async (cache: any, debugId: any, objectId: any, indent: number, maxDescriptionLength = 100): Promise<readonly any[]> => {
   if (cache[objectId]) {
     return cache[objectId]
   }
   const childScopes = await Debug.getProperties(debugId, objectId)
   const childScopeChain = []
   for (const child of childScopes.result.result) {
-    const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value || child.get || {})
+    const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value || child.get || {}, maxDescriptionLength)
     childScopeChain.push({
       type: DebugScopeChainType.Property,
       key: child.name,
