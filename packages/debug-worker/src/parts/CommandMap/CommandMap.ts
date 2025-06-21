@@ -42,6 +42,7 @@ import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
 import * as ReadFile from '../ReadFile/ReadFile.ts'
 import * as Refresh from '../Refresh/Refresh.ts'
+import { refreshWatchExpression } from '../RefreshWatchExpression/RefreshWatchExpression.ts'
 import { removeWatchExpression } from '../RemoveWatchExpression/RemoveWatchExpression.ts'
 import * as Render2 from '../Render2/Render2.ts'
 import * as RenderActions from '../RenderActions/RenderActions.ts'
@@ -111,6 +112,7 @@ export const commandMap = {
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
   'RunAndDebug.readFile': ReadFile.readFile,
   'RunAndDebug.refresh': WrapCommand.wrapCommand(Refresh.refresh),
+  'RunAndDebug.refreshWatchExpression': WrapCommand.wrapCommand(refreshWatchExpression),
   'RunAndDebug.removeWatchExpression': removeWatchExpression,
   'RunAndDebug.render2': Render2.render2,
   'RunAndDebug.renderActions': RenderActions.renderActions,

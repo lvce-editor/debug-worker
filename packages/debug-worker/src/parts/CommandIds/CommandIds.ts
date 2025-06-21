@@ -42,6 +42,7 @@ export const commandIds: readonly string[] = [
   'loadContentLater',
   'pause',
   'refresh',
+  'refreshWatchExpression',
   'removeWatchExpression',
   'deleteWatchExpression',
   'deleteAllWatchExpressions',
