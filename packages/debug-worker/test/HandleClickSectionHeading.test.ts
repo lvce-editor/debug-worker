@@ -8,14 +8,14 @@ test('handleClickSectionHeading delegates to watch handler', async () => {
   const state = createDefaultState()
   const result = await handleClickSectionHeading(state, DebugRowName.Watch, MouseEventType.LeftClick)
   expect(result.watchExpanded).toBe(true)
-  expect(result.focusedIndex).toBe(0)
+  expect(result.selectedIndex).toBe(0)
 })
 
 test('handleClickSectionHeading delegates to breakpoints handler', async () => {
   const state = createDefaultState()
   const result = await handleClickSectionHeading(state, DebugRowName.BreakPoints, MouseEventType.LeftClick)
   expect(result.breakPointsExpanded).toBe(true)
-  expect(result.focusedIndex).toBe(1)
+  expect(result.selectedIndex).toBe(1)
 })
 
 test('handleClickSectionHeading delegates to scope handler', async () => {
@@ -29,7 +29,7 @@ test('handleClickSectionHeading delegates to callstack handler', async () => {
   const state = createDefaultState()
   const result = await handleClickSectionHeading(state, DebugRowName.CallStack, MouseEventType.LeftClick)
   expect(result.callStackExpanded).toBe(true)
-  expect(result.focusedIndex).toBe(3)
+  expect(result.selectedIndex).toBe(3)
 })
 
 test.skip('handleClickSectionHeading delegates to unknown handler for invalid id', async () => {
