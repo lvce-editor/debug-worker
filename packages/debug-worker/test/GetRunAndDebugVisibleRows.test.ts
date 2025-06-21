@@ -1,13 +1,13 @@
 import { expect, test } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { getRunAndDebugVisibleRows } from '../src/parts/GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 
 test.skip('should return watch section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
