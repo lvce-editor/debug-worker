@@ -28,5 +28,5 @@ test('handleClickSectionHeading delegates to scope handler', async () => {
 test('handleClickSectionHeading delegates to unknown handler for invalid id', async () => {
   const state = createDefaultState()
   const result = await handleClickSectionHeading(state, 'invalid-id', MouseEventType.LeftClick)
-  expect(result.callStackExpanded).toBe(true)
+  expect(result).toBe(state)
 })
