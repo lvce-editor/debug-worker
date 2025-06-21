@@ -16,5 +16,6 @@ test('handleClickSectionBreakPoints preserves other state properties', () => {
     ...state,
     breakPointsExpanded: !state.breakPointsExpanded,
     focusedIndex: 1,
+    visibleRows: expect.anything(),
   })
 })

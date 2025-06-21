@@ -55,5 +55,6 @@ test('expandScopeChain', async () => {
     ],
     expandedIds: ['id1', 'scope2'],
     scopeFocusedIndex: 1,
+    visibleRows: expect.anything(),
   })
 })
