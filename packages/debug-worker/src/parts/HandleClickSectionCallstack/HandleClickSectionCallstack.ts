@@ -6,7 +6,7 @@ export const handleClickSectionCallstack = (state: RunAndDebugState): RunAndDebu
   const newState = {
     ...state,
     callStackExpanded: !callStackExpanded,
-    focusedIndex: 1, // TODO don't hardcode number
+    selectedIndex: 1, // Set to first row when section is expanded
   }
   return updateVisibleRows(newState)
 }

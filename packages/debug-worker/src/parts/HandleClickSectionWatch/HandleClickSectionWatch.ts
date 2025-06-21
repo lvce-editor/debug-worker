@@ -6,7 +6,7 @@ export const handleClickSectionWatch = (state: RunAndDebugState): RunAndDebugSta
   const newState = {
     ...state,
     watchExpanded: !watchExpanded,
-    focusedIndex: 0, // TODO don't hardcode number
+    selectedIndex: 0, // Set to first row when section is expanded
   }
   return updateVisibleRows(newState)
 }

@@ -6,15 +6,12 @@ test('handleClickSectionScope toggles scopeExpanded from false to true', () => {
   const state = createDefaultState()
   const result = handleClickSectionScope(state)
   expect(result.scopeExpanded).toBe(true)
-  expect(result.focusedIndex).toBe(2)
+  expect(result.selectedIndex).toBe(2)
 })
 
 test('handleClickSectionScope toggles scopeExpanded from true to false', () => {
-  const state = {
-    ...createDefaultState(),
-    scopeExpanded: true,
-  }
+  const state = { ...createDefaultState(), scopeExpanded: true }
   const result = handleClickSectionScope(state)
   expect(result.scopeExpanded).toBe(false)
-  expect(result.focusedIndex).toBe(2)
+  expect(result.selectedIndex).toBe(2)
 })

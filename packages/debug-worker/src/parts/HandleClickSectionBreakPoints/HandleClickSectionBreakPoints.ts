@@ -6,7 +6,7 @@ export const handleClickSectionBreakPoints = (state: RunAndDebugState): RunAndDe
   const newState = {
     ...state,
     breakPointsExpanded: !breakPointsExpanded,
-    focusedIndex: 1, // TODO don't hardcode number
+    selectedIndex: 1, // Set to first row when section is expanded
   }
   return updateVisibleRows(newState)
 }

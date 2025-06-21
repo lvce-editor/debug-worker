@@ -6,15 +6,12 @@ test('handleClickSectionCallstack toggles callStackExpanded from false to true',
   const state = createDefaultState()
   const result = handleClickSectionCallstack(state)
   expect(result.callStackExpanded).toBe(true)
-  expect(result.focusedIndex).toBe(1)
+  expect(result.selectedIndex).toBe(1)
 })
 
 test('handleClickSectionCallstack toggles callStackExpanded from true to false', () => {
-  const state = {
-    ...createDefaultState(),
-    callStackExpanded: true,
-  }
+  const state = { ...createDefaultState(), callStackExpanded: true }
   const result = handleClickSectionCallstack(state)
   expect(result.callStackExpanded).toBe(false)
-  expect(result.focusedIndex).toBe(1)
+  expect(result.selectedIndex).toBe(1)
 })
