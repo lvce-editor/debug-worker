@@ -4,7 +4,7 @@ import * as GetDebugPropertyValueLabel from '../GetDebugPropertyValueLabel/GetDe
 import * as GetDebugValueObjectId from '../GetDebugValueObjectId/GetDebugValueObjectId.ts'
 import * as GetDebugValueType from '../GetDebugValueType/GetDebugValueType.ts'
 
-export const getInnerChildScopeChain = async (cache: any, debugId: any, objectId: any, indent: number): Promise<readonly any[]> => {
+export const getInnerChildScopeChain = async (cache: any, debugId: any, objectId: any, indent: number, maxDescriptionLength: number = 100): Promise<readonly any[]> => {
   if (cache[objectId]) {
     return cache[objectId]
   }
