@@ -128,7 +128,7 @@ test('should return call stack section with default state', () => {
     type: DebugRowType.SectionHeading,
     text: DebugStrings.callStack(),
     expanded: false,
-    key: '',
+    key: 'callstack',
     value: '',
     indent: 0,
     valueType: '',
