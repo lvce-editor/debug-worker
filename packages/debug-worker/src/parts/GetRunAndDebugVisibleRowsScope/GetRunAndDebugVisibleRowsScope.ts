@@ -3,6 +3,7 @@ import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
+import * as DebugState from '../DebugState/DebugState.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
@@ -15,6 +16,10 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
   }
 
   const rows: DebugRow[] = []
+<<<<<<< HEAD
+=======
+  const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, debugState } = state
+>>>>>>> origin/main
   if (scopeExpanded) {
     rows.push({
       type: DebugRowType.SectionHeading,
@@ -27,7 +32,13 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       name: DebugRowName.Scope,
       description: '',
     })
-    if (scopeChain.length === 0) {
+    if (debugState === DebugState.Paused) {
+      const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
+      for (const scope of visible) {
+        const renderer = getScopeRenderer(scope.type)
+        rows.push(...renderer(scope))
+      }
+    } else {
       rows.push({
         type: DebugRowType.Message,
         text: DebugStrings.notPaused(),
@@ -39,12 +50,6 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
         name: '',
         description: '',
       })
-    } else {
-      const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
-      for (const scope of visible) {
-        const renderer = getScopeRenderer(scope.type)
-        rows.push(...renderer(scope))
-      }
     }
   } else {
     rows.push({

@@ -34,6 +34,9 @@ import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts
 import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
 import * as HandleWatchExpressionContextMenu from '../HandleWatchExpressionContextMenu/HandleWatchExpressionContextMenu.ts'
 import * as HandleWatchValueChange from '../HandleWatchValueChange/HandleWatchValueChange.ts'
+import { hideCallStack } from '../HideCallStack/HideCallStack.ts'
+import { hideScope } from '../HideScope/HideScope.ts'
+import { hideWatch } from '../HideWatch/HideWatch.ts'
 import * as Initialize from '../Initialize/Initialize.ts'
 import * as LoadContent from '../LoadContent/LoadContent.ts'
 import * as LoadContentLater from '../LoadContentLater/LoadContentLater.ts'
@@ -47,6 +50,9 @@ import * as RestoreState from '../RestoreState/RestoreState.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
+import { showCallStack } from '../ShowCallStack/ShowCallStack.ts'
+import { showScope } from '../ShowScope/ShowScope.ts'
+import { showWatch } from '../ShowWatch/ShowWatch.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
@@ -119,4 +125,10 @@ export const commandMap = {
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
   'RunAndDebug.terminate': Terminate.terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
+  'RunAndDebug.showWatch': WrapCommand.wrapCommand(showWatch),
+  'RunAndDebug.hideWatch': WrapCommand.wrapCommand(hideWatch),
+  'RunAndDebug.showScope': WrapCommand.wrapCommand(showScope),
+  'RunAndDebug.hideScope': WrapCommand.wrapCommand(hideScope),
+  'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
+  'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
 }
