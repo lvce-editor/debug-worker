@@ -6,7 +6,7 @@ export const handleClickSectionScope = (state: RunAndDebugState): RunAndDebugSta
   const newState = {
     ...state,
     scopeExpanded: !scopeExpanded,
-    focusedIndex: 2, // TODO don't hardcode number
+    selectedIndex: 2, // Set to first row when section is expanded
   }
   return updateVisibleRows(newState)
 }
