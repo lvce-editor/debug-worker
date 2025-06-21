@@ -14,6 +14,7 @@ test('handleClickSectionBreakPoints preserves other state properties', () => {
   const newState = handleClickSectionBreakPoints(state)
   expect(newState).toEqual({
     ...state,
+    focus: expect.anything(),
     breakPointsExpanded: !state.breakPointsExpanded,
     selectedIndex: 1,
     visibleRows: expect.anything(),

@@ -41,6 +41,7 @@ test('expandScopeChain', async () => {
 
   expect(result).toEqual({
     ...state,
+    focus: expect.anything(),
     scopeChain: [
       { objectId: 'scope1' },
       { objectId: 'scope2' },
