@@ -11,5 +11,10 @@ export const getWatchActions = (watchExpanded: boolean): readonly DebugRowAction
       title: 'Add new watch expression',
       icon: '+',
     },
+    {
+      id: InputName.RefreshWatchExpressions,
+      title: 'Refresh watch expressions',
+      icon: '↻',
+    },
   ]
 }
