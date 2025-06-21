@@ -71,7 +71,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
       type: DebugRowType.SectionHeading,
       text: DebugStrings.callStack(),
       expanded: false,
-      key: '',
+      key: DebugSectionId.CallStack,
       value: '',
       indent: 0,
       valueType: '',
