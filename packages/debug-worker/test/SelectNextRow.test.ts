@@ -54,3 +54,60 @@ test('selectNextRow does not exceed max index', () => {
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(1) // stays at max
 })
+
+test('selectNextRow handles empty visibleRows array', () => {
+  const state = { ...createDefaultState(), selectedIndex: 0, visibleRows: [] }
+  const result = selectNextRow(state)
+  expect(result.selectedIndex).toBe(-1)
+})
+
+test('selectNextRow handles negative selectedIndex input', () => {
+  const mockRow: DebugRow = {
+    type: 1,
+    text: 'test',
+    expanded: false,
+    key: 'test',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+    description: '',
+  }
+  const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
+  const result = selectNextRow(state)
+  expect(result.selectedIndex).toBe(0)
+})
+
+test('selectNextRow handles selectedIndex beyond array bounds', () => {
+  const mockRow: DebugRow = {
+    type: 1,
+    text: 'test',
+    expanded: false,
+    key: 'test',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+    description: '',
+  }
+  const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
+  const result = selectNextRow(state)
+  expect(result.selectedIndex).toBe(1)
+})
+
+test('selectNextRow stays at max when already at max', () => {
+  const mockRow: DebugRow = {
+    type: 1,
+    text: 'test',
+    expanded: false,
+    key: 'test',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+    description: '',
+  }
+  const state = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] }
+  const result = selectNextRow(state)
+  expect(result.selectedIndex).toBe(1)
+})
