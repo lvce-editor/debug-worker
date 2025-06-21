@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { getSectionIndex } from '../src/parts/GetSectionIndex/GetSectionIndex.ts'
 import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
+import { getSectionIndex } from '../src/parts/GetSectionIndex/GetSectionIndex.ts'
 
 // The default state should have all four section headings in order: Watch, BreakPoints, Scope, CallStack
 

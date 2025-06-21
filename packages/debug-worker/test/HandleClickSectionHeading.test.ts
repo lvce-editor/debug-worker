@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import { handleClickSectionHeading } from '../src/parts/HandleClickSectionHeading/HandleClickSectionHeading.ts'
 import * as MouseEventType from '../src/parts/MouseEventType/MouseEventType.ts'
-import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 
 test('handleClickSectionHeading delegates to watch handler', async () => {
   const state = createDefaultState()
