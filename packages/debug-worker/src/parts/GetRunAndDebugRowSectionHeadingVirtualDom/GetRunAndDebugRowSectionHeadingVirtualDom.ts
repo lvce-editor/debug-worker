@@ -5,16 +5,19 @@ import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetActionsDom from '../GetActionsDom/GetActionsDom.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
+import { getDebugRowClassName } from '../GetDebugRowClassName/GetDebugRowClassName.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-export const renderSectionHeading = (row: DebugRow): readonly VirtualDomNode[] => {
+export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { expanded, text, key, actions } = row
   const hasActions = actions && actions.length > 0
+  const isSelected = rowIndex === selectedIndex
+  const className = getDebugRowClassName(ClassNames.DebugSectionHeader, isSelected)
   const nodes: VirtualDomNode[] = [
     {
       type: VirtualDomElements.Div,
-      className: ClassNames.DebugSectionHeader,
+      className,
       role: AriaRoles.TreeItem,
       ariaExpanded: expanded,
       ariaLevel: 1,

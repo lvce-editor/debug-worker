@@ -4,17 +4,20 @@ import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import { getDebugRowClassName } from '../GetDebugRowClassName/GetDebugRowClassName.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-export const renderWatchExpression = (row: DebugRow): readonly VirtualDomNode[] => {
+export const renderWatchExpression = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { value, key, index } = row
+  const isSelected = rowIndex === selectedIndex
+  const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
       type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow,
+      className,
       role: AriaRoles.TreeItem,
       childCount: 4,
       'data-index': index,
