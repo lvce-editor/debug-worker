@@ -31,12 +31,12 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
     },
     {
       key: KeyCode.UpArrow,
-      command: 'Run And Debug.focusPrevious',
+      command: 'Run And Debug.selectPreviousRow',
       when: WhenExpression.FocusDebugRow,
     },
     {
       key: KeyCode.DownArrow,
-      command: 'Run And Debug.focusNext',
+      command: 'Run And Debug.selectNextRow',
       when: WhenExpression.FocusDebugRow,
     },
     {
