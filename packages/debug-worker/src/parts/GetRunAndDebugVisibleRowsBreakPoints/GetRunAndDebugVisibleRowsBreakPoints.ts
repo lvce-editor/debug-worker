@@ -1,5 +1,6 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
@@ -23,7 +24,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
         value: '',
         indent: 0,
         valueType: '',
-        name: '',
+        name: DebugRowName.BreakPoints,
         description: '',
       },
       {
@@ -59,7 +60,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
       value: '',
       indent: 0,
       valueType: '',
-      name: '',
+      name: DebugRowName.BreakPoints,
       description: '',
     },
   ]
