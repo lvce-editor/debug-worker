@@ -1,4 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
+import { getSectionIndex } from '../GetSectionIndex/GetSectionIndex.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 
 export const handleClickSectionScope = (state: RunAndDebugState): RunAndDebugState => {
@@ -6,7 +9,7 @@ export const handleClickSectionScope = (state: RunAndDebugState): RunAndDebugSta
   const newState = {
     ...state,
     scopeExpanded: !scopeExpanded,
-    focusedIndex: 2, // TODO don't hardcode number
+    focusedIndex: getSectionIndex(state, DebugRowName.Scope),
   }
   return updateVisibleRows(newState)
 }

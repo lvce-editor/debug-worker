@@ -1,4 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
+import { getSectionIndex } from '../GetSectionIndex/GetSectionIndex.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 
 export const handleClickSectionWatch = (state: RunAndDebugState): RunAndDebugState => {
@@ -6,7 +8,7 @@ export const handleClickSectionWatch = (state: RunAndDebugState): RunAndDebugSta
   const newState = {
     ...state,
     watchExpanded: !watchExpanded,
-    focusedIndex: 0, // TODO don't hardcode number
+    focusedIndex: getSectionIndex(state, DebugRowName.Watch),
   }
   return updateVisibleRows(newState)
 }
