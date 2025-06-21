@@ -9,17 +9,11 @@ import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
 
 export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonly DebugRow[] => {
-  const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, scopeVisible } = state
-
+  const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, scopeVisible, debugState } = state
   if (!scopeVisible) {
     return []
   }
-
   const rows: DebugRow[] = []
-<<<<<<< HEAD
-=======
-  const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, debugState } = state
->>>>>>> origin/main
   if (scopeExpanded) {
     rows.push({
       type: DebugRowType.SectionHeading,
