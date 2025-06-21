@@ -22,9 +22,15 @@ export const getPausedInfo2 = async (debugId: any, maxDescriptionLength: number)
     data,
     reason,
   }
-  const scopeChain = GetScopeChain.getScopeChain(params, thisObject, callFrames[0].scopeChain, {
-    [objectId]: properties,
-  })
+  const scopeChain = GetScopeChain.getScopeChain(
+    params,
+    thisObject,
+    callFrames[0].scopeChain,
+    {
+      [objectId]: properties,
+    },
+    maxDescriptionLength,
+  )
   const pausedReason = reason
   const pausedMessage = GetDebugPausedMessage.getDebugPausedMessage(reason)
   return {

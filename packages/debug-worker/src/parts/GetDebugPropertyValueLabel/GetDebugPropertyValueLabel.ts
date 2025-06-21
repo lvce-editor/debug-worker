@@ -5,7 +5,7 @@ import * as GetDebugPropertyValueLabelObject from '../GetDebugPropertyValueLabel
 import * as GetDebugPropertyValueLabelString from '../GetDebugPropertyValueLabelString/GetDebugPropertyValueLabelString.ts'
 import * as GetDebugPropertyValueLabelUndefined from '../GetDebugPropertyValueLabelUndefined/GetDebugPropertyValueLabelUndefined.ts'
 
-export const getDebugPropertyValueLabel = (property: any, maxDescriptionLength = 100): string => {
+export const getDebugPropertyValueLabel = (property: any, maxDescriptionLength: number): string => {
   if (!property) {
     return 'n/a'
   }

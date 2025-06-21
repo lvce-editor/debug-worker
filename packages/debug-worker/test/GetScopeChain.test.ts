@@ -1,6 +1,9 @@
 import { expect, test } from '@jest/globals'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugScopeChainType from '../src/parts/DebugScopeChainType/DebugScopeChainType.ts'
 import { getScopeChain } from '../src/parts/GetScopeChain/GetScopeChain.ts'
+
+const mockState = createDefaultState()
 
 test('getScopeChain - basic scope chain', async () => {
   const params = {}
@@ -24,7 +27,7 @@ test('getScopeChain - basic scope chain', async () => {
     },
   }
 
-  const result = getScopeChain(params, thisObject, scopeChain, knownProperties)
+  const result = getScopeChain(params, thisObject, scopeChain, knownProperties, mockState.maxDescriptionLength)
   expect(result).toHaveLength(3)
   expect(result[0].type).toBe(DebugScopeChainType.Scope)
   expect(result[1].type).toBe(DebugScopeChainType.This)
@@ -47,7 +50,7 @@ test('getScopeChain - with exception', async () => {
   ]
   const knownProperties = {}
 
-  const result = getScopeChain(params, thisObject, scopeChain, knownProperties)
+  const result = getScopeChain(params, thisObject, scopeChain, knownProperties, mockState.maxDescriptionLength)
   expect(result).toHaveLength(3)
   expect(result[0].type).toBe(DebugScopeChainType.Scope)
   expect(result[1].type).toBe(DebugScopeChainType.Exception)
