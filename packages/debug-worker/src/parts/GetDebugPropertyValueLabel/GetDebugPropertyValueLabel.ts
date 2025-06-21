@@ -5,7 +5,7 @@ import * as GetDebugPropertyValueLabelObject from '../GetDebugPropertyValueLabel
 import * as GetDebugPropertyValueLabelString from '../GetDebugPropertyValueLabelString/GetDebugPropertyValueLabelString.ts'
 import * as GetDebugPropertyValueLabelUndefined from '../GetDebugPropertyValueLabelUndefined/GetDebugPropertyValueLabelUndefined.ts'
 
-export const getDebugPropertyValueLabel = (property: any): string => {
+export const getDebugPropertyValueLabel = (property: any, maxDescriptionLength = 100): string => {
   if (!property) {
     return 'n/a'
   }
@@ -13,7 +13,7 @@ export const getDebugPropertyValueLabel = (property: any): string => {
     case DebugValueType.Number:
     case DebugValueType.Symbol:
     case DebugValueType.Function:
-      return GetDebugPropertyValueLabelCommon.getDebugPropertyValueLabelCommon(property)
+      return GetDebugPropertyValueLabelCommon.getDebugPropertyValueLabelCommon(property, maxDescriptionLength)
     case DebugValueType.Object:
       return GetDebugPropertyValueLabelObject.getDebugPropertyValueLabelObject(property)
     case DebugValueType.Undefined:
