@@ -1,5 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
+import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 
 const getCollapsedScopeChain = (cache: any, scopeChain: any, element: any, index: number): any => {
   const indent = element.indent
@@ -31,11 +32,12 @@ export const collapseScopeChain = (state: RunAndDebugState, expandedIds: readonl
   const { cache } = state
   const newExpandedIds = Arrays.removeElement(expandedIds, element.objectId)
   const { newScopeChain, newCache } = getCollapsedScopeChain(cache, scopeChain, element, index)
-  return {
+  const newState = {
     ...state,
     expandedIds: newExpandedIds,
     scopeChain: newScopeChain,
     scopeFocusedIndex: index,
     cache: newCache,
   }
+  return updateVisibleRows(newState)
 }

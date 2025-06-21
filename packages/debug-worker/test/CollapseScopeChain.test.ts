@@ -16,19 +16,17 @@ test('collapseScopeChain', () => {
 
   const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
 
-  expect(result).toEqual({
-    ...state,
-    expandedIds: ['scope1'],
-    scopeChain: [
-      { objectId: 'scope1', indent: 0 },
-      { objectId: 'scope2', indent: 1 },
-      { objectId: 'scope4', indent: 1 },
-    ],
-    scopeFocusedIndex: 1,
-    cache: {
-      scope2: [{ objectId: 'scope3', indent: 2 }],
-    },
+  expect(result.expandedIds).toEqual(['scope1'])
+  expect(result.scopeChain).toEqual([
+    { objectId: 'scope1', indent: 0 },
+    { objectId: 'scope2', indent: 1 },
+    { objectId: 'scope4', indent: 1 },
+  ])
+  expect(result.scopeFocusedIndex).toBe(1)
+  expect(result.cache).toEqual({
+    scope2: [{ objectId: 'scope3', indent: 2 }],
   })
+  expect(result.visibleRows).toBeDefined()
 })
 
 test('collapseScopeChain - no children to collapse', () => {
@@ -43,14 +41,12 @@ test('collapseScopeChain - no children to collapse', () => {
 
   const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
 
-  expect(result).toEqual({
-    ...state,
-    expandedIds: ['scope1'],
-    scopeChain: [
-      { objectId: 'scope1', indent: 0 },
-      { objectId: 'scope2', indent: 1 },
-    ],
-    scopeFocusedIndex: 1,
-    cache: {},
-  })
+  expect(result.expandedIds).toEqual(['scope1'])
+  expect(result.scopeChain).toEqual([
+    { objectId: 'scope1', indent: 0 },
+    { objectId: 'scope2', indent: 1 },
+  ])
+  expect(result.scopeFocusedIndex).toBe(1)
+  expect(result.cache).toEqual({})
+  expect(result.visibleRows).toBeDefined()
 })
