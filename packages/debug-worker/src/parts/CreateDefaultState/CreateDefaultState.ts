@@ -39,6 +39,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     openFilesOnPause: true,
     maxDescriptionLength: 100,
     selectedIndex: -1,
+    visibleRows: [],
   }
   set(uid, state, state)
   return state
