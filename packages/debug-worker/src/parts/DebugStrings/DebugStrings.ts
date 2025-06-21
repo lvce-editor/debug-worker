@@ -126,3 +126,7 @@ export const deleteAllWatchExpressions = (): string => {
 export const addWatchExpression = (): string => {
   return I18NString.i18nString(UiStrings.AddWatchExpression)
 }
+
+export const refreshWatchExpressions = (): string => {
+  return I18NString.i18nString(UiStrings.RefreshWatchExpressions)
+}
