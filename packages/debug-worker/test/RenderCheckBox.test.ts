@@ -18,7 +18,7 @@ test('renderCheckBox', () => {
     name: 'test-name',
     description: '',
   }
-  const result = renderCheckBox(row)
+  const result = renderCheckBox(row, -1, 0)
   expect(result).toHaveLength(4)
   expect(result[0]).toEqual({
     type: VirtualDomElements.Div,
