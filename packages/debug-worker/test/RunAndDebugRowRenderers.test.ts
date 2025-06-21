@@ -23,10 +23,11 @@ test('renderNoop', () => {
     name: '',
     description: '',
   }
-  const result = RunAndDebugRowRenderers.renderNoop(row)
+  const result = RunAndDebugRowRenderers.renderNoop(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
+      className: ClassNames.DebugRow,
       childCount: 1,
     },
     VirtualDomHelpers.text('unknown row type'),
@@ -45,7 +46,7 @@ test('renderMessage', () => {
     name: '',
     description: '',
   }
-  const result = RunAndDebugRowRenderers.renderMessage(row)
+  const result = RunAndDebugRowRenderers.renderMessage(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -68,7 +69,7 @@ test('renderCallStack', () => {
     name: '',
     description: '',
   }
-  const result = renderCallStack(row)
+  const result = renderCallStack(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -105,7 +106,7 @@ test('renderScope', () => {
     name: '',
     description: '',
   }
-  const result = renderScope(row)
+  const result = renderScope(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -130,16 +131,16 @@ test('renderScope', () => {
 test('renderValue', () => {
   const row: DebugRow = {
     type: DebugRowType.Value,
-    indent: 10,
+    text: '',
+    expanded: false,
     key: 'testKey',
     value: 'testValue',
+    indent: 10,
     valueType: 'string',
-    expanded: false,
-    text: '',
     name: '',
     description: '',
   }
-  const result = renderValue(row)
+  const result = renderValue(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -148,7 +149,7 @@ test('renderValue', () => {
       ariaExpanded: false,
       ariaLevel: 3,
       paddingLeft: 10,
-      onPointerDown: 'handleClickScopeValue',
+      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       childCount: 3,
     },
     {

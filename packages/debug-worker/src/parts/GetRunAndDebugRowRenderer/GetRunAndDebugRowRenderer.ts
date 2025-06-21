@@ -1,5 +1,4 @@
-import type { VirtualDomNode } from '@lvce-editor/virtual-dom-worker'
-import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { DebugRowRenderer } from '../RunAndDebugRowRenderer/RunAndDebugRowRenderer.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as GetRunAndDebugRowSectionHeadingVirtualDom from '../GetRunAndDebugRowSectionHeadingVirtualDom/GetRunAndDebugRowSectionHeadingVirtualDom.ts'
 import { renderCallStack } from '../RenderCallStack/RenderCallStack.ts'
@@ -10,10 +9,6 @@ import { renderScope } from '../RenderScope/RenderScope.ts'
 import { renderWatchExpression } from '../RenderWatchExpression/RenderWatchExpression.ts'
 import { renderWatchMessage } from '../RenderWatchMessage/RenderWatchMessage.ts'
 import { renderMessage, renderNoop } from '../RunAndDebugRowRenderers/RunAndDebugRowRenderers.ts'
-
-export interface DebugRowRenderer {
-  (row: DebugRow): readonly VirtualDomNode[]
-}
 
 export const getRowRenderer = (type: number): DebugRowRenderer => {
   switch (type) {
