@@ -7,7 +7,7 @@ import * as GetCallStack from '../GetCallStack/GetCallStack.ts'
 import * as GetDebugPausedMessage from '../GetDebugPausedMessage/GetDebugPausedMessage.ts'
 import * as GetScopeChain from '../GetScopeChain/GetScopeChain.ts'
 
-export const getPausedInfo2 = async (debugId: any): Promise<PausedInfo2> => {
+export const getPausedInfo2 = async (debugId: any, maxDescriptionLength: number): Promise<PausedInfo2> => {
   const callFrames = await ExtensionHostDebug.getCallStack(debugId)
   const callStack = GetCallStack.getCallStack(callFrames)
   const { reason, data } = await ExtensionHostDebug.getPausedStatus(debugId)
