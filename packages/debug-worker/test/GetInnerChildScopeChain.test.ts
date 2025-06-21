@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { getInnerChildScopeChain } from '../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts'
 import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
@@ -35,17 +36,19 @@ const mockExtensionHost = MockRpc.create({
 
 ExtensionHost.set(mockExtensionHost)
 
+const mockState = createDefaultState()
+
 test('should return cached value if available', async () => {
   const cache = {
     'test-object-id': [{ type: 3, key: 'test', value: 'cached' }],
   }
-  const result = await getInnerChildScopeChain(cache, 'debug-id', 'test-object-id', 0)
+  const result = await getInnerChildScopeChain(cache, 'debug-id', 'test-object-id', 0, mockState.maxDescriptionLength)
   expect(result).toEqual([{ type: 3, key: 'test', value: 'cached' }])
 })
 
 test('should get properties and create scope chain', async () => {
   const cache = {}
-  const result = await getInnerChildScopeChain(cache, 'debug-id', 'object-id', 0)
+  const result = await getInnerChildScopeChain(cache, 'debug-id', 'object-id', 0, mockState.maxDescriptionLength)
   expect(result).toEqual([
     {
       type: 3,
