@@ -1,4 +1,5 @@
 import type { CallStackItem } from '../CallStackItem/CallStackItem.ts'
+import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
 import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
@@ -40,4 +41,5 @@ export interface RunAndDebugState {
   readonly openFilesOnPause: boolean
   readonly maxDescriptionLength: number
   readonly selectedIndex: number
+  readonly visibleRows: readonly DebugRow[]
 }

@@ -43,6 +43,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     openFilesOnPause: true,
     maxDescriptionLength: 100,
     selectedIndex: -1,
+    visibleRows: [],
   }
   RunAndDebugStates.set(id, state, state)
 }
