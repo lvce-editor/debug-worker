@@ -1,11 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import { selectIndex } from '../SelectIndex/SelectIndex.ts'
 
 export const selectPreviousRow = (state: RunAndDebugState): RunAndDebugState => {
-  const { selectedIndex } = state
-  const newIndex = Math.max(-1, selectedIndex - 1)
-
-  return {
-    ...state,
-    selectedIndex: newIndex,
-  }
+  return selectIndex(state, state.selectedIndex - 1)
 }

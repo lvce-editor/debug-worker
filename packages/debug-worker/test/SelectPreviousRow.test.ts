@@ -54,3 +54,43 @@ test('selectPreviousRow stays at -1 when already at -1', () => {
   const result = selectPreviousRow(state)
   expect(result.selectedIndex).toBe(-1)
 })
+
+test('selectPreviousRow handles empty visibleRows array', () => {
+  const state = { ...createDefaultState(), selectedIndex: 0, visibleRows: [] }
+  const result = selectPreviousRow(state)
+  expect(result.selectedIndex).toBe(-1)
+})
+
+test('selectPreviousRow handles negative selectedIndex input', () => {
+  const mockRow: DebugRow = {
+    type: 1,
+    text: 'test',
+    expanded: false,
+    key: 'test',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+    description: '',
+  }
+  const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
+  const result = selectPreviousRow(state)
+  expect(result.selectedIndex).toBe(-1)
+})
+
+test('selectPreviousRow handles selectedIndex beyond array bounds', () => {
+  const mockRow: DebugRow = {
+    type: 1,
+    text: 'test',
+    expanded: false,
+    key: 'test',
+    value: '',
+    indent: 0,
+    valueType: '',
+    name: '',
+    description: '',
+  }
+  const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
+  const result = selectPreviousRow(state)
+  expect(result.selectedIndex).toBe(1)
+})
