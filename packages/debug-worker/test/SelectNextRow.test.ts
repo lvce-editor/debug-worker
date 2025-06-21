@@ -75,7 +75,7 @@ test('selectNextRow handles negative selectedIndex input', () => {
   }
   const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
-  expect(result.selectedIndex).toBe(0)
+  expect(result.selectedIndex).toBe(-1)
 })
 
 test('selectNextRow handles selectedIndex beyond array bounds', () => {

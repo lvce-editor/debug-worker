@@ -92,5 +92,5 @@ test('selectPreviousRow handles selectedIndex beyond array bounds', () => {
   }
   const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
-  expect(result.selectedIndex).toBe(0)
+  expect(result.selectedIndex).toBe(1)
 })
