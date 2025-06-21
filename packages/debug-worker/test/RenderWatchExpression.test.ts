@@ -1,27 +1,30 @@
 import { test, expect } from '@jest/globals'
-import { text } from '@lvce-editor/virtual-dom-worker'
 import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import * as AriaRoles from '../src/parts/AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../src/parts/ClassNames/ClassNames.ts'
+import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
+import * as DomEventListenerFunctions from '../src/parts/DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import * as MergeClassNames from '../src/parts/MergeClassNames/MergeClassNames.ts'
 import { renderWatchExpression } from '../src/parts/RenderWatchExpression/RenderWatchExpression.ts'
 import { separator } from '../src/parts/Separator/Separator.ts'
 import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomElements.ts'
+import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHelpers.ts'
 
 test('should render watch expression', () => {
   const row: DebugRow = {
-    key: 'x + y',
-    value: '42',
+    type: DebugRowType.WatchExpression,
     text: '',
-    type: 0,
-    description: '',
     expanded: false,
+    key: 'testKey',
+    value: 'testValue',
     indent: 0,
-    name: '',
     valueType: '',
+    name: '',
+    description: '',
     index: 0,
   }
-  const result = renderWatchExpression(row)
+  const result = renderWatchExpression(row, -1, 0)
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
@@ -29,30 +32,30 @@ test('should render watch expression', () => {
       role: AriaRoles.TreeItem,
       childCount: 4,
       'data-index': 0,
-      onClick: 'handleClickWatchExpression',
-      onContextMenu: 'handleWatchExpressionContextMenu',
+      onClick: DomEventListenerFunctions.HandleClickWatchExpression,
+      onContextMenu: DomEventListenerFunctions.HandleWatchExpressionContextMenu,
     },
     {
       type: VirtualDomElements.Span,
       className: ClassNames.DebugValueScopeName,
       childCount: 1,
     },
-    text('x + y'),
+    VirtualDomHelpers.text('testKey'),
     separator,
     {
       type: VirtualDomElements.Span,
       className: ClassNames.DebugValue,
       childCount: 1,
     },
-    text('42'),
+    VirtualDomHelpers.text('testValue'),
     {
       type: VirtualDomElements.Button,
-      className: `${ClassNames.IconButton} ${ClassNames.DebugSectionAction} ${ClassNames.DeleteWatchExpression}`,
       title: DebugStrings.deleteWatchExpression(),
+      className: MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction, ClassNames.DeleteWatchExpression),
       'data-index': 0,
-      onClick: 'handleClickWatchExpressionDelete',
+      onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
       childCount: 1,
     },
-    text('×'),
+    VirtualDomHelpers.text('×'),
   ])
 })

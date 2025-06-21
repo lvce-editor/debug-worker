@@ -4,13 +4,15 @@ import * as AriaRoles from '../AriaRoles/AriaRoles.ts'
 import * as ClassNames from '../ClassNames/ClassNames.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
+import { getDebugRowClassName } from '../GetDebugRowClassName/GetDebugRowClassName.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-export const renderScope = (row: DebugRow): readonly VirtualDomNode[] => {
+export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { key, expanded } = row
-  const className = ClassNames.DebugRow
+  const isSelected = rowIndex === selectedIndex
+  const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
       type: VirtualDomElements.Div,
