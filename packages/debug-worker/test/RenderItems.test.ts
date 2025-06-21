@@ -1,10 +1,10 @@
 import { expect, test } from '@jest/globals'
+import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
-import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { renderItems } from '../src/parts/RenderItems/RenderItems.ts'
 import { getRunAndDebugVisibleRows } from '../src/parts/GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
+import { renderItems } from '../src/parts/RenderItems/RenderItems.ts'
 
 test('renderItems', () => {
   const oldState = createDefaultState()
