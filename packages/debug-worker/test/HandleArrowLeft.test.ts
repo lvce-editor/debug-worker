@@ -5,13 +5,13 @@ import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import { handleArrowLeft } from '../src/parts/HandleArrowLeft/HandleArrowLeft.ts'
 
-test('handleArrowLeft returns the same state', () => {
+test('handleArrowLeft returns the same state', async () => {
   const state = createDefaultState()
-  const result = handleArrowLeft(state)
+  const result = await handleArrowLeft(state)
   expect(result).toBe(state)
 })
 
-test('handleArrowLeft collapses expanded watch section heading', () => {
+test('handleArrowLeft collapses expanded watch section heading', async () => {
   const state = {
     ...createDefaultState(),
     watchExpanded: true,
@@ -31,11 +31,11 @@ test('handleArrowLeft collapses expanded watch section heading', () => {
       },
     ],
   }
-  const result = handleArrowLeft(state)
+  const result = await handleArrowLeft(state)
   expect(result.watchExpanded).toBe(false)
 })
 
-test('handleArrowLeft does nothing if watch section heading is already collapsed', () => {
+test('handleArrowLeft does nothing if watch section heading is already collapsed', async () => {
   const state = {
     ...createDefaultState(),
     watchExpanded: false,
@@ -55,6 +55,6 @@ test('handleArrowLeft does nothing if watch section heading is already collapsed
       },
     ],
   }
-  const result = handleArrowLeft(state)
+  const result = await handleArrowLeft(state)
   expect(result).toBe(state)
 })
