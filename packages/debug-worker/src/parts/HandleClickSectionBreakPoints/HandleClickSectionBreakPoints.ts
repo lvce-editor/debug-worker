@@ -1,14 +1,14 @@
-import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
-import { getSectionIndex } from '../GetSectionIndex/GetSectionIndex.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
+import { getSectionIndex } from '../GetSectionIndex/GetSectionIndex.ts'
+import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 
 export const handleClickSectionBreakPoints = (state: RunAndDebugState): RunAndDebugState => {
   const { breakPointsExpanded } = state
   const newState = {
     ...state,
     breakPointsExpanded: !breakPointsExpanded,
-    selectedIndex: getSectionIndex(state, DebugRowName.BreakPoints),
+    focusedIndex: getSectionIndex(state, DebugSectionId.BreakPoints),
   }
   return updateVisibleRows(newState)
 }
