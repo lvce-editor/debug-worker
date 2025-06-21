@@ -23,9 +23,15 @@ export const getPausedInfo = async (debugId: any, params: any): Promise<PausedIn
   const properties = await Debug.getProperties(debugId, objectId)
   const thisObject = params.callFrames[0].this
   Assert.object(thisObject)
-  const scopeChain = GetScopeChain.getScopeChain(params, thisObject, params.callFrames[0].scopeChain, {
-    [objectId]: properties,
-  })
+  const scopeChain = GetScopeChain.getScopeChain(
+    params,
+    thisObject,
+    params.callFrames[0].scopeChain,
+    {
+      [objectId]: properties,
+    },
+    100,
+  )
   const pausedReason = params.reason
   const pausedMessage = GetDebugPausedMessage.getDebugPausedMessage(params.reason)
   return {
