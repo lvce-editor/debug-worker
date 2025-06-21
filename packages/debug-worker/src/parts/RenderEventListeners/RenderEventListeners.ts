@@ -54,6 +54,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     {
       name: DomEventListenerFunctions.HandleClickSectionHeading,
       params: ['handleClickSectionHeading', 'event.target.dataset.name', 'event.button'],
+      preventDefault: true,
     },
     {
       name: DomEventListenerFunctions.HandleClickCheckBox,
