@@ -11,6 +11,8 @@ import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as GetMenuEntries from '../GetMenuEntries/GetMenuEntries.ts'
+import * as HandleArrowLeft from '../HandleArrowLeft/HandleArrowLeft.ts'
+import * as HandleArrowRight from '../HandleArrowRight/HandleArrowRight.ts'
 import * as HandleChange from '../HandleChange/HandleChange.ts'
 import * as HandleClickCallstackItem from '../HandleClickCallstackItem/HandleClickCallstackItem.ts'
 import * as HandleClickCheckBox from '../HandleClickCheckBox/HandleClickCheckBox.ts'
@@ -80,8 +82,8 @@ export const commandMap = {
   'RunAndDebug.getKeyBindings': GetKeyBindings.getKeyBindings,
   'RunAndDebug.getMenuEntries': GetMenuEntries.getMenuEntries,
   'RunAndDebug.handleArrowDown': WrapCommand.wrapCommand(HandlePaused.handleArrowDown),
-  'RunAndDebug.handleArrowLeft': WrapCommand.wrapCommand(HandlePaused.handleArrowLeft),
-  'RunAndDebug.handleArrowRight': WrapCommand.wrapCommand(HandlePaused.handleArrowRight),
+  'RunAndDebug.handleArrowLeft': WrapCommand.wrapCommand(HandleArrowLeft.handleArrowLeft),
+  'RunAndDebug.handleArrowRight': WrapCommand.wrapCommand(HandleArrowRight.handleArrowRight),
   'RunAndDebug.handleArrowUp': WrapCommand.wrapCommand(HandlePaused.handleArrowUp),
   'RunAndDebug.handleChange': WrapCommand.wrapCommand(HandleChange.handleChange),
   'RunAndDebug.handleClickCallStackItem': WrapCommand.wrapCommand(HandleClickCallstackItem.handleClickCallstackItem),
