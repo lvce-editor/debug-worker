@@ -12,7 +12,7 @@ test('isEqual - different scopeChain', () => {
   const state1 = createDefaultState(0)
   const state2: RunAndDebugState = {
     ...createDefaultState(0),
-    scopeChain: ['different'],
+    scopeChain: ['different'] as any,
   }
   expect(isEqual(state1, state2)).toBe(false)
 })
