@@ -1,6 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
+import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 const getCollapsedScopeChain = (cache: any, scopeChain: any, element: any, index: number): any => {
   const indent = element.indent
@@ -38,6 +39,7 @@ export const collapseScopeChain = (state: RunAndDebugState, expandedIds: readonl
     scopeChain: newScopeChain,
     scopeFocusedIndex: index,
     cache: newCache,
+    focus: WhenExpression.FocusDebugRow,
   }
   return updateVisibleRows(newState)
 }

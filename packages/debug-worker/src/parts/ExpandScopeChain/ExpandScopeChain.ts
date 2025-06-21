@@ -1,6 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as GetChildScopeChain from '../GetChildScopeChain/GetChildScopeChain.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
+import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const expandScopeChain = async (state: RunAndDebugState, expandedIds: any, scopeChain: any, element: any, index: any, debugId: any): Promise<RunAndDebugState> => {
   const { cache, maxDescriptionLength } = state
@@ -12,6 +13,7 @@ export const expandScopeChain = async (state: RunAndDebugState, expandedIds: any
     scopeChain: newScopeChain,
     expandedIds: newExpandedIds,
     scopeFocusedIndex: index,
+    focus: WhenExpression.FocusDebugRow,
   }
   return updateVisibleRows(newState)
 }
