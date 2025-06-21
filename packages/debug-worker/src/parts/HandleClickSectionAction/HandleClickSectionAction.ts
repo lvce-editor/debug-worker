@@ -11,7 +11,7 @@ export const handleClickSectionAction = async (state: RunAndDebugState, actionId
   if (actionId === InputName.AddWatchExpression) {
     return addWatchExpression(state, '')
   }
-  if (actionId === InputName.RefreshWatchExpression) {
+  if (actionId === InputName.RefreshWatchExpressions) {
     return refreshWatchExpression(state)
   }
 
