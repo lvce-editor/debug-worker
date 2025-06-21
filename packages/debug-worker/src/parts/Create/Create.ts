@@ -41,6 +41,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     editingselectionstart: 0,
     editingselectionend: 0,
     openFilesOnPause: true,
+    maxDescriptionLength: 100,
   }
   RunAndDebugStates.set(id, state, state)
 }
