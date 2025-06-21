@@ -1,5 +1,6 @@
 import type { CallStackItem } from '../CallStackItem/CallStackItem.ts'
 import type { ParsedScriptMap } from '../ParsedScriptMap/ParsedScriptMap.ts'
+import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 
 export interface RunAndDebugState {
@@ -15,7 +16,7 @@ export interface RunAndDebugState {
   readonly breakPointsVisible: boolean
   readonly scopeVisible: boolean
   readonly callStackVisible: boolean
-  readonly scopeChain: readonly any[]
+  readonly scopeChain: readonly ScopeChainItem[]
   readonly callStack: readonly CallStackItem[]
   readonly parsedScripts: ParsedScriptMap
   readonly pausedReason: string
