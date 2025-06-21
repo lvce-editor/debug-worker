@@ -8,7 +8,7 @@ export const handleClickSectionWatch = (state: RunAndDebugState): RunAndDebugSta
   const newState = {
     ...state,
     watchExpanded: !watchExpanded,
-    focusedIndex: getSectionIndex(state, DebugRowName.Watch),
+    selectedIndex: getSectionIndex(state, DebugRowName.Watch),
   }
   return updateVisibleRows(newState)
 }

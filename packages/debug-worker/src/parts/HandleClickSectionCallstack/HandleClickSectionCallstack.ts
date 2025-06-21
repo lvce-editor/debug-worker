@@ -1,7 +1,6 @@
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
-import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
 import { getSectionIndex } from '../GetSectionIndex/GetSectionIndex.ts'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 
 export const handleClickSectionCallstack = (state: RunAndDebugState): RunAndDebugState => {
@@ -9,7 +8,7 @@ export const handleClickSectionCallstack = (state: RunAndDebugState): RunAndDebu
   const newState = {
     ...state,
     callStackExpanded: !callStackExpanded,
-    focusedIndex: getSectionIndex(state, DebugRowName.CallStack),
+    selectedIndex: getSectionIndex(state, DebugRowName.CallStack),
   }
   return updateVisibleRows(newState)
 }
