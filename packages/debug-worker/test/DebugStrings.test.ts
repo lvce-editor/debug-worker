@@ -124,3 +124,9 @@ test('noWatchExpression', () => {
   const result: string = DebugStrings.noWatchExpression()
   expect(result).toBe('No Watch Expression')
 })
+
+test('noScriptRunning', () => {
+  expect(DebugStrings.noScriptRunning()).toBe(
+    'No script running. To enable debugging, start a Node.js script with debugging enabled (e.g. node --inspect your-script.js) and connect to it.',
+  )
+})
