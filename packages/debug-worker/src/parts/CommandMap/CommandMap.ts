@@ -50,6 +50,9 @@ import * as RenderEventListeners from '../RenderEventListeners/RenderEventListen
 import * as RestoreState from '../RestoreState/RestoreState.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
+import { selectIndex } from '../SelectIndex/SelectIndex.ts'
+import { selectNextRow } from '../SelectNextRow/SelectNextRow.ts'
+import { selectPreviousRow } from '../SelectPreviousRow/SelectPreviousRow.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
 import { showCallStack } from '../ShowCallStack/ShowCallStack.ts'
 import { showScope } from '../ShowScope/ShowScope.ts'
@@ -121,6 +124,9 @@ export const commandMap = {
   'RunAndDebug.restoreState': RestoreState.restoreState,
   'RunAndDebug.resume': WrapCommand.wrapCommand(HandlePaused.resume),
   'RunAndDebug.saveState': SaveState.saveState,
+  'RunAndDebug.selectIndex': WrapCommand.wrapCommand(selectIndex),
+  'RunAndDebug.selectNextRow': WrapCommand.wrapCommand(selectNextRow),
+  'RunAndDebug.selectPreviousRow': WrapCommand.wrapCommand(selectPreviousRow),
   'RunAndDebug.setPauseOnExceptions': WrapCommand.wrapCommand(SetPauseOnExceptions.setPauseOnExceptions),
   'RunAndDebug.stepInto': WrapCommand.wrapCommand(HandlePaused.stepInto),
   'RunAndDebug.stepOut': WrapCommand.wrapCommand(HandlePaused.stepOut),
