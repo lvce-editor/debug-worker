@@ -39,7 +39,7 @@ test.skip('getPausedInfo2', async () => {
       },
     },
   }
-
+  const maxDescriptionLength = 100
   // Register mock RPC for ExtensionHostDebug and Debug
   const mockRpc = MockRpc.create({
     commandMap: {},
@@ -86,7 +86,7 @@ test.skip('getPausedInfo2', async () => {
   RpcRegistry.set(RpcId.RendererWorker, mockRendererWorkerRpc)
 
   try {
-    const result = await getPausedInfo2(mockDebugId)
+    const result = await getPausedInfo2(mockDebugId, maxDescriptionLength)
     expect(result).toEqual({
       scopeChain: ['scope1'],
       callStack: ['stack1'],
