@@ -7,6 +7,7 @@ import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { getRunAndDebugVisibleRows } from '../src/parts/GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 
 test.skip('should return watch section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
@@ -36,7 +37,7 @@ test('should return breakpoints section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: DebugRowName.BreakPoints,
     description: '',
   })
 })
@@ -57,7 +58,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: '',
+    name: DebugRowName.BreakPoints,
     description: '',
   })
   expect(rows[2]).toEqual({
@@ -84,7 +85,7 @@ test('should return scope section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: 'Scope',
+    name: DebugRowName.Scope,
     description: '',
   })
 })
@@ -104,7 +105,7 @@ test.skip('should return expanded scope section with not paused message', () => 
     value: '',
     indent: 0,
     valueType: '',
-    name: 'Scope',
+    name: DebugRowName.Scope,
     description: '',
   })
   expect(rows[3]).toEqual({
@@ -131,7 +132,7 @@ test('should return call stack section with default state', () => {
     value: '',
     indent: 0,
     valueType: '',
-    name: 'CallStack',
+    name: DebugRowName.CallStack,
     description: '',
   })
 })
@@ -150,7 +151,7 @@ test('should return expanded call stack section with not paused message', () => 
     value: '',
     indent: 0,
     valueType: '',
-    name: 'CallStack',
+    name: DebugRowName.CallStack,
     description: '',
   })
   expect(rows[4]).toEqual({
