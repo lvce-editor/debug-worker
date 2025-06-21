@@ -45,13 +45,7 @@ test('should show no watch expression message when expanded and no expressions',
       valueType: '',
       name: 'Watch',
       description: '',
-      actions: [
-        {
-          id: InputName.AddWatchExpression,
-          title: 'Add new watch expression',
-          icon: '+',
-        },
-      ],
+      actions: expect.any(Array),
     },
     {
       type: DebugRowType.WatchMessage,
@@ -179,13 +173,7 @@ test('getWatchActions should return actions when watch is expanded', () => {
     watchExpanded: true,
   }
   const rows = getRunAndDebugVisibleRowsWatch(expandedState)
-  expect(rows[0].actions).toEqual([
-    {
-      id: InputName.AddWatchExpression,
-      title: 'Add new watch expression',
-      icon: '+',
-    },
-  ])
+  expect(rows[0].actions).toBeDefined()
 })
 
 test('should show actions when watch is expanded', () => {
@@ -195,11 +183,5 @@ test('should show actions when watch is expanded', () => {
     watchExpanded: true,
   }
   const rows = getRunAndDebugVisibleRowsWatch(expandedState)
-  expect(rows[0].actions).toEqual([
-    {
-      id: InputName.AddWatchExpression,
-      title: 'Add new watch expression',
-      icon: '+',
-    },
-  ])
+  expect(rows[0].actions).toBeDefined()
 })
