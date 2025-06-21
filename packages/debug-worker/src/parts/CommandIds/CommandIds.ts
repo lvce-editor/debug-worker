@@ -11,6 +11,7 @@ export const commandIds: readonly string[] = [
   'getKeyBindings',
   'handleArrowDown',
   'handleArrowLeft',
+  'handleArrowRight',
   'handleArrowUp',
   'handleChange',
   'handleClickCallStackItem',
