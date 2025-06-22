@@ -71,7 +71,7 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
     },
     {
       key: KeyCode.Delete,
-      command: 'Run And Debug.removeDirent',
+      command: 'Run And Debug.handleDelete',
       when: WhenExpression.FocusDebugRow,
     },
     {
