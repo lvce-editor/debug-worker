@@ -32,6 +32,7 @@ import * as HandleEnter from '../HandleEnter/HandleEnter.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
+import { handleRename } from '../HandleRename/HandleRename.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
 import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
@@ -144,5 +145,6 @@ export const commandMap = {
   'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
   'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
   'RunAndDebug.handleEnter': WrapCommand.wrapCommand(HandleEnter.handleEnter),
+  'RunAndDebug.handleRename': WrapCommand.wrapCommand(handleRename),
   'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
 }
