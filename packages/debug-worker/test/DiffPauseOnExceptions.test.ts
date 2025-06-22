@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import { isEqual } from '../src/parts/DiffPauseOnExceptions/DiffPauseOnExceptions.ts'
+import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 
 test('isEqual - same exceptionBreakPoints', () => {
   const state1 = createDefaultState()
