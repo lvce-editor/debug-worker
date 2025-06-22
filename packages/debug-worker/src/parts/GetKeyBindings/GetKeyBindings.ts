@@ -80,11 +80,6 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.Space,
-      command: 'Run And Debug.handleClickCurrentButKeepFocus',
-      when: WhenExpression.FocusDebugRow,
-    },
-    {
       key: KeyCode.Enter,
       command: 'Run And Debug.handleClickCurrent',
       when: WhenExpression.FocusDebugRow,
