@@ -5,6 +5,7 @@ import * as RenderFocus from '../RenderFocus/RenderFocus.ts'
 import * as RenderFocusContext from '../RenderFocusContext/RenderFocusContext.ts'
 import * as RenderInputValue from '../RenderInputValue/RenderInputValue.ts'
 import * as RenderItems from '../RenderItems/RenderItems.ts'
+import * as RenderPauseOnExceptions from '../RenderPauseOnExceptions/RenderPauseOnExceptions.ts'
 import * as RenderSelection from '../RenderSelection/RenderSelection.ts'
 
 export const getRenderer = (diffType: number): Renderer<RunAndDebugState> => {
@@ -19,6 +20,8 @@ export const getRenderer = (diffType: number): Renderer<RunAndDebugState> => {
       return RenderInputValue.renderInputValue
     case DiffType.RenderSelection:
       return RenderSelection.renderSelection
+    case DiffType.RenderPauseOnExceptions:
+      return RenderPauseOnExceptions.renderPauseOnExceptions
     default:
       throw new Error('unknown renderer')
   }
