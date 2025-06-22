@@ -1,8 +1,9 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import type { ViewletCommand } from '../ViewletCommand/ViewletCommand.ts'
 import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const renderPauseOnExceptions = (oldState: RunAndDebugState, newState: RunAndDebugState): readonly any[] => {
+export const renderPauseOnExceptions = (oldState: RunAndDebugState, newState: RunAndDebugState): ViewletCommand => {
   const { exceptionBreakPoints, id } = newState
   const isPauseOnExceptionsChecked = exceptionBreakPoints === ExceptionBreakPoints.All
   // TODO allow unchecking checkbox
