@@ -3,6 +3,7 @@ import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import { getRunAndDebugVisibleRows } from '../GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import { getSectionClickHandler } from '../GetSectionClickHandler/GetSectionClickHandler.ts'
 import { handleClickScopeValue } from '../HandleClickScopeValue/HandleClickScopeValue.ts'
+import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
 
 export const handleArrowRight = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
   const { selectedIndex } = state
@@ -13,7 +14,7 @@ export const handleArrowRight = async (state: RunAndDebugState): Promise<RunAndD
     return clickHandler(state)
   }
   if (row && row.type === DebugRowType.Scope && !row.expanded) {
-    return await handleClickScopeValue(state, row.key)
+    return await handleClickScopeValue(state, row.key, MouseEventType.LeftClick)
   }
   return state
 }
