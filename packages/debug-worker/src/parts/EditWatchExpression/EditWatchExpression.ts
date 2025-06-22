@@ -1,6 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 import * as InputSource from '../InputSource/InputSource.ts'
+import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const editWatchExpression = (state: RunAndDebugState, index: number): RunAndDebugState => {
@@ -14,7 +15,7 @@ export const editWatchExpression = (state: RunAndDebugState, index: number): Run
     isEditing: true,
   }
   const newWatchExpressions = watchExpressions.toSpliced(index, 1, newItem)
-  return {
+  const newState: RunAndDebugState = {
     ...state,
     watchExpressions: newWatchExpressions,
     focus: WhenExpression.FocusDebugWatchInput,
@@ -23,4 +24,5 @@ export const editWatchExpression = (state: RunAndDebugState, index: number): Run
     editingselectionstart: 0,
     editingselectionend: item.expression.length,
   }
+  return updateVisibleRows(newState)
 }
