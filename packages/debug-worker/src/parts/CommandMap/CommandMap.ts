@@ -28,12 +28,14 @@ import * as HandleClickSectionWatch from '../HandleClickSectionWatch/HandleClick
 import * as HandleClickWatchExpression from '../HandleClickWatchExpression/HandleClickWatchExpression.ts'
 import * as HandleClickWatchExpressionDelete from '../HandleClickWatchExpressionDelete/HandleClickWatchExpressionDelete.ts'
 import { handleWatchExpressionDoubleClick } from '../HandleClickWatchExpressionDoubleClick/HandleClickWatchExpressionDoubleClick.ts'
+import * as HandleEnter from '../HandleEnter/HandleEnter.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
 import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
+import * as HandleSpace from '../HandleSpace/HandleSpace.ts'
 import * as HandleWatchExpressionContextMenu from '../HandleWatchExpressionContextMenu/HandleWatchExpressionContextMenu.ts'
 import * as HandleWatchValueChange from '../HandleWatchValueChange/HandleWatchValueChange.ts'
 import { hideCallStack } from '../HideCallStack/HideCallStack.ts'
@@ -141,4 +143,6 @@ export const commandMap = {
   'RunAndDebug.hideScope': WrapCommand.wrapCommand(hideScope),
   'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
   'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
+  'RunAndDebug.handleEnter': WrapCommand.wrapCommand(HandleEnter.handleEnter),
+  'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
 }
