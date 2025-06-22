@@ -66,12 +66,12 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
     },
     {
       key: KeyCode.F2,
-      command: 'Run And Debug.rename',
+      command: 'Run And Debug.handleRename',
       when: WhenExpression.FocusDebugRow,
     },
     {
       key: KeyCode.Delete,
-      command: 'Run And Debug.removeDirent',
+      command: 'Run And Debug.handleDelete',
       when: WhenExpression.FocusDebugRow,
     },
     {
