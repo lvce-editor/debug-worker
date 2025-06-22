@@ -1,11 +1,7 @@
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import type { CheckBoxClickHandler } from '../CheckBoxClickHandler/CheckBoxClickHandler.ts'
 import { handleClickPauseOnExceptions } from '../HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
 import { handleClickPauseOnUncaughtExceptions } from '../HandleClickPauseOnUncaughtExceptions/HandleClickPauseOnUncaughtExceptions.ts'
 import * as InputName from '../InputName/InputName.ts'
-
-interface CheckBoxClickHandler {
-  (state: RunAndDebugState): Promise<RunAndDebugState>
-}
 
 export const getCheckBoxClickHandler = (name: string): CheckBoxClickHandler => {
   switch (name) {
