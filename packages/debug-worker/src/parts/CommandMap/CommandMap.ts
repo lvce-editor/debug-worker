@@ -62,6 +62,7 @@ import { showCallStack } from '../ShowCallStack/ShowCallStack.ts'
 import { showScope } from '../ShowScope/ShowScope.ts'
 import { showWatch } from '../ShowWatch/ShowWatch.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
+import { handleRename } from '../HandleRename/HandleRename.ts'
 
 export const commandMap = {
   'Debug.handleChange': Debug.handleChange,
@@ -144,5 +145,6 @@ export const commandMap = {
   'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
   'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
   'RunAndDebug.handleEnter': WrapCommand.wrapCommand(HandleEnter.handleEnter),
+  'RunAndDebug.handleRename': WrapCommand.wrapCommand(handleRename),
   'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
 }
