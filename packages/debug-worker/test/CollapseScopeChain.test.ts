@@ -10,7 +10,7 @@ test('collapseScopeChain', () => {
     { objectId: 'scope2', indent: 1 },
     { objectId: 'scope3', indent: 2 },
     { objectId: 'scope4', indent: 1 },
-  ]
+  ] as any[]
   const element = { objectId: 'scope2', indent: 1 }
   const index = 1
 
@@ -35,7 +35,7 @@ test('collapseScopeChain - no children to collapse', () => {
   const scopeChain = [
     { objectId: 'scope1', indent: 0 },
     { objectId: 'scope2', indent: 1 },
-  ]
+  ] as any[]
   const element = { objectId: 'scope2', indent: 1 }
   const index = 1
 

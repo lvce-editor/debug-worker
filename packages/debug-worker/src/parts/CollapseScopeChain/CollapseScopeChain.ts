@@ -1,4 +1,5 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
@@ -29,7 +30,13 @@ const getCollapsedScopeChain = (cache: any, scopeChain: any, element: any, index
 // TODO when expanding, retrieve items from cache by parent id first
 // if they don't exist, query the actual items
 
-export const collapseScopeChain = (state: RunAndDebugState, expandedIds: readonly any[], scopeChain: any, element: any, index: number): RunAndDebugState => {
+export const collapseScopeChain = (
+  state: RunAndDebugState,
+  expandedIds: readonly string[],
+  scopeChain: readonly ScopeChainItem[],
+  element: any,
+  index: number,
+): RunAndDebugState => {
   const { cache } = state
   const newExpandedIds = Arrays.removeElement(expandedIds, element.objectId)
   const { newScopeChain, newCache } = getCollapsedScopeChain(cache, scopeChain, element, index)

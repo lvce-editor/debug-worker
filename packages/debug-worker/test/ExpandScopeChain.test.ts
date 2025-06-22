@@ -8,7 +8,7 @@ import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain
 test('expandScopeChain', async () => {
   const state = createDefaultState()
   const expandedIds = ['id1']
-  const scopeChain = [{ objectId: 'scope1' }, { objectId: 'scope2' }]
+  const scopeChain = [{ objectId: 'scope1' }, { objectId: 'scope2' }] as any[]
   const element = {}
   const index = 1
   const debugId = 'debug1'
@@ -52,6 +52,7 @@ test('expandScopeChain', async () => {
         valueType: '',
         objectId: '',
         indent: Number.NaN,
+        label: '',
       },
     ],
     expandedIds: ['id1', 'scope2'],
