@@ -5,6 +5,9 @@ import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 export const acceptWatchExpressionEdit = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
   const { watchExpressions, editingValue, debugId, debugState, callFrameId } = state
   const newWatchExpressions = await getNewWatchExpressionsAccept(debugId, callFrameId, debugState, watchExpressions, editingValue)
+  if (watchExpressions === newWatchExpressions) {
+    return state
+  }
   const newState: RunAndDebugState = {
     ...state,
     watchExpressions: newWatchExpressions,
