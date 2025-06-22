@@ -2,6 +2,7 @@ import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 import * as Focus from '../Focus/Focus.ts'
+import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 const getElementIndex = (debugId: any, scopeChain: any, text: string): number => {
@@ -15,7 +16,12 @@ const getElementIndex = (debugId: any, scopeChain: any, text: string): number =>
 }
 
 // TODO pass index to function instead of text
-export const handleClickScopeValue = async (state: RunAndDebugState, text: string): Promise<RunAndDebugState> => {
+export const handleClickScopeValue = async (state: RunAndDebugState, text: string, button: number): Promise<RunAndDebugState> => {
+  // Return state unchanged if not left click
+  if (button !== MouseEventType.LeftClick) {
+    return state
+  }
+
   const { scopeChain, debugId, expandedIds } = state
   Focus.setFocus(WhenExpression.FocusDebugScope)
   const index = getElementIndex(debugId, scopeChain, text)
