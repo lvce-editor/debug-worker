@@ -3,16 +3,9 @@ import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoi
 import * as InputName from '../InputName/InputName.ts'
 
 export const renderPauseOnExceptions = (oldState: RunAndDebugState, newState: RunAndDebugState): readonly any[] => {
-  const { exceptionBreakPoints } = newState
-  const commands: any[] = []
-
-  // Check if pause on exceptions checkbox should be checked
+  const { exceptionBreakPoints, id } = newState
   const isPauseOnExceptionsChecked = exceptionBreakPoints === ExceptionBreakPoints.All
-  commands.push(['viewlet.setCheckBoxValue', newState.id, InputName.PauseOnExceptions, isPauseOnExceptionsChecked])
-
-  // Check if pause on uncaught exceptions checkbox should be checked
-  const isPauseOnUncaughtExceptionsChecked = exceptionBreakPoints === ExceptionBreakPoints.Uncaught
-  commands.push(['viewlet.setCheckBoxValue', newState.id, InputName.PauseOnUncaughtExceptions, isPauseOnUncaughtExceptionsChecked])
-
-  return commands
+  // TODO allow unchecking checkbox
+  // TODO allow rendering other checkbox
+  return ['Viewlet.setCheckBoxValue', id, InputName.PauseOnExceptions, isPauseOnExceptionsChecked]
 }

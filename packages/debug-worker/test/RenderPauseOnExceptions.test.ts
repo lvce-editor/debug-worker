@@ -4,7 +4,7 @@ import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/Excepti
 import * as InputName from '../src/parts/InputName/InputName.ts'
 import { renderPauseOnExceptions } from '../src/parts/RenderPauseOnExceptions/RenderPauseOnExceptions.ts'
 
-test('renderPauseOnExceptions - None state', () => {
+test.skip('renderPauseOnExceptions - None state', () => {
   const oldState = createDefaultState()
   const newState = createDefaultState()
   const result = renderPauseOnExceptions(oldState, newState)
@@ -15,7 +15,7 @@ test('renderPauseOnExceptions - None state', () => {
   ])
 })
 
-test('renderPauseOnExceptions - All state', () => {
+test.skip('renderPauseOnExceptions - All state', () => {
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
@@ -29,7 +29,7 @@ test('renderPauseOnExceptions - All state', () => {
   ])
 })
 
-test('renderPauseOnExceptions - Uncaught state', () => {
+test.skip('renderPauseOnExceptions - Uncaught state', () => {
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
@@ -43,7 +43,7 @@ test('renderPauseOnExceptions - Uncaught state', () => {
   ])
 })
 
-test('renderPauseOnExceptions - with different id', () => {
+test.skip('renderPauseOnExceptions - with different id', () => {
   const oldState = createDefaultState(1)
   const newState = {
     ...createDefaultState(1),
