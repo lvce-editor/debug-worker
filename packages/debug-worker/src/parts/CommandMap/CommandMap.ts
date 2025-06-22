@@ -32,6 +32,7 @@ import * as HandleEnter from '../HandleEnter/HandleEnter.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
+import { handleRename } from '../HandleRename/HandleRename.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
 import * as HandleScriptParsed from '../HandleScriptParsed/HandleScriptParsed.ts'
 import * as HandleSectionHeaderContextMenu from '../HandleSectionHeaderContextMenu/HandleSectionHeaderContextMenu.ts'
@@ -62,7 +63,6 @@ import { showCallStack } from '../ShowCallStack/ShowCallStack.ts'
 import { showScope } from '../ShowScope/ShowScope.ts'
 import { showWatch } from '../ShowWatch/ShowWatch.ts'
 import * as Terminate from '../Terminate/Terminate.ts'
-import { handleRename } from '../HandleRename/HandleRename.ts'
 
 export const commandMap = {
   'Debug.handleChange': Debug.handleChange,
