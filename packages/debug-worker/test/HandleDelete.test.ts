@@ -1,6 +1,5 @@
 import { test, expect } from '@jest/globals'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import { handleDelete } from '../src/parts/HandleDelete/HandleDelete.ts'
 import { updateVisibleRows } from '../src/parts/UpdateVisibleRows/UpdateVisibleRows.ts'
 
