@@ -19,4 +19,5 @@ export interface DebugRow {
   readonly hasArrow?: boolean
   readonly index?: number
   readonly actions?: readonly DebugRowAction[]
+  readonly tokens?: string[]
 }
