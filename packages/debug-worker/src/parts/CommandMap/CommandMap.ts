@@ -33,6 +33,7 @@ import { handleDelete } from '../HandleDelete/HandleDelete.ts'
 import * as HandleEnter from '../HandleEnter/HandleEnter.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
 import * as HandleInputFieldChange from '../HandleInputFieldChange/HandleInputFieldChange.ts'
+import { handleNew } from '../HandleNew/HandleNew.ts'
 import * as HandlePaused from '../HandlePaused/HandlePaused.ts'
 import { handleRename } from '../HandleRename/HandleRename.ts'
 import * as HandleResumed from '../HandleResumed/HandleResumed.ts'
@@ -106,6 +107,7 @@ export const commandMap = {
   'RunAndDebug.handleClickWatchExpression': WrapCommand.wrapCommand(HandleClickWatchExpression.handleClickWatchExpression),
   'RunAndDebug.handleClickWatchExpressionDelete': WrapCommand.wrapCommand(HandleClickWatchExpressionDelete.handleClickWatchExpressionDelete),
   'RunAndDebug.handleCopy': WrapCommand.wrapCommand(handleCopy),
+  'RunAndDebug.handleNew': WrapCommand.wrapCommand(handleNew),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   'RunAndDebug.handleInputBlur': WrapCommand.wrapCommand(HandleInputBlur.handleInputBlur),
