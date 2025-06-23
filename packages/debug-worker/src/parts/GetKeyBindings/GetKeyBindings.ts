@@ -65,6 +65,11 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       when: WhenExpression.FocusDebugRow,
     },
     {
+      key: KeyModifier.CtrlCmd | KeyCode.KeyN,
+      command: 'Run And Debug.handleNew',
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
       key: KeyCode.F2,
       command: 'Run And Debug.handleRename',
       when: WhenExpression.FocusDebugRow,
