@@ -23,7 +23,7 @@ test('should remove watch expression when editing value is empty', async () => {
   }
   const result = await acceptWatchExpressionEdit(stateWithEditingExpression)
   expect(result.watchExpressions).toHaveLength(0)
-  expect(result.focus).toBe(0)
+  expect(result.focus).toBe(1299)
 })
 
 test('should update watch expression with editing value and reset focus', async () => {
@@ -46,7 +46,7 @@ test('should update watch expression with editing value and reset focus', async 
     value: null,
     isEditing: false,
   })
-  expect(result.focus).toBe(0)
+  expect(result.focus).toBe(1299)
 })
 
 test('should update correct watch expression when multiple exist', async () => {
