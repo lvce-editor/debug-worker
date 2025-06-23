@@ -1,3 +1,4 @@
+import type { ExpressionResult } from '../ExpressionResult/ExpressionResult.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
 import { getKey, openAtPausedLocation } from '../OpenAtPausedLocation/OpenAtPausedLocation.ts'
 import * as RendererWorker from '../RendererWorker/RendererWorker.ts'
@@ -49,7 +50,7 @@ export const getProperties = async (id: any, objectId: any): Promise<any> => {
   return ExtensionHostDebug.getProperties(id, objectId)
 }
 
-export const evaluate = async (id: any, expression: any, callFrameId: any): Promise<any> => {
+export const evaluate = async (id: any, expression: any, callFrameId: any): Promise<ExpressionResult> => {
   return ExtensionHostDebug.evaluate(id, expression, callFrameId)
 }
 
