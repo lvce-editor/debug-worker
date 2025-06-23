@@ -1,6 +1,5 @@
+import { KeyCode, KeyModifier } from '@lvce-editor/virtual-dom-worker'
 import type { KeyBinding } from '../KeyBinding/KeyBinding.ts'
-import * as KeyCode from '../KeyCode/KeyCode.ts'
-import * as KeyModifier from '../KeyModifier/KeyModifier.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const getKeyBindings = (): readonly KeyBinding[] => {
@@ -108,6 +107,16 @@ export const getKeyBindings = (): readonly KeyBinding[] => {
       key: KeyCode.Enter,
       command: 'Run And Debug.acceptWatchExpressionEdit',
       when: WhenExpression.FocusDebugWatchInput,
+    },
+    {
+      key: KeyModifier.CtrlCmd | KeyCode.Home,
+      command: 'Run And Debug.selectFirstIndex',
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
+      key: KeyModifier.CtrlCmd | KeyCode.End,
+      command: 'Run And Debug.selectLastIndex',
+      when: WhenExpression.FocusDebugRow,
     },
   ]
 }
