@@ -110,7 +110,12 @@ const debugProvider = {
       },
     ]
   },
-
+  evaluate(expression) {
+    if (expression === '1+1') {
+      return {}
+    }
+    return {}
+  },
   async getProperties() {
     return {
       id: 4,

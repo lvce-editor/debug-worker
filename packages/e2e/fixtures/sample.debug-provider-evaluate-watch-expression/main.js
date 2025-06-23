@@ -9,6 +9,12 @@ const debugProvider = {
       type: 'paused',
     })
   },
+  evaluate(expression) {
+    if (expression === '1+1') {
+      return {}
+    }
+    return {}
+  },
   async getScripts() {
     return []
   },
