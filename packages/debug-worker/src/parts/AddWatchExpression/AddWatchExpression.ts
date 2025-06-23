@@ -3,7 +3,7 @@ import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
-export const addWatchExpression = async (state: RunAndDebugState, expression: string): Promise<RunAndDebugState> => {
+export const addWatchExpression = async (state: RunAndDebugState, expression: string = ''): Promise<RunAndDebugState> => {
   const { watchExpressions } = state
   const watchExpression: WatchExpression = {
     expression,
