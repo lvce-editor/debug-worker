@@ -10,10 +10,26 @@ import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
-export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { indent, key, value, valueType, expanded } = row
+export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: number, tokenColoringEnabled: boolean): readonly VirtualDomNode[] => {
+  const { indent, key, value, valueType, expanded, tokens } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
+
+  const hasTokens = tokenColoringEnabled && tokens && tokens.length > 0
+  let valueChildren: VirtualDomNode[]
+  if (hasTokens) {
+    valueChildren = []
+    for (let i = 0; i < tokens.length; i += 2) {
+      valueChildren.push({
+        type: VirtualDomElements.Span,
+        className: `DebugToken DebugToken${tokens[i + 1]}`,
+        childCount: 1,
+        children: [VirtualDomHelpers.text(tokens[i])],
+      })
+    }
+  } else {
+    valueChildren = [VirtualDomHelpers.text(value)]
+  }
 
   return [
     {
@@ -36,8 +52,8 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
     {
       type: VirtualDomElements.Span,
       className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, GetDebugValueClassName.getDebugValueClassName(valueType)),
-      childCount: 1,
+      childCount: hasTokens ? valueChildren.length / 2 : 1,
     },
-    VirtualDomHelpers.text(value),
+    ...valueChildren,
   ]
 }
