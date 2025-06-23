@@ -17,7 +17,7 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Extension, Si
   await Command.execute('Run And Debug.handleClickSectionWatch')
 
   // act
-  await Command.execute('Run And Debug.addWatchExpression')
+  await Command.execute('Run And Debug.addWatchExpression', '')
 
   // assert
   const input = Locator('#WatchExpressionInput')
