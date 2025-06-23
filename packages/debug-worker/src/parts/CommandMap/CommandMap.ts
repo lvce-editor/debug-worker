@@ -58,7 +58,9 @@ import * as RenderEventListeners from '../RenderEventListeners/RenderEventListen
 import * as RestoreState from '../RestoreState/RestoreState.ts'
 import * as WrapCommand from '../RunAndDebugStates/RunAndDebugStates.ts'
 import * as SaveState from '../SaveState/SaveState.ts'
+import { selectFirstIndex } from '../SelectFirstIndex/SelectFirstIndex.ts'
 import { selectIndex } from '../SelectIndex/SelectIndex.ts'
+import { selectLastIndex } from '../SelectLastIndex/SelectLastIndex.ts'
 import { selectNextRow } from '../SelectNextRow/SelectNextRow.ts'
 import { selectPreviousRow } from '../SelectPreviousRow/SelectPreviousRow.ts'
 import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExceptions.ts'
@@ -153,4 +155,6 @@ export const commandMap = {
   'RunAndDebug.handleRename': WrapCommand.wrapCommand(handleRename),
   'RunAndDebug.handleDelete': WrapCommand.wrapCommand(handleDelete),
   'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
+  'RunAndDebug.selectFirstIndex': WrapCommand.wrapCommand(selectFirstIndex),
+  'RunAndDebug.selectLastIndex': WrapCommand.wrapCommand(selectLastIndex),
 }
