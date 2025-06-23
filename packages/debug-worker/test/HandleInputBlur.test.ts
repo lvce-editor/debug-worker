@@ -14,7 +14,7 @@ test('should remove empty watch expression on blur', async () => {
   const stateWithNewExpression = await addWatchExpression(state, '')
   const result = await handleInputBlur(stateWithNewExpression)
   expect(result.watchExpressions).toHaveLength(0)
-  expect(result.focus).toBe(0)
+  expect(result.focus).toBe(1299)
   expect(result.editingValue).toBe('')
 })
 
@@ -32,6 +32,6 @@ test('should update watch expression with value on blur', async () => {
     value: null,
     isEditing: false,
   })
-  expect(result.focus).toBe(0)
+  expect(result.focus).toBe(1299)
   expect(result.editingValue).toBe('')
 })
