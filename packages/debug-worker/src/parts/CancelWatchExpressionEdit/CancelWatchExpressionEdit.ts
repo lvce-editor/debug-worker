@@ -1,6 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { getNewWatchExpressionsCancel } from '../GetNewWatchExpressionsCancel/GetNewWatchExpressionsCancel.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
+import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugState => {
   const { watchExpressions } = state
@@ -8,7 +9,7 @@ export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugS
   const newState: RunAndDebugState = {
     ...state,
     watchExpressions: newWatchExpressions,
-    focus: 0,
+    focus: WhenExpression.FocusDebugRow,
     editingselectionstart: 0,
     editingselectionend: 0,
     editingValue: '',
