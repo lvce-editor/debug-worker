@@ -79,5 +79,5 @@ test('should update correct watch expression when multiple exist', async () => {
     value: null,
     isEditing: false,
   })
-  expect(result.focus).toBe(0)
+  expect(result.focus).toBe(1299)
 })
