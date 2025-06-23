@@ -30,6 +30,7 @@ export const commandIds: readonly string[] = [
   'handleClickSectionWatch',
   'handleClickWatchExpression',
   'handleClickWatchExpressionDelete',
+  'handleCopy',
   'handleDebugInput',
   'handleDelete',
   'handleEnter',
