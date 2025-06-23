@@ -14,6 +14,7 @@ test('getScopeThisRows', () => {
     {
       type: DebugRowType.Value,
       text: '',
+      tokens: ['test', 'Identifier'],
       expanded: false,
       key: 'this',
       value: 'test',

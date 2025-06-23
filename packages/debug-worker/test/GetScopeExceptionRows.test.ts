@@ -13,6 +13,7 @@ test('getScopeExceptionRows', () => {
     {
       type: DebugRowType.Exception,
       text: '',
+      tokens: ['test', 'Identifier', ' ', 'WhiteSpace', 'error', 'Identifier'],
       expanded: false,
       key: 'error',
       value: 'test error',

@@ -16,6 +16,7 @@ test('getScopePropertyRows', () => {
     {
       type: DebugRowType.Property,
       text: '',
+      tokens: ['test', 'Identifier'],
       expanded: true,
       key: 'property',
       value: 'test',
