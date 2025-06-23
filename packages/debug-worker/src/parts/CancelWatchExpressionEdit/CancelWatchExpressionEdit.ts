@@ -11,6 +11,7 @@ export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugS
     focus: 0,
     editingselectionstart: 0,
     editingselectionend: 0,
+    editingValue: '',
   }
   return updateVisibleRows(newState)
 }
