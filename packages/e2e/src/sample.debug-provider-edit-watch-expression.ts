@@ -2,8 +2,6 @@ import { type Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'sample.debug-provider-edit-watch-expression'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
   // arrange
   await SideBar.open('Explorer')
@@ -15,20 +13,26 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Extension, Si
   const debugButtonOne = Locator('.DebugButton').nth(0)
   await expect(debugButtonOne).toHaveAttribute('title', 'Resume')
   await Command.execute('Run And Debug.handleClickSectionWatch')
-  await Command.execute('Run And Debug.addWatchExpression', '1+1')
+  await Command.execute('Run And Debug.addWatchExpression', '')
+  await Command.execute('Run And Debug.handleWatchValueChange', '1 + 1')
   await Command.execute('Run And Debug.acceptWatchExpressionEdit')
+  await Command.execute('Run And Debug.selectIndex', 1)
+  const rows = Locator('.DebugRow')
+  await expect(rows.nth(0)).toHaveText('1 + 1: 2×')
 
   // act
+  await Command.execute('Run And Debug.handleRename')
 
   // assert
-  const rows = Locator('.DebugRow')
-  await expect(rows).toHaveCount(9)
-  await expect(rows.nth(0)).toHaveText('1 + 1')
-  await expect(rows.nth(1)).toHaveText('Local')
-  await expect(rows.nth(2)).toHaveText('this: process')
-  await expect(rows.nth(3)).toHaveText('now: 1985388')
-  await expect(rows.nth(4)).toHaveText('list: undefined')
-  await expect(rows.nth(5)).toHaveText('ranAtLeastOneList: undefined')
-  await expect(rows.nth(6)).toHaveText('Closure (getTimerCallbacks)')
-  await expect(rows.nth(7)).toHaveText('Closure')
+  const input = Locator('#WatchExpressionInput')
+  await expect(input).toBeVisible()
+  await expect(input).toBeFocused()
+  await expect(input).toBeFocused()
+
+  // act
+  await Command.execute('Run And Debug.handleWatchValueChange', '2 + 2')
+  await Command.execute('Run And Debug.acceptWatchExpressionEdit')
+
+  // assert
+  await expect(rows.nth(0)).toHaveText('2 + 2: 4×')
 }
