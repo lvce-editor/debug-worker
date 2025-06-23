@@ -1,5 +1,6 @@
 import { test, expect } from '@jest/globals'
 import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { selectFirstIndex } from '../src/parts/SelectFirstIndex/SelectFirstIndex.ts'
 
@@ -15,7 +16,7 @@ test('selectFirstIndex sets selectedIndex to 0', () => {
     name: '',
     description: '',
   }
-  const state = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectFirstIndex(state)
   expect(result.selectedIndex).toBe(0)
   expect(result).not.toBe(state)
@@ -33,7 +34,7 @@ test('selectFirstIndex works from -1', () => {
     name: '',
     description: '',
   }
-  const state = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectFirstIndex(state)
   expect(result.selectedIndex).toBe(0)
 })
@@ -50,7 +51,7 @@ test('selectFirstIndex works from middle index', () => {
     name: '',
     description: '',
   }
-  const state = { ...createDefaultState(), selectedIndex: 2, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 2, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectFirstIndex(state)
   expect(result.selectedIndex).toBe(0)
 })
@@ -67,13 +68,13 @@ test('selectFirstIndex handles single row', () => {
     name: '',
     description: '',
   }
-  const state = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
   const result = selectFirstIndex(state)
   expect(result.selectedIndex).toBe(0)
 })
 
 test('selectFirstIndex handles empty visibleRows array', () => {
-  const state = { ...createDefaultState(), selectedIndex: 5, visibleRows: [] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 5, visibleRows: [] }
   const result = selectFirstIndex(state)
   expect(result.selectedIndex).toBe(-1)
 })
@@ -90,7 +91,7 @@ test('selectFirstIndex returns new state object', () => {
     name: '',
     description: '',
   }
-  const state = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
   const result = selectFirstIndex(state)
   expect(result).not.toBe(state)
 })
