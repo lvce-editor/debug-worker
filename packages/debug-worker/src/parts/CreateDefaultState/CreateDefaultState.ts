@@ -40,7 +40,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     maxDescriptionLength: 100,
     selectedIndex: -1,
     visibleRows: [],
-    tokenColoringEnabled: true,
+    tokenColoringEnabled: false,
   }
   set(uid, state, state)
   return state

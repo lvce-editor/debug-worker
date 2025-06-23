@@ -15,6 +15,6 @@ test('getRunAndDebugRowVirtualDom - returns virtual dom for row', () => {
     description: '',
   }
 
-  const result = getRunAndDebugRowVirtualDom(row, -1, 0)
+  const result = getRunAndDebugRowVirtualDom(row, -1, 0, true)
   expect(result).toBeDefined()
 })

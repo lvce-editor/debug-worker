@@ -42,5 +42,5 @@ export interface RunAndDebugState {
   readonly maxDescriptionLength: number
   readonly selectedIndex: number
   readonly visibleRows: readonly DebugRow[]
-  readonly tokenColoringEnabled: boolean
+  readonly tokenColoringEnabled?: boolean
 }
