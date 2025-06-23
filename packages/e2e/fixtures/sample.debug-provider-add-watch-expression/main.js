@@ -110,11 +110,19 @@ const debugProvider = {
       },
     ]
   },
-  evaluate(expression) {
-    if (expression === '1+1') {
-      return {}
+  evaluate(expression, callFrameId) {
+    if (expression === '1 + 1') {
+      return {
+        description: '2',
+        value: 2,
+        type: 'number',
+      }
     }
-    return {}
+    return {
+      description: 'n/a',
+      value: 'n/a',
+      type: 'not-available',
+    }
   },
   async getProperties() {
     return {

@@ -2,8 +2,6 @@ import { type Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'sample.debug-provider-add-watch-expression'
 
-export const skip = 1
-
 export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
   // arrange
   await SideBar.open('Explorer')
@@ -30,8 +28,8 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Extension, Si
 
   // assert
   const rows = Locator('.DebugRow')
-  await expect(rows).toHaveCount(9)
-  await expect(rows.nth(0)).toHaveText('1 + 1')
+  await expect(rows).toHaveCount(10)
+  await expect(rows.nth(0)).toHaveText('1 + 1: 2×')
   await expect(rows.nth(1)).toHaveText('Local')
   await expect(rows.nth(2)).toHaveText('this: process')
   await expect(rows.nth(3)).toHaveText('now: 1985388')
