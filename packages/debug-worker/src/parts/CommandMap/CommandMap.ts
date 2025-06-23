@@ -28,6 +28,7 @@ import * as HandleClickSectionWatch from '../HandleClickSectionWatch/HandleClick
 import * as HandleClickWatchExpression from '../HandleClickWatchExpression/HandleClickWatchExpression.ts'
 import * as HandleClickWatchExpressionDelete from '../HandleClickWatchExpressionDelete/HandleClickWatchExpressionDelete.ts'
 import { handleWatchExpressionDoubleClick } from '../HandleClickWatchExpressionDoubleClick/HandleClickWatchExpressionDoubleClick.ts'
+import { handleCopy } from '../HandleCopy/HandleCopy.ts'
 import { handleDelete } from '../HandleDelete/HandleDelete.ts'
 import * as HandleEnter from '../HandleEnter/HandleEnter.ts'
 import * as HandleInputBlur from '../HandleInputBlur/HandleInputBlur.ts'
@@ -104,6 +105,7 @@ export const commandMap = {
   'RunAndDebug.handleClickSectionWatch': WrapCommand.wrapCommand(HandleClickSectionWatch.handleClickSectionWatch),
   'RunAndDebug.handleClickWatchExpression': WrapCommand.wrapCommand(HandleClickWatchExpression.handleClickWatchExpression),
   'RunAndDebug.handleClickWatchExpressionDelete': WrapCommand.wrapCommand(HandleClickWatchExpressionDelete.handleClickWatchExpressionDelete),
+  'RunAndDebug.handleCopy': WrapCommand.wrapCommand(handleCopy),
   'RunAndDebug.handleDebugInput': WrapCommand.wrapCommand(HandlePaused.handleDebugInput),
   'RunAndDebug.handleEvaluate': WrapCommand.wrapCommand(HandlePaused.handleEvaluate),
   'RunAndDebug.handleInputBlur': WrapCommand.wrapCommand(HandleInputBlur.handleInputBlur),
