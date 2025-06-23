@@ -133,7 +133,7 @@ export const getScripts = (debugId: any): Promise<readonly ParsedScript[]> => {
   })
 }
 
-export const addWatchExpression = (debugId: any, expression: string): Promise<any> => {
+export const addWatchExpression = (debugId: any, expression: string): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.addWatchExpression',
