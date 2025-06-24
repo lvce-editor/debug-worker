@@ -1,5 +1,5 @@
-import type { ScopeRenderer } from '../ScopeRenderer/ScopeRenderer.ts'
 import type { Scope } from '../Scope/Scope.ts'
+import type { ScopeRenderer } from '../ScopeRenderer/ScopeRenderer.ts'
 import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType.ts'
 import { getNoopRows } from '../ScopeRenderers/GetNoopRows.ts'
 import { getScopeExceptionRows } from '../ScopeRenderers/GetScopeExceptionRows.ts'
