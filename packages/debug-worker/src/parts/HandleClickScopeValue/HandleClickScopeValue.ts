@@ -24,6 +24,7 @@ export const handleClickScopeValue = async (state: RunAndDebugState, dataIndex: 
 
   const scopeChainIndex = row.index
   const element = scopeChain[scopeChainIndex]
+  console.log({ element, scopeChainIndex })
   if (expandedIds.includes(element.objectId)) {
     return collapseScopeChain(state, expandedIds, scopeChain, element, scopeChainIndex)
   }
