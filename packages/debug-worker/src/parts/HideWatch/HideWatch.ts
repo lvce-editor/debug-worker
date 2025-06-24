@@ -1,8 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import { hideSection } from '../HideSection/HideSection.ts'
 
 export const hideWatch = (state: RunAndDebugState): RunAndDebugState => {
-  return {
-    ...state,
-    watchVisible: false,
-  }
+  return hideSection(state, 'watchVisible')
 }
