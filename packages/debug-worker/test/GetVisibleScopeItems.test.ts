@@ -12,6 +12,12 @@ test('getVisibleScopeItems - single item not expanded', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
+      flags: DebugItemFlags.None,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, [], 0)
@@ -19,6 +25,11 @@ test('getVisibleScopeItems - single item not expanded', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
       flags: 6,
     },
   ])
@@ -29,6 +40,12 @@ test('getVisibleScopeItems - single item expanded', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
+      flags: DebugItemFlags.None,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 0)
@@ -36,6 +53,11 @@ test('getVisibleScopeItems - single item expanded', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
       flags: 5,
     },
   ])
@@ -46,14 +68,32 @@ test('getVisibleScopeItems - multiple items with different states', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
+      flags: DebugItemFlags.None,
     },
     {
       objectId: '2',
       valueType: 'string',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
+      flags: DebugItemFlags.None,
     },
     {
       objectId: '3',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
+      flags: DebugItemFlags.None,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 1)
@@ -61,16 +101,31 @@ test('getVisibleScopeItems - multiple items with different states', () => {
     {
       objectId: '1',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
       flags: DebugItemFlags.Expanded,
     },
     {
       objectId: '2',
       valueType: 'string',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
       flags: DebugItemFlags.Focused,
     },
     {
       objectId: '3',
       valueType: 'object',
+      indent: 0,
+      key: '',
+      label: '',
+      type: 0,
+      value: '',
       flags: DebugItemFlags.Collapsed,
     },
   ])
