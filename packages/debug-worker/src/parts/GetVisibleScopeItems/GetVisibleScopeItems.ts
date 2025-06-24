@@ -1,5 +1,5 @@
-import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import type { Scope } from '../Scope/Scope.ts'
+import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 
 const getExpandable = (valueType: any): boolean => {

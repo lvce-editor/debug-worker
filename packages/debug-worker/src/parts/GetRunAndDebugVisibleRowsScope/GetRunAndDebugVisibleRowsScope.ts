@@ -1,5 +1,6 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import type { Scope } from '../Scope/Scope.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
@@ -27,7 +28,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       description: '',
     })
     if (debugState === DebugState.Paused) {
-      const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
+      const visible: readonly Scope[] = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
       for (const scope of visible) {
         const renderer = getScopeRenderer(scope.type)
         const index = visible.indexOf(scope)
