@@ -1,17 +1,10 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { Scope } from '../Scope/Scope.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import { tokenizeValue } from '../TokenizeValue/TokenizeValue.ts'
 
-type Scope = {
-  indent: number
-  key: string
-  value: string
-  valueType: string
-  flags: number
-}
-
-export const getScopePropertyRows = (scope: Scope): readonly DebugRow[] => {
+export const getScopePropertyRows = (scope: Scope, index: number): readonly DebugRow[] => {
   const { indent, key, value, valueType, flags } = scope
   const tokens = tokenizeValue(value)
   return [
@@ -26,6 +19,7 @@ export const getScopePropertyRows = (scope: Scope): readonly DebugRow[] => {
       valueType,
       name: '',
       description: '',
+      index,
     },
   ]
 }

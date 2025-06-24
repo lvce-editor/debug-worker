@@ -1,13 +1,9 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
+import type { Scope } from '../Scope/Scope.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 
-type Scope = {
-  key: string
-  flags: number
-}
-
-export const getScopeScopeRows = (scope: Scope): readonly DebugRow[] => {
+export const getScopeScopeRows = (scope: Scope, index: number): readonly DebugRow[] => {
   const { key, flags } = scope
   return [
     {
@@ -20,6 +16,7 @@ export const getScopeScopeRows = (scope: Scope): readonly DebugRow[] => {
       valueType: '',
       name: '',
       description: '',
+      index,
     },
   ]
 }

@@ -28,6 +28,6 @@ test('should return getScopePropertyRows for Property type', () => {
 })
 
 test('should return getNoopRows for unknown type', () => {
-  const renderer = getScopeRenderer('unknown')
+  const renderer = getScopeRenderer(100)
   expect(renderer).toBe(getNoopRows)
 })
