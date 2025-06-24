@@ -1,9 +1,8 @@
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 import * as Focus from '../Focus/Focus.ts'
-import { getRunAndDebugVisibleRows } from '../GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 // TODO pass index to function instead of text
