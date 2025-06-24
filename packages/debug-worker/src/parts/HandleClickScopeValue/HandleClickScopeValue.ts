@@ -13,20 +13,15 @@ export const handleClickScopeValue = async (state: RunAndDebugState, dataIndex: 
     return state
   }
 
-  const { scopeChain, debugId, expandedIds } = state
+  const { scopeChain, debugId, expandedIds, visibleRows } = state
   Focus.setFocus(WhenExpression.FocusDebugScope)
 
   const listIndex = Number.parseInt(dataIndex, 10)
-  if (isNaN(listIndex) || listIndex < 0) {
+  if (isNaN(listIndex) || listIndex < 0 || listIndex >= visibleRows.length) {
     return state
   }
 
-  const rows = getRunAndDebugVisibleRows(state)
-  if (listIndex >= rows.length) {
-    return state
-  }
-
-  const row = rows[listIndex]
+  const row = visibleRows[listIndex]
   if (!row.index || row.index < 0 || row.index >= scopeChain.length) {
     return state
   }
