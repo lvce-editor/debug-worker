@@ -14,7 +14,7 @@ export const handleArrowLeft = async (state: RunAndDebugState): Promise<RunAndDe
     return clickHandler(state)
   }
   if (row && row.type === DebugRowType.Scope && row.expanded) {
-    return await handleClickScopeValue(state, row.key, MouseEventType.LeftClick)
+    return await handleClickScopeValue(state, selectedIndex.toString(), MouseEventType.LeftClick)
   }
   return state
 }

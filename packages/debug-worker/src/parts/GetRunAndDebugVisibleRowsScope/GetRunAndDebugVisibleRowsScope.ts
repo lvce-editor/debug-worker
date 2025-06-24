@@ -8,7 +8,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
 
-export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, startingIndex: number): readonly DebugRow[] => {
   const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, scopeVisible, debugState } = state
   if (!scopeVisible) {
     return []
@@ -28,7 +28,8 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
     })
     if (debugState === DebugState.Paused) {
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
-      for (const scope of visible) {
+      for (let i = 0; i < visible.length; i++) {
+        const scope = visible[i]
         const renderer = getScopeRenderer(scope.type)
         const index = visible.indexOf(scope)
         rows.push(...renderer(scope, index))

@@ -11,7 +11,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: number, tokenColoringEnabled: boolean): readonly VirtualDomNode[] => {
-  const { indent, key, value, valueType, expanded, tokens } = row
+  const { indent, key, value, valueType, expanded, tokens, index } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
 
@@ -41,6 +41,7 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
       paddingLeft: indent,
       onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       childCount: 3,
+      'data-index': index,
     },
     {
       type: VirtualDomElements.Span,

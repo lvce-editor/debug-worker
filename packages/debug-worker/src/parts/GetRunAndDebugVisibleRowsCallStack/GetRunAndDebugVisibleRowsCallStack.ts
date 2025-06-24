@@ -13,7 +13,7 @@ const unknownScript: ParsedScript = {
   url: 'unknown',
 }
 
-export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, startingIndex: number): readonly DebugRow[] => {
   const { callStack, callStackExpanded, parsedScripts, callStackVisible } = state
 
   if (!callStackVisible) {
@@ -46,11 +46,12 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
         description: '',
       })
     } else {
-      for (const item of callStack) {
+      for (let i = 0; i < callStack.length; i++) {
+        const item = callStack[i]
         const { scriptId, lineNumber, columnNumber } = item.location
         const script = parsedScripts[scriptId] || unknownScript
         const description = formatLocation(script.url, lineNumber, columnNumber)
-        const hasArrow = item === callStack[0]
+        const hasArrow = i === 0
         rows.push({
           type: DebugRowType.CallStack,
           text: item.functionName,
@@ -62,7 +63,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState): rea
           name: '',
           description,
           hasArrow,
-          index: callStack.indexOf(item), // TODO use for loop
+          index: startingIndex + i,
         })
       }
     }
