@@ -10,8 +10,8 @@ test('getScopePropertyRows', () => {
     value: 'test',
     valueType: 'string',
     flags: DebugItemFlags.Expanded,
-  }
-  const result = getScopePropertyRows(scope)
+  } as any
+  const result = getScopePropertyRows(scope, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Property,
