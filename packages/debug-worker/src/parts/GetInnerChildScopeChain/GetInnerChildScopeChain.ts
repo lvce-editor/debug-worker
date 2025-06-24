@@ -4,6 +4,7 @@ import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType
 import * as GetDebugPropertyValueLabel from '../GetDebugPropertyValueLabel/GetDebugPropertyValueLabel.ts'
 import * as GetDebugValueObjectId from '../GetDebugValueObjectId/GetDebugValueObjectId.ts'
 import * as GetDebugValueType from '../GetDebugValueType/GetDebugValueType.ts'
+import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 
 export const getInnerChildScopeChain = async (
   cache: any,
@@ -27,6 +28,7 @@ export const getInnerChildScopeChain = async (
       objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
       indent: indent + 10,
       label: '',
+      flags: DebugItemFlags.None,
     })
   }
   return childScopeChain
