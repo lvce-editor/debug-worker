@@ -1,9 +1,7 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
-import * as Focus from '../Focus/Focus.ts'
 import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
-import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 const getElementIndex = (debugId: any, scopeChain: any, text: string): number => {
   for (let i = 0; i < scopeChain.length; i++) {
@@ -23,7 +21,6 @@ export const handleClickScopeValue = async (state: RunAndDebugState, text: strin
   }
 
   const { scopeChain, debugId, expandedIds } = state
-  Focus.setFocus(WhenExpression.FocusDebugScope)
   const index = getElementIndex(debugId, scopeChain, text)
   if (index === -1) {
     return state
