@@ -10,7 +10,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { key, expanded } = row
+  const { key, expanded, index } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
@@ -23,6 +23,7 @@ export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: numb
       childCount: 2,
       onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       'data-name': key,
+      'data-index': index,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     {
