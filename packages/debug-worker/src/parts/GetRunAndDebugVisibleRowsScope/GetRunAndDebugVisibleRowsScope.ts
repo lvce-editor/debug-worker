@@ -30,7 +30,8 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState): readonl
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
       for (const scope of visible) {
         const renderer = getScopeRenderer(scope.type)
-        rows.push(...renderer(scope))
+        const index = visible.indexOf(scope)
+        rows.push(...renderer(scope, index))
       }
     } else {
       rows.push({

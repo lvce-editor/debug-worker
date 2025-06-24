@@ -7,8 +7,8 @@ test('getScopeScopeRows', () => {
   const scope = {
     key: 'scope',
     flags: DebugItemFlags.Expanded,
-  }
-  const result = getScopeScopeRows(scope)
+  } as any
+  const result = getScopeScopeRows(scope, 2)
   expect(result).toEqual([
     {
       type: DebugRowType.Scope,
@@ -20,6 +20,7 @@ test('getScopeScopeRows', () => {
       valueType: '',
       name: '',
       description: '',
+      index: 2,
     },
   ])
 })
