@@ -12,7 +12,7 @@ test('should return empty array when callStackVisible is false', () => {
     ...createDefaultState(),
     callStackVisible: false,
   }
-  const rows = getRunAndDebugVisibleRowsCallStack(state)
+  const rows = getRunAndDebugVisibleRowsCallStack(state, 0)
   expect(rows).toEqual([])
 })
 
@@ -22,7 +22,7 @@ test('should return collapsed call stack section when callStackExpanded is false
     callStackVisible: true,
     callStackExpanded: false,
   }
-  const rows = getRunAndDebugVisibleRowsCallStack(state)
+  const rows = getRunAndDebugVisibleRowsCallStack(state, 0)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -45,7 +45,7 @@ test('should return expanded call stack section with not paused message when cal
     callStackExpanded: true,
     callStack: [],
   }
-  const rows = getRunAndDebugVisibleRowsCallStack(state)
+  const rows = getRunAndDebugVisibleRowsCallStack(state, 0)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -96,7 +96,7 @@ test('should return expanded call stack section with callstack items and correct
     callStack,
     parsedScripts,
   }
-  const rows = getRunAndDebugVisibleRowsCallStack(state)
+  const rows = getRunAndDebugVisibleRowsCallStack(state, 0)
   expect(rows[0]).toEqual({
     type: DebugRowType.SectionHeading,
     text: DebugStrings.callStack(),

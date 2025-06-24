@@ -192,9 +192,11 @@ test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
     parsedScripts,
   }
   const rows = getRunAndDebugVisibleRows(state)
-  // The callstack rows are after watch, breakpoints, and scope sections
+  console.log(rows)
   const callStackRow1 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'main')
   const callStackRow2 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'helper')
-  expect(callStackRow1).toMatchObject({ index: 0 })
-  expect(callStackRow2).toMatchObject({ index: 1 })
+  expect(callStackRow1).toBeDefined()
+  expect(callStackRow2).toBeDefined()
+  expect(callStackRow1 && callStackRow1.index).toBe(rows.indexOf(callStackRow1!))
+  expect(callStackRow2 && callStackRow2.index).toBe(rows.indexOf(callStackRow2!))
 })
