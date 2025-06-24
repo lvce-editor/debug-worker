@@ -105,6 +105,7 @@ test('renderScope', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 5,
   }
   const result = renderScope(row, -1, 0)
   expect(result).toEqual([
@@ -116,6 +117,7 @@ test('renderScope', () => {
       ariaLevel: 2,
       childCount: 2,
       onPointerDown: 'handleClickScopeValue',
+      'data-index': 5,
       'data-name': 'testScope',
     },
     expect.any(Object),
@@ -139,6 +141,7 @@ test.skip('renderValue', () => {
     valueType: 'string',
     name: '',
     description: '',
+    index: 3,
   }
   const result = renderValue(row, -1, 0, false)
   expect(result).toEqual([
@@ -151,6 +154,7 @@ test.skip('renderValue', () => {
       paddingLeft: 10,
       onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       childCount: 3,
+      'data-index': 3,
     },
     {
       type: VirtualDomElements.Span,
