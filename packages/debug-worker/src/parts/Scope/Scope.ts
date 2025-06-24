@@ -1,6 +1,7 @@
 export type Scope = {
-  indent: number
-  key: string
-  value: string
-  valueType: string
+  readonly indent: number
+  readonly key: string
+  readonly value: string
+  readonly valueType: string
+  readonly flags: number
 }
