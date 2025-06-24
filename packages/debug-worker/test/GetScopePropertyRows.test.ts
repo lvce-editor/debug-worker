@@ -24,6 +24,7 @@ test('getScopePropertyRows', () => {
       valueType: 'string',
       name: '',
       description: '',
+      index: 0,
     },
   ])
 })

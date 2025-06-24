@@ -21,6 +21,7 @@ test('getScopeExceptionRows', () => {
       valueType: '',
       name: '',
       description: '',
+      index: 0,
     },
   ])
 })
