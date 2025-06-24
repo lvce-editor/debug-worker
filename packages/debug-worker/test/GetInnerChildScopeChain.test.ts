@@ -55,6 +55,7 @@ test('should get properties and create scope chain', async () => {
       objectId: '',
       indent: 10,
       label: '',
+      flags: 0,
     },
   ])
 })
