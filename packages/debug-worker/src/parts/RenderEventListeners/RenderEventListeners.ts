@@ -79,7 +79,7 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
     },
     {
       name: DomEventListenerFunctions.HandleClickScopeValue,
-      params: ['handleClickScopeValue', 'event.target.dataset.name', 'event.button'],
+      params: ['handleClickScopeValue', 'event.target.dataset.index', 'event.button'],
     },
     {
       name: DomEventListenerFunctions.HandleInputFieldChange,

@@ -25,10 +25,10 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
     ]
   }
 
-  return [
-    ...getRunAndDebugVisibleRowsWatch(state),
-    ...getRunAndDebugVisibleRowsBreakPoints(state),
-    ...getRunAndDebugVisibleRowsScope(state),
-    ...getRunAndDebugVisibleRowsCallStack(state),
-  ]
+  const watchRows = getRunAndDebugVisibleRowsWatch(state)
+  const breakPointsRows = getRunAndDebugVisibleRowsBreakPoints(state)
+  const scopeRows = getRunAndDebugVisibleRowsScope(state, watchRows.length + breakPointsRows.length)
+  const callStackRows = getRunAndDebugVisibleRowsCallStack(state)
+
+  return [...watchRows, ...breakPointsRows, ...scopeRows, ...callStackRows]
 }

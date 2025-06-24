@@ -2,21 +2,12 @@ import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 import * as Focus from '../Focus/Focus.ts'
+import { getRunAndDebugVisibleRows } from '../GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
-const getElementIndex = (debugId: any, scopeChain: any, text: string): number => {
-  for (let i = 0; i < scopeChain.length; i++) {
-    const element = scopeChain[i]
-    if (element.key === text) {
-      return i
-    }
-  }
-  return -1
-}
-
 // TODO pass index to function instead of text
-export const handleClickScopeValue = async (state: RunAndDebugState, text: string, button: number): Promise<RunAndDebugState> => {
+export const handleClickScopeValue = async (state: RunAndDebugState, dataIndex: string, button: number): Promise<RunAndDebugState> => {
   // Return state unchanged if not left click
   if (button !== MouseEventType.LeftClick) {
     return state
@@ -24,13 +15,26 @@ export const handleClickScopeValue = async (state: RunAndDebugState, text: strin
 
   const { scopeChain, debugId, expandedIds } = state
   Focus.setFocus(WhenExpression.FocusDebugScope)
-  const index = getElementIndex(debugId, scopeChain, text)
-  if (index === -1) {
+
+  const listIndex = Number.parseInt(dataIndex, 10)
+  if (isNaN(listIndex) || listIndex < 0) {
     return state
   }
-  const element = scopeChain[index]
-  if (expandedIds.includes(element.objectId)) {
-    return collapseScopeChain(state, expandedIds, scopeChain, element, index)
+
+  const rows = getRunAndDebugVisibleRows(state)
+  if (listIndex >= rows.length) {
+    return state
   }
-  return expandScopeChain(state, expandedIds, scopeChain, element, index, debugId)
+
+  const row = rows[listIndex]
+  if (!row.index || row.index < 0 || row.index >= scopeChain.length) {
+    return state
+  }
+
+  const scopeChainIndex = row.index
+  const element = scopeChain[scopeChainIndex]
+  if (expandedIds.includes(element.objectId)) {
+    return collapseScopeChain(state, expandedIds, scopeChain, element, scopeChainIndex)
+  }
+  return expandScopeChain(state, expandedIds, scopeChain, element, scopeChainIndex, debugId)
 }
