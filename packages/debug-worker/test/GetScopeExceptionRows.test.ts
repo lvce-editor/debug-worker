@@ -7,8 +7,8 @@ test('getScopeExceptionRows', () => {
     key: 'error',
     value: 'test error',
     indent: 1,
-  }
-  const result = getScopeExceptionRows(scope)
+  } as any
+  const result = getScopeExceptionRows(scope, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Exception,
