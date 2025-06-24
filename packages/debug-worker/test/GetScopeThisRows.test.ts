@@ -8,8 +8,8 @@ test('getScopeThisRows', () => {
     key: 'this',
     value: 'test',
     valueType: 'string',
-  }
-  const result = getScopeThisRows(scope)
+  } as any
+  const result = getScopeThisRows(scope, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Value,
