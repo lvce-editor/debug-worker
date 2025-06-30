@@ -43,7 +43,7 @@ test('should return breakpoints section with default state', () => {
     description: '',
     index: 0,
     setSize: 4,
-    posInset: 1,
+    posInset: 2,
   })
 })
 
