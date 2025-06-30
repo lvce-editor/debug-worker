@@ -10,7 +10,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { expanded, text, key, actions } = row
+  const { expanded, text, key, actions, index } = row
   const hasActions = actions && actions.length > 0
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugSectionHeader, isSelected)
@@ -25,6 +25,7 @@ export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIn
       onClick: DomEventListenerFunctions.HandleClickSectionHeading,
       onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
       'data-name': key,
+      'data-index': index,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     VirtualDomHelpers.text(text),
