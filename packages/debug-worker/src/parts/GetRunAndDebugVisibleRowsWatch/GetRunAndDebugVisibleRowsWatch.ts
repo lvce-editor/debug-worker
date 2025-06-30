@@ -7,7 +7,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsWatchContent } from '../GetRunAndDebugVisibleRowsWatchContent/GetRunAndDebugVisibleRowsWatchContent.ts'
 import { getWatchActions } from '../GetWatchActions/GetWatchActions.ts'
 
-export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState, topLevelCount: number): readonly DebugRow[] => {
   const { watchExpanded, watchExpressions, watchVisible } = state
 
   if (!watchVisible) {
