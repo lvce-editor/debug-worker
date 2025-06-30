@@ -1,6 +1,6 @@
 import { type Test } from '@lvce-editor/test-with-playwright'
 
-export const name = 'sample.debug-provider-toggle-breakpoint-with-space'
+export const name = 'sample.debug-provider-disable-breakpoint-with-space'
 
 export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
   // arrange
