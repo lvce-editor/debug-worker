@@ -5,43 +5,43 @@ import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import type { WatchExpression } from '../WatchExpression/WatchExpression.ts'
 
 export interface RunAndDebugState {
-  readonly id: number
-  readonly disposed: boolean
-  readonly processes: readonly any[]
-  readonly debugState: number
-  readonly watchExpanded: boolean
   readonly breakPointsExpanded: boolean
-  readonly scopeExpanded: boolean
-  readonly callStackExpanded: boolean
-  readonly watchVisible: boolean
   readonly breakPointsVisible: boolean
-  readonly scopeVisible: boolean
-  readonly callStackVisible: boolean
-  readonly scopeChain: readonly ScopeChainItem[]
+  readonly cache: any // TODO maybe store cache in extension host worker
+  readonly callFrameId: string
   readonly callStack: readonly CallStackItem[]
-  readonly parsedScripts: ParsedScriptMap
-  readonly pausedReason: string
-  readonly pausedMessage: string
+  readonly callStackExpanded: boolean
+  readonly callStackVisible: boolean
+  readonly debugId: any
   readonly debugInputValue: string
   readonly debugOutputValue: string
-  readonly callFrameId: string
-  readonly expandedIds: readonly any[]
-  readonly scopeFocusedIndex: number
-  readonly focusedIndex: number
-  readonly pauseOnExceptionState: string
-  readonly cache: any // TODO maybe store cache in extension host worker
-  readonly exceptionBreakPoints: number
-  readonly debugId: any
-  readonly watchExpressions: readonly WatchExpression[]
-  readonly focus: number
-  readonly editingValue: string
-  readonly inputSource: number
-  readonly editingselectionstart: number
+  readonly debugState: number
+  readonly disposed: boolean
   readonly editingselectionend: number
-  readonly openFilesOnPause: boolean
+  readonly editingselectionstart: number
+  readonly editingValue: string
+  readonly exceptionBreakPoints: number
+  readonly expandedIds: readonly any[]
+  readonly focus: number
+  readonly focusedIndex: number
+  readonly id: number
+  readonly inputSource: number
   readonly maxDescriptionLength: number
+  readonly openFilesOnPause: boolean
+  readonly parsedScripts: ParsedScriptMap
+  readonly pausedMessage: string
+  readonly pausedReason: string
+  readonly pauseOnExceptionState: string
+  readonly processes: readonly any[]
+  readonly scopeChain: readonly ScopeChainItem[]
+  readonly scopeExpanded: boolean
+  readonly scopeFocusedIndex: number
+  readonly scopeVisible: boolean
   readonly selectedIndex: number
-  readonly visibleRows: readonly DebugRow[]
   readonly tokenColoringEnabled?: boolean
   readonly topLevelCount: number
+  readonly visibleRows: readonly DebugRow[]
+  readonly watchExpanded: boolean
+  readonly watchExpressions: readonly WatchExpression[]
+  readonly watchVisible: boolean
 }
