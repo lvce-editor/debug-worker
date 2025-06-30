@@ -43,4 +43,5 @@ export interface RunAndDebugState {
   readonly selectedIndex: number
   readonly visibleRows: readonly DebugRow[]
   readonly tokenColoringEnabled?: boolean
+  readonly topLevelCount: number
 }
