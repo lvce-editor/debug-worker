@@ -24,8 +24,11 @@ test('renderWatchMessage', () => {
   expect(result).toEqual([
     {
       type: VirtualDomElements.Div,
-      className: 'WatchMessage',
+      className: 'DebugRow WatchMessage',
       childCount: 1,
+      'data-index': 0,
+      ariaPosInSet: 1,
+      ariaSetSize: 1,
     },
 
     VirtualDomHelpers.text('test message'),

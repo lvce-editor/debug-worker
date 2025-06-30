@@ -8,7 +8,7 @@ const formatValue = (value: any): string => {
   return value === null || value === undefined ? '' : String(value)
 }
 
-const renderWatchExpression = (expression: string, value: any, isEditing: boolean, index: number): DebugRow => {
+const renderWatchExpression = (expression: string, value: any, isEditing: boolean, relativeIndex: number, index: number, setSize: number): DebugRow => {
   if (isEditing) {
     return {
       type: DebugRowType.InputField,
@@ -21,8 +21,8 @@ const renderWatchExpression = (expression: string, value: any, isEditing: boolea
       name: InputName.WatchExpressionInput,
       description: '',
       index,
-      setSize: 1,
-      posInset: 1,
+      setSize,
+      posInset: relativeIndex + 1,
     }
   }
   return {
@@ -36,12 +36,12 @@ const renderWatchExpression = (expression: string, value: any, isEditing: boolea
     name: '',
     description: '',
     index,
-    setSize: 1,
-    posInset: 1,
+    setSize,
+    posInset: relativeIndex + 1,
   }
 }
 
-export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly WatchExpression[]): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly WatchExpression[], startIndex: number): readonly DebugRow[] => {
   const rows: DebugRow[] = []
 
   if (watchExpressions.length === 0) {
@@ -55,15 +55,16 @@ export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly
       valueType: '',
       name: '',
       description: '',
-      index: 0,
+      index: startIndex + 1,
       setSize: 1,
       posInset: 1,
     })
   } else {
+    const setSize = watchExpressions.length
     for (const watchExpression of watchExpressions) {
       // TODO simplify index
       const index = watchExpressions.indexOf(watchExpression)
-      rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value, watchExpression.isEditing || false, index))
+      rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value, watchExpression.isEditing || false, index, startIndex + index, setSize))
     }
   }
 
