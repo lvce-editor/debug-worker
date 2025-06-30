@@ -13,7 +13,7 @@ test('getScopePropertyRows', () => {
     setSize: 1,
     posInset: 1,
   } as any
-  const result = getScopePropertyRows(scope, 0)
+  const result = getScopePropertyRows(scope, 0, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Property,

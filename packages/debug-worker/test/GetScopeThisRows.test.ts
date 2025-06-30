@@ -9,7 +9,7 @@ test('getScopeThisRows', () => {
     value: 'test',
     valueType: 'string',
   } as any
-  const result = getScopeThisRows(scope, 0)
+  const result = getScopeThisRows(scope, 0, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Value,

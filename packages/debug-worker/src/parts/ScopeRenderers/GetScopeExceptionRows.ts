@@ -3,7 +3,7 @@ import type { Scope } from '../Scope/Scope.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import { tokenizeValue } from '../TokenizeValue/TokenizeValue.ts'
 
-export const getScopeExceptionRows = (scope: Scope, index: number): readonly DebugRow[] => {
+export const getScopeExceptionRows = (scope: Scope, relativeIndex: number, index: number): readonly DebugRow[] => {
   const { key, value, indent } = scope
   const tokens = tokenizeValue(value)
   return [
@@ -18,7 +18,7 @@ export const getScopeExceptionRows = (scope: Scope, index: number): readonly Deb
       valueType: '',
       name: '',
       description: '',
-      index,
+      index: relativeIndex,
       setSize: 1,
       posInset: 1,
     },
