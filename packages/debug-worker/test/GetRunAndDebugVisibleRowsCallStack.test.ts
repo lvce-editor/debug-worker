@@ -131,7 +131,7 @@ test('should return expanded call stack section with callstack items and correct
     description: 'main.js:11',
     hasArrow: true,
     index: 1,
-    setSize: 1,
+    setSize: 3,
     posInset: 2,
   })
   expect(rows[2]).toEqual({
@@ -145,8 +145,8 @@ test('should return expanded call stack section with callstack items and correct
     name: '',
     description: 'helper.js:6',
     hasArrow: false,
-    index: 1,
+    index: 2,
     setSize: 3,
-    posInset: 2,
+    posInset: 3,
   })
 })
