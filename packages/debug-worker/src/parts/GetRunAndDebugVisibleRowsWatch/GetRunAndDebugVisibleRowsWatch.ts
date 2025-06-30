@@ -7,7 +7,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsWatchContent } from '../GetRunAndDebugVisibleRowsWatchContent/GetRunAndDebugVisibleRowsWatchContent.ts'
 import { getWatchActions } from '../GetWatchActions/GetWatchActions.ts'
 
-export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState, startIndex: number, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
   const { watchExpanded, watchExpressions, watchVisible } = state
 
   if (!watchVisible) {
@@ -33,7 +33,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState, topLevel
   ]
 
   if (watchExpanded) {
-    rows.push(...getRunAndDebugVisibleRowsWatchContent(watchExpressions))
+    rows.push(...getRunAndDebugVisibleRowsWatchContent(watchExpressions, startIndex))
   }
 
   return rows

@@ -28,8 +28,8 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
     ]
   }
 
-  const topLevelCount = 4
-  const watchRows = getRunAndDebugVisibleRowsWatch(state, topLevelCount, 0)
+  const topLevelCount = state.topLevelCount
+  const watchRows = getRunAndDebugVisibleRowsWatch(state, 0, topLevelCount, 0)
   const breakPointsRows = getRunAndDebugVisibleRowsBreakPoints(state, topLevelCount, 1)
   const scopeRows = getRunAndDebugVisibleRowsScope(state, watchRows.length + breakPointsRows.length, topLevelCount, 2)
   const callStackRows = getRunAndDebugVisibleRowsCallStack(state, watchRows.length + breakPointsRows.length + scopeRows.length, topLevelCount, 3)
