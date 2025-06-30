@@ -7,6 +7,7 @@ import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsWatch } from '../src/parts/GetRunAndDebugVisibleRowsWatch/GetRunAndDebugVisibleRowsWatch.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 
 test('should return watch section with default state', () => {
   const state = createDefaultState()
@@ -20,8 +21,11 @@ test('should return watch section with default state', () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [],
     },
   ])
@@ -43,8 +47,11 @@ test('should show no watch expression message when expanded and no expressions',
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: expect.any(Array),
     },
     {
@@ -57,6 +64,7 @@ test('should show no watch expression message when expanded and no expressions',
       valueType: '',
       name: '',
       description: '',
+      index: 0,
     },
   ])
 })
@@ -78,8 +86,11 @@ test.skip('should show watch expressions when expanded', async () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [
         {
           id: InputName.AddWatchExpression,
@@ -130,8 +141,11 @@ test.skip('should show input field for new watch expression', async () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [
         {
           id: InputName.AddWatchExpression,

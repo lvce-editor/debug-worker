@@ -23,6 +23,8 @@ test('renderNoop', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const result = RunAndDebugRowRenderers.renderNoop(row, -1, 0)
   expect(result).toEqual([
@@ -47,6 +49,8 @@ test('renderMessage', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const result = RunAndDebugRowRenderers.renderMessage(row, -1, 0)
   expect(result).toEqual([
@@ -71,6 +75,8 @@ test('renderCallStack', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const result = renderCallStack(row, -1, 0)
   expect(result).toEqual([
@@ -81,6 +87,7 @@ test('renderCallStack', () => {
       ariaLevel: 2,
       childCount: 2,
       onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      'data-index': 0,
     },
     {
       className: 'CallStackLabel',
@@ -109,6 +116,8 @@ test('renderScope', () => {
     name: '',
     description: '',
     index: 5,
+    setSize: 1,
+    posInset: 1,
   }
   const result = renderScope(row, -1, 0)
   expect(result).toEqual([
@@ -145,6 +154,8 @@ test.skip('renderValue', () => {
     name: '',
     description: '',
     index: 3,
+    setSize: 1,
+    posInset: 1,
   }
   const result = renderValue(row, -1, 0, false)
   expect(result).toEqual([

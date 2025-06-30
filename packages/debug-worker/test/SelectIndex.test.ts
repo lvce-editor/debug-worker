@@ -15,6 +15,8 @@ test('selectIndex updates selectedIndex', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state = { ...createDefaultState(), visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectIndex(state, 5)
@@ -40,6 +42,8 @@ test('selectIndex updates selectedIndex within bounds', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state = { ...createDefaultState(), visibleRows: [mockRow, mockRow, mockRow] } // 3 rows
   const result = selectIndex(state, 1)
@@ -59,6 +63,8 @@ test('selectIndex clamps to max index', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state = { ...createDefaultState(), visibleRows: [mockRow, mockRow] } // 2 rows, max index 1
   const result = selectIndex(state, 5)
@@ -77,6 +83,8 @@ test('selectIndex clamps to -1 for negative values', () => {
     name: '',
     description: '',
     index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
   const result = selectIndex(state, -5)

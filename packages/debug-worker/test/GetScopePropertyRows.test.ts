@@ -10,6 +10,8 @@ test('getScopePropertyRows', () => {
     value: 'test',
     valueType: 'string',
     flags: DebugItemFlags.Expanded,
+    setSize: 1,
+    posInset: 1,
   } as any
   const result = getScopePropertyRows(scope, 0)
   expect(result).toEqual([
@@ -25,6 +27,8 @@ test('getScopePropertyRows', () => {
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

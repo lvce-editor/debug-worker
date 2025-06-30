@@ -39,6 +39,9 @@ test('should return breakpoints section with default state', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -60,6 +63,9 @@ test('should return expanded breakpoints section with all exceptions', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
+    index: 0,
+    setSize: 3,
+    posInset: 1,
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CheckBox,

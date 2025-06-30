@@ -19,6 +19,7 @@ test('getRunAndDebugVisibleRowsWatchContent - empty expressions', () => {
       valueType: '',
       name: '',
       description: '',
+      index: 0,
     },
   ])
 })

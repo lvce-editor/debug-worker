@@ -33,6 +33,9 @@ test('should return collapsed call stack section when callStackExpanded is false
       valueType: '',
       name: DebugRowName.CallStack,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 2,
     },
   ])
 })
@@ -56,6 +59,9 @@ test('should return expanded call stack section with not paused message when cal
       valueType: '',
       name: DebugRowName.CallStack,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
     },
     {
       type: DebugRowType.Message,
@@ -67,6 +73,9 @@ test('should return expanded call stack section with not paused message when cal
       valueType: '',
       name: '',
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })
@@ -106,6 +115,9 @@ test('should return expanded call stack section with callstack items and correct
     valueType: '',
     name: DebugRowName.CallStack,
     description: '',
+    index: 0,
+    setSize: 3,
+    posInset: 1,
   })
   expect(rows[1]).toEqual({
     type: DebugRowType.CallStack,
@@ -119,6 +131,8 @@ test('should return expanded call stack section with callstack items and correct
     description: 'main.js:11',
     hasArrow: true,
     index: 0,
+    setSize: 1,
+    posInset: 1,
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CallStack,
@@ -132,5 +146,7 @@ test('should return expanded call stack section with callstack items and correct
     description: 'helper.js:6',
     hasArrow: false,
     index: 1,
+    setSize: 1,
+    posInset: 1,
   })
 })
