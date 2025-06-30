@@ -67,7 +67,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     description: '',
     index: 0,
     setSize: 4,
-    posInset: 1,
+    posInset: 2,
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CheckBox,
@@ -192,7 +192,7 @@ test('should return expanded call stack section with not paused message', () => 
     description: '',
     index: 3,
     setSize: 4,
-    posInset: 1,
+    posInset: 4,
   })
   expect(rows[4]).toEqual({
     type: DebugRowType.Message,

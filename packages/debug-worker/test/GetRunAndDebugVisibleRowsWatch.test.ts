@@ -11,7 +11,7 @@ import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('should return watch section with default state', () => {
   const state = createDefaultState()
-  const rows = getRunAndDebugVisibleRowsWatch(state, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(state, 4, 1)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -25,7 +25,7 @@ test('should return watch section with default state', () => {
       description: '',
       index: 0,
       setSize: 4,
-      posInset: 1,
+      posInset: 2,
       actions: [],
     },
   ])
@@ -37,7 +37,7 @@ test('should show no watch expression message when expanded and no expressions',
     ...state,
     watchExpanded: true,
   }
-  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4, 1)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -51,7 +51,7 @@ test('should show no watch expression message when expanded and no expressions',
       description: '',
       index: 0,
       setSize: 4,
-      posInset: 1,
+      posInset: 2,
       actions: expect.any(Array),
     },
     {
@@ -78,7 +78,7 @@ test.skip('should show watch expressions when expanded', async () => {
     ...stateWithExpressions,
     watchExpanded: true,
   }
-  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4, 1)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -133,7 +133,7 @@ test.skip('should show input field for new watch expression', async () => {
     ...stateWithNewExpression,
     watchExpanded: true,
   }
-  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4, 1)
   expect(rows).toEqual([
     {
       type: DebugRowType.SectionHeading,
@@ -172,13 +172,13 @@ test.skip('should show input field for new watch expression', async () => {
 
 test('should not show actions when watch is not expanded', () => {
   const state = createDefaultState()
-  const rows = getRunAndDebugVisibleRowsWatch(state, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(state, 4, 1)
   expect(rows[0].actions).toEqual([])
 })
 
 test('getWatchActions should return empty array when watch is not expanded', () => {
   const state = createDefaultState()
-  const rows = getRunAndDebugVisibleRowsWatch(state, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(state, 4, 1)
   expect(rows[0].actions).toEqual([])
 })
 
@@ -188,7 +188,7 @@ test('getWatchActions should return actions when watch is expanded', () => {
     ...state,
     watchExpanded: true,
   }
-  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4, 1)
   expect(rows[0].actions).toBeDefined()
 })
 
@@ -198,6 +198,6 @@ test('should show actions when watch is expanded', () => {
     ...state,
     watchExpanded: true,
   }
-  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4)
+  const rows = getRunAndDebugVisibleRowsWatch(expandedState, 4, 1)
   expect(rows[0].actions).toBeDefined()
 })

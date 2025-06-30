@@ -13,7 +13,7 @@ const unknownScript: ParsedScript = {
   url: 'unknown',
 }
 
-export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, startingIndex: number, topLevelCount: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, startingIndex: number, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
   const { callStack, callStackExpanded, parsedScripts, callStackVisible } = state
 
   if (!callStackVisible) {
@@ -34,7 +34,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
       description: '',
       index: startingIndex,
       setSize: topLevelCount,
-      posInset: 1,
+      posInset: topLevelIndex + 1,
     })
     if (callStack.length === 0) {
       rows.push({

@@ -7,7 +7,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, topLevelCount: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
   const { breakPointsExpanded, exceptionBreakPoints, breakPointsVisible } = state
 
   if (!breakPointsVisible) {
@@ -29,7 +29,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         description: '',
         index: 0,
         setSize: topLevelCount,
-        posInset: 1,
+        posInset: topLevelIndex + 1,
       },
       {
         type: DebugRowType.CheckBox,
