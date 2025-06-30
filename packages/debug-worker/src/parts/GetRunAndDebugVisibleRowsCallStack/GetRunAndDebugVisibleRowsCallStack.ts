@@ -13,7 +13,7 @@ const unknownScript: ParsedScript = {
   url: 'unknown',
 }
 
-export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, startingIndex: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, startingIndex: number, topLevelCount: number): readonly DebugRow[] => {
   const { callStack, callStackExpanded, parsedScripts, callStackVisible } = state
 
   if (!callStackVisible) {

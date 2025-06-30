@@ -7,7 +7,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, topLevelCount: number): readonly DebugRow[] => {
   const { breakPointsExpanded, exceptionBreakPoints, breakPointsVisible } = state
 
   if (!breakPointsVisible) {

@@ -8,7 +8,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
 
-export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, startingIndex: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, startingIndex: number, topLevelCount: number): readonly DebugRow[] => {
   const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, scopeVisible, debugState } = state
   if (!scopeVisible) {
     return []
