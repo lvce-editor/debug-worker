@@ -21,6 +21,8 @@ const renderWatchExpression = (expression: string, value: any, isEditing: boolea
       name: InputName.WatchExpressionInput,
       description: '',
       index,
+      setSize: 1,
+      posInset: 1,
     }
   }
   return {
@@ -34,6 +36,8 @@ const renderWatchExpression = (expression: string, value: any, isEditing: boolea
     name: '',
     description: '',
     index,
+    setSize: 1,
+    posInset: 1,
   }
 }
 
@@ -52,6 +56,8 @@ export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     })
   } else {
     for (const watchExpression of watchExpressions) {
