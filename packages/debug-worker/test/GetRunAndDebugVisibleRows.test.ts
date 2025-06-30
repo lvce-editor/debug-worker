@@ -66,7 +66,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     name: DebugRowName.BreakPoints,
     description: '',
     index: 0,
-    setSize: 1,
+    setSize: 3,
     posInset: 1,
   })
   expect(rows[2]).toEqual({
@@ -80,7 +80,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     name: InputName.PauseOnExceptions,
     description: '',
     index: 1,
-    setSize: 1,
+    setSize: 3,
     posInset: 2,
   })
   expect(rows[3]).toEqual({
