@@ -14,7 +14,7 @@ export const renderWatchMessage = (row: DebugRow, selectedIndex: number, rowInde
       className,
       childCount: 1,
       'data-index': index,
-      ariaPosInset: posInset,
+      ariaPosInSet: posInset,
       ariaSetSize: setSize,
     },
 
