@@ -19,6 +19,7 @@ test('renderSectionHeading - expanded', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row, -1, 0)
   expect(result[0]).toEqual({
@@ -47,6 +48,7 @@ test('renderSectionHeading - collapsed', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row, -1, 0)
   expect(result[0]).toEqual({

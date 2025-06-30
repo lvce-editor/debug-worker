@@ -17,6 +17,7 @@ test('renderCheckBox', () => {
     valueType: 'string',
     name: 'test-name',
     description: '',
+    index: 0,
   }
   const result = renderCheckBox(row, -1, 0)
   expect(result).toHaveLength(4)

@@ -14,6 +14,7 @@ test('selectNextRow increments selectedIndex', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectNextRow(state)
@@ -32,6 +33,7 @@ test('selectNextRow works from -1', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
@@ -49,6 +51,7 @@ test('selectNextRow does not exceed max index', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] } // max index 1
   const result = selectNextRow(state)
@@ -72,6 +75,7 @@ test('selectNextRow handles negative selectedIndex input', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
@@ -89,6 +93,7 @@ test('selectNextRow handles selectedIndex beyond array bounds', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
@@ -106,6 +111,7 @@ test('selectNextRow stays at max when already at max', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)

@@ -19,6 +19,7 @@ test('renderInputField', () => {
     valueType: '',
     name: 'test-input',
     description: '',
+    index: 0,
   }
   const result = renderInputField(row, -1, 0)
   expect(result).toEqual([

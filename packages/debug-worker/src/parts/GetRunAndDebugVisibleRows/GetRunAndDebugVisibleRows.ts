@@ -21,6 +21,7 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
         valueType: '',
         name: '',
         description: '',
+        index: 0,
       },
     ]
   }

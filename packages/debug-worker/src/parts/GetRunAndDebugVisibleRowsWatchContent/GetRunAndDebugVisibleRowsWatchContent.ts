@@ -51,6 +51,7 @@ export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly
       valueType: '',
       name: '',
       description: '',
+      index: 0,
     })
   } else {
     for (const watchExpression of watchExpressions) {

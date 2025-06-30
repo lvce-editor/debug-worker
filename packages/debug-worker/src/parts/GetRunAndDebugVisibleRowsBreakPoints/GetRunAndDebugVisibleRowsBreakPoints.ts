@@ -26,6 +26,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
         valueType: '',
         name: DebugRowName.BreakPoints,
         description: '',
+        index: 0,
       },
       {
         type: DebugRowType.CheckBox,
@@ -37,6 +38,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
         valueType: '',
         name: InputName.PauseOnExceptions,
         description: '',
+        index: 1,
       },
       {
         type: DebugRowType.CheckBox,
@@ -48,6 +50,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
         valueType: '',
         name: InputName.PauseOnUncaughtExceptions,
         description: '',
+        index: 2,
       },
     ]
   }
@@ -62,6 +65,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState): r
       valueType: '',
       name: DebugRowName.BreakPoints,
       description: '',
+      index: 0,
     },
   ]
 }

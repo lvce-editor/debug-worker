@@ -16,6 +16,7 @@ test('renderWatchMessage', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = renderWatchMessage(row, -1, 0)
   expect(result).toEqual([

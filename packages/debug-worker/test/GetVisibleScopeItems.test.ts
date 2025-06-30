@@ -18,6 +18,7 @@ test('getVisibleScopeItems - single item not expanded', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.None,
+      index: 0,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, [], 0)
@@ -31,6 +32,7 @@ test('getVisibleScopeItems - single item not expanded', () => {
       type: 0,
       value: '',
       flags: 6,
+      index: 0,
     },
   ])
 })
@@ -46,6 +48,7 @@ test('getVisibleScopeItems - single item expanded', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.None,
+      index: 0,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 0)
@@ -59,6 +62,7 @@ test('getVisibleScopeItems - single item expanded', () => {
       type: 0,
       value: '',
       flags: 5,
+      index: 0,
     },
   ])
 })
@@ -74,6 +78,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.None,
+      index: 0,
     },
     {
       objectId: '2',
@@ -84,6 +89,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.None,
+      index: 1,
     },
     {
       objectId: '3',
@@ -94,6 +100,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.None,
+      index: 2,
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 1)
@@ -107,6 +114,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.Expanded,
+      index: 0,
     },
     {
       objectId: '2',
@@ -117,6 +125,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.Focused,
+      index: 1,
     },
     {
       objectId: '3',
@@ -127,6 +136,7 @@ test('getVisibleScopeItems - multiple items with different states', () => {
       type: 0,
       value: '',
       flags: DebugItemFlags.Collapsed,
+      index: 2,
     },
   ])
 })

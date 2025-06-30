@@ -25,6 +25,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       valueType: '',
       name: DebugRowName.Scope,
       description: '',
+      index: startingIndex,
     })
     if (debugState === DebugState.Paused) {
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
@@ -46,6 +47,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
         valueType: '',
         name: '',
         description: '',
+        index: startingIndex + 1,
       })
     }
   } else {
@@ -59,6 +61,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       valueType: '',
       name: DebugRowName.Scope,
       description: '',
+      index: startingIndex,
     })
   }
   return rows

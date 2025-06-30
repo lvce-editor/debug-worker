@@ -15,6 +15,7 @@ test('selectLastIndex sets selectedIndex to last index', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectLastIndex(state)
@@ -33,6 +34,7 @@ test('selectLastIndex works from -1', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectLastIndex(state)
@@ -50,6 +52,7 @@ test('selectLastIndex works from middle index', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 2, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectLastIndex(state)
@@ -67,6 +70,7 @@ test('selectLastIndex handles single row', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
   const result = selectLastIndex(state)
@@ -90,6 +94,7 @@ test('selectLastIndex returns new state object', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
   const result = selectLastIndex(state)

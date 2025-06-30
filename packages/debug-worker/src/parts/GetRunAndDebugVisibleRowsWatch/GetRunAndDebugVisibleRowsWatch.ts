@@ -26,6 +26,7 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState): readonl
       name: DebugRowName.Watch,
       description: '',
       actions: getWatchActions(watchExpanded),
+      index: 0,
     },
   ]
 

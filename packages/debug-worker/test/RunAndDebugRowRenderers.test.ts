@@ -22,6 +22,7 @@ test('renderNoop', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = RunAndDebugRowRenderers.renderNoop(row, -1, 0)
   expect(result).toEqual([
@@ -45,6 +46,7 @@ test('renderMessage', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = RunAndDebugRowRenderers.renderMessage(row, -1, 0)
   expect(result).toEqual([
@@ -68,6 +70,7 @@ test('renderCallStack', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const result = renderCallStack(row, -1, 0)
   expect(result).toEqual([
