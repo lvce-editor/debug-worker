@@ -60,7 +60,7 @@ test('should return expanded call stack section with not paused message when cal
       name: DebugRowName.CallStack,
       description: '',
       index: 0,
-      setSize: 1,
+      setSize: 4,
       posInset: 1,
     },
     {
@@ -116,7 +116,7 @@ test('should return expanded call stack section with callstack items and correct
     name: DebugRowName.CallStack,
     description: '',
     index: 0,
-    setSize: 3,
+    setSize: 4,
     posInset: 1,
   })
   expect(rows[1]).toEqual({

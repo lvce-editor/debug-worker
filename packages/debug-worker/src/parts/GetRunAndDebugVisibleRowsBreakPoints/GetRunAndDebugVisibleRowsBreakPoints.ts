@@ -15,6 +15,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
   }
 
   if (breakPointsExpanded) {
+    const setSize = 2
     return [
       {
         type: DebugRowType.SectionHeading,
@@ -27,7 +28,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         name: DebugRowName.BreakPoints,
         description: '',
         index: 0,
-        setSize: 3,
+        setSize: topLevelCount,
         posInset: 1,
       },
       {
@@ -41,7 +42,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         name: InputName.PauseOnExceptions,
         description: '',
         index: 1,
-        setSize: 3,
+        setSize,
         posInset: 2,
       },
       {
@@ -55,7 +56,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         name: InputName.PauseOnUncaughtExceptions,
         description: '',
         index: 2,
-        setSize: 3,
+        setSize,
         posInset: 3,
       },
     ]
@@ -72,7 +73,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
       name: DebugRowName.BreakPoints,
       description: '',
       index: 0,
-      setSize: 1,
+      setSize: topLevelCount,
       posInset: 1,
     },
   ]
