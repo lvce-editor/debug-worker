@@ -35,6 +35,8 @@ test('renderSectionHeading - expanded', () => {
     onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
     'data-index': 0,
     'data-name': 'test-key',
+    ariaPosInSet: 1,
+    ariaSetSize: 1,
   })
   expect(result[1]).toEqual(GetChevronVirtualDom.getChevronDownVirtualDom())
   expect(result[2]).toEqual(VirtualDomHelpers.text('test heading'))
@@ -67,6 +69,8 @@ test('renderSectionHeading - collapsed', () => {
     onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
     'data-index': 0,
     'data-name': 'test-key',
+    ariaPosInSet: 1,
+    ariaSetSize: 1,
   })
   expect(result[1]).toEqual(GetChevronVirtualDom.getChevronRightVirtualDom())
   expect(result[2]).toEqual(VirtualDomHelpers.text('test heading'))
