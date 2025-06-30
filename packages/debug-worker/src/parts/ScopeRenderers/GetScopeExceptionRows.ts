@@ -19,6 +19,8 @@ export const getScopeExceptionRows = (scope: Scope, index: number): readonly Deb
       name: '',
       description: '',
       index,
+      setSize: 1,
+      posInset: 1,
     },
   ]
 }
