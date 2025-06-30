@@ -52,7 +52,7 @@ test('getRunAndDebugVisibleRowsWatchContent - with expressions', () => {
       name: '',
       description: '',
       index: 0,
-      setSize: 1,
+      setSize: 2,
       posInset: 1,
     },
     {
@@ -66,8 +66,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with expressions', () => {
       name: '',
       description: '',
       index: 1,
-      setSize: 1,
-      posInset: 1,
+      setSize: 2,
+      posInset: 2,
     },
   ])
 })
