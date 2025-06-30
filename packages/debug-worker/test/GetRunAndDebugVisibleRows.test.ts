@@ -79,7 +79,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     valueType: '',
     name: InputName.PauseOnExceptions,
     description: '',
-    index: 1,
+    index: 2,
     setSize: 2,
     posInset: 2,
   })
@@ -93,7 +93,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     valueType: '',
     name: InputName.PauseOnUncaughtExceptions,
     description: '',
-    index: 2,
+    index: 3,
     setSize: 2,
     posInset: 3,
   })
