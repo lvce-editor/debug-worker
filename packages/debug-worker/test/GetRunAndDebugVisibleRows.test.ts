@@ -41,7 +41,7 @@ test('should return breakpoints section with default state', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
-    index: 0,
+    index: 1,
     setSize: 4,
     posInset: 2,
   })
@@ -65,7 +65,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
-    index: 0,
+    index: 1,
     setSize: 4,
     posInset: 2,
   })
