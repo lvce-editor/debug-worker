@@ -18,7 +18,7 @@ export const test: Test = async ({ Command, FileSystem, Workspace, Extension, Si
   await Command.execute('Run And Debug.acceptWatchExpressionEdit')
   await Command.execute('Run And Debug.selectIndex', 1)
   const rows = Locator('.DebugRow')
-  await expect(rows.nth(0)).toHaveText('1 + 1: 2×')
+  await expect(rows.nth(1)).toHaveText('1 + 1: 2×')
 
   // act
   await Command.execute('Run And Debug.handleRename')
