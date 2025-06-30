@@ -3,7 +3,7 @@ import type { Scope } from '../Scope/Scope.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 
-export const getScopeScopeRows = (scope: Scope, index: number): readonly DebugRow[] => {
+export const getScopeScopeRows = (scope: Scope, relativeIndex: number, index: number): readonly DebugRow[] => {
   const { key, flags } = scope
   return [
     {

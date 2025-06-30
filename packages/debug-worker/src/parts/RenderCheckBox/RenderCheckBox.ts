@@ -9,7 +9,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderCheckBox = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { text, expanded, name } = row
+  const { text, expanded, name, index, posInset, setSize } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
@@ -19,6 +19,9 @@ export const renderCheckBox = (row: DebugRow, selectedIndex: number, rowIndex: n
       role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
+      ariaPosInSet: posInset,
+      ariaSetSize: setSize,
+      'data-index': index,
     },
     {
       type: VirtualDomElements.Input,

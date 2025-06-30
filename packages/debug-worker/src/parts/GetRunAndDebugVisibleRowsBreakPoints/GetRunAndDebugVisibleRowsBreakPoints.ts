@@ -7,7 +7,7 @@ import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as InputName from '../InputName/InputName.ts'
 
-export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
+export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, startIndex: number, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
   const { breakPointsExpanded, exceptionBreakPoints, breakPointsVisible } = state
 
   if (!breakPointsVisible) {
@@ -27,7 +27,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         valueType: '',
         name: DebugRowName.BreakPoints,
         description: '',
-        index: 0,
+        index: startIndex,
         setSize: topLevelCount,
         posInset: topLevelIndex + 1,
       },
@@ -41,7 +41,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         valueType: '',
         name: InputName.PauseOnExceptions,
         description: '',
-        index: 1,
+        index: startIndex + 1,
         setSize,
         posInset: 2,
       },
@@ -55,7 +55,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
         valueType: '',
         name: InputName.PauseOnUncaughtExceptions,
         description: '',
-        index: 2,
+        index: startIndex + 2,
         setSize,
         posInset: 3,
       },
@@ -72,7 +72,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
       valueType: '',
       name: DebugRowName.BreakPoints,
       description: '',
-      index: 0,
+      index: startIndex,
       setSize: topLevelCount,
       posInset: topLevelIndex + 1,
     },

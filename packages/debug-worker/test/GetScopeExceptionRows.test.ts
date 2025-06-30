@@ -10,7 +10,7 @@ test('getScopeExceptionRows', () => {
     setSize: 1,
     posInset: 1,
   } as any
-  const result = getScopeExceptionRows(scope, 0)
+  const result = getScopeExceptionRows(scope, 0, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.Exception,

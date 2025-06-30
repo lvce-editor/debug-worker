@@ -10,7 +10,7 @@ test('getScopeScopeRows', () => {
     setSize: 1,
     posInset: 1,
   } as any
-  const result = getScopeScopeRows(scope, 2)
+  const result = getScopeScopeRows(scope, 2, 2)
   expect(result).toEqual([
     {
       type: DebugRowType.Scope,

@@ -35,8 +35,9 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       for (let i = 0; i < visible.length; i++) {
         const scope = visible[i]
         const renderer = getScopeRenderer(scope.type)
-        const index = visible.indexOf(scope)
-        rows.push(...renderer(scope, index))
+        const relativeIndex = visible.indexOf(scope)
+        const absoluteIndex = startingIndex + relativeIndex
+        rows.push(...renderer(scope, relativeIndex, absoluteIndex))
       }
     } else {
       rows.push({

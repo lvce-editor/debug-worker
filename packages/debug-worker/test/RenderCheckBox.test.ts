@@ -27,6 +27,7 @@ test('renderCheckBox', () => {
     role: AriaRoles.TreeItem,
     ariaLevel: 2,
     childCount: 2,
+    'data-index': 0,
   })
   expect(result[1]).toEqual({
     type: VirtualDomElements.Input,
