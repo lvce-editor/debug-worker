@@ -192,7 +192,6 @@ test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
     parsedScripts,
   }
   const rows = getRunAndDebugVisibleRows(state)
-  console.log(rows)
   const callStackRow1 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'main')
   const callStackRow2 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'helper')
   expect(callStackRow1).toBeDefined()

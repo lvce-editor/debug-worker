@@ -1,7 +1,7 @@
+import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
 const getElementIndex = (debugId: any, scopeChain: any, text: string): number => {
   for (let i = 0; i < scopeChain.length; i++) {
@@ -23,7 +23,7 @@ export const handleClickScopeValue = async (state: RunAndDebugState, dataIndex: 
   const { scopeChain, debugId, expandedIds, visibleRows } = state
 
   const listIndex = Number.parseInt(dataIndex, 10)
-  if (isNaN(listIndex) || listIndex < 0 || listIndex >= visibleRows.length) {
+  if (Number.isNaN(listIndex) || listIndex < 0 || listIndex >= visibleRows.length) {
     return state
   }
 
