@@ -21,3 +21,18 @@ export interface DebugRow {
   readonly actions?: readonly DebugRowAction[]
   readonly tokens?: string[]
 }
+
+export interface DebugRowBase {
+  readonly type: number
+}
+
+export interface DebugRowHeading {
+  readonly heading: string
+  readonly actions: readonly DebugRowAction[]
+  readonly expanded: boolean
+}
+
+export interface DebugRowBreakPoints {
+  readonly label: string
+  readonly name: string
+}

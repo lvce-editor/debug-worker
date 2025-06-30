@@ -166,3 +166,34 @@ test('should return expanded call stack section with not paused message', () => 
     description: '',
   })
 })
+
+test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
+  const callStack = [
+    {
+      functionName: 'main',
+      functionLocation: { scriptId: '1', lineNumber: 1, columnNumber: 1 },
+      location: { scriptId: '1', lineNumber: 10, columnNumber: 5 },
+    },
+    {
+      functionName: 'helper',
+      functionLocation: { scriptId: '2', lineNumber: 1, columnNumber: 1 },
+      location: { scriptId: '2', lineNumber: 5, columnNumber: 3 },
+    },
+  ]
+  const parsedScripts = {
+    '1': { scriptId: '1', scriptLanguage: 'javascript', url: 'main.js' },
+    '2': { scriptId: '2', scriptLanguage: 'javascript', url: 'helper.js' },
+  }
+  const state = {
+    ...createDefaultState(),
+    callStackVisible: true,
+    callStackExpanded: true,
+    callStack,
+    parsedScripts,
+  }
+  const rows = getRunAndDebugVisibleRows(state)
+  const callStackRow1 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'main')
+  const callStackRow2 = rows.find((row) => row.type === DebugRowType.CallStack && row.text === 'helper')
+  expect(callStackRow1).toBeDefined()
+  expect(callStackRow2).toBeDefined()
+})
