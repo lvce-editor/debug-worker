@@ -1,5 +1,6 @@
 import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import * as Debug from '../Debug/Debug.ts'
+import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugScopeChainType from '../DebugScopeChainType/DebugScopeChainType.ts'
 import * as GetDebugPropertyValueLabel from '../GetDebugPropertyValueLabel/GetDebugPropertyValueLabel.ts'
 import * as GetDebugValueObjectId from '../GetDebugValueObjectId/GetDebugValueObjectId.ts'
@@ -27,6 +28,7 @@ export const getInnerChildScopeChain = async (
       objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
       indent: indent + 10,
       label: '',
+      flags: DebugItemFlags.None,
     })
   }
   return childScopeChain

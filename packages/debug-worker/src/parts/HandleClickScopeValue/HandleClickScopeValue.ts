@@ -3,6 +3,16 @@ import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 import * as MouseEventType from '../MouseEventType/MouseEventType.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 
+const getElementIndex = (debugId: any, scopeChain: any, text: string): number => {
+  for (let i = 0; i < scopeChain.length; i++) {
+    const element = scopeChain[i]
+    if (element.key === text) {
+      return i
+    }
+  }
+  return -1
+}
+
 // TODO pass index to function instead of text
 export const handleClickScopeValue = async (state: RunAndDebugState, dataIndex: string, button: number): Promise<RunAndDebugState> => {
   // Return state unchanged if not left click

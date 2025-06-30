@@ -1,8 +1,6 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import { hideSection } from '../HideSection/HideSection.ts'
 
 export const hideCallStack = (state: RunAndDebugState): RunAndDebugState => {
-  return {
-    ...state,
-    callStackVisible: false,
-  }
+  return hideSection(state, 'callStackVisible')
 }
