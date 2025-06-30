@@ -33,6 +33,8 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
       name: DebugRowName.CallStack,
       description: '',
       index: startingIndex,
+      setSize: callStack.length + 1,
+      posInset: 1,
     })
     if (callStack.length === 0) {
       rows.push({
@@ -46,6 +48,8 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
         name: '',
         description: '',
         index: startingIndex + 1,
+        setSize: callStack.length + 1,
+        posInset: 2,
       })
     } else {
       for (let i = 0; i < callStack.length; i++) {
@@ -66,6 +70,8 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
           description,
           hasArrow,
           index: startingIndex + i + 1,
+          setSize: callStack.length + 1,
+          posInset: i + 2,
         })
       }
     }
@@ -81,6 +87,8 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
       name: DebugRowName.CallStack,
       description: '',
       index: startingIndex,
+      setSize: 1,
+      posInset: 1,
     })
   }
   return rows
