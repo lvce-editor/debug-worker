@@ -27,7 +27,7 @@ test('renderWatchMessage', () => {
       className: 'DebugRow WatchMessage',
       childCount: 1,
       'data-index': 0,
-      ariaPosInset: 1,
+      ariaPosInSet: 1,
       ariaSetSize: 1,
     },
 
