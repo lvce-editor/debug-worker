@@ -18,13 +18,16 @@ export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Lo
   const debugButtonOne = Locator('.DebugButton').nth(0)
   await expect(debugButtonOne).toHaveAttribute('title', 'Resume')
   const rows = Locator('.DebugRow')
-  await expect(rows).toHaveCount(7)
-  await expect(rows.nth(0)).toHaveText('Local')
-  await expect(rows.nth(1)).toHaveText(
+  await expect(rows).toHaveCount(11)
+  await expect(rows.nth(0)).toHaveText('Watch')
+  await expect(rows.nth(1)).toHaveText('BreakPoints')
+  await expect(rows.nth(2)).toHaveText('Scope')
+  await expect(rows.nth(3)).toHaveText('Local')
+  await expect(rows.nth(4)).toHaveText(
     'Exception: Error: oops     at Timeout._onTimeout (/test/index.js:5:11)     at listOnTimeout (node:internal/timers:564:17)     at process.processTimers (node:internal/timers:507:7)',
   )
-  await expect(rows.nth(2)).toHaveText('this: undefined')
-  await expect(rows.nth(3)).toHaveText('Global')
+  await expect(rows.nth(5)).toHaveText('this: undefined')
+  await expect(rows.nth(6)).toHaveText('Global')
 
   // TODO
   // await expect(rows.nth(4)).toHaveText('(anonymous)')
