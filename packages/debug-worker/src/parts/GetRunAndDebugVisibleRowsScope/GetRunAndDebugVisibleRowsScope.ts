@@ -26,7 +26,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       name: DebugRowName.Scope,
       description: '',
       index: startingIndex,
-      setSize: 1,
+      setSize: topLevelCount,
       posInset: 1,
     })
     if (debugState === DebugState.Paused) {
@@ -66,7 +66,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       name: DebugRowName.Scope,
       description: '',
       index: startingIndex,
-      setSize: 1,
+      setSize: topLevelCount,
       posInset: 1,
     })
   }

@@ -33,7 +33,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
       name: DebugRowName.CallStack,
       description: '',
       index: startingIndex,
-      setSize: callStack.length + 1,
+      setSize: topLevelCount,
       posInset: 1,
     })
     if (callStack.length === 0) {
@@ -48,10 +48,12 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
         name: '',
         description: '',
         index: startingIndex + 1,
-        setSize: callStack.length + 1,
+        setSize: 1,
         posInset: 2,
       })
     } else {
+      const setSize = callStack.length + 1
+
       for (let i = 0; i < callStack.length; i++) {
         const item = callStack[i]
         const { scriptId, lineNumber, columnNumber } = item.location
@@ -70,7 +72,7 @@ export const getRunAndDebugVisibleRowsCallStack = (state: RunAndDebugState, star
           description,
           hasArrow,
           index: startingIndex + i + 1,
-          setSize: callStack.length + 1,
+          setSize: setSize,
           posInset: i + 2,
         })
       }

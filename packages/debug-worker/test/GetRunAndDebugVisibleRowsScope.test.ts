@@ -23,7 +23,7 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
     name: DebugRowName.Scope,
     description: '',
     index: 0,
-    setSize: 1,
+    setSize: 4,
     posInset: 1,
   })
 })
@@ -93,7 +93,7 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     name: DebugRowName.Scope,
     description: '',
     index: 0,
-    setSize: 1,
+    setSize: 4,
     posInset: 1,
   })
 })
