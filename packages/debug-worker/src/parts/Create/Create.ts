@@ -45,6 +45,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     selectedIndex: -1,
     visibleRows: [],
     tokenColoringEnabled: false,
+    topLevelCount: 4,
   }
   RunAndDebugStates.set(id, state, state)
 }

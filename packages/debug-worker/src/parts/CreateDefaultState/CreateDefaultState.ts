@@ -41,6 +41,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     selectedIndex: -1,
     visibleRows: [],
     tokenColoringEnabled: false,
+    topLevelCount: 4,
   }
   set(uid, state, state)
   return state
