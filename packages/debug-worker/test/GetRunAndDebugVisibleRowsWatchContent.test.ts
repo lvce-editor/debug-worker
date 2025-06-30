@@ -7,7 +7,7 @@ import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('getRunAndDebugVisibleRowsWatchContent - empty expressions', () => {
   const watchExpressions: readonly WatchExpression[] = []
-  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions)
+  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.WatchMessage,
@@ -19,7 +19,7 @@ test('getRunAndDebugVisibleRowsWatchContent - empty expressions', () => {
       valueType: '',
       name: '',
       description: '',
-      index: 0,
+      index: 1,
       setSize: 1,
       posInset: 1,
     },
@@ -39,7 +39,7 @@ test('getRunAndDebugVisibleRowsWatchContent - with expressions', () => {
       isEditing: false,
     },
   ]
-  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions)
+  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.WatchExpression,
@@ -80,7 +80,7 @@ test('getRunAndDebugVisibleRowsWatchContent - with editing expression', () => {
       isEditing: true,
     },
   ]
-  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions)
+  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.InputField,
@@ -112,7 +112,7 @@ test('getRunAndDebugVisibleRowsWatchContent - with null/undefined values', () =>
       isEditing: false,
     },
   ]
-  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions)
+  const result = getRunAndDebugVisibleRowsWatchContent(watchExpressions, 0)
   expect(result).toEqual([
     {
       type: DebugRowType.WatchExpression,
