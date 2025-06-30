@@ -74,7 +74,7 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, to
       description: '',
       index: 0,
       setSize: topLevelCount,
-      posInset: 1,
+      posInset: topLevelIndex + 1,
     },
   ]
 }
