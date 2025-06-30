@@ -130,7 +130,7 @@ test('should return expanded call stack section with callstack items and correct
     name: '',
     description: 'main.js:11',
     hasArrow: true,
-    index: 0,
+    index: 1,
     setSize: 1,
     posInset: 1,
   })
@@ -145,8 +145,8 @@ test('should return expanded call stack section with callstack items and correct
     name: '',
     description: 'helper.js:6',
     hasArrow: false,
-    index: 1,
+    index: 2,
     setSize: 1,
-    posInset: 1,
+    posInset: 2,
   })
 })

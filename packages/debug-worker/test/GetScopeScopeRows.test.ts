@@ -23,6 +23,8 @@ test('getScopeScopeRows', () => {
       name: '',
       description: '',
       index: 2,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

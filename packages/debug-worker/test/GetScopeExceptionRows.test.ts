@@ -24,6 +24,8 @@ test('getScopeExceptionRows', () => {
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

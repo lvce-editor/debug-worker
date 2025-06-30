@@ -65,6 +65,8 @@ test('should show no watch expression message when expanded and no expressions',
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

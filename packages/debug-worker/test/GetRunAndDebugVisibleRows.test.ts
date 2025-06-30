@@ -23,6 +23,8 @@ test.skip('should return watch section with default state', () => {
     name: 'Watch',
     description: '',
     actions: [],
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -93,6 +95,8 @@ test('should return scope section with default state', () => {
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -113,6 +117,8 @@ test.skip('should return expanded scope section with not paused message', () => 
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
   expect(rows[3]).toEqual({
     type: DebugRowType.Message,
@@ -124,6 +130,8 @@ test.skip('should return expanded scope section with not paused message', () => 
     valueType: '',
     name: '',
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -140,6 +148,8 @@ test('should return call stack section with default state', () => {
     valueType: '',
     name: DebugRowName.CallStack,
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -159,6 +169,8 @@ test('should return expanded call stack section with not paused message', () => 
     valueType: '',
     name: DebugRowName.CallStack,
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
   expect(rows[4]).toEqual({
     type: DebugRowType.Message,
@@ -170,6 +182,8 @@ test('should return expanded call stack section with not paused message', () => 
     valueType: '',
     name: '',
     description: '',
+    setSize: 1,
+    posInset: 1,
   })
 })
 
