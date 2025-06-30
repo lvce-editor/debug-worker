@@ -13,7 +13,7 @@ export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIn
   const { expanded, text, key, actions, index, setSize, posInset } = row
   const hasActions = actions && actions.length > 0
   const isSelected = rowIndex === selectedIndex
-  const className = getDebugRowClassName(ClassNames.DebugSectionHeader, isSelected)
+  const className = getDebugRowClassName(ClassNames.DebugSectionHeader + ' ' + ClassNames.DebugRow, isSelected)
   const nodes: VirtualDomNode[] = [
     {
       type: VirtualDomElements.Div,
