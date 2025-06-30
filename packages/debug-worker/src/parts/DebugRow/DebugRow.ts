@@ -20,6 +20,8 @@ export interface DebugRow {
   readonly index?: number
   readonly actions?: readonly DebugRowAction[]
   readonly tokens?: string[]
+  readonly setSize?: number
+  readonly posInset?: number
 }
 
 export interface DebugRowBase {
