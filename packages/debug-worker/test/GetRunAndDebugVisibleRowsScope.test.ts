@@ -10,7 +10,7 @@ import { getRunAndDebugVisibleRowsScope } from '../src/parts/GetRunAndDebugVisib
 
 test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpanded is false', () => {
   const state = createDefaultState()
-  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4)
+  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows).toHaveLength(1)
   expect(rows[0]).toEqual({
     type: DebugRowType.SectionHeading,
@@ -35,7 +35,7 @@ test.skip('getRunAndDebugVisibleRowsScope returns not paused message when scopeE
     scopeChain: [],
     debugState: DebugState.Paused,
   }
-  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4)
+  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows).toHaveLength(2)
   expect(rows[0]).toEqual({
     type: DebugRowType.SectionHeading,
@@ -81,7 +81,7 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
       },
     ] as any[],
   }
-  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4)
+  const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows[0]).toEqual({
     type: DebugRowType.SectionHeading,
     text: DebugStrings.scope(),
