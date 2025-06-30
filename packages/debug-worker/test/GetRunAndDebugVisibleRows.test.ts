@@ -41,9 +41,9 @@ test('should return breakpoints section with default state', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
-    index: 1,
-    setSize: 3,
-    posInset: 2,
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -65,9 +65,9 @@ test('should return expanded breakpoints section with all exceptions', () => {
     valueType: '',
     name: DebugRowName.BreakPoints,
     description: '',
-    index: 1,
-    setSize: 3,
-    posInset: 2,
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CheckBox,
@@ -95,7 +95,7 @@ test('should return scope section with default state', () => {
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
-    index: 2,
+    index: 0,
     setSize: 1,
     posInset: 1,
   })
@@ -118,7 +118,7 @@ test.skip('should return expanded scope section with not paused message', () => 
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
-    index: 2,
+    index: 0,
     setSize: 1,
     posInset: 1,
   })
@@ -132,9 +132,9 @@ test.skip('should return expanded scope section with not paused message', () => 
     valueType: '',
     name: '',
     description: '',
-    index: 3,
+    index: 4,
     setSize: 1,
-    posInset: 1,
+    posInset: 2,
   })
 })
 
@@ -151,8 +151,8 @@ test('should return call stack section with default state', () => {
     valueType: '',
     name: DebugRowName.CallStack,
     description: '',
-    index: 3,
-    setSize: 1,
+    index: 0,
+    setSize: 3,
     posInset: 1,
   })
 })
@@ -173,8 +173,8 @@ test('should return expanded call stack section with not paused message', () => 
     valueType: '',
     name: DebugRowName.CallStack,
     description: '',
-    index: 3,
-    setSize: 1,
+    index: 0,
+    setSize: 3,
     posInset: 1,
   })
   expect(rows[4]).toEqual({
@@ -189,7 +189,7 @@ test('should return expanded call stack section with not paused message', () => 
     description: '',
     index: 4,
     setSize: 1,
-    posInset: 1,
+    posInset: 2,
   })
 })
 

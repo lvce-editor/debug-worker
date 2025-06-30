@@ -73,9 +73,9 @@ test('should return expanded call stack section with not paused message when cal
       valueType: '',
       name: '',
       description: '',
-      index: 0,
+      index: 1,
       setSize: 1,
-      posInset: 1,
+      posInset: 2,
     },
   ])
 })
@@ -132,7 +132,7 @@ test('should return expanded call stack section with callstack items and correct
     hasArrow: true,
     index: 1,
     setSize: 1,
-    posInset: 1,
+    posInset: 2,
   })
   expect(rows[2]).toEqual({
     type: DebugRowType.CallStack,
@@ -145,8 +145,8 @@ test('should return expanded call stack section with callstack items and correct
     name: '',
     description: 'helper.js:6',
     hasArrow: false,
-    index: 2,
-    setSize: 1,
+    index: 1,
+    setSize: 3,
     posInset: 2,
   })
 })
