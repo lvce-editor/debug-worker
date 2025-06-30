@@ -19,6 +19,7 @@ const debugProvider = {
       hitBreakpoints: [],
     }
   },
+  setPauseOnExceptions() {},
   async getCallStack() {
     return [
       {
