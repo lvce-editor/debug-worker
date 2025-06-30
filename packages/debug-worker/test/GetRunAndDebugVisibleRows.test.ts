@@ -94,7 +94,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
     name: InputName.PauseOnUncaughtExceptions,
     description: '',
     index: 2,
-    setSize: 1,
+    setSize: 3,
     posInset: 3,
   })
 })

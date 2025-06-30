@@ -2,12 +2,12 @@ import { test, expect } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsWatch } from '../src/parts/GetRunAndDebugVisibleRowsWatch/GetRunAndDebugVisibleRowsWatch.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 
 test('should return watch section with default state', () => {
   const state = createDefaultState()
