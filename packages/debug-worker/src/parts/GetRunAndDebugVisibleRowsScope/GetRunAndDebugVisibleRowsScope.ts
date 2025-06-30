@@ -1,6 +1,5 @@
 import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
-import type { Scope } from '../Scope/Scope.ts'
 import * as DebugRowName from '../DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../DebugSectionId/DebugSectionId.ts'
