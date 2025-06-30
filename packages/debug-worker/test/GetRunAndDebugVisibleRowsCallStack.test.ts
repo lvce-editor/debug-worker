@@ -35,7 +35,7 @@ test('should return collapsed call stack section when callStackExpanded is false
       description: '',
       index: 0,
       setSize: 1,
-      posInset: 2,
+      posInset: 1,
     },
   ])
 })
