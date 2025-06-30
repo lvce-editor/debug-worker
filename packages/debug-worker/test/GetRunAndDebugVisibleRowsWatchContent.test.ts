@@ -19,6 +19,9 @@ test('getRunAndDebugVisibleRowsWatchContent - empty expressions', () => {
       valueType: '',
       name: '',
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })
@@ -49,6 +52,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with expressions', () => {
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
     {
       type: DebugRowType.WatchExpression,
@@ -61,6 +66,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with expressions', () => {
       name: '',
       description: '',
       index: 1,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })
@@ -86,6 +93,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with editing expression', () => {
       name: InputName.WatchExpressionInput,
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })
@@ -116,6 +125,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with null/undefined values', () =>
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
     {
       type: DebugRowType.WatchExpression,
@@ -128,6 +139,8 @@ test('getRunAndDebugVisibleRowsWatchContent - with null/undefined values', () =>
       name: '',
       description: '',
       index: 1,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

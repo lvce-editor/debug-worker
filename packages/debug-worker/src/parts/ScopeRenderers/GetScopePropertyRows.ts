@@ -20,6 +20,8 @@ export const getScopePropertyRows = (scope: Scope, index: number): readonly Debu
       name: '',
       description: '',
       index,
+      setSize: 1,
+      posInset: 1,
     },
   ]
 }

@@ -25,6 +25,7 @@ test('handleSpace does nothing for non-checkbox rows', async () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
   const result = await handleSpace(state)
@@ -58,6 +59,7 @@ test('handleSpace toggles checkbox rows', async () => {
     valueType: '',
     name: InputName.PauseOnExceptions,
     description: '',
+    index: 0,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [checkboxRow] }
   const result = await handleSpace(state)

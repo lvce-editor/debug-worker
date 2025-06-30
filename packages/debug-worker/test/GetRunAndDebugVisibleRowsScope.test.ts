@@ -22,6 +22,9 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
 })
 
@@ -44,6 +47,9 @@ test.skip('getRunAndDebugVisibleRowsScope returns not paused message when scopeE
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
   expect(rows[1]).toEqual({
     type: DebugRowType.Message,
@@ -86,5 +92,8 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     valueType: '',
     name: DebugRowName.Scope,
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   })
 })

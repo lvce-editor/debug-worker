@@ -7,4 +7,5 @@ export interface ScopeChainItem {
   readonly value: string
   readonly valueType: string
   readonly flags: number
+  readonly index?: number
 }

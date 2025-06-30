@@ -7,6 +7,8 @@ test('getScopeScopeRows', () => {
   const scope = {
     key: 'scope',
     flags: DebugItemFlags.Expanded,
+    setSize: 1,
+    posInset: 1,
   } as any
   const result = getScopeScopeRows(scope, 2)
   expect(result).toEqual([
@@ -21,6 +23,8 @@ test('getScopeScopeRows', () => {
       name: '',
       description: '',
       index: 2,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

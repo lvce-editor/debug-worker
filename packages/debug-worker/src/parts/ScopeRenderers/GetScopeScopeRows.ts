@@ -17,6 +17,8 @@ export const getScopeScopeRows = (scope: Scope, index: number): readonly DebugRo
       name: '',
       description: '',
       index,
+      setSize: 1,
+      posInset: 1,
     },
   ]
 }

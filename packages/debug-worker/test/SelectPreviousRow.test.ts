@@ -14,6 +14,7 @@ test('selectPreviousRow decrements selectedIndex', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -32,6 +33,7 @@ test('selectPreviousRow does not go below -1', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -49,6 +51,7 @@ test('selectPreviousRow stays at -1 when already at -1', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -72,6 +75,7 @@ test('selectPreviousRow handles negative selectedIndex input', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -89,6 +93,7 @@ test('selectPreviousRow handles selectedIndex beyond array bounds', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
   }
   const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)

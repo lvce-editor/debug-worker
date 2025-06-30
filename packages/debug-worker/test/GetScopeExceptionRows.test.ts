@@ -7,6 +7,8 @@ test('getScopeExceptionRows', () => {
     key: 'error',
     value: 'test error',
     indent: 1,
+    setSize: 1,
+    posInset: 1,
   } as any
   const result = getScopeExceptionRows(scope, 0)
   expect(result).toEqual([
@@ -22,6 +24,8 @@ test('getScopeExceptionRows', () => {
       name: '',
       description: '',
       index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })

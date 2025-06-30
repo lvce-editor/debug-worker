@@ -55,6 +55,7 @@ test('handleRename does nothing for non-watch expression rows', async (): Promis
         valueType: 'string',
         name: 'test',
         description: 'test',
+        index: 0,
       },
     ],
   }

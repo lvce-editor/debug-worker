@@ -28,6 +28,9 @@ test('handleArrowLeft collapses expanded watch section heading', async () => {
         name: DebugRowName.Watch,
         description: '',
         actions: [],
+        index: 0,
+        setSize: 1,
+        posInset: 1,
       },
     ],
   }
@@ -52,6 +55,9 @@ test('handleArrowLeft does nothing if watch section heading is already collapsed
         name: DebugRowName.Watch,
         description: '',
         actions: [],
+        index: 0,
+        setSize: 1,
+        posInset: 1,
       },
     ],
   }

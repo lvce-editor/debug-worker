@@ -2,6 +2,7 @@ import { test, expect } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { addWatchExpression } from '../src/parts/AddWatchExpression/AddWatchExpression.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
+import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
@@ -20,8 +21,11 @@ test('should return watch section with default state', () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [],
     },
   ])
@@ -43,8 +47,11 @@ test('should show no watch expression message when expanded and no expressions',
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: expect.any(Array),
     },
     {
@@ -57,6 +64,9 @@ test('should show no watch expression message when expanded and no expressions',
       valueType: '',
       name: '',
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
     },
   ])
 })
@@ -78,8 +88,11 @@ test.skip('should show watch expressions when expanded', async () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [
         {
           id: InputName.AddWatchExpression,
@@ -130,8 +143,11 @@ test.skip('should show input field for new watch expression', async () => {
       value: '',
       indent: 0,
       valueType: '',
-      name: 'Watch',
+      name: DebugRowName.Watch,
       description: '',
+      index: 0,
+      setSize: 1,
+      posInset: 1,
       actions: [
         {
           id: InputName.AddWatchExpression,

@@ -19,6 +19,9 @@ test('renderSectionHeading - expanded', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row, -1, 0)
   expect(result[0]).toEqual({
@@ -30,6 +33,7 @@ test('renderSectionHeading - expanded', () => {
     childCount: 2,
     onClick: DomEventListenerFunctions.HandleClickSectionHeading,
     onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
+    'data-index': 0,
     'data-name': 'test-key',
   })
   expect(result[1]).toEqual(GetChevronVirtualDom.getChevronDownVirtualDom())
@@ -47,6 +51,9 @@ test('renderSectionHeading - collapsed', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const result = GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading(row, -1, 0)
   expect(result[0]).toEqual({
@@ -58,6 +65,7 @@ test('renderSectionHeading - collapsed', () => {
     childCount: 2,
     onClick: DomEventListenerFunctions.HandleClickSectionHeading,
     onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
+    'data-index': 0,
     'data-name': 'test-key',
   })
   expect(result[1]).toEqual(GetChevronVirtualDom.getChevronRightVirtualDom())

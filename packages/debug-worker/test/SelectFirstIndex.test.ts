@@ -15,6 +15,9 @@ test('selectFirstIndex sets selectedIndex to 0', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectFirstIndex(state)
@@ -33,6 +36,9 @@ test('selectFirstIndex works from -1', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectFirstIndex(state)
@@ -50,6 +56,9 @@ test('selectFirstIndex works from middle index', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 2, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectFirstIndex(state)
@@ -67,6 +76,9 @@ test('selectFirstIndex handles single row', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
   const result = selectFirstIndex(state)
@@ -90,6 +102,9 @@ test('selectFirstIndex returns new state object', () => {
     valueType: '',
     name: '',
     description: '',
+    index: 0,
+    setSize: 1,
+    posInset: 1,
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
   const result = selectFirstIndex(state)
