@@ -32,3 +32,6 @@ export const {
   InputBox,
   InputLabel,
 } = ClassNames
+
+export const DebugRowSelected = 'DebugRowSelected'
+export const DebugToken = 'DebugToken'
