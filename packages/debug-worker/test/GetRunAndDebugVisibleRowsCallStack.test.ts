@@ -1,4 +1,5 @@
 import { expect, test } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
@@ -7,7 +8,7 @@ import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsCallStack } from '../src/parts/GetRunAndDebugVisibleRowsCallStack/GetRunAndDebugVisibleRowsCallStack.ts'
 
 test('should return empty array when callStackVisible is false', () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackVisible: false,
   }
@@ -16,7 +17,7 @@ test('should return empty array when callStackVisible is false', () => {
 })
 
 test('should return collapsed call stack section when callStackExpanded is false', () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackVisible: true,
     callStackExpanded: false,
@@ -41,7 +42,7 @@ test('should return collapsed call stack section when callStackExpanded is false
 })
 
 test('should return expanded call stack section with not paused message when callStack is empty', () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackVisible: true,
     callStackExpanded: true,
@@ -97,7 +98,7 @@ test('should return expanded call stack section with callstack items and correct
     '1': { scriptId: '1', scriptLanguage: 'javascript', url: 'main.js' },
     '2': { scriptId: '2', scriptLanguage: 'javascript', url: 'helper.js' },
   }
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackVisible: true,
     callStackExpanded: true,
