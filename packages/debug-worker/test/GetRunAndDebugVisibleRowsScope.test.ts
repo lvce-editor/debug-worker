@@ -9,7 +9,7 @@ import * as DebugStrings from '../src/parts/DebugStrings/DebugStrings.ts'
 import { getRunAndDebugVisibleRowsScope } from '../src/parts/GetRunAndDebugVisibleRowsScope/GetRunAndDebugVisibleRowsScope.ts'
 
 test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpanded is false', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows).toHaveLength(1)
   expect(rows[0]).toEqual({
@@ -29,7 +29,7 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
 })
 
 test.skip('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpanded is true and scopeChain is empty', () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     scopeExpanded: true,
     scopeChain: [],

@@ -10,7 +10,7 @@ import { getRunAndDebugVisibleRowsWatch } from '../src/parts/GetRunAndDebugVisib
 import * as InputName from '../src/parts/InputName/InputName.ts'
 
 test('should return watch section with default state', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRowsWatch(state, 0, 4, 1)
   expect(rows).toEqual([
     {
@@ -32,8 +32,8 @@ test('should return watch section with default state', () => {
 })
 
 test('should show no watch expression message when expanded and no expressions', () => {
-  const state = createDefaultState()
-  const expandedState = {
+  const state: RunAndDebugState = createDefaultState()
+  const expandedState: RunAndDebugState = {
     ...state,
     watchExpanded: true,
   }
@@ -171,20 +171,20 @@ test.skip('should show input field for new watch expression', async () => {
 })
 
 test('should not show actions when watch is not expanded', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRowsWatch(state, 0, 4, 1)
   expect(rows[0].actions).toEqual([])
 })
 
 test('getWatchActions should return empty array when watch is not expanded', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRowsWatch(state, 0, 4, 1)
   expect(rows[0].actions).toEqual([])
 })
 
 test('getWatchActions should return actions when watch is expanded', () => {
-  const state = createDefaultState()
-  const expandedState = {
+  const state: RunAndDebugState = createDefaultState()
+  const expandedState: RunAndDebugState = {
     ...state,
     watchExpanded: true,
   }
@@ -193,8 +193,8 @@ test('getWatchActions should return actions when watch is expanded', () => {
 })
 
 test('should show actions when watch is expanded', () => {
-  const state = createDefaultState()
-  const expandedState = {
+  const state: RunAndDebugState = createDefaultState()
+  const expandedState: RunAndDebugState = {
     ...state,
     watchExpanded: true,
   }

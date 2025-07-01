@@ -1,10 +1,11 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { collapseScopeChain } from '../src/parts/CollapseScopeChain/CollapseScopeChain.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('collapseScopeChain', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const expandedIds = ['scope1', 'scope2']
   const scopeChain = [
     { objectId: 'scope1', indent: 0 },
@@ -15,7 +16,7 @@ test('collapseScopeChain', () => {
   const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
-  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index, 0)
+  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
 
   expect(result.expandedIds).toEqual(['scope1'])
   expect(result.scopeChain).toEqual([
@@ -31,7 +32,7 @@ test('collapseScopeChain', () => {
 })
 
 test('collapseScopeChain - no children to collapse', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const expandedIds = ['scope1']
   const scopeChain = [
     { objectId: 'scope1', indent: 0 },
@@ -40,7 +41,7 @@ test('collapseScopeChain - no children to collapse', () => {
   const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
-  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index, 0)
+  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
 
   expect(result.expandedIds).toEqual(['scope1'])
   expect(result.scopeChain).toEqual([
