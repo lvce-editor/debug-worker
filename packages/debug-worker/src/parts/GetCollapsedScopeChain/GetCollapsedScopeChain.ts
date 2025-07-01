@@ -1,5 +1,5 @@
-import { getCollapsedEndIndex } from '../GetCollapsedEndIndex/GetCollapsedEndIndex.ts'
 import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
+import { getCollapsedEndIndex } from '../GetCollapsedEndIndex/GetCollapsedEndIndex.ts'
 
 export interface CollapsedScopeChainResult {
   readonly newScopeChain: readonly ScopeChainItem[]

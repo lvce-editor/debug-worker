@@ -6,5 +6,5 @@ export const getCollapsedEndIndex = (scopeChain: readonly ScopeChainItem[], star
       return i
     }
   }
-  return scopeChain.length - 1
+  return scopeChain.length
 }
