@@ -34,7 +34,7 @@ export const collapseScopeChain = (
   state: RunAndDebugState,
   expandedIds: readonly string[],
   scopeChain: readonly ScopeChainItem[],
-  element: any,
+  element: ScopeChainItem,
   index: number,
 ): RunAndDebugState => {
   const { cache } = state
