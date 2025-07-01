@@ -21,7 +21,6 @@ export const collapseScopeChain = (
   const { cache } = state
   const newExpandedIds = Arrays.removeElement(expandedIds, element.objectId)
   const { newScopeChain, newCache } = getCollapsedScopeChain(cache, scopeChain, element, scopeChainIndex)
-  console.log({ newScopeChain, newCache, scopeChain })
   const newState: RunAndDebugState = {
     ...state,
     expandedIds: newExpandedIds,
