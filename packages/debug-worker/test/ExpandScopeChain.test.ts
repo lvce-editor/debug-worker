@@ -4,12 +4,13 @@ import * as RpcRegistry from '@lvce-editor/rpc-registry'
 import { RpcId } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
+import { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 
 test('expandScopeChain', async () => {
   const state = createDefaultState()
   const expandedIds = ['id1']
   const scopeChain = [{ objectId: 'scope1' }, { objectId: 'scope2' }] as any[]
-  const element = {}
+  const element = {} as ScopeChainItem
   const index = 1
   const debugId = 'debug1'
 
