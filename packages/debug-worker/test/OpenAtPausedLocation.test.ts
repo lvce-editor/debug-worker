@@ -1,5 +1,6 @@
 import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { getKey, openAtPausedLocation } from '../src/parts/OpenAtPausedLocation/OpenAtPausedLocation.ts'
@@ -8,7 +9,7 @@ import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugSt
 
 test('getKey', () => {
   const mockKey = 1
-  const state = createDefaultState(mockKey)
+  const state: RunAndDebugState = createDefaultState(mockKey)
   RunAndDebugStates.set(mockKey, state, state)
   const result = getKey()
   expect(result).toBe(mockKey)
@@ -16,7 +17,7 @@ test('getKey', () => {
 
 test('openAtPausedLocation - with call stack', async () => {
   const mockKey = 1
-  const mockState = {
+  const mockState: RunAndDebugState = {
     ...createDefaultState(mockKey),
     callStack: [
       {
@@ -69,7 +70,7 @@ test('openAtPausedLocation - with call stack', async () => {
 
 test('openAtPausedLocation - empty call stack', async () => {
   const mockKey = 1
-  const mockState = {
+  const mockState: RunAndDebugState = {
     ...createDefaultState(mockKey),
     callStack: [],
   }

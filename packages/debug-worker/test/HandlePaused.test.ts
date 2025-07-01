@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
@@ -50,7 +51,7 @@ test.skip('handlePaused updates state correctly', async () => {
     return
   })
 
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const params = {
     callFrames: [
       {
@@ -102,7 +103,7 @@ test('togglePause switches between pause and resume', async () => {
     return
   })
 
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const pausedState = { ...state, debugState: DebugState.Paused }
 
   await togglePause(state)
