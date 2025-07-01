@@ -16,7 +16,7 @@ test('collapseScopeChain', () => {
   const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
-  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
+  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index, 0)
 
   expect(result.expandedIds).toEqual(['scope1'])
   expect(result.scopeChain).toEqual([
@@ -41,7 +41,7 @@ test('collapseScopeChain - no children to collapse', () => {
   const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
-  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
+  const result = collapseScopeChain(state, expandedIds, scopeChain, element, index, 0)
 
   expect(result.expandedIds).toEqual(['scope1'])
   expect(result.scopeChain).toEqual([
