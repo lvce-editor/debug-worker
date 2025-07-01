@@ -39,7 +39,7 @@ test('handleClickCallstackItem', async () => {
       scriptId: '1',
       scriptLanguage: 'javascript',
       url: 'test.js',
-    } as ParsedScript,
+    },
   }
   const newState = {
     ...state,

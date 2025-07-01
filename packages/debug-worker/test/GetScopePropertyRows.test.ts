@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
+import type { Scope } from '../src/parts/Scope/Scope.ts'
 import * as DebugItemFlags from '../src/parts/DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import { getScopePropertyRows } from '../src/parts/ScopeRenderers/GetScopePropertyRows.ts'
-import type { Scope } from '../src/parts/Scope/Scope.ts'
 
 test('getScopePropertyRows', () => {
   const scope: Scope = {

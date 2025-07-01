@@ -1,8 +1,8 @@
 import { test, expect } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
+import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { isEqual } from '../src/parts/DiffItems/DiffItems.ts'
-import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 
 test('isEqual - identical states', () => {
   const state: RunAndDebugState = createDefaultState(0)

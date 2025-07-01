@@ -1,5 +1,4 @@
-import { test, expect } from '@jest/globals'
-import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
+import { expect, test } from '@jest/globals'
 import { getOpenInfo } from '../src/parts/GetOpenInfo/GetOpenInfo.ts'
 
 test('getOpenInfo', () => {
@@ -8,7 +7,7 @@ test('getOpenInfo', () => {
       scriptId: '1',
       scriptLanguage: 'javascript',
       url: 'test.js',
-    } as ParsedScript,
+    },
   }
   const item = {
     functionName: 'test',

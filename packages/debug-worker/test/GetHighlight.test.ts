@@ -1,9 +1,9 @@
 import { test, expect } from '@jest/globals'
+import type { CallStackItem } from '../src/parts/CallStackItem/CallStackItem.ts'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getHighlight } from '../src/parts/GetHighlight/GetHighlight.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
-import type { CallStackItem } from '../src/parts/CallStackItem/CallStackItem.ts'
 
 test('returns empty highlight when state does not exist', () => {
   const highlight = getHighlight(1)
