@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickCheckBox } from '../src/parts/HandleClickCheckBox/HandleClickCheckBox.ts'
@@ -22,7 +23,7 @@ test('handleClickCheckBox with pause-on-exceptions', async () => {
     invoke: () => undefined,
   })
   ExtensionHost.set(mockExtensionHost)
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const result = await handleClickCheckBox(state, InputName.PauseOnExceptions)
   expect(result).toBeDefined()
 })
@@ -43,7 +44,7 @@ test('handleClickCheckBox with pause-on-uncaught-exceptions', async () => {
     invoke: () => undefined,
   })
   ExtensionHost.set(mockExtensionHost)
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const result = await handleClickCheckBox(state, InputName.PauseOnUncaughtExceptions)
   expect(result).toBeDefined()
 })
@@ -63,7 +64,7 @@ test('handleClickCheckBox with invalid name throws error', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-  ExtensionHost.set(mockExtensionHost)
-  const state = createDefaultState()
-  expect(() => handleClickCheckBox(state, 'invalid-name')).toThrow('unknown input name')
+      ExtensionHost.set(mockExtensionHost)
+  const state: RunAndDebugState = createDefaultState()
+    expect(() => handleClickCheckBox(state, 'invalid-name')).toThrow('unknown input name')
 })

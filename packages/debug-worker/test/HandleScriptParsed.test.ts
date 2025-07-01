@@ -1,10 +1,11 @@
 import { test, expect } from '@jest/globals'
 import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleScriptParsed } from '../src/parts/HandleScriptParsed/HandleScriptParsed.ts'
 
 test('handleScriptParsed adds parsed script to state', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const parsedScript: ParsedScript = {
     scriptId: 'test-script',
     scriptLanguage: 'javascript',
@@ -15,7 +16,7 @@ test('handleScriptParsed adds parsed script to state', () => {
 })
 
 test('handleScriptParsed preserves existing parsed scripts', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const existingScript: ParsedScript = {
     scriptId: 'existing-script',
     scriptLanguage: 'javascript',

@@ -4,12 +4,12 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import { isEqual } from '../src/parts/DiffItems/DiffItems.ts'
 
 test('isEqual - identical states', () => {
-  const state = createDefaultState(0)
+  const state: RunAndDebugState = createDefaultState(0)
   expect(isEqual(state, state)).toBe(true)
 })
 
 test('isEqual - different scopeChain', () => {
-  const state1 = createDefaultState(0)
+  const state1: RunAndDebugState = createDefaultState(0)
   const state2: RunAndDebugState = {
     ...createDefaultState(0),
     scopeChain: ['different'] as any,
@@ -18,7 +18,7 @@ test('isEqual - different scopeChain', () => {
 })
 
 test('isEqual - different scopeExpanded', () => {
-  const state1 = createDefaultState()
+  const state1: RunAndDebugState = createDefaultState()
   const state2: RunAndDebugState = {
     ...createDefaultState(),
     scopeExpanded: true,
@@ -27,7 +27,7 @@ test('isEqual - different scopeExpanded', () => {
 })
 
 test('isEqual - different callFrameId', () => {
-  const state1 = createDefaultState()
+  const state1: RunAndDebugState = createDefaultState()
   const state2: RunAndDebugState = {
     ...createDefaultState(),
     callFrameId: 'different',
@@ -36,7 +36,7 @@ test('isEqual - different callFrameId', () => {
 })
 
 test('isEqual - different breakPointsExpanded', () => {
-  const state1 = createDefaultState()
+  const state1: RunAndDebugState = createDefaultState()
   const state2: RunAndDebugState = {
     ...createDefaultState(),
     breakPointsExpanded: true,
@@ -45,7 +45,7 @@ test('isEqual - different breakPointsExpanded', () => {
 })
 
 test('isEqual - different debugState', () => {
-  const state1 = createDefaultState()
+  const state1: RunAndDebugState = createDefaultState()
   const state2: RunAndDebugState = {
     ...createDefaultState(),
     debugState: 1,
