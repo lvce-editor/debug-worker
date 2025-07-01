@@ -49,6 +49,7 @@ export const collapseScopeChain = (
     cache: newCache,
     focus: WhenExpression.FocusDebugRow,
     focusedIndex: index,
+    selectedIndex: index,
   }
   return updateVisibleRows(newState)
 }

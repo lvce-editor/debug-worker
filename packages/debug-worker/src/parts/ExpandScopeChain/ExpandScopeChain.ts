@@ -24,6 +24,7 @@ export const expandScopeChain = async (
     scopeFocusedIndex: scopeChainIndex,
     focus: WhenExpression.FocusDebugRow,
     focusedIndex: index,
+    selectedIndex: index,
   }
   return updateVisibleRows(newState)
 }
