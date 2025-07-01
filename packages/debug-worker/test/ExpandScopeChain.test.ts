@@ -37,7 +37,7 @@ test('expandScopeChain', async () => {
   RpcRegistry.set(RpcId.RendererWorker, mockRpc)
   RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
 
-  const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId)
+  const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId, 0)
 
   expect(result).toEqual({
     ...state,
