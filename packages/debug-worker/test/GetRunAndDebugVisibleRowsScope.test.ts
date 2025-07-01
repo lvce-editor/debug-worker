@@ -71,15 +71,16 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
     expandedIds: ['1'],
     scopeChain: [
       {
-        type: 'Scope',
-        name: 'Local',
-        variables: [],
+        type: 1,
         key: '1',
         objectId: '1',
-
         valueType: 'object',
+        indent: 0,
+        label: 'Local',
+        value: 'Local',
+        flags: 0
       },
-    ] as any[],
+    ],
   }
   const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows[0]).toEqual({
