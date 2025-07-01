@@ -1,5 +1,6 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
@@ -32,14 +33,14 @@ const setupRendererAndExtensionHost = async (): Promise<void> => {
 
 test('handleClickPauseOnUncaughtExceptions - from None to Uncaught', async () => {
   await setupRendererAndExtensionHost()
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const result = await handleClickPauseOnUncaughtExceptions(state)
   expect(result.exceptionBreakPoints).toBe(ExceptionBreakPoints.Uncaught)
 })
 
 test('handleClickPauseOnUncaughtExceptions - from Uncaught to None', async () => {
   await setupRendererAndExtensionHost()
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.Uncaught,
   }
@@ -49,7 +50,7 @@ test('handleClickPauseOnUncaughtExceptions - from Uncaught to None', async () =>
 
 test('handleClickPauseOnUncaughtExceptions - from All to None', async () => {
   await setupRendererAndExtensionHost()
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.All,
   }
