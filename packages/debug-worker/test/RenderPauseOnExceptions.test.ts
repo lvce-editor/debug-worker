@@ -1,12 +1,13 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
 import { renderPauseOnExceptions } from '../src/parts/RenderPauseOnExceptions/RenderPauseOnExceptions.ts'
 
 test.skip('renderPauseOnExceptions - None state', () => {
-  const oldState = createDefaultState()
-  const newState = createDefaultState()
+  const oldState: RunAndDebugState = createDefaultState()
+  const newState: RunAndDebugState = createDefaultState()
   const result = renderPauseOnExceptions(oldState, newState)
 
   expect(result).toEqual([
@@ -16,8 +17,8 @@ test.skip('renderPauseOnExceptions - None state', () => {
 })
 
 test.skip('renderPauseOnExceptions - All state', () => {
-  const oldState = createDefaultState()
-  const newState = {
+  const oldState: RunAndDebugState = createDefaultState()
+  const newState: RunAndDebugState = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.All,
   }
@@ -30,8 +31,8 @@ test.skip('renderPauseOnExceptions - All state', () => {
 })
 
 test.skip('renderPauseOnExceptions - Uncaught state', () => {
-  const oldState = createDefaultState()
-  const newState = {
+  const oldState: RunAndDebugState = createDefaultState()
+  const newState: RunAndDebugState = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.Uncaught,
   }
@@ -44,8 +45,8 @@ test.skip('renderPauseOnExceptions - Uncaught state', () => {
 })
 
 test.skip('renderPauseOnExceptions - with different id', () => {
-  const oldState = createDefaultState(1)
-  const newState = {
+  const oldState: RunAndDebugState = createDefaultState(1)
+  const newState: RunAndDebugState = {
     ...createDefaultState(1),
     id: 2,
     exceptionBreakPoints: ExceptionBreakPoints.All,
