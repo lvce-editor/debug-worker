@@ -1,5 +1,5 @@
-import { handleClickScopeChainIndex } from '../HandleClickScopeChainIndex/HandleClickScopeChainIndex.ts'
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
+import { handleClickScopeChainIndex } from '../HandleClickScopeChainIndex/HandleClickScopeChainIndex.ts'
 
 export const handleClickScopeValueIndex = async (state: RunAndDebugState, index: number): Promise<RunAndDebugState> => {
   const { scopeChain, visibleRows } = state
