@@ -1,5 +1,6 @@
 import { test, expect } from '@jest/globals'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
+import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { isEqual } from '../src/parts/DiffItems/DiffItems.ts'
 
@@ -12,7 +13,16 @@ test('isEqual - different scopeChain', () => {
   const state1: RunAndDebugState = createDefaultState(0)
   const state2: RunAndDebugState = {
     ...createDefaultState(0),
-    scopeChain: ['different'] as any,
+    scopeChain: [{
+      objectId: 'different',
+      indent: 0,
+      key: 'different',
+      label: '',
+      type: 0,
+      value: '',
+      valueType: '',
+      flags: 0,
+    }] as readonly ScopeChainItem[],
   }
   expect(isEqual(state1, state2)).toBe(false)
 })

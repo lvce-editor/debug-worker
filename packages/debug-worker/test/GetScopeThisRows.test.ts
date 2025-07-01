@@ -1,14 +1,19 @@
 import { test, expect } from '@jest/globals'
+import type { Scope } from '../src/parts/Scope/Scope.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import { getScopeThisRows } from '../src/parts/ScopeRenderers/GetScopeThisRows.ts'
 
 test('getScopeThisRows', () => {
-  const scope = {
+  const scope: Scope = {
     indent: 1,
     key: 'this',
     value: 'test',
     valueType: 'string',
-  } as any
+    label: '',
+    objectId: '',
+    type: 0,
+    flags: 0,
+  }
   const result = getScopeThisRows(scope, 0, 0)
   expect(result).toEqual([
     {

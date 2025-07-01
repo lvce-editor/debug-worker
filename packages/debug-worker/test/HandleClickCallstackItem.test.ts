@@ -1,7 +1,6 @@
 import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
-import type { ParsedScript } from '../src/parts/ParsedScript/ParsedScript.ts'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleClickCallstackItem } from '../src/parts/HandleClickCallstackItem/HandleClickCallstackItem.ts'
@@ -39,7 +38,7 @@ test('handleClickCallstackItem', async () => {
       scriptId: '1',
       scriptLanguage: 'javascript',
       url: 'test.js',
-    } as ParsedScript,
+    },
   }
   const newState = {
     ...state,

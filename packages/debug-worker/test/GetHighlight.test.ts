@@ -34,7 +34,13 @@ test('returns highlight from top of call stack', () => {
           lineNumber: 10,
           columnNumber: 5,
         },
-      } as any,
+        functionLocation: {
+          scriptId: 'script1',
+          lineNumber: 0,
+          columnNumber: 0,
+        },
+        functionName: '',
+      },
     ],
     parsedScripts: {
       script1: {

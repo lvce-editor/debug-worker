@@ -1,15 +1,20 @@
 import { test, expect } from '@jest/globals'
+import type { Scope } from '../src/parts/Scope/Scope.ts'
 import * as DebugItemFlags from '../src/parts/DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import { getScopeScopeRows } from '../src/parts/ScopeRenderers/GetScopeScopeRows.ts'
 
 test('getScopeScopeRows', () => {
-  const scope = {
+  const scope: Scope = {
     key: 'scope',
     flags: DebugItemFlags.Expanded,
-    setSize: 1,
-    posInset: 1,
-  } as any
+    indent: 0,
+    label: '',
+    objectId: '',
+    type: 0,
+    value: '',
+    valueType: '',
+  }
   const result = getScopeScopeRows(scope, 2, 2)
   expect(result).toEqual([
     {
