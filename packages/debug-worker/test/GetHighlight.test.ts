@@ -3,6 +3,7 @@ import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebug
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { getHighlight } from '../src/parts/GetHighlight/GetHighlight.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
+import type { CallStackItem } from '../src/parts/CallStackItem/CallStackItem.ts'
 
 test('returns empty highlight when state does not exist', () => {
   const highlight = getHighlight(1)
@@ -34,7 +35,13 @@ test('returns highlight from top of call stack', () => {
           lineNumber: 10,
           columnNumber: 5,
         },
-      } as any,
+        functionLocation: {
+          scriptId: 'script1',
+          lineNumber: 0,
+          columnNumber: 0,
+        },
+        functionName: '',
+      },
     ],
     parsedScripts: {
       script1: {

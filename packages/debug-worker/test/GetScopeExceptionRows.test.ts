@@ -1,15 +1,19 @@
 import { test, expect } from '@jest/globals'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import { getScopeExceptionRows } from '../src/parts/ScopeRenderers/GetScopeExceptionRows.ts'
+import type { Scope } from '../src/parts/Scope/Scope.ts'
 
 test('getScopeExceptionRows', () => {
-  const scope = {
+  const scope: Scope = {
     key: 'error',
     value: 'test error',
     indent: 1,
-    setSize: 1,
-    posInset: 1,
-  } as any
+    label: '',
+    objectId: '',
+    type: 0,
+    valueType: '',
+    flags: 0,
+  }
   const result = getScopeExceptionRows(scope, 0, 0)
   expect(result).toEqual([
     {
