@@ -1,8 +1,4 @@
-import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
-import * as Arrays from '../Arrays/Arrays.ts'
-import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
-import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 
 export const getCollapsedScopeChain = (cache: any, scopeChain: readonly ScopeChainItem[], element: any, index: number): any => {
   const indent = element.indent
