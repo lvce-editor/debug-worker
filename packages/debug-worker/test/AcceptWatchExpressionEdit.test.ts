@@ -4,14 +4,14 @@ import { acceptWatchExpressionEdit } from '../src/parts/AcceptWatchExpressionEdi
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
 test('should return state unchanged if no expression is being edited', async () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const result = await acceptWatchExpressionEdit(state)
   expect(result).toEqual(state)
 })
 
 test('should remove watch expression when editing value is empty', async () => {
-  const state = createDefaultState()
-  const stateWithEditingExpression = {
+  const state: RunAndDebugState = createDefaultState()
+  const stateWithEditingExpression: RunAndDebugState = {
     ...state,
     watchExpressions: [
       {
