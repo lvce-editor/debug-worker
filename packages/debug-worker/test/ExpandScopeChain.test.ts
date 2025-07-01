@@ -38,7 +38,7 @@ test('expandScopeChain', async () => {
   RendererWorker.set(mockRpc)
   ExtensionHost.set(mockRpc)
 
-  const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId)
+  const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId, 0)
 
   expect(result).toEqual({
     ...state,

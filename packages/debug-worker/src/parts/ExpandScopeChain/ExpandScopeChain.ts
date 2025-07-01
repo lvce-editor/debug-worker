@@ -9,19 +9,21 @@ export const expandScopeChain = async (
   expandedIds: readonly string[],
   scopeChain: readonly ScopeChainItem[],
   element: ScopeChainItem,
-  index: number,
+  scopeChainIndex: number,
   debugId: any,
+  index: number,
 ): Promise<RunAndDebugState> => {
   const { cache, maxDescriptionLength } = state
-  const newScopeChain = await GetChildScopeChain.getChildScopeChain(cache, index, debugId, scopeChain, maxDescriptionLength)
-  const objectId = scopeChain[index].objectId
+  const newScopeChain = await GetChildScopeChain.getChildScopeChain(cache, scopeChainIndex, debugId, scopeChain, maxDescriptionLength)
+  const objectId = scopeChain[scopeChainIndex].objectId
   const newExpandedIds = [...expandedIds, objectId]
-  const newState = {
+  const newState: RunAndDebugState = {
     ...state,
     scopeChain: newScopeChain,
     expandedIds: newExpandedIds,
-    scopeFocusedIndex: index,
+    scopeFocusedIndex: scopeChainIndex,
     focus: WhenExpression.FocusDebugRow,
+    focusedIndex: index,
   }
   return updateVisibleRows(newState)
 }

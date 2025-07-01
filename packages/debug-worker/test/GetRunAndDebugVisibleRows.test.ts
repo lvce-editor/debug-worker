@@ -100,7 +100,7 @@ test('should return expanded breakpoints section with all exceptions', () => {
 })
 
 test('should return scope section with default state', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[2]).toEqual({
     type: DebugRowType.SectionHeading,
@@ -156,7 +156,7 @@ test.skip('should return expanded scope section with not paused message', () => 
 })
 
 test('should return call stack section with default state', () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[3]).toEqual({
     type: DebugRowType.SectionHeading,
@@ -175,7 +175,7 @@ test('should return call stack section with default state', () => {
 })
 
 test('should return expanded call stack section with not paused message', () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackExpanded: true,
   }
@@ -227,7 +227,7 @@ test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
     '1': { scriptId: '1', scriptLanguage: 'javascript', url: 'main.js' },
     '2': { scriptId: '2', scriptLanguage: 'javascript', url: 'helper.js' },
   }
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     callStackVisible: true,
     callStackExpanded: true,
