@@ -9,7 +9,7 @@ export const handleClickScopeValueIndex = async (state: RunAndDebugState, index:
   }
 
   const row = visibleRows[index]
-  if (!row.scopeChainIndex || row.scopeChainIndex < 0 || row.scopeChainIndex >= scopeChain.length) {
+  if (typeof row.scopeChainIndex !== 'number' || row.scopeChainIndex < 0 || row.scopeChainIndex >= scopeChain.length) {
     return state
   }
   const scopeChainIndex = row.scopeChainIndex
