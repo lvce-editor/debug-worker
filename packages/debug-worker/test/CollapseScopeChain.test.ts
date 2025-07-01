@@ -26,9 +26,7 @@ test('collapseScopeChain', () => {
   ])
   expect(result.scopeFocusedIndex).toBe(1)
   expect(result.cache).toEqual({
-    scope2: [
-      { objectId: 'scope3', indent: 2, key: 'scope3', label: 'scope3', type: 1, value: 'scope3', valueType: 'object', flags: 0 },
-    ],
+    scope2: [{ objectId: 'scope3', indent: 2, key: 'scope3', label: 'scope3', type: 1, value: 'scope3', valueType: 'object', flags: 0 }],
   })
   expect(result.visibleRows).toBeDefined()
 })
@@ -51,6 +49,8 @@ test('collapseScopeChain - no children to collapse', () => {
     { objectId: 'scope2', indent: 1, key: 'scope2', label: 'scope2', type: 1, value: 'scope2', valueType: 'object', flags: 0 },
   ])
   expect(result.scopeFocusedIndex).toBe(1)
-  expect(result.cache).toEqual({})
+  expect(result.cache).toEqual({
+    scope2: [],
+  })
   expect(result.visibleRows).toBeDefined()
 })
