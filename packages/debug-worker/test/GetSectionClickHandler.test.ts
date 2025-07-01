@@ -4,7 +4,7 @@ import { getSectionClickHandler } from '../src/parts/GetSectionClickHandler/GetS
 import { handleClickSectionBreakPoints } from '../src/parts/HandleClickSectionBreakPoints/HandleClickSectionBreakPoints.ts'
 import { handleClickSectionCallstack } from '../src/parts/HandleClickSectionCallstack/HandleClickSectionCallstack.ts'
 import { handleClickSectionScope } from '../src/parts/HandleClickSectionScope/HandleClickSectionScope.ts'
-import { handleClickSectionUnkown } from '../src/parts/HandleClickSectionUnknown/HandleClickSectionUnknown.ts'
+import { handleClickSectionUnknown } from '../src/parts/HandleClickSectionUnknown/HandleClickSectionUnknown.ts'
 import { handleClickSectionWatch } from '../src/parts/HandleClickSectionWatch/HandleClickSectionWatch.ts'
 
 test('returns watch handler for watch section', () => {
@@ -29,5 +29,5 @@ test('returns callstack handler for callstack section', () => {
 
 test('returns unknown handler for unknown section', () => {
   const handler = getSectionClickHandler('unknown')
-  expect(handler).toBe(handleClickSectionUnkown)
+  expect(handler).toBe(handleClickSectionUnknown)
 })
