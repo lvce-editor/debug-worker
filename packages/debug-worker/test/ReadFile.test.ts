@@ -7,7 +7,6 @@ import { readFile } from '../src/parts/ReadFile/ReadFile.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
 
 test('should correctly parse URI and return empty string for invalid input', async () => {
-  // @ts-ignore - Testing invalid input
   const result = await ReadFile.readFile('invalid-uri')
   expect(result).toBe('')
 })
