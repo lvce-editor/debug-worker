@@ -10,11 +10,11 @@ export const handleClickScopeValueIndex = async (state: RunAndDebugState, index:
   }
 
   const row = visibleRows[index]
-  if (!row.index || row.index < 0 || row.index >= scopeChain.length) {
+  if (!row.scopeChainIndex || row.scopeChainIndex < 0 || row.scopeChainIndex >= scopeChain.length) {
     return state
   }
 
-  const scopeChainIndex = row.index
+  const scopeChainIndex = row.scopeChainIndex
   const element = scopeChain[scopeChainIndex]
   if (expandedIds.includes(element.objectId)) {
     return collapseScopeChain(state, expandedIds, scopeChain, element, scopeChainIndex)

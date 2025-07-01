@@ -25,6 +25,7 @@ test('getScopeThisRows', () => {
       index: 0,
       setSize: 1,
       posInset: 1,
+      scopeChainIndex: 0,
     },
   ])
 })
