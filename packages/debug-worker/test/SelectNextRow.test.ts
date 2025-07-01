@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import type { DebugRow } from '../src/parts/DebugRow/DebugRow.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { selectNextRow } from '../src/parts/SelectNextRow/SelectNextRow.ts'
@@ -16,7 +17,7 @@ test('selectNextRow increments selectedIndex', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(6)
   expect(result).not.toBe(state)
@@ -35,7 +36,7 @@ test('selectNextRow works from -1', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(0)
 })
@@ -53,13 +54,13 @@ test('selectNextRow does not exceed max index', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] } // max index 1
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] } // max index 1
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(1) // stays at max
 })
 
 test('selectNextRow handles empty visibleRows array', () => {
-  const state = { ...createDefaultState(), selectedIndex: 0, visibleRows: [] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(-1)
 })
@@ -77,7 +78,7 @@ test('selectNextRow handles negative selectedIndex input', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(-1)
 })
@@ -95,7 +96,7 @@ test('selectNextRow handles selectedIndex beyond array bounds', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(1)
 })
@@ -113,7 +114,7 @@ test('selectNextRow stays at max when already at max', () => {
     description: '',
     index: 0,
   }
-  const state = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] }
+  const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 1, visibleRows: [mockRow, mockRow] }
   const result = selectNextRow(state)
   expect(result.selectedIndex).toBe(1)
 })
