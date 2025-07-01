@@ -21,6 +21,7 @@ export const getScopeExceptionRows = (scope: Scope, relativeIndex: number, index
       index: relativeIndex,
       setSize: 1,
       posInset: 1,
+      scopeChainIndex: relativeIndex,
     },
   ]
 }

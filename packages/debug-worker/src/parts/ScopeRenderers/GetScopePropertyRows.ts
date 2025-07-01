@@ -22,6 +22,7 @@ export const getScopePropertyRows = (scope: Scope, relativeIndex: number, index:
       index,
       setSize: 1,
       posInset: 1,
+      scopeChainIndex: relativeIndex,
     },
   ]
 }

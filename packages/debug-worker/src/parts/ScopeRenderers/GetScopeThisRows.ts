@@ -21,6 +21,7 @@ export const getScopeThisRows = (scope: Scope, relativeIndex: number, index: num
       index,
       setSize: 1,
       posInset: 1,
+      scopeChainIndex: relativeIndex,
     },
   ]
 }

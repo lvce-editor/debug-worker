@@ -22,6 +22,7 @@ export interface DebugRow {
   readonly tokens?: string[]
   readonly setSize?: number
   readonly posInset?: number
+  readonly scopeChainIndex?: number
 }
 
 export interface DebugRowBase {
