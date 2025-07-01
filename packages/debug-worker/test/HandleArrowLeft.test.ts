@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowName from '../src/parts/DebugRowName/DebugRowName.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
@@ -6,13 +7,13 @@ import * as DebugSectionId from '../src/parts/DebugSectionId/DebugSectionId.ts'
 import { handleArrowLeft } from '../src/parts/HandleArrowLeft/HandleArrowLeft.ts'
 
 test('handleArrowLeft returns the same state', async () => {
-  const state = createDefaultState()
+  const state: RunAndDebugState = createDefaultState()
   const result = await handleArrowLeft(state)
   expect(result).toBe(state)
 })
 
 test('handleArrowLeft collapses expanded watch section heading', async () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     watchExpanded: true,
     selectedIndex: 0,
@@ -39,7 +40,7 @@ test('handleArrowLeft collapses expanded watch section heading', async () => {
 })
 
 test('handleArrowLeft does nothing if watch section heading is already collapsed', async () => {
-  const state = {
+  const state: RunAndDebugState = {
     ...createDefaultState(),
     watchExpanded: false,
     selectedIndex: 0,
