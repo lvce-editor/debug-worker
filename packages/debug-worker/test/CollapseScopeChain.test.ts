@@ -1,7 +1,7 @@
 import { test, expect } from '@jest/globals'
+import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { collapseScopeChain } from '../src/parts/CollapseScopeChain/CollapseScopeChain.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 
 test('collapseScopeChain', () => {
   const state = createDefaultState()
