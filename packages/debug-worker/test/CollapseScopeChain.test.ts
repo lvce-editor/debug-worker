@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals'
+import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { collapseScopeChain } from '../src/parts/CollapseScopeChain/CollapseScopeChain.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 
@@ -11,7 +12,7 @@ test('collapseScopeChain', () => {
     { objectId: 'scope3', indent: 2 },
     { objectId: 'scope4', indent: 1 },
   ] as any[]
-  const element = { objectId: 'scope2', indent: 1 }
+  const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
   const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)
@@ -36,7 +37,7 @@ test('collapseScopeChain - no children to collapse', () => {
     { objectId: 'scope1', indent: 0 },
     { objectId: 'scope2', indent: 1 },
   ] as any[]
-  const element = { objectId: 'scope2', indent: 1 }
+  const element = { objectId: 'scope2', indent: 1 } as ScopeChainItem
   const index = 1
 
   const result = collapseScopeChain(state, expandedIds, scopeChain, element, index)

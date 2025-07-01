@@ -1,15 +1,16 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import * as RpcRegistry from '@lvce-editor/rpc-registry'
-import { RpcId } from '@lvce-editor/rpc-registry'
+import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
+import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 test('expandScopeChain', async () => {
   const state = createDefaultState()
   const expandedIds = ['id1']
   const scopeChain = [{ objectId: 'scope1' }, { objectId: 'scope2' }] as any[]
-  const element = {}
+  const element = {} as ScopeChainItem
   const index = 1
   const debugId = 'debug1'
 
@@ -34,8 +35,8 @@ test('expandScopeChain', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
-  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
+  RendererWorker.set(mockRpc)
+  ExtensionHost.set(mockRpc)
 
   const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId)
 

@@ -8,7 +8,7 @@ export const expandScopeChain = async (
   state: RunAndDebugState,
   expandedIds: readonly string[],
   scopeChain: readonly ScopeChainItem[],
-  element: any,
+  element: ScopeChainItem,
   index: number,
   debugId: any,
 ): Promise<RunAndDebugState> => {
