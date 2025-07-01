@@ -10,8 +10,38 @@ import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 test('expandScopeChain', async () => {
   const state: RunAndDebugState = createDefaultState()
   const expandedIds = ['id1']
-  const scopeChain = [{ objectId: 'scope1' }, { objectId: 'scope2' }] as any[]
-  const element = {} as ScopeChainItem
+  const scopeChain: readonly ScopeChainItem[] = [
+    {
+      objectId: 'scope1',
+      indent: 0,
+      key: 'scope1',
+      label: 'scope1',
+      type: 1,
+      value: 'scope1',
+      valueType: 'object',
+      flags: 0
+    },
+    {
+      objectId: 'scope2',
+      indent: 0,
+      key: 'scope2',
+      label: 'scope2',
+      type: 1,
+      value: 'scope2',
+      valueType: 'object',
+      flags: 0
+    }
+  ]
+  const element: ScopeChainItem = {
+    objectId: 'scope2',
+    indent: 0,
+    key: 'scope2',
+    label: 'scope2',
+    type: 1,
+    value: 'scope2',
+    valueType: 'object',
+    flags: 0
+  }
   const index = 1
   const debugId = 'debug1'
 
@@ -45,15 +75,33 @@ test('expandScopeChain', async () => {
     ...state,
     focus: expect.anything(),
     scopeChain: [
-      { objectId: 'scope1' },
-      { objectId: 'scope2' },
+      {
+        objectId: 'scope1',
+        indent: 0,
+        key: 'scope1',
+        label: 'scope1',
+        type: 1,
+        value: 'scope1',
+        valueType: 'object',
+        flags: 0
+      },
+      {
+        objectId: 'scope2',
+        indent: 0,
+        key: 'scope2',
+        label: 'scope2',
+        type: 1,
+        value: 'scope2',
+        valueType: 'object',
+        flags: 0
+      },
       {
         type: 3,
         key: 'prop1',
         value: '{"value":"value1"}',
         valueType: '',
         objectId: '',
-        indent: Number.NaN,
+        indent: 10,
         label: '',
         flags: 0,
       },
