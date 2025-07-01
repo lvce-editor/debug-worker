@@ -1,29 +1,9 @@
 import type { RunAndDebugState } from '../RunAndDebugState/RunAndDebugState.ts'
 import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import * as Arrays from '../Arrays/Arrays.ts'
+import { getCollapsedScopeChain } from '../GetCollapsedScopeChain/GetCollapsedScopeChain.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
-
-const getCollapsedScopeChain = (cache: any, scopeChain: any, element: any, index: number): any => {
-  const indent = element.indent
-  for (let i = index + 1; i < scopeChain.length; i++) {
-    if (scopeChain[i].indent <= indent) {
-      const newItems = scopeChain.slice(index + 1, i)
-      const newCache = {
-        ...cache,
-        [scopeChain[index].objectId]: newItems,
-      }
-      return {
-        newScopeChain: [...scopeChain.slice(0, index + 1), ...scopeChain.slice(i)],
-        newCache,
-      }
-    }
-  }
-  return {
-    newScopeChain: scopeChain,
-    newCache: cache,
-  }
-}
 
 // TODO maybe store scope chain elements as tree
 // TODO when collapsing, store collapsed elements by parent id in cache
