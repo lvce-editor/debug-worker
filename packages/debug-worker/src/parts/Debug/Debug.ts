@@ -57,21 +57,20 @@ export const evaluate = async (id: any, expression: any, callFrameId: any): Prom
 export const scriptParsed = async (script: any): Promise<void> => {
   // TODO find a better way to inform renderer worker about
   // without sending the data to renderer worker
-  await RendererWorker.invoke('Run And Debug.handleScriptParsed', script)
+  await RendererWorker.handleDebugScriptParsed(script)
 }
 
 export const paused = async (params: any): Promise<void> => {
-  await RendererWorker.invoke('Run And Debug.handlePaused', params)
+  await RendererWorker.handleDebugPaused(params)
   await openAtPausedLocation()
 }
 
 export const resumed = async (params: any): Promise<void> => {
-  await RendererWorker.invoke('Run And Debug.handleResumed', params)
+  await RendererWorker.handleDebugResumed(params)
   const key = getKey()
   await updateDebugInfo(key)
 }
 
 export const handleChange = async (params: any): Promise<void> => {
-  // @ts-ignore
-  await RendererWorker.invoke('Run And Debug.handleChange', params)
+  await RendererWorker.handleDebugChange(params)
 }
