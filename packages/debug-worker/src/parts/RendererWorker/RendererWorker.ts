@@ -10,4 +10,5 @@ export const {
   sendMessagePortToExtensionHostWorker,
   set,
   showContextMenu,
+  invokeAndTransfer,
 } = RendererWorker
