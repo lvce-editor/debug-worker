@@ -11,4 +11,6 @@ export const {
   set,
   showContextMenu,
   invokeAndTransfer,
+  showErrorDialog,
+  openUri,
 } = RendererWorker

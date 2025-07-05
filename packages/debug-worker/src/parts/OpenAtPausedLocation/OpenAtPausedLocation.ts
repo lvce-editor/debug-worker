@@ -26,5 +26,5 @@ export const openAtPausedLocation = async (): Promise<void> => {
   await OpenUri.openUri(uri, languageId, rowIndex, columnIndex)
 
   // @ts-ignore
-  await EditorWorker.invoke('Editor.updateDebugInfo', key)
+  await EditorWorker.updateDebugInfo(key)
 }
