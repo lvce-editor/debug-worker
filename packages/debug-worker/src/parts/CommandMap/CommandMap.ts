@@ -1,3 +1,4 @@
+import { terminate } from '@lvce-editor/viewlet-registry'
 import { acceptWatchExpressionEdit } from '../AcceptWatchExpressionEdit/AcceptWatchExpressionEdit.ts'
 import { addWatchExpression } from '../AddWatchExpression/AddWatchExpression.ts'
 import { cancelWatchExpressionEdit } from '../CancelWatchExpressionEdit/CancelWatchExpressionEdit.ts'
@@ -67,7 +68,6 @@ import * as SetPauseOnExceptions from '../SetPauseOnExceptions/SetPauseOnExcepti
 import { showCallStack } from '../ShowCallStack/ShowCallStack.ts'
 import { showScope } from '../ShowScope/ShowScope.ts'
 import { showWatch } from '../ShowWatch/ShowWatch.ts'
-import * as Terminate from '../Terminate/Terminate.ts'
 
 export const commandMap = {
   'Debug.handleChange': Debug.handleChange,
@@ -79,8 +79,8 @@ export const commandMap = {
   'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.create': Create.create,
-  'RunAndDebug.deleteWatchExpression': deleteWatchExpression,
   'RunAndDebug.deleteAllWatchExpressions': deleteAllWatchExpressions,
+  'RunAndDebug.deleteWatchExpression': deleteWatchExpression,
   'RunAndDebug.diff2': Diff2.diff2,
   'RunAndDebug.dispose': Dispose.dispose,
   'RunAndDebug.focusNext': WrapCommand.wrapCommand(HandlePaused.focusNext),
@@ -117,11 +117,18 @@ export const commandMap = {
   // eslint-disable-next-line  @typescript-eslint/no-deprecated
   'RunAndDebug.handlePaused': WrapCommand.wrapCommand(HandlePaused.handlePaused),
   'RunAndDebug.handleResumed': WrapCommand.wrapCommand(HandleResumed.handleResumed),
+  'RunAndDebug.handleDelete': WrapCommand.wrapCommand(handleDelete),
+  'RunAndDebug.handleEnter': WrapCommand.wrapCommand(HandleEnter.handleEnter),
+  'RunAndDebug.handleRename': WrapCommand.wrapCommand(handleRename),
   'RunAndDebug.handleScriptParsed': WrapCommand.wrapCommand(HandleScriptParsed.handleScriptParsed),
   'RunAndDebug.handleSectionHeaderContextMenu': WrapCommand.wrapCommand(HandleSectionHeaderContextMenu.handleSectionHeaderContextMenu),
+  'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
   'RunAndDebug.handleWatchExpressionContextMenu': WrapCommand.wrapCommand(HandleWatchExpressionContextMenu.handleWatchExpressionContextMenu),
   'RunAndDebug.handleWatchExpressionDoubleClick': WrapCommand.wrapCommand(handleWatchExpressionDoubleClick),
   'RunAndDebug.handleWatchValueChange': WrapCommand.wrapCommand(HandleWatchValueChange.handleWatchValueChange),
+  'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
+  'RunAndDebug.hideScope': WrapCommand.wrapCommand(hideScope),
+  'RunAndDebug.hideWatch': WrapCommand.wrapCommand(hideWatch),
   'RunAndDebug.loadContent': WrapCommand.wrapCommand(LoadContent.loadContent),
   'RunAndDebug.loadContentLater': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),
   'RunAndDebug.pause': WrapCommand.wrapCommand(HandlePaused.pause),
@@ -136,25 +143,18 @@ export const commandMap = {
   'RunAndDebug.restoreState': RestoreState.restoreState,
   'RunAndDebug.resume': WrapCommand.wrapCommand(HandlePaused.resume),
   'RunAndDebug.saveState': SaveState.saveState,
+  'RunAndDebug.selectFirstIndex': WrapCommand.wrapCommand(selectFirstIndex),
   'RunAndDebug.selectIndex': WrapCommand.wrapCommand(selectIndex),
+  'RunAndDebug.selectLastIndex': WrapCommand.wrapCommand(selectLastIndex),
   'RunAndDebug.selectNextRow': WrapCommand.wrapCommand(selectNextRow),
   'RunAndDebug.selectPreviousRow': WrapCommand.wrapCommand(selectPreviousRow),
   'RunAndDebug.setPauseOnExceptions': WrapCommand.wrapCommand(SetPauseOnExceptions.setPauseOnExceptions),
+  'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
+  'RunAndDebug.showScope': WrapCommand.wrapCommand(showScope),
+  'RunAndDebug.showWatch': WrapCommand.wrapCommand(showWatch),
   'RunAndDebug.stepInto': WrapCommand.wrapCommand(HandlePaused.stepInto),
   'RunAndDebug.stepOut': WrapCommand.wrapCommand(HandlePaused.stepOut),
   'RunAndDebug.stepOver': WrapCommand.wrapCommand(HandlePaused.stepOver),
-  'RunAndDebug.terminate': Terminate.terminate,
+  'RunAndDebug.terminate': terminate,
   'RunAndDebug.togglePause': WrapCommand.wrapCommand(HandlePaused.togglePause),
-  'RunAndDebug.showWatch': WrapCommand.wrapCommand(showWatch),
-  'RunAndDebug.hideWatch': WrapCommand.wrapCommand(hideWatch),
-  'RunAndDebug.showScope': WrapCommand.wrapCommand(showScope),
-  'RunAndDebug.hideScope': WrapCommand.wrapCommand(hideScope),
-  'RunAndDebug.showCallStack': WrapCommand.wrapCommand(showCallStack),
-  'RunAndDebug.hideCallStack': WrapCommand.wrapCommand(hideCallStack),
-  'RunAndDebug.handleEnter': WrapCommand.wrapCommand(HandleEnter.handleEnter),
-  'RunAndDebug.handleRename': WrapCommand.wrapCommand(handleRename),
-  'RunAndDebug.handleDelete': WrapCommand.wrapCommand(handleDelete),
-  'RunAndDebug.handleSpace': WrapCommand.wrapCommand(HandleSpace.handleSpace),
-  'RunAndDebug.selectFirstIndex': WrapCommand.wrapCommand(selectFirstIndex),
-  'RunAndDebug.selectLastIndex': WrapCommand.wrapCommand(selectLastIndex),
 }
