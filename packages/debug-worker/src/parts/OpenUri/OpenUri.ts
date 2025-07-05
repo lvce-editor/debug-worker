@@ -7,5 +7,5 @@ export const openUri = async (uri: string, languageId: string, rowIndex: number,
     rowIndex,
     columnIndex,
   }
-  await RendererWorker.invoke('Main.openUri', uri, focus, options)
+  await RendererWorker.openUri(uri, focus, options)
 }
