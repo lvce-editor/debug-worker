@@ -19,7 +19,7 @@ test('expandScopeChain', async () => {
       type: 1,
       value: 'scope1',
       valueType: 'object',
-      flags: 0
+      flags: 0,
     },
     {
       objectId: 'scope2',
@@ -29,8 +29,8 @@ test('expandScopeChain', async () => {
       type: 1,
       value: 'scope2',
       valueType: 'object',
-      flags: 0
-    }
+      flags: 0,
+    },
   ]
   const element: ScopeChainItem = {
     objectId: 'scope2',
@@ -40,7 +40,7 @@ test('expandScopeChain', async () => {
     type: 1,
     value: 'scope2',
     valueType: 'object',
-    flags: 0
+    flags: 0,
   }
   const index = 1
   const debugId = 'debug1'
@@ -83,7 +83,7 @@ test('expandScopeChain', async () => {
         type: 1,
         value: 'scope1',
         valueType: 'object',
-        flags: 0
+        flags: 0,
       },
       {
         objectId: 'scope2',
@@ -93,7 +93,7 @@ test('expandScopeChain', async () => {
         type: 1,
         value: 'scope2',
         valueType: 'object',
-        flags: 0
+        flags: 0,
       },
       {
         type: 3,

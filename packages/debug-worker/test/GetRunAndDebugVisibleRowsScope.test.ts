@@ -78,7 +78,7 @@ test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is t
         indent: 0,
         label: 'Local',
         value: 'Local',
-        flags: 0
+        flags: 0,
       },
     ],
   }
