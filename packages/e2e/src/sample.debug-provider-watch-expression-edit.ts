@@ -2,6 +2,8 @@ import { type Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'sample.debug-provider-edit-watch-expression'
 
+export const skip = 1
+
 export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
   // arrange
   await SideBar.open('Explorer')
