@@ -64,7 +64,7 @@ test('handleClickCheckBox with invalid name throws error', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-      ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(mockExtensionHost)
   const state: RunAndDebugState = createDefaultState()
-    expect(() => handleClickCheckBox(state, 'invalid-name')).toThrow('unknown input name')
+  expect(() => handleClickCheckBox(state, 'invalid-name')).toThrow('unknown input name')
 })

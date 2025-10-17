@@ -13,16 +13,18 @@ test('isEqual - different scopeChain', () => {
   const state1: RunAndDebugState = createDefaultState(0)
   const state2: RunAndDebugState = {
     ...createDefaultState(0),
-    scopeChain: [{
-      objectId: 'different',
-      indent: 0,
-      key: 'different',
-      label: '',
-      type: 0,
-      value: '',
-      valueType: '',
-      flags: 0,
-    }] as readonly ScopeChainItem[],
+    scopeChain: [
+      {
+        objectId: 'different',
+        indent: 0,
+        key: 'different',
+        label: '',
+        type: 0,
+        value: '',
+        valueType: '',
+        flags: 0,
+      },
+    ] as readonly ScopeChainItem[],
   }
   expect(isEqual(state1, state2)).toBe(false)
 })
