@@ -48,7 +48,7 @@ test.skip('renderPauseOnExceptions - with different id', () => {
   const oldState: RunAndDebugState = createDefaultState(1)
   const newState: RunAndDebugState = {
     ...createDefaultState(1),
-    id: 2,
+    uid: 2,
     exceptionBreakPoints: ExceptionBreakPoints.All,
   }
   const result = renderPauseOnExceptions(oldState, newState)

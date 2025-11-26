@@ -7,5 +7,5 @@ export const renderItems = (oldState: RunAndDebugState, newState: RunAndDebugSta
   const selectedIndex = newState.selectedIndex
   const tokenColoringEnabled = newState.tokenColoringEnabled ?? true
   const dom = GetRunAndDebugVirtualDom2.getRunAndDebugVirtualDom2(rows, selectedIndex, tokenColoringEnabled)
-  return ['Viewlet.setDom2', newState.id, dom]
+  return ['Viewlet.setDom2', newState.uid, dom]
 }

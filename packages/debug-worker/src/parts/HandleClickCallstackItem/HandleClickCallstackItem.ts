@@ -5,7 +5,7 @@ import { parseIndex } from '../ParseIndex/ParseIndex.ts'
 
 export const handleClickCallstackItem = async (state: RunAndDebugState, dataIndex: string): Promise<RunAndDebugState> => {
   const index = parseIndex(dataIndex)
-  const { callStack, parsedScripts, id } = state
+  const { callStack, parsedScripts, uid: id } = state
   const item = callStack[index]
   if (!item) {
     return state

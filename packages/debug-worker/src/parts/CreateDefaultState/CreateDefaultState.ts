@@ -3,7 +3,7 @@ import { set } from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const createDefaultState = (uid = 0): RunAndDebugState => {
   const state: RunAndDebugState = {
-    id: uid,
+    uid: uid,
     disposed: false,
     processes: [],
     debugState: 0,

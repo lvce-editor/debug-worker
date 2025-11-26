@@ -24,7 +24,7 @@ export interface RunAndDebugState {
   readonly expandedIds: readonly any[]
   readonly focus: number
   readonly focusedIndex: number
-  readonly id: number
+  readonly uid: number
   readonly inputSource: number
   readonly maxDescriptionLength: number
   readonly openFilesOnPause: boolean
