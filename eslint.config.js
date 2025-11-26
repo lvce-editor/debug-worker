@@ -10,7 +10,6 @@ export default [
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       'prefer-destructuring': 'off',
-      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
       '@typescript-eslint/adjacent-overload-signatures': 'error',
       '@typescript-eslint/array-type': 'error',
       '@typescript-eslint/ban-tslint-comment': 'error',
@@ -22,7 +21,6 @@ export default [
       '@typescript-eslint/no-empty-function': 'error',
       '@typescript-eslint/no-inferrable-types': 'error',
       '@typescript-eslint/prefer-find': 'error',
-      '@typescript-eslint/prefer-for-of': 'error',
       '@typescript-eslint/prefer-includes': 'error',
       '@typescript-eslint/prefer-string-starts-ends-with': 'error',
 
