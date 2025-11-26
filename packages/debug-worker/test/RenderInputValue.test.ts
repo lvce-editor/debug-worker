@@ -9,7 +9,7 @@ test('should return empty selector when no focus', () => {
   const oldState = createDefaultState()
   const newState: RunAndDebugState = {
     ...createDefaultState(),
-    id: 1,
+    uid: 1,
     editingValue: 'test-value',
     focus: 0,
   }
@@ -23,7 +23,7 @@ test('should return selector when focus exists', () => {
   const oldState = createDefaultState()
   const newState: RunAndDebugState = {
     ...createDefaultState(),
-    id: 1,
+    uid: 1,
     editingValue: 'test-value',
     focus: FocusDebugWatchInput,
   }

@@ -6,7 +6,7 @@ import { renderFocus } from '../src/parts/RenderFocus/RenderFocus.ts'
 test.skip('renderFocus - with focus', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    id: 1,
+    uid: 1,
     focus: 1,
   }
   const result = renderFocus(state, state)
@@ -16,7 +16,7 @@ test.skip('renderFocus - with focus', () => {
 test('renderFocus - without focus', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    id: 1,
+    uid: 1,
     focus: 0,
   }
   const result = renderFocus(state, state)

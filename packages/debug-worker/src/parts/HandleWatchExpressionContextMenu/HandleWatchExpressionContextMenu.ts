@@ -10,8 +10,8 @@ export const handleWatchExpressionContextMenu = async (state: RunAndDebugState, 
     ...state,
     focusedIndex: index,
   }
-  const { oldState } = RunAndDebugStates.get(state.id)
-  RunAndDebugStates.set(state.id, oldState, newState)
+  const { oldState } = RunAndDebugStates.get(state.uid)
+  RunAndDebugStates.set(state.uid, oldState, newState)
   await ContextMenu.show(x, y, MenuEntryId.DebugWatchExpression)
   return state
 }

@@ -7,7 +7,7 @@ import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const create = (id: number, uri: string, x: number, y: number, width: number, height: number): void => {
   const state: RunAndDebugState = {
-    id,
+    uid: id,
     disposed: false,
     processes: [],
     debugState: DebugState.None,
