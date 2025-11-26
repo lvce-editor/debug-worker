@@ -11,7 +11,7 @@ const restoreWatchExpression = (savedExpression: unknown): WatchExpression => {
     hasProperty(savedExpression, 'isEditing') &&
     typeof savedExpression.isEditing === 'boolean'
   ) {
-    const value = savedExpression.value
+    const { value } = savedExpression
     if (value === null || value === undefined || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
       return {
         expression: savedExpression.expression,

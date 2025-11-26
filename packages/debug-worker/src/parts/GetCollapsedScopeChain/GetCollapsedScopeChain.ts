@@ -7,7 +7,7 @@ export interface CollapsedScopeChainResult {
 }
 
 export const getCollapsedScopeChain = (cache: any, scopeChain: readonly ScopeChainItem[], element: any, index: number): CollapsedScopeChainResult => {
-  const indent = element.indent
+  const { indent } = element
   const endIndex = getCollapsedEndIndex(scopeChain, index, indent)
   if (endIndex === -1) {
     return {

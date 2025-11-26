@@ -9,7 +9,7 @@ export const getChildScopeChain = async (
   maxDescriptionLength: number,
 ): Promise<readonly ScopeChainItem[]> => {
   const element = scopeChain[index]
-  const objectId = element.objectId
+  const { objectId } = element
   const childScopeChain = await GetInnerChildScopeChain.getInnerChildScopeChain(cache, debugId, objectId, element.indent, maxDescriptionLength)
   const newScopeChain = [...scopeChain.slice(0, index + 1), ...childScopeChain, ...scopeChain.slice(index + 1)]
   return newScopeChain
