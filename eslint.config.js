@@ -8,6 +8,7 @@ export default [
     rules: {
       '@typescript-eslint/prefer-readonly-parameter-types': 'off',
       'unicorn/no-immediate-mutation': 'off',
+      '@typescript-eslint/prefer-for-of': 'off',
     },
   },
   {
