@@ -31,7 +31,7 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
     })
     if (debugState === DebugState.Paused) {
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+
       for (let i = 0; i < visible.length; i++) {
         const scope = visible[i]
         const renderer = getScopeRenderer(scope.type)

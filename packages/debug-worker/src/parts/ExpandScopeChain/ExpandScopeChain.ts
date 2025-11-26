@@ -15,7 +15,7 @@ export const expandScopeChain = async (
 ): Promise<RunAndDebugState> => {
   const { cache, maxDescriptionLength } = state
   const newScopeChain = await GetChildScopeChain.getChildScopeChain(cache, scopeChainIndex, debugId, scopeChain, maxDescriptionLength)
-  const objectId = scopeChain[scopeChainIndex].objectId
+  const { objectId } = scopeChain[scopeChainIndex]
   const newExpandedIds = [...expandedIds, objectId]
   const newState: RunAndDebugState = {
     ...state,

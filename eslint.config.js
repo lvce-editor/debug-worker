@@ -4,18 +4,12 @@ import * as actions from '@lvce-editor/eslint-plugin-github-actions'
 export default [
   ...config.default,
   ...actions.default,
-  {
-    rules: {
-      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
-      'unicorn/no-immediate-mutation': 'off',
-    },
-  },
+
   {
     files: ['**/*.ts'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       'prefer-destructuring': 'off',
-      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
       '@typescript-eslint/adjacent-overload-signatures': 'error',
       '@typescript-eslint/array-type': 'error',
       '@typescript-eslint/ban-tslint-comment': 'error',
@@ -27,7 +21,6 @@ export default [
       '@typescript-eslint/no-empty-function': 'error',
       '@typescript-eslint/no-inferrable-types': 'error',
       '@typescript-eslint/prefer-find': 'error',
-      '@typescript-eslint/prefer-for-of': 'error',
       '@typescript-eslint/prefer-includes': 'error',
       '@typescript-eslint/prefer-string-starts-ends-with': 'error',
 
@@ -36,6 +29,10 @@ export default [
       '@typescript-eslint/prefer-function-type': 'off',
       '@typescript-eslint/prefer-optional-chain': 'off',
       '@typescript-eslint/prefer-regexp-exec': 'off',
+
+      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+      'unicorn/no-immediate-mutation': 'off',
+      '@typescript-eslint/prefer-for-of': 'off',
     },
   },
   {
