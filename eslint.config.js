@@ -4,13 +4,7 @@ import * as actions from '@lvce-editor/eslint-plugin-github-actions'
 export default [
   ...config.default,
   ...actions.default,
-  {
-    rules: {
-      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
-      'unicorn/no-immediate-mutation': 'off',
-      '@typescript-eslint/prefer-for-of': 'off',
-    },
-  },
+
   {
     files: ['**/*.ts'],
     rules: {
@@ -37,6 +31,10 @@ export default [
       '@typescript-eslint/prefer-function-type': 'off',
       '@typescript-eslint/prefer-optional-chain': 'off',
       '@typescript-eslint/prefer-regexp-exec': 'off',
+
+      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+      'unicorn/no-immediate-mutation': 'off',
+      '@typescript-eslint/prefer-for-of': 'off',
     },
   },
   {
