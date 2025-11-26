@@ -1,11 +1,11 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickCheckBox } from '../src/parts/HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('handleClickCheckBox with pause-on-exceptions', async () => {
   const mockRendererWorker = MockRpc.create({

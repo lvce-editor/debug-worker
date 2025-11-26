@@ -1,8 +1,8 @@
 import { expect, jest, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { initializeEditorWorker } from '../src/parts/InitializeEditorWorker/InitializeEditorWorker.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('initializEditorWorker - success', async () => {
   const mockInvokeRendererWorker = jest.fn()

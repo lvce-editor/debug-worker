@@ -1,7 +1,7 @@
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { ExpressionResult } from '../ExpressionResult/ExpressionResult.ts'
 import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts'
 import { getKey, openAtPausedLocation } from '../OpenAtPausedLocation/OpenAtPausedLocation.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { updateDebugInfo } from '../UpdateDebugInfo/UpdateDebugInfo.ts'
 
 export const create = (debugId: any): any => {

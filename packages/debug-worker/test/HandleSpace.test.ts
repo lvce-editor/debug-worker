@@ -1,12 +1,12 @@
 import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleSpace } from '../src/parts/HandleSpace/HandleSpace.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('handleSpace does nothing when no row is selected', async () => {
   const state: RunAndDebugState = createDefaultState()

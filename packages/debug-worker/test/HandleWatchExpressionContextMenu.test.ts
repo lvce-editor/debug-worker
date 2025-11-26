@@ -1,9 +1,9 @@
 import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { handleWatchExpressionContextMenu } from '../src/parts/HandleWatchExpressionContextMenu/HandleWatchExpressionContextMenu.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('handleWatchExpressionContextMenu returns the same state', async () => {
   const mockRpc = MockRpc.create({

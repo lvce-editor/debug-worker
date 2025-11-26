@@ -1,8 +1,8 @@
 import { test, expect, jest } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { evaluateWatchExpressions } from '../src/parts/EvaluateWatchExpressions/EvaluateWatchExpressions.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 const debugId = 1
 const callFrameId = 2

@@ -1,10 +1,10 @@
 import { test, expect } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { getKey, openAtPausedLocation } from '../src/parts/OpenAtPausedLocation/OpenAtPausedLocation.ts'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
 
 test('getKey', () => {
