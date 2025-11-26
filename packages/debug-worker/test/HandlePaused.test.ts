@@ -1,11 +1,11 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
 
 const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise<void> => {
   const mockRpc = MockRpc.create({

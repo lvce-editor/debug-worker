@@ -1,6 +1,6 @@
 import { test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { sendMessagePortToEditorWorker } from '../src/parts/SendMessagePortToEditorWorker/SendMessagePortToEditorWorker.ts'
 
 test('sendMessagePortToEditorWorker sends port to editor worker', async () => {
