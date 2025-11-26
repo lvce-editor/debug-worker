@@ -1,7 +1,7 @@
 import { test, expect, jest } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { openUri } from '../src/parts/OpenUri/OpenUri.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('openUri calls Main.openUri with correct parameters', async () => {
   const invoke = jest.fn<(method: string, ...args: unknown[]) => Promise<void>>().mockResolvedValue(undefined)

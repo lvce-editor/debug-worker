@@ -6,7 +6,7 @@ import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleSpace } from '../src/parts/HandleSpace/HandleSpace.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('handleSpace does nothing when no row is selected', async () => {
   const state: RunAndDebugState = createDefaultState()

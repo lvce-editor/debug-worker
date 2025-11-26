@@ -4,7 +4,7 @@ import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebug
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as EditorWorker from '../src/parts/EditorWorker/EditorWorker.ts'
 import { getKey, openAtPausedLocation } from '../src/parts/OpenAtPausedLocation/OpenAtPausedLocation.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
 
 test('getKey', () => {

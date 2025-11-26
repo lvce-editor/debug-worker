@@ -5,7 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickPauseOnUncaughtExceptions } from '../src/parts/HandleClickPauseOnUncaughtExceptions/HandleClickPauseOnUncaughtExceptions.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 const setupRendererAndExtensionHost = async (): Promise<void> => {
   const mockRendererWorker = MockRpc.create({

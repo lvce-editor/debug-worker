@@ -5,7 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickCheckBox } from '../src/parts/HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
-import * as RendererWorker from '../src/parts/RendererWorker/RendererWorker.ts'
+import { RendererWorker } from '@lvce-editor/rpc-registry'
 
 test('handleClickCheckBox with pause-on-exceptions', async () => {
   const mockRendererWorker = MockRpc.create({
