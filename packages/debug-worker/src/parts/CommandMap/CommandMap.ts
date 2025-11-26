@@ -77,7 +77,7 @@ export const commandMap = {
   'Debug.scriptParsed': Debug.scriptParsed,
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.acceptWatchExpressionEdit': WrapCommand.wrapCommand(acceptWatchExpressionEdit),
-  'RunAndDebug.getMenuIds': WrapCommand.wrapCommand(getMenuIds),
+  'RunAndDebug.getMenuIds': getMenuIds,
   'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.create': Create.create,
