@@ -12,6 +12,7 @@ import * as GetCommandIds from '../GetCommandIds/GetCommandIds.ts'
 import * as GetHighlight from '../GetHighlight/GetHighlight.ts'
 import * as GetKeyBindings from '../GetKeyBindings/GetKeyBindings.ts'
 import * as GetMenuEntries from '../GetMenuEntries/GetMenuEntries.ts'
+import { getMenuIds } from '../GetMenuIds/GetMenuIds.ts'
 import * as HandleArrowLeft from '../HandleArrowLeft/HandleArrowLeft.ts'
 import * as HandleArrowRight from '../HandleArrowRight/HandleArrowRight.ts'
 import * as HandleChange from '../HandleChange/HandleChange.ts'
@@ -76,6 +77,7 @@ export const commandMap = {
   'Debug.scriptParsed': Debug.scriptParsed,
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.acceptWatchExpressionEdit': WrapCommand.wrapCommand(acceptWatchExpressionEdit),
+  'RunAndDebug.getMenuIds': WrapCommand.wrapCommand(getMenuIds),
   'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.create': Create.create,
