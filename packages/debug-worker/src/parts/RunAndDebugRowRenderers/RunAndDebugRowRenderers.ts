@@ -10,9 +10,9 @@ export const renderNoop = (row: DebugRow, selectedIndex: number, rowIndex: numbe
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
       childCount: 1,
+      className,
+      type: VirtualDomElements.Div,
     },
     VirtualDomHelpers.text('unknown row type'),
   ]
@@ -23,9 +23,9 @@ export const renderMessage = (row: DebugRow, selectedIndex: number, rowIndex: nu
   const className = getDebugRowClassName('DebugPausedMessage', isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
       childCount: 1,
+      className,
+      type: VirtualDomElements.Div,
     },
     VirtualDomHelpers.text(row.text),
   ]

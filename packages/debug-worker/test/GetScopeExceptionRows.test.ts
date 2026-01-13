@@ -5,32 +5,32 @@ import { getScopeExceptionRows } from '../src/parts/ScopeRenderers/GetScopeExcep
 
 test('getScopeExceptionRows', () => {
   const scope: Scope = {
-    key: 'error',
-    value: 'test error',
+    flags: 0,
     indent: 1,
+    key: 'error',
     label: '',
     objectId: '',
     type: 0,
+    value: 'test error',
     valueType: '',
-    flags: 0,
   }
   const result = getScopeExceptionRows(scope, 0, 0)
   expect(result).toEqual([
     {
-      type: DebugRowType.Exception,
-      text: '',
-      tokens: ['test', 'Identifier', ' ', 'WhiteSpace', 'error', 'Identifier'],
-      expanded: false,
-      key: 'error',
-      value: 'test error',
-      indent: 1,
-      valueType: '',
-      name: '',
       description: '',
+      expanded: false,
+      indent: 1,
       index: 0,
-      setSize: 1,
+      key: 'error',
+      name: '',
       posInset: 1,
       scopeChainIndex: 0,
+      setSize: 1,
+      text: '',
+      tokens: ['test', 'Identifier', ' ', 'WhiteSpace', 'error', 'Identifier'],
+      type: DebugRowType.Exception,
+      value: 'test error',
+      valueType: '',
     },
   ])
 })

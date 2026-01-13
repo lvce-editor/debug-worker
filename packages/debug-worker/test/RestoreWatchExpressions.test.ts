@@ -18,19 +18,19 @@ test.skip('restoreWatchExpressions with array of expressions returns restored ex
   }
   const expected: readonly WatchExpression[] = [
     {
-      value: '',
       expression: 'x + y',
       isEditing: false,
+      value: '',
     },
     {
-      value: '',
       expression: 'foo.bar',
       isEditing: false,
+      value: '',
     },
     {
-      value: '',
       expression: '42',
       isEditing: false,
+      value: '',
     },
   ]
   const result = restoreWatchExpressions(input)

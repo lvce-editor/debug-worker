@@ -10,23 +10,23 @@ test('getOpenInfo', () => {
     },
   }
   const item = {
-    functionName: 'test',
     functionLocation: {
-      scriptId: '1',
-      lineNumber: 1,
       columnNumber: 1,
+      lineNumber: 1,
+      scriptId: '1',
     },
+    functionName: 'test',
     location: {
-      scriptId: '1',
-      lineNumber: 1,
       columnNumber: 1,
+      lineNumber: 1,
+      scriptId: '1',
     },
   }
   const result = getOpenInfo(0, parsedScripts, item)
   expect(result).toEqual({
-    uri: 'debug:///0/1',
+    columnIndex: 1,
     languageId: 'javascript',
     rowIndex: 1,
-    columnIndex: 1,
+    uri: 'debug:///0/1',
   })
 })

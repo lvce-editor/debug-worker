@@ -6,13 +6,13 @@ test('createScriptMap', () => {
   const scripts: readonly ParsedScript[] = [
     {
       scriptId: 'script1',
-      url: 'test1.js',
       scriptLanguage: 'JavaScript',
+      url: 'test1.js',
     },
     {
       scriptId: 'script2',
-      url: 'test2.js',
       scriptLanguage: '',
+      url: 'test2.js',
     },
   ]
 

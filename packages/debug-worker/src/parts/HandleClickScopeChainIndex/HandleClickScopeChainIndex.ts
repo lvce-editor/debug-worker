@@ -3,7 +3,7 @@ import { collapseScopeChain } from '../CollapseScopeChain/CollapseScopeChain.ts'
 import { expandScopeChain } from '../ExpandScopeChain/ExpandScopeChain.ts'
 
 export const handleClickScopeChainIndex = async (state: RunAndDebugState, scopeChainIndex: number, index: number): Promise<RunAndDebugState> => {
-  const { expandedIds, scopeChain, debugId } = state
+  const { debugId, expandedIds, scopeChain } = state
   const element = scopeChain[scopeChainIndex]
   if (expandedIds.includes(element.objectId)) {
     return collapseScopeChain(state, expandedIds, scopeChain, element, scopeChainIndex, index)

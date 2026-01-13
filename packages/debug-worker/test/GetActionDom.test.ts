@@ -8,21 +8,21 @@ import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHel
 
 test('should return virtual DOM nodes for action', () => {
   const action: DebugRowAction = {
+    icon: '⚡',
     id: 'test-action',
     title: 'Test Action',
-    icon: '⚡',
   }
 
   const result = getActionDom(action)
 
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: ClassNames.DebugSectionAction,
-      title: 'Test Action',
-      onClick: DomEventListenerFunctions.HandleClickSectionAction,
-      name: 'test-action',
       childCount: 1,
+      className: ClassNames.DebugSectionAction,
+      name: 'test-action',
+      onClick: DomEventListenerFunctions.HandleClickSectionAction,
+      title: 'Test Action',
+      type: VirtualDomElements.Button,
     },
     VirtualDomHelpers.text('⚡'),
   ])
@@ -30,21 +30,21 @@ test('should return virtual DOM nodes for action', () => {
 
 test('should handle action with different properties', () => {
   const action: DebugRowAction = {
+    icon: '+',
     id: 'add-watch',
     title: 'Add Watch Expression',
-    icon: '+',
   }
 
   const result = getActionDom(action)
 
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: ClassNames.DebugSectionAction,
-      title: 'Add Watch Expression',
-      onClick: DomEventListenerFunctions.HandleClickSectionAction,
-      name: 'add-watch',
       childCount: 1,
+      className: ClassNames.DebugSectionAction,
+      name: 'add-watch',
+      onClick: DomEventListenerFunctions.HandleClickSectionAction,
+      title: 'Add Watch Expression',
+      type: VirtualDomElements.Button,
     },
     VirtualDomHelpers.text('+'),
   ])
@@ -52,21 +52,21 @@ test('should handle action with different properties', () => {
 
 test('should handle action with empty strings', () => {
   const action: DebugRowAction = {
+    icon: '',
     id: '',
     title: '',
-    icon: '',
   }
 
   const result = getActionDom(action)
 
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: ClassNames.DebugSectionAction,
-      title: '',
-      onClick: DomEventListenerFunctions.HandleClickSectionAction,
-      name: '',
       childCount: 1,
+      className: ClassNames.DebugSectionAction,
+      name: '',
+      onClick: DomEventListenerFunctions.HandleClickSectionAction,
+      title: '',
+      type: VirtualDomElements.Button,
     },
     VirtualDomHelpers.text(''),
   ])
@@ -74,21 +74,21 @@ test('should handle action with empty strings', () => {
 
 test('should handle action with special characters in icon', () => {
   const action: DebugRowAction = {
+    icon: '🗑️',
     id: 'delete-action',
     title: 'Delete Item',
-    icon: '🗑️',
   }
 
   const result = getActionDom(action)
 
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Button,
-      className: ClassNames.DebugSectionAction,
-      title: 'Delete Item',
-      onClick: DomEventListenerFunctions.HandleClickSectionAction,
-      name: 'delete-action',
       childCount: 1,
+      className: ClassNames.DebugSectionAction,
+      name: 'delete-action',
+      onClick: DomEventListenerFunctions.HandleClickSectionAction,
+      title: 'Delete Item',
+      type: VirtualDomElements.Button,
     },
     VirtualDomHelpers.text('🗑️'),
   ])

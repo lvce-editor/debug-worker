@@ -16,8 +16,8 @@ test('should add watch expression when actionId is add-watch-expression', async 
   expect(result.watchExpressions).toHaveLength(1)
   expect(result.watchExpressions[0]).toEqual({
     expression: '',
-    value: null,
     isEditing: true,
+    value: null,
   })
 })
 

@@ -6,7 +6,7 @@ import { FocusDebugWatchInput } from '../src/parts/WhenExpression/WhenExpression
 
 test('renderSelection returns correct selection command', () => {
   const oldState = createDefaultState()
-  const newState = { ...oldState, editingselectionstart: 5, editingselectionend: 10 }
+  const newState = { ...oldState, editingselectionend: 10, editingselectionstart: 5 }
 
   const result = renderSelection(oldState, newState)
   expect(result).toEqual(['Viewlet.setSelectionByName', 0, '', 5, 10])
@@ -14,7 +14,7 @@ test('renderSelection returns correct selection command', () => {
 
 test('renderSelection works with zero values', () => {
   const oldState = createDefaultState()
-  const newState = { ...oldState, editingselectionstart: 0, editingselectionend: 0 }
+  const newState = { ...oldState, editingselectionend: 0, editingselectionstart: 0 }
 
   const result = renderSelection(oldState, newState)
   expect(result).toEqual(['Viewlet.setSelectionByName', 0, '', 0, 0])
@@ -22,7 +22,7 @@ test('renderSelection works with zero values', () => {
 
 test('renderSelection first element is Viewlet.setSelectionByName', () => {
   const oldState = createDefaultState()
-  const newState = { ...oldState, editingselectionstart: 1, editingselectionend: 2 }
+  const newState = { ...oldState, editingselectionend: 2, editingselectionstart: 1 }
 
   const result = renderSelection(oldState, newState)
   expect(result[0]).toBe('Viewlet.setSelectionByName')
@@ -32,9 +32,9 @@ test('renderSelection uses correct selector when focus is on watch input', () =>
   const oldState = createDefaultState()
   const newState = {
     ...oldState,
-    focus: FocusDebugWatchInput,
-    editingselectionstart: 1,
     editingselectionend: 2,
+    editingselectionstart: 1,
+    focus: FocusDebugWatchInput,
   }
 
   const result = renderSelection(oldState, newState)

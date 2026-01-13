@@ -1,7 +1,7 @@
 interface Location {
-  readonly scriptId: string
-  readonly lineNumber: number
   readonly columnNumber: number
+  readonly lineNumber: number
+  readonly scriptId: string
 }
 
 export interface CallStackItem {

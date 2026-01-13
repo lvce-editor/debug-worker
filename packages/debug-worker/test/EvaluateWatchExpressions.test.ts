@@ -23,13 +23,13 @@ test('evaluateWatchExpressions - all succeed', async () => {
   RendererWorker.set(mockRpc)
   ExtensionHost.set(mockRpc)
   const watchExpressions = [
-    { expression: 'a + b', value: null, isEditing: false },
-    { expression: 'x * y', value: null, isEditing: false },
+    { expression: 'a + b', isEditing: false, value: null },
+    { expression: 'x * y', isEditing: false, value: null },
   ]
   const result = await evaluateWatchExpressions(debugId, callFrameId, watchExpressions)
   expect(result).toEqual([
-    { expression: 'a + b', value: 'result:a + b', isEditing: false },
-    { expression: 'x * y', value: 'result:x * y', isEditing: false },
+    { expression: 'a + b', isEditing: false, value: 'result:a + b' },
+    { expression: 'x * y', isEditing: false, value: 'result:x * y' },
   ])
 })
 
@@ -53,11 +53,11 @@ test('evaluateWatchExpressions - one fails', async () => {
   RendererWorker.set(mockRpc)
   ExtensionHost.set(mockRpc)
   const watchExpressions = [
-    { expression: 'ok', value: null, isEditing: false },
-    { expression: 'fail', value: null, isEditing: false },
+    { expression: 'ok', isEditing: false, value: null },
+    { expression: 'fail', isEditing: false, value: null },
   ]
   const result = await evaluateWatchExpressions(debugId, callFrameId, watchExpressions)
-  expect(result[0]).toEqual({ expression: 'ok', value: 'result:ok', isEditing: false })
-  expect(result[1]).toEqual({ expression: 'fail', value: null, isEditing: false })
+  expect(result[0]).toEqual({ expression: 'ok', isEditing: false, value: 'result:ok' })
+  expect(result[1]).toEqual({ expression: 'fail', isEditing: false, value: null })
   spy.mockRestore()
 })

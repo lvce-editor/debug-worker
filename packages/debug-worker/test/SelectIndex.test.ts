@@ -6,18 +6,18 @@ import { selectIndex } from '../src/parts/SelectIndex/SelectIndex.ts'
 
 test('selectIndex updates selectedIndex', () => {
   const mockRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: 'test',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectIndex(state, 5)
@@ -33,18 +33,18 @@ test('selectIndex returns new state object', () => {
 
 test('selectIndex updates selectedIndex within bounds', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: 'test',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow, mockRow] } // 3 rows
   const result = selectIndex(state, 1)
@@ -54,18 +54,18 @@ test('selectIndex updates selectedIndex within bounds', () => {
 
 test('selectIndex clamps to max index', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: 'test',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow] } // 2 rows, max index 1
   const result = selectIndex(state, 5)
@@ -74,18 +74,18 @@ test('selectIndex clamps to max index', () => {
 
 test('selectIndex clamps to -1 for negative values', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: 'test',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), visibleRows: [mockRow, mockRow] }
   const result = selectIndex(state, -5)

@@ -15,8 +15,8 @@ test('openUri calls Main.openUri with correct parameters', async () => {
   await openUri('file:///test.ts', 'typescript', 1, 2)
 
   expect(invoke).toHaveBeenCalledWith('Main.openUri', 'file:///test.ts', true, {
+    columnIndex: 2,
     languageId: 'typescript',
     rowIndex: 1,
-    columnIndex: 2,
   })
 })

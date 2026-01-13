@@ -5,117 +5,117 @@ import * as WhenExpression from '../WhenExpression/WhenExpression.ts'
 export const getKeyBindings = (): readonly KeyBinding[] => {
   return [
     {
-      key: KeyCode.Backslash | KeyModifier.CtrlCmd,
       command: 'Run And Debug.togglePause',
+      key: KeyCode.Backslash | KeyModifier.CtrlCmd,
     },
     {
-      key: KeyCode.LeftArrow,
       command: 'Run And Debug.handleArrowLeft',
+      key: KeyCode.LeftArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.RightArrow,
       command: 'Run And Debug.handleArrowRight',
+      key: KeyCode.RightArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.Home,
       command: 'Run And Debug.focusFirst',
+      key: KeyCode.Home,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.End,
       command: 'Run And Debug.focusLast',
+      key: KeyCode.End,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.UpArrow,
       command: 'Run And Debug.selectPreviousRow',
+      key: KeyCode.UpArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.DownArrow,
       command: 'Run And Debug.selectNextRow',
+      key: KeyCode.DownArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.Star,
       command: 'Run And Debug.expandAll',
+      key: KeyModifier.CtrlCmd | KeyCode.Star,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.Alt | KeyCode.RightArrow,
       command: 'Run And Debug.expandRecursively',
+      key: KeyModifier.Alt | KeyCode.RightArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.LeftArrow,
       command: 'Run And Debug.collapseAll',
+      key: KeyModifier.CtrlCmd | KeyCode.LeftArrow,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.KeyV,
       command: 'Run And Debug.handlePaste',
+      key: KeyModifier.CtrlCmd | KeyCode.KeyV,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.KeyC,
       command: 'Run And Debug.handleCopy',
+      key: KeyModifier.CtrlCmd | KeyCode.KeyC,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.KeyN,
       command: 'Run And Debug.handleNew',
+      key: KeyModifier.CtrlCmd | KeyCode.KeyN,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.F2,
       command: 'Run And Debug.handleRename',
+      key: KeyCode.F2,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.Delete,
       command: 'Run And Debug.handleDelete',
+      key: KeyCode.Delete,
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyCode.Escape,
       command: 'Run And Debug.focusNone',
-      when: WhenExpression.FocusDebugRow,
-    },
-    {
-      key: KeyCode.Enter,
-      command: 'Run And Debug.handleClickCurrent',
-      when: WhenExpression.FocusDebugRow,
-    },
-    {
-      key: KeyCode.Space,
-      command: 'Run And Debug.handleSpace',
-      when: WhenExpression.FocusDebugRow,
-    },
-    {
-      key: KeyCode.Enter,
-      command: 'Run And Debug.handleEnter',
-      when: WhenExpression.FocusDebugRow,
-    },
-    {
       key: KeyCode.Escape,
-      command: 'Run And Debug.cancelWatchExpressionEdit',
-      when: WhenExpression.FocusDebugWatchInput,
-    },
-    {
-      key: KeyCode.Enter,
-      command: 'Run And Debug.acceptWatchExpressionEdit',
-      when: WhenExpression.FocusDebugWatchInput,
-    },
-    {
-      key: KeyModifier.CtrlCmd | KeyCode.Home,
-      command: 'Run And Debug.selectFirstIndex',
       when: WhenExpression.FocusDebugRow,
     },
     {
-      key: KeyModifier.CtrlCmd | KeyCode.End,
+      command: 'Run And Debug.handleClickCurrent',
+      key: KeyCode.Enter,
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
+      command: 'Run And Debug.handleSpace',
+      key: KeyCode.Space,
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
+      command: 'Run And Debug.handleEnter',
+      key: KeyCode.Enter,
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
+      command: 'Run And Debug.cancelWatchExpressionEdit',
+      key: KeyCode.Escape,
+      when: WhenExpression.FocusDebugWatchInput,
+    },
+    {
+      command: 'Run And Debug.acceptWatchExpressionEdit',
+      key: KeyCode.Enter,
+      when: WhenExpression.FocusDebugWatchInput,
+    },
+    {
+      command: 'Run And Debug.selectFirstIndex',
+      key: KeyModifier.CtrlCmd | KeyCode.Home,
+      when: WhenExpression.FocusDebugRow,
+    },
+    {
       command: 'Run And Debug.selectLastIndex',
+      key: KeyModifier.CtrlCmd | KeyCode.End,
       when: WhenExpression.FocusDebugRow,
     },
   ]

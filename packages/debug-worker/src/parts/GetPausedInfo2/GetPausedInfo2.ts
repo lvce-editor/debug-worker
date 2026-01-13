@@ -10,7 +10,7 @@ import * as GetScopeChain from '../GetScopeChain/GetScopeChain.ts'
 export const getPausedInfo2 = async (debugId: any, maxDescriptionLength: number): Promise<PausedInfo2> => {
   const callFrames = await ExtensionHostDebug.getCallStack(debugId)
   const callStack = GetCallStack.getCallStack(callFrames)
-  const { reason, data } = await ExtensionHostDebug.getPausedStatus(debugId)
+  const { data, reason } = await ExtensionHostDebug.getPausedStatus(debugId)
   const scripts = await ExtensionHostDebug.getScripts(debugId)
   const scriptMap = createScriptMap(scripts)
   const { objectId } = callFrames[0].scopeChain[0].object
@@ -34,12 +34,12 @@ export const getPausedInfo2 = async (debugId: any, maxDescriptionLength: number)
   const pausedReason = reason
   const pausedMessage = GetDebugPausedMessage.getDebugPausedMessage(reason)
   return {
-    scopeChain,
-    callStack,
-    pausedReason,
-    pausedMessage,
     callFrameId,
+    callStack,
     expandedIds: [objectId],
+    pausedMessage,
+    pausedReason,
+    scopeChain,
     scriptMap,
   }
 }

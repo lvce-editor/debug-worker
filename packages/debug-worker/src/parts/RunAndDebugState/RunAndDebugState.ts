@@ -24,7 +24,6 @@ export interface RunAndDebugState {
   readonly expandedIds: readonly any[]
   readonly focus: number
   readonly focusedIndex: number
-  readonly uid: number
   readonly inputSource: number
   readonly maxDescriptionLength: number
   readonly openFilesOnPause: boolean
@@ -40,6 +39,7 @@ export interface RunAndDebugState {
   readonly selectedIndex: number
   readonly tokenColoringEnabled?: boolean
   readonly topLevelCount: number
+  readonly uid: number
   readonly visibleRows: readonly DebugRow[]
   readonly watchExpanded: boolean
   readonly watchExpressions: readonly WatchExpression[]

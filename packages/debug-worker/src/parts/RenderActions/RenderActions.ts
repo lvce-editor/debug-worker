@@ -5,7 +5,7 @@ import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const renderActions = (uid: number): readonly VirtualDomNode[] => {
   const { newState } = RunAndDebugStates.get(uid)
-  const { scopeExpanded, debugState } = newState
+  const { debugState, scopeExpanded } = newState
 
   if (debugState === DebugState.Unavailable) {
     return []

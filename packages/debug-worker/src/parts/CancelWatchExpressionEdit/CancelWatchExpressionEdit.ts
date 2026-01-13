@@ -8,11 +8,11 @@ export const cancelWatchExpressionEdit = (state: RunAndDebugState): RunAndDebugS
   const newWatchExpressions = getNewWatchExpressionsCancel(watchExpressions)
   const newState: RunAndDebugState = {
     ...state,
-    watchExpressions: newWatchExpressions,
-    focus: WhenExpression.FocusDebugRow,
-    editingselectionstart: 0,
     editingselectionend: 0,
+    editingselectionstart: 0,
     editingValue: '',
+    focus: WhenExpression.FocusDebugRow,
+    watchExpressions: newWatchExpressions,
   }
   return updateVisibleRows(newState)
 }

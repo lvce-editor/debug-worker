@@ -17,16 +17,16 @@ test('handleRename puts watch expression into edit mode', async (): Promise<void
   // Create a state with a watch expression and focus on it
   const stateWithWatch: RunAndDebugState = {
     ...state,
+    selectedIndex: 1, // Index 0 is the section heading, index 1 is the watch expression
+    watchExpanded: true,
     watchExpressions: [
       {
         expression: 'test',
-        value: 'value',
         isEditing: false,
+        value: 'value',
       },
     ],
     watchVisible: true,
-    watchExpanded: true,
-    selectedIndex: 1, // Index 0 is the section heading, index 1 is the watch expression
   }
 
   const result: RunAndDebugState = await handleRename(stateWithWatch)
@@ -46,16 +46,16 @@ test('handleRename does nothing for non-watch expression rows', async (): Promis
     selectedIndex: 0,
     visibleRows: [
       {
-        type: DebugRowType.Value,
-        text: 'test',
-        expanded: false,
-        key: 'value-0',
-        value: 'value',
-        indent: 0,
-        valueType: 'string',
-        name: 'test',
         description: 'test',
+        expanded: false,
+        indent: 0,
         index: 0,
+        key: 'value-0',
+        name: 'test',
+        text: 'test',
+        type: DebugRowType.Value,
+        value: 'value',
+        valueType: 'string',
       },
     ],
   }
@@ -72,26 +72,26 @@ test('handleRename does nothing for already editing watch expressions', async ()
   // Create a state with a watch expression already in edit mode
   const stateWithEditingWatch: RunAndDebugState = {
     ...state,
-    watchExpressions: [
-      {
-        expression: 'test',
-        value: 'value',
-        isEditing: true,
-      },
-    ],
     selectedIndex: 0,
     visibleRows: [
       {
-        type: DebugRowType.WatchExpression,
-        text: 'test',
-        expanded: false,
-        key: 'watch-0',
-        value: 'value',
-        indent: 0,
-        valueType: 'string',
-        name: 'test',
         description: 'test',
+        expanded: false,
+        indent: 0,
         index: 0,
+        key: 'watch-0',
+        name: 'test',
+        text: 'test',
+        type: DebugRowType.WatchExpression,
+        value: 'value',
+        valueType: 'string',
+      },
+    ],
+    watchExpressions: [
+      {
+        expression: 'test',
+        isEditing: true,
+        value: 'value',
       },
     ],
   }

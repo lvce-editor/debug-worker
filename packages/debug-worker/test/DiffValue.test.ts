@@ -7,8 +7,8 @@ test('isEqual returns true when inputSource is not Script', () => {
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
-    inputSource: InputSource.User,
     editingValue: 'something',
+    inputSource: InputSource.User,
   }
   expect(isEqual(oldState, newState)).toBe(true)
 })
@@ -17,8 +17,8 @@ test('isEqual returns true when inputSource is Script and editingValue is empty'
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
-    inputSource: InputSource.Script,
     editingValue: '',
+    inputSource: InputSource.Script,
   }
   expect(isEqual(oldState, newState)).toBe(true)
 })
@@ -27,8 +27,8 @@ test('isEqual returns false when inputSource is Script and editingValue is not e
   const oldState = createDefaultState()
   const newState = {
     ...createDefaultState(),
-    inputSource: InputSource.Script,
     editingValue: 'editing',
+    inputSource: InputSource.Script,
   }
   expect(isEqual(oldState, newState)).toBe(false)
 })

@@ -19,35 +19,35 @@ export const getScopeChain = (params: any, thisObject: any, scopeChain: any, kno
   for (const scope of scopeChain) {
     const label = DebugDisplay.getScopeLabel(scope)
     elements.push({
-      type: DebugScopeChainType.Scope,
+      indent: 10,
       key: label,
-      value: '',
-      valueType: '',
       label,
       objectId: scope.object.objectId,
-      indent: 10,
+      type: DebugScopeChainType.Scope,
+      value: '',
+      valueType: '',
     })
     // if(params.reason)
     if (scope.type === DebugScopeType.Local) {
       if (params.reason === DebugPausedReason.Exception) {
         const value = getDescriptionValueLabel(params)
         elements.push({
-          type: DebugScopeChainType.Exception,
+          indent: 20,
           key: 'Exception',
+          objectId: scope.object.objectId,
+          type: DebugScopeChainType.Exception,
           value,
           valueType: '',
-          objectId: scope.object.objectId,
-          indent: 20,
         })
       }
       const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(thisObject, descriptionLength)
       elements.push({
-        type: DebugScopeChainType.This,
+        indent: 20,
         key: 'this',
+        objectId: '',
+        type: DebugScopeChainType.This,
         value: valueLabel,
         valueType: thisObject.type,
-        objectId: '',
-        indent: 20,
       })
     }
     const children = knownProperties[scope.object.objectId]
@@ -55,12 +55,12 @@ export const getScopeChain = (params: any, thisObject: any, scopeChain: any, kno
       for (const child of children.result.result) {
         const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value, descriptionLength)
         elements.push({
-          type: DebugScopeChainType.Property,
+          indent: 20,
           key: child.name,
+          objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
+          type: DebugScopeChainType.Property,
           value: valueLabel,
           valueType: GetDebugValueType.getDebugValueType(child),
-          objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
-          indent: 20,
         })
       }
     }

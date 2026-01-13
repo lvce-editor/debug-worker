@@ -9,34 +9,34 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderCheckBox = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { text, expanded, name, index, posInset, setSize } = row
+  const { expanded, index, name, posInset, setSize, text } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       ariaLevel: 2,
-      childCount: 2,
       ariaPosInSet: posInset,
       ariaSetSize: setSize,
+      childCount: 2,
+      className,
       'data-index': index,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Input,
-      inputType: InputType.CheckBox,
-      name,
       checked: expanded,
       childCount: 0,
-      onChange: DomEventListenerFunctions.HandleClickCheckBox,
       id: name,
+      inputType: InputType.CheckBox,
+      name,
+      onChange: DomEventListenerFunctions.HandleClickCheckBox,
+      type: VirtualDomElements.Input,
     },
     {
-      type: VirtualDomElements.Label,
+      childCount: 1,
       className: ClassNames.InputLabel,
       htmlFor: name,
-      childCount: 1,
+      type: VirtualDomElements.Label,
     },
     VirtualDomHelpers.text(text),
   ]

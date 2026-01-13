@@ -13,25 +13,25 @@ import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHel
 
 test('renderNoop', () => {
   const row: DebugRow = {
-    type: 0,
-    text: 'test',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test',
+    type: 0,
+    value: '',
+    valueType: '',
   }
   const result = RunAndDebugRowRenderers.renderNoop(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow,
       childCount: 1,
+      className: ClassNames.DebugRow,
+      type: VirtualDomElements.Div,
     },
     VirtualDomHelpers.text('unknown row type'),
   ])
@@ -39,25 +39,25 @@ test('renderNoop', () => {
 
 test('renderMessage', () => {
   const row: DebugRow = {
-    type: DebugRowType.Message,
-    text: 'test message',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test message',
+    type: DebugRowType.Message,
+    value: '',
+    valueType: '',
   }
   const result = RunAndDebugRowRenderers.renderMessage(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.DebugPausedMessage,
       childCount: 1,
+      className: ClassNames.DebugPausedMessage,
+      type: VirtualDomElements.Div,
     },
     VirtualDomHelpers.text('test message'),
   ])
@@ -65,40 +65,40 @@ test('renderMessage', () => {
 
 test('renderCallStack', () => {
   const row: DebugRow = {
-    type: DebugRowType.CallStack,
-    text: 'test stack',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test stack',
+    type: DebugRowType.CallStack,
+    value: '',
+    valueType: '',
   }
   const result = renderCallStack(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: 'DebugRow DebugRowCallStack',
-      role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 2,
-      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      className: 'DebugRow DebugRowCallStack',
       'data-index': 0,
+      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
+      childCount: 1,
       className: 'CallStackLabel',
       type: 4,
-      childCount: 1,
     },
     VirtualDomHelpers.text('test stack'),
     {
+      childCount: 1,
       className: 'CallStackDescription',
       type: 4,
-      childCount: 1,
     },
     VirtualDomHelpers.text(''),
   ])
@@ -106,37 +106,37 @@ test('renderCallStack', () => {
 
 test('renderScope', () => {
   const row: DebugRow = {
-    type: DebugRowType.Scope,
-    key: 'testScope',
-    expanded: true,
-    text: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: true,
+    indent: 0,
     index: 5,
-    setSize: 1,
+    key: 'testScope',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: '',
+    type: DebugRowType.Scope,
+    value: '',
+    valueType: '',
   }
   const result = renderScope(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow,
-      role: AriaRoles.TreeItem,
       ariaExpanded: true,
       ariaLevel: 2,
       childCount: 2,
-      onPointerDown: 'handleClickScopeValue',
+      className: ClassNames.DebugRow,
       'data-index': 5,
       'data-name': 'testScope',
+      onPointerDown: 'handleClickScopeValue',
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     expect.any(Object),
     {
-      type: VirtualDomElements.Span,
-      className: 'DebugValue DebugValueScopeName',
       childCount: 1,
+      className: 'DebugValue DebugValueScopeName',
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text('testScope'),
   ])
@@ -144,44 +144,44 @@ test('renderScope', () => {
 
 test.skip('renderValue', () => {
   const row: DebugRow = {
-    type: DebugRowType.Value,
-    text: '',
-    expanded: false,
-    key: 'testKey',
-    value: 'testValue',
-    indent: 10,
-    valueType: 'string',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 10,
     index: 3,
-    setSize: 1,
+    key: 'testKey',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: '',
+    type: DebugRowType.Value,
+    value: 'testValue',
+    valueType: 'string',
   }
   const result = renderValue(row, -1, 0, false)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.DebugRow,
-      role: AriaRoles.TreeItem,
       ariaExpanded: false,
       ariaLevel: 3,
-      paddingLeft: 10,
-      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       childCount: 3,
+      className: ClassNames.DebugRow,
       'data-index': 3,
+      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
+      paddingLeft: 10,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Span,
-      className: 'DebugValue DebugPropertyKey',
       childCount: 1,
+      className: 'DebugValue DebugPropertyKey',
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text('testKey'),
     expect.any(Object),
     {
-      type: VirtualDomElements.Span,
-      className: 'DebugValue DebugValueString',
       childCount: 1,
-      children: [{ type: 12, text: 'testValue', childCount: 0 }],
+      children: [{ childCount: 0, text: 'testValue', type: 12 }],
+      className: 'DebugValue DebugValueString',
+      type: VirtualDomElements.Span,
     },
   ])
 })

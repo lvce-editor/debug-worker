@@ -8,7 +8,7 @@ import * as ExceptionBreakPoints from '../ExceptionBreakPoints/ExceptionBreakPoi
 import * as InputName from '../InputName/InputName.ts'
 
 export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, startIndex: number, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
-  const { breakPointsExpanded, exceptionBreakPoints, breakPointsVisible } = state
+  const { breakPointsExpanded, breakPointsVisible, exceptionBreakPoints } = state
 
   if (!breakPointsVisible) {
     return []
@@ -18,63 +18,63 @@ export const getRunAndDebugVisibleRowsBreakPoints = (state: RunAndDebugState, st
     const setSize = 2
     return [
       {
-        type: DebugRowType.SectionHeading,
-        text: DebugStrings.breakPoints(),
+        description: '',
         expanded: true,
-        key: DebugSectionId.BreakPoints,
-        value: '',
         indent: 0,
-        valueType: '',
-        name: DebugRowName.BreakPoints,
-        description: '',
         index: startIndex,
-        setSize: topLevelCount,
+        key: DebugSectionId.BreakPoints,
+        name: DebugRowName.BreakPoints,
         posInset: topLevelIndex + 1,
+        setSize: topLevelCount,
+        text: DebugStrings.breakPoints(),
+        type: DebugRowType.SectionHeading,
+        value: '',
+        valueType: '',
       },
       {
-        type: DebugRowType.CheckBox,
-        text: DebugStrings.pauseOnExceptions(),
+        description: '',
         expanded: exceptionBreakPoints === ExceptionBreakPoints.All,
-        key: '',
-        value: '',
         indent: 0,
-        valueType: '',
-        name: InputName.PauseOnExceptions,
-        description: '',
         index: startIndex + 1,
-        setSize,
+        key: '',
+        name: InputName.PauseOnExceptions,
         posInset: 2,
+        setSize,
+        text: DebugStrings.pauseOnExceptions(),
+        type: DebugRowType.CheckBox,
+        value: '',
+        valueType: '',
       },
       {
-        type: DebugRowType.CheckBox,
-        text: DebugStrings.pauseOnUncaughtExceptions(),
-        expanded: exceptionBreakPoints === ExceptionBreakPoints.Uncaught,
-        key: '',
-        value: '',
-        indent: 0,
-        valueType: '',
-        name: InputName.PauseOnUncaughtExceptions,
         description: '',
+        expanded: exceptionBreakPoints === ExceptionBreakPoints.Uncaught,
+        indent: 0,
         index: startIndex + 2,
-        setSize,
+        key: '',
+        name: InputName.PauseOnUncaughtExceptions,
         posInset: 3,
+        setSize,
+        text: DebugStrings.pauseOnUncaughtExceptions(),
+        type: DebugRowType.CheckBox,
+        value: '',
+        valueType: '',
       },
     ]
   }
   return [
     {
-      type: DebugRowType.SectionHeading,
-      text: DebugStrings.breakPoints(),
-      expanded: breakPointsExpanded,
-      key: DebugSectionId.BreakPoints,
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: DebugRowName.BreakPoints,
       description: '',
+      expanded: breakPointsExpanded,
+      indent: 0,
       index: startIndex,
-      setSize: topLevelCount,
+      key: DebugSectionId.BreakPoints,
+      name: DebugRowName.BreakPoints,
       posInset: topLevelIndex + 1,
+      setSize: topLevelCount,
+      text: DebugStrings.breakPoints(),
+      type: DebugRowType.SectionHeading,
+      value: '',
+      valueType: '',
     },
   ]
 }

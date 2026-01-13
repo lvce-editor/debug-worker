@@ -5,24 +5,24 @@ import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import { tokenizeValue } from '../TokenizeValue/TokenizeValue.ts'
 
 export const getScopePropertyRows = (scope: Scope, relativeIndex: number, index: number): readonly DebugRow[] => {
-  const { indent, key, value, valueType, flags } = scope
+  const { flags, indent, key, value, valueType } = scope
   const tokens = tokenizeValue(value)
   return [
     {
-      type: DebugRowType.Property,
-      text: '',
-      tokens,
-      expanded: Boolean(flags & DebugItemFlags.Expanded),
-      key,
-      value,
-      indent,
-      valueType,
-      name: '',
       description: '',
+      expanded: Boolean(flags & DebugItemFlags.Expanded),
+      indent,
       index,
-      setSize: 1,
+      key,
+      name: '',
       posInset: 1,
       scopeChainIndex: relativeIndex,
+      setSize: 1,
+      text: '',
+      tokens,
+      type: DebugRowType.Property,
+      value,
+      valueType,
     },
   ]
 }

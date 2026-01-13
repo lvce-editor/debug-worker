@@ -12,18 +12,18 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
   if (state.debugState === DebugState.Unavailable) {
     return [
       {
-        type: DebugRowType.Message,
-        text: DebugStrings.noScriptRunning(),
-        expanded: false,
-        key: 'no-script-running',
-        value: '',
-        indent: 0,
-        valueType: '',
-        name: '',
         description: '',
+        expanded: false,
+        indent: 0,
         index: 0,
-        setSize: 1,
+        key: 'no-script-running',
+        name: '',
         posInset: 1,
+        setSize: 1,
+        text: DebugStrings.noScriptRunning(),
+        type: DebugRowType.Message,
+        value: '',
+        valueType: '',
       },
     ]
   }

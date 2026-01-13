@@ -7,16 +7,16 @@ export const addWatchExpression = async (state: RunAndDebugState, expression = '
   const { watchExpressions } = state
   const watchExpression: WatchExpression = {
     expression,
-    value: null,
     isEditing: true,
+    value: null,
   }
   const newWatchExpressions1 = [...watchExpressions, watchExpression]
   const newState: RunAndDebugState = {
     ...state,
-    watchExpressions: newWatchExpressions1,
-    focus: WhenExpression.FocusDebugWatchInput,
-    editingselectionstart: 0,
     editingselectionend: expression.length,
+    editingselectionstart: 0,
+    focus: WhenExpression.FocusDebugWatchInput,
+    watchExpressions: newWatchExpressions1,
   }
   return updateVisibleRows(newState)
 }

@@ -9,14 +9,14 @@ export const getArrowNodes = (hasArrow: boolean | undefined): readonly VirtualDo
 
   return [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.CallStackArrow,
       childCount: 1,
+      className: ClassNames.CallStackArrow,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Div,
-      className: 'MaskIcon MaskIconArrowRight',
       childCount: 0,
+      className: 'MaskIcon MaskIconArrowRight',
+      type: VirtualDomElements.Div,
     },
   ]
 }

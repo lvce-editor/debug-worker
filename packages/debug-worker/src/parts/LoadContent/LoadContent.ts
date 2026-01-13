@@ -8,19 +8,19 @@ export const loadContent = async (state: RunAndDebugState, isTest: boolean, save
   if (isTest) {
     savedState = {}
   }
-  const { watchExpressions, watchExpanded, breakPointsExpanded, scopeExpanded, focus, editingValue } = restoreState(savedState)
+  const { breakPointsExpanded, editingValue, focus, scopeExpanded, watchExpanded, watchExpressions } = restoreState(savedState)
   const debugId = getDebugId(isTest)
   const newState = {
     ...state,
+    breakPointsExpanded,
+    callStackExpanded: true,
     debugId,
     debugState: DebugState.Default,
-    scopeExpanded,
-    callStackExpanded: true,
-    breakPointsExpanded,
-    watchExpressions,
-    watchExpanded,
-    focus,
     editingValue,
+    focus,
+    scopeExpanded,
+    watchExpanded,
+    watchExpressions,
   }
   return updateVisibleRows(newState)
 }

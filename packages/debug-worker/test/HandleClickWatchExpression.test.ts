@@ -10,8 +10,8 @@ const makeState = (): RunAndDebugState => {
   return {
     ...state,
     watchExpressions: [
-      { expression: 'a + b', value: 3, isEditing: false },
-      { expression: 'x * y', value: 10, isEditing: false },
+      { expression: 'a + b', isEditing: false, value: 3 },
+      { expression: 'x * y', isEditing: false, value: 10 },
     ],
   }
 }
@@ -19,7 +19,7 @@ const makeState = (): RunAndDebugState => {
 test('click valid watch expression index', async () => {
   const state = makeState()
   const result = await handleClickWatchExpression(state, '1', false)
-  expect(result.watchExpressions[1]).toEqual({ expression: 'x * y', value: 10, isEditing: true })
+  expect(result.watchExpressions[1]).toEqual({ expression: 'x * y', isEditing: true, value: 10 })
   expect(result.focus).toBe(FocusDebugWatchInput)
   expect(result.inputSource).toBe(Script)
   expect(result.editingValue).toBe('x * y')

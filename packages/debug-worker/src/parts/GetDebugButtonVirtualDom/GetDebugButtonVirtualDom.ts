@@ -7,19 +7,19 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 const DebugButtonClass = ClassNames.IconButton + ' ' + ClassNames.DebugButton
 
 export const getDebugButtonVirtualDom = (button: DebugButton): readonly VirtualDomNode[] => {
-  const { title, icon, fn } = button
+  const { fn, icon, title } = button
   return [
     {
-      type: VirtualDomElements.Button,
-      className: MergeClassNames.mergeClassNames(DebugButtonClass, icon),
-      title,
       childCount: 1,
+      className: MergeClassNames.mergeClassNames(DebugButtonClass, icon),
       name: fn,
+      title,
+      type: VirtualDomElements.Button,
     },
     {
-      type: VirtualDomElements.Div,
-      className: `MaskIcon MaskIcon${icon}`,
       childCount: 0,
+      className: `MaskIcon MaskIcon${icon}`,
+      type: VirtualDomElements.Div,
     },
   ]
 }

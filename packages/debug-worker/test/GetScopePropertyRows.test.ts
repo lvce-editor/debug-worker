@@ -6,32 +6,32 @@ import { getScopePropertyRows } from '../src/parts/ScopeRenderers/GetScopeProper
 
 test('getScopePropertyRows', () => {
   const scope: Scope = {
+    flags: DebugItemFlags.Expanded,
     indent: 1,
     key: 'property',
-    value: 'test',
-    valueType: 'string',
-    flags: DebugItemFlags.Expanded,
     label: '',
     objectId: '',
     type: 0,
+    value: 'test',
+    valueType: 'string',
   }
   const result = getScopePropertyRows(scope, 0, 0)
   expect(result).toEqual([
     {
-      type: DebugRowType.Property,
-      text: '',
-      tokens: ['test', 'Identifier'],
-      expanded: true,
-      key: 'property',
-      value: 'test',
-      indent: 1,
-      valueType: 'string',
-      name: '',
       description: '',
+      expanded: true,
+      indent: 1,
       index: 0,
-      setSize: 1,
+      key: 'property',
+      name: '',
       posInset: 1,
       scopeChainIndex: 0,
+      setSize: 1,
+      text: '',
+      tokens: ['test', 'Identifier'],
+      type: DebugRowType.Property,
+      value: 'test',
+      valueType: 'string',
     },
   ])
 })

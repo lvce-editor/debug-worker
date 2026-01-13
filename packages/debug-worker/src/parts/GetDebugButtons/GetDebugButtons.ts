@@ -12,42 +12,42 @@ export const getDebugButtons = (debugState: number): readonly DebugButton[] => {
   const debugButtons: DebugButton[] = []
   if (debugState === DebugState.Paused) {
     debugButtons.push({
-      title: ViewletRunAndDebugStrings.resume(),
-      icon: MaskIcon.DebugContinue,
       fn: InputName.DebugResume,
+      icon: MaskIcon.DebugContinue,
+      title: ViewletRunAndDebugStrings.resume(),
     })
   } else {
     debugButtons.push({
-      title: ViewletRunAndDebugStrings.pause(),
-      icon: MaskIcon.DebugPause,
       fn: InputName.DebugPause,
+      icon: MaskIcon.DebugPause,
+      title: ViewletRunAndDebugStrings.pause(),
     })
   }
   debugButtons.push(
     {
-      title: ViewletRunAndDebugStrings.stepOver(),
-      icon: MaskIcon.DebugStepOver,
       fn: InputName.DebugStepOver,
+      icon: MaskIcon.DebugStepOver,
+      title: ViewletRunAndDebugStrings.stepOver(),
     },
     {
-      title: ViewletRunAndDebugStrings.stepInto(),
-      icon: MaskIcon.DebugStepInto,
       fn: InputName.DebugStepInto,
+      icon: MaskIcon.DebugStepInto,
+      title: ViewletRunAndDebugStrings.stepInto(),
     },
     {
-      title: ViewletRunAndDebugStrings.stepOut(),
-      icon: MaskIcon.DebugStepOut,
       fn: InputName.DebugStepOut,
+      icon: MaskIcon.DebugStepOut,
+      title: ViewletRunAndDebugStrings.stepOut(),
     },
     {
-      title: ViewletRunAndDebugStrings.restart(),
-      icon: MaskIcon.DebugRestart,
       fn: InputName.DebugRestart,
+      icon: MaskIcon.DebugRestart,
+      title: ViewletRunAndDebugStrings.restart(),
     },
     {
-      title: ViewletRunAndDebugStrings.stop(),
-      icon: MaskIcon.DebugStop,
       fn: InputName.DebugStop,
+      icon: MaskIcon.DebugStop,
+      title: ViewletRunAndDebugStrings.stop(),
     },
   )
   return debugButtons

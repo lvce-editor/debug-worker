@@ -5,8 +5,8 @@ export const getCallStack = (callFrames: readonly any[]): any[] => {
   const callStack = []
   for (const callFrame of callFrames) {
     callStack.push({
-      functionName: callFrame.functionName || '(anonymous)',
       functionLocation: callFrame.functionLocation,
+      functionName: callFrame.functionName || '(anonymous)',
       location: callFrame.location,
     })
   }

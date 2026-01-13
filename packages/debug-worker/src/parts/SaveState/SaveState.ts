@@ -4,27 +4,27 @@ import { SaveStateReasonHotReload } from '../SaveStateReason/SaveStateReason.ts'
 
 export const saveState = (uid: number, reason: number): SavedState => {
   const { newState } = RunAndDebugStates.get(uid)
-  const { watchExpressions, scopeExpanded, watchExpanded, breakPointsExpanded, focus, editingValue, inputSource } = newState
+  const { breakPointsExpanded, editingValue, focus, inputSource, scopeExpanded, watchExpanded, watchExpressions } = newState
 
   if (reason === SaveStateReasonHotReload) {
     return {
-      watchExpressions,
-      scopeExpanded,
       breakPointsExpanded,
-      watchExpanded,
-      focus,
       editingValue,
+      focus,
       inputSource,
+      scopeExpanded,
+      watchExpanded,
+      watchExpressions,
     }
   }
 
   return {
-    watchExpressions: watchExpressions.map((expr) => ({ ...expr, isEditing: false })),
-    scopeExpanded,
     breakPointsExpanded,
-    watchExpanded,
-    focus: 0,
     editingValue: '',
+    focus: 0,
     inputSource: 0,
+    scopeExpanded,
+    watchExpanded,
+    watchExpressions: watchExpressions.map((expr) => ({ ...expr, isEditing: false })),
   }
 }

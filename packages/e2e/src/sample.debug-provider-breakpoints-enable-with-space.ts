@@ -4,7 +4,7 @@ export const name = 'sample.debug-provider-enable-breakpoint-with-space'
 
 export const skip = 1
 
-export const test: Test = async ({ Command, FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
+export const test: Test = async ({ Command, expect, Extension, FileSystem, Locator, SideBar, Workspace }) => {
   // arrange
   await SideBar.open('Explorer')
   const tmpDir = await FileSystem.getTmpDir()

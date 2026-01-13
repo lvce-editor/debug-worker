@@ -8,45 +8,45 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('renderCheckBox', () => {
   const row = {
-    type: 1,
-    text: 'test',
-    expanded: true,
-    key: 'test-key',
-    value: 'test-value',
-    indent: 0,
-    valueType: 'string',
-    name: 'test-name',
     description: '',
+    expanded: true,
+    indent: 0,
     index: 0,
+    key: 'test-key',
+    name: 'test-name',
+    text: 'test',
+    type: 1,
+    value: 'test-value',
+    valueType: 'string',
   }
   const result = renderCheckBox(row, -1, 0)
   expect(result).toHaveLength(4)
   expect(result[0]).toEqual({
-    type: VirtualDomElements.Div,
-    className: expect.any(String),
-    role: AriaRoles.TreeItem,
     ariaLevel: 2,
     childCount: 2,
+    className: expect.any(String),
     'data-index': 0,
+    role: AriaRoles.TreeItem,
+    type: VirtualDomElements.Div,
   })
   expect(result[1]).toEqual({
-    type: VirtualDomElements.Input,
-    inputType: InputType.CheckBox,
-    name: 'test-name',
     checked: true,
     childCount: 0,
-    onChange: DomEventListenerFunctions.HandleClickCheckBox,
     id: 'test-name',
+    inputType: InputType.CheckBox,
+    name: 'test-name',
+    onChange: DomEventListenerFunctions.HandleClickCheckBox,
+    type: VirtualDomElements.Input,
   })
   expect(result[2]).toEqual({
-    type: VirtualDomElements.Label,
+    childCount: 1,
     className: ClassNames.InputLabel,
     htmlFor: 'test-name',
-    childCount: 1,
+    type: VirtualDomElements.Label,
   })
   expect(result[3]).toEqual({
-    type: 12,
-    text: 'test',
     childCount: 0,
+    text: 'test',
+    type: 12,
   })
 })

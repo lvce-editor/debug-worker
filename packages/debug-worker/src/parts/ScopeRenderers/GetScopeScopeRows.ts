@@ -4,22 +4,22 @@ import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 
 export const getScopeScopeRows = (scope: Scope, relativeIndex: number, index: number): readonly DebugRow[] => {
-  const { key, flags } = scope
+  const { flags, key } = scope
   return [
     {
-      type: DebugRowType.Scope,
-      text: '',
-      expanded: Boolean(flags & DebugItemFlags.Expanded),
-      key,
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: '',
       description: '',
+      expanded: Boolean(flags & DebugItemFlags.Expanded),
+      indent: 0,
       index,
-      setSize: 1,
+      key,
+      name: '',
       posInset: 1,
       scopeChainIndex: relativeIndex,
+      setSize: 1,
+      text: '',
+      type: DebugRowType.Scope,
+      value: '',
+      valueType: '',
     },
   ]
 }

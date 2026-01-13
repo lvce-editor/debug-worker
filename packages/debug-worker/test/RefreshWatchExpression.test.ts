@@ -14,8 +14,8 @@ test('refreshWatchExpression - when not paused, returns same state', async () =>
     watchExpressions: [
       {
         expression: 'x + y',
-        value: null,
         isEditing: false,
+        value: null,
       },
     ],
   }
@@ -42,19 +42,19 @@ test('refreshWatchExpression - when paused, evaluates all expressions', async ()
 
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    debugState: DebugState.Paused,
-    debugId: '123',
     callFrameId: '456',
+    debugId: '123',
+    debugState: DebugState.Paused,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: null,
         isEditing: false,
+        value: null,
       },
       {
         expression: 'x * y',
-        value: null,
         isEditing: false,
+        value: null,
       },
     ],
   }
@@ -63,13 +63,13 @@ test('refreshWatchExpression - when paused, evaluates all expressions', async ()
   expect(result.watchExpressions).toEqual([
     {
       expression: 'a + b',
-      value: 'result:a + b',
       isEditing: false,
+      value: 'result:a + b',
     },
     {
       expression: 'x * y',
-      value: 'result:x * y',
       isEditing: false,
+      value: 'result:x * y',
     },
   ])
   expect(result.debugState).toBe(DebugState.Paused)

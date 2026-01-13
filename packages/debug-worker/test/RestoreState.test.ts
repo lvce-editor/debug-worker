@@ -4,32 +4,32 @@ import { FocusDebugWatchInput } from '../src/parts/WhenExpression/WhenExpression
 
 test('restoreState restores watch expressions, focus and editing value', () => {
   const savedState = {
+    breakPointsExpanded: false,
+    editingValue: 'a + b',
+    focus: FocusDebugWatchInput,
+    scopeExpanded: false,
+    watchExpanded: true,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
     ],
-    watchExpanded: true,
-    scopeExpanded: false,
-    breakPointsExpanded: false,
-    focus: FocusDebugWatchInput,
-    editingValue: 'a + b',
   }
   const result = restoreState(savedState)
   expect(result).toEqual({
+    breakPointsExpanded: false,
+    editingValue: 'a + b',
+    focus: 0, // TODO
+    scopeExpanded: false,
+    watchExpanded: true,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
     ],
-    watchExpanded: true,
-    scopeExpanded: false,
-    breakPointsExpanded: false,
-    focus: 0, // TODO
-    editingValue: 'a + b',
   })
 })

@@ -5,35 +5,35 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 test('getChevronDownVirtualDom', () => {
   const result = GetChevronVirtualDom.getChevronDownVirtualDom()
   expect(result).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Chevron MaskIconChevronDown ',
     childCount: 0,
+    className: 'Chevron MaskIconChevronDown ',
+    type: VirtualDomElements.Div,
   })
 })
 
 test('getChevronDownVirtualDom with extra class', () => {
   const result = GetChevronVirtualDom.getChevronDownVirtualDom('extra')
   expect(result).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Chevron MaskIconChevronDown extra',
     childCount: 0,
+    className: 'Chevron MaskIconChevronDown extra',
+    type: VirtualDomElements.Div,
   })
 })
 
 test('getChevronRightVirtualDom', () => {
   const result = GetChevronVirtualDom.getChevronRightVirtualDom()
   expect(result).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Chevron MaskIconChevronRight ',
     childCount: 0,
+    className: 'Chevron MaskIconChevronRight ',
+    type: VirtualDomElements.Div,
   })
 })
 
 test('getChevronRightVirtualDom with extra class', () => {
   const result = GetChevronVirtualDom.getChevronRightVirtualDom('extra')
   expect(result).toEqual({
-    type: VirtualDomElements.Div,
-    className: 'Chevron MaskIconChevronRight extra',
     childCount: 0,
+    className: 'Chevron MaskIconChevronRight extra',
+    type: VirtualDomElements.Div,
   })
 })

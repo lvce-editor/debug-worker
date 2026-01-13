@@ -8,30 +8,30 @@ import * as InputType from '../InputType/InputType.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
 export const renderInputField = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { text, name } = row
+  const { name, text } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(`${ClassNames.DebugRow} ${ClassNames.DebugRowInputField}`, isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 1,
+      className,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Input,
-      inputType: InputType.Text,
-      spellcheck: false,
       autocapitalize: 'off',
       autocorrect: 'off',
-      className: ClassNames.InputBox,
-      name,
-      value: text,
       childCount: 0,
-      onInput: DomEventListenerFunctions.HandleInputFieldChange,
-      onBlur: DomEventListenerFunctions.HandleInputBlur,
+      className: ClassNames.InputBox,
       id: name,
+      inputType: InputType.Text,
+      name,
+      onBlur: DomEventListenerFunctions.HandleInputBlur,
+      onInput: DomEventListenerFunctions.HandleInputFieldChange,
+      spellcheck: false,
+      type: VirtualDomElements.Input,
+      value: text,
     },
   ]
 }

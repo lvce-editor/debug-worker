@@ -10,24 +10,24 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { expanded, text, key, actions, index, setSize, posInset } = row
+  const { actions, expanded, index, key, posInset, setSize, text } = row
   const hasActions = actions && actions.length > 0
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugSectionHeader + ' ' + ClassNames.DebugRow, isSelected)
   const nodes: VirtualDomNode[] = [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       ariaExpanded: expanded,
       ariaLevel: 1,
-      childCount: hasActions ? 3 : 2,
-      onClick: DomEventListenerFunctions.HandleClickSectionHeading,
-      onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
-      'data-name': key,
-      'data-index': index,
       ariaPosInSet: posInset,
       ariaSetSize: setSize,
+      childCount: hasActions ? 3 : 2,
+      className,
+      'data-index': index,
+      'data-name': key,
+      onClick: DomEventListenerFunctions.HandleClickSectionHeading,
+      onContextMenu: DomEventListenerFunctions.HandleSectionHeaderContextMenu,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     VirtualDomHelpers.text(text),

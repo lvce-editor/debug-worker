@@ -9,25 +9,25 @@ import { getScopeRenderer } from '../GetScopeRenderer/GetScopeRenderer.ts'
 import * as GetVisibleScopeItems from '../GetVisibleScopeItems/GetVisibleScopeItems.ts'
 
 export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, startingIndex: number, topLevelCount: number, topLevelIndex: number): readonly DebugRow[] => {
-  const { scopeChain, scopeExpanded, expandedIds, scopeFocusedIndex, scopeVisible, debugState } = state
+  const { debugState, expandedIds, scopeChain, scopeExpanded, scopeFocusedIndex, scopeVisible } = state
   if (!scopeVisible) {
     return []
   }
   const rows: DebugRow[] = []
   if (scopeExpanded) {
     rows.push({
-      type: DebugRowType.SectionHeading,
-      text: DebugStrings.scope(),
-      expanded: true,
-      key: DebugSectionId.Scope,
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: DebugRowName.Scope,
       description: '',
+      expanded: true,
+      indent: 0,
       index: startingIndex,
-      setSize: topLevelCount,
+      key: DebugSectionId.Scope,
+      name: DebugRowName.Scope,
       posInset: topLevelIndex + 1,
+      setSize: topLevelCount,
+      text: DebugStrings.scope(),
+      type: DebugRowType.SectionHeading,
+      value: '',
+      valueType: '',
     })
     if (debugState === DebugState.Paused) {
       const visible = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, expandedIds, scopeFocusedIndex)
@@ -41,34 +41,34 @@ export const getRunAndDebugVisibleRowsScope = (state: RunAndDebugState, starting
       }
     } else {
       rows.push({
-        type: DebugRowType.Message,
-        text: DebugStrings.notPaused(),
-        expanded: false,
-        key: '',
-        value: '',
-        indent: 0,
-        valueType: '',
-        name: '',
         description: '',
+        expanded: false,
+        indent: 0,
         index: startingIndex + 1,
-        setSize: 1,
+        key: '',
+        name: '',
         posInset: 1,
+        setSize: 1,
+        text: DebugStrings.notPaused(),
+        type: DebugRowType.Message,
+        value: '',
+        valueType: '',
       })
     }
   } else {
     rows.push({
-      type: DebugRowType.SectionHeading,
-      text: DebugStrings.scope(),
-      expanded: false,
-      key: DebugSectionId.Scope,
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: DebugRowName.Scope,
       description: '',
+      expanded: false,
+      indent: 0,
       index: startingIndex,
-      setSize: topLevelCount,
+      key: DebugSectionId.Scope,
+      name: DebugRowName.Scope,
       posInset: 1,
+      setSize: topLevelCount,
+      text: DebugStrings.scope(),
+      type: DebugRowType.SectionHeading,
+      value: '',
+      valueType: '',
     })
   }
   return rows

@@ -6,9 +6,9 @@ import { getScopeScopeRows } from '../src/parts/ScopeRenderers/GetScopeScopeRows
 
 test('getScopeScopeRows', () => {
   const scope: Scope = {
-    key: 'scope',
     flags: DebugItemFlags.Expanded,
     indent: 0,
+    key: 'scope',
     label: '',
     objectId: '',
     type: 0,
@@ -18,19 +18,19 @@ test('getScopeScopeRows', () => {
   const result = getScopeScopeRows(scope, 2, 2)
   expect(result).toEqual([
     {
-      type: DebugRowType.Scope,
-      text: '',
-      expanded: true,
-      key: 'scope',
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: '',
       description: '',
+      expanded: true,
+      indent: 0,
       index: 2,
-      setSize: 1,
+      key: 'scope',
+      name: '',
       posInset: 1,
       scopeChainIndex: 2,
+      setSize: 1,
+      text: '',
+      type: DebugRowType.Scope,
+      value: '',
+      valueType: '',
     },
   ])
 })

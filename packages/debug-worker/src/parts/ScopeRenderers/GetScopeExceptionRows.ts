@@ -4,24 +4,24 @@ import * as DebugRowType from '../DebugRowType/DebugRowType.ts'
 import { tokenizeValue } from '../TokenizeValue/TokenizeValue.ts'
 
 export const getScopeExceptionRows = (scope: Scope, relativeIndex: number, index: number): readonly DebugRow[] => {
-  const { key, value, indent } = scope
+  const { indent, key, value } = scope
   const tokens = tokenizeValue(value)
   return [
     {
-      type: DebugRowType.Exception,
-      text: '',
-      tokens,
-      expanded: false,
-      key,
-      value,
-      indent,
-      valueType: '',
-      name: '',
       description: '',
+      expanded: false,
+      indent,
       index: relativeIndex,
-      setSize: 1,
+      key,
+      name: '',
       posInset: 1,
       scopeChainIndex: relativeIndex,
+      setSize: 1,
+      text: '',
+      tokens,
+      type: DebugRowType.Exception,
+      value,
+      valueType: '',
     },
   ]
 }
