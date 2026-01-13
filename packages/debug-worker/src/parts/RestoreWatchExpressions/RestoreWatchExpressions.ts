@@ -15,15 +15,15 @@ const restoreWatchExpression = (savedExpression: unknown): WatchExpression => {
     if (value === null || value === undefined || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
       return {
         expression: savedExpression.expression,
-        value,
         isEditing: savedExpression.isEditing,
+        value,
       }
     }
   }
   return {
     expression: '',
-    value: null,
     isEditing: false,
+    value: null,
   }
 }
 

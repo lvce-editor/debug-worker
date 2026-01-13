@@ -24,10 +24,10 @@ export const getDebugButtonHandler = (inputName: string): DebugButtonHandler => 
       return resume
     case InputName.DebugStepInto:
       return stepInto
-    case InputName.DebugStepOver:
-      return stepOver
     case InputName.DebugStepOut:
       return stepOut
+    case InputName.DebugStepOver:
+      return stepOver
     case InputName.DebugStop:
       return stop
     default:

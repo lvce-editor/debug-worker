@@ -10,33 +10,33 @@ test('saveState with hot reload preserves all state including focus and editing'
   const id = 1
   const state: RunAndDebugState = {
     ...createDefaultState(),
+    editingValue: 'a + b',
+    focus: FocusDebugWatchInput,
+    inputSource: 1,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
     ],
-    focus: FocusDebugWatchInput,
-    editingValue: 'a + b',
-    inputSource: 1,
   }
   RunAndDebugStates.set(id, state, state)
   const result = saveState(id, SaveStateReasonHotReload)
   expect(result).toEqual({
+    breakPointsExpanded: false,
+    editingValue: 'a + b',
+    focus: FocusDebugWatchInput,
+    inputSource: 1,
+    scopeExpanded: false,
+    watchExpanded: false,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
     ],
-    breakPointsExpanded: false,
-    scopeExpanded: false,
-    watchExpanded: false,
-    focus: FocusDebugWatchInput,
-    editingValue: 'a + b',
-    inputSource: 1,
   })
 })
 
@@ -44,33 +44,33 @@ test('saveState with window reload resets focus and editing state', () => {
   const id = 1
   const state: RunAndDebugState = {
     ...createDefaultState(),
+    editingValue: 'a + b',
+    focus: FocusDebugWatchInput,
+    inputSource: 1,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
     ],
-    focus: FocusDebugWatchInput,
-    editingValue: 'a + b',
-    inputSource: 1,
   }
   RunAndDebugStates.set(id, state, state)
   const result = saveState(id, SaveStateReasonWindowReload)
   expect(result).toEqual({
+    breakPointsExpanded: false,
+    editingValue: '',
+    focus: 0,
+    inputSource: 0,
+    scopeExpanded: false,
+    watchExpanded: false,
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: false,
+        value: 3,
       },
     ],
-    breakPointsExpanded: false,
-    scopeExpanded: false,
-    watchExpanded: false,
-    focus: 0,
-    editingValue: '',
-    inputSource: 0,
   })
 })
 
@@ -78,32 +78,32 @@ test('saveState preserves expanded states in both cases', () => {
   const id = 1
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    watchExpanded: true,
-    scopeExpanded: true,
     breakPointsExpanded: true,
+    scopeExpanded: true,
+    watchExpanded: true,
   }
   RunAndDebugStates.set(id, state, state)
 
   const hotReloadResult = saveState(id, SaveStateReasonHotReload)
   expect(hotReloadResult).toEqual({
-    watchExpressions: [],
     breakPointsExpanded: true,
+    editingValue: '',
+    focus: 0,
+    inputSource: 0,
     scopeExpanded: true,
     watchExpanded: true,
-    focus: 0,
-    editingValue: '',
-    inputSource: 0,
+    watchExpressions: [],
   })
 
   const windowReloadResult = saveState(id, SaveStateReasonWindowReload)
   expect(windowReloadResult).toEqual({
-    watchExpressions: [],
     breakPointsExpanded: true,
+    editingValue: '',
+    focus: 0,
+    inputSource: 0,
     scopeExpanded: true,
     watchExpanded: true,
-    focus: 0,
-    editingValue: '',
-    inputSource: 0,
+    watchExpressions: [],
   })
 })
 
@@ -114,13 +114,13 @@ test('saveState handles multiple watch expressions correctly', () => {
     watchExpressions: [
       {
         expression: 'a + b',
-        value: 3,
         isEditing: true,
+        value: 3,
       },
       {
         expression: 'c * d',
-        value: 12,
         isEditing: false,
+        value: 12,
       },
     ],
   }
@@ -130,13 +130,13 @@ test('saveState handles multiple watch expressions correctly', () => {
   expect(hotReloadResult.watchExpressions).toEqual([
     {
       expression: 'a + b',
-      value: 3,
       isEditing: true,
+      value: 3,
     },
     {
       expression: 'c * d',
-      value: 12,
       isEditing: false,
+      value: 12,
     },
   ])
 
@@ -144,13 +144,13 @@ test('saveState handles multiple watch expressions correctly', () => {
   expect(windowReloadResult.watchExpressions).toEqual([
     {
       expression: 'a + b',
-      value: 3,
       isEditing: false,
+      value: 3,
     },
     {
       expression: 'c * d',
-      value: 12,
       isEditing: false,
+      value: 12,
     },
   ])
 })

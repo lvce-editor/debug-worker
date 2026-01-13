@@ -14,11 +14,11 @@ export const restoreState = (savedState: unknown): RestoredState => {
   const focus = restoreFocus(savedState)
   const editingValue = restoreEditingValue(savedState)
   return {
-    watchExpressions,
-    watchExpanded,
-    scopeExpanded,
     breakPointsExpanded,
-    focus,
     editingValue,
+    focus,
+    scopeExpanded,
+    watchExpanded,
+    watchExpressions,
   }
 }

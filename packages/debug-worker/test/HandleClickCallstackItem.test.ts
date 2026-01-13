@@ -20,16 +20,16 @@ test('handleClickCallstackItem', async () => {
   const state: RunAndDebugState = createDefaultState()
   const callStack = [
     {
-      functionName: 'test',
       functionLocation: {
-        scriptId: '1',
-        lineNumber: 1,
         columnNumber: 1,
+        lineNumber: 1,
+        scriptId: '1',
       },
+      functionName: 'test',
       location: {
-        scriptId: '1',
-        lineNumber: 1,
         columnNumber: 1,
+        lineNumber: 1,
+        scriptId: '1',
       },
     },
   ]

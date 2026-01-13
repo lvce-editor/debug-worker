@@ -9,8 +9,8 @@ export const getNewWatchExpressionsEvaluate = (
     if (watchExpression.expression === expression) {
       return {
         ...watchExpression,
-        value: result,
         isEditing: false,
+        value: result,
       }
     }
     return watchExpression

@@ -10,18 +10,18 @@ export const getDebugPropertyValueLabel = (property: any, maxDescriptionLength: 
     return 'n/a'
   }
   switch (property.type) {
+    case DebugValueType.Boolean:
+      return GetDebugPropertyValueLabelBoolean.getDebugPropertyValueLabelBoolean(property)
+    case DebugValueType.Function:
     case DebugValueType.Number:
     case DebugValueType.Symbol:
-    case DebugValueType.Function:
       return GetDebugPropertyValueLabelCommon.getDebugPropertyValueLabelCommon(property, maxDescriptionLength)
     case DebugValueType.Object:
       return GetDebugPropertyValueLabelObject.getDebugPropertyValueLabelObject(property)
-    case DebugValueType.Undefined:
-      return GetDebugPropertyValueLabelUndefined.getDebugPropertyValueLabelString(property)
     case DebugValueType.String:
       return GetDebugPropertyValueLabelString.getDebugPropertyValueLabelString(property)
-    case DebugValueType.Boolean:
-      return GetDebugPropertyValueLabelBoolean.getDebugPropertyValueLabelBoolean(property)
+    case DebugValueType.Undefined:
+      return GetDebugPropertyValueLabelUndefined.getDebugPropertyValueLabelString(property)
     default:
       return `${JSON.stringify(property)}`
   }

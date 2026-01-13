@@ -6,23 +6,23 @@ import { isSupportedOpenUri } from '../IsSupportedOpenUri/IsSupportedOpenUri.ts'
 
 export const getOpenInfo = (id: number, parsedScripts: ParsedScriptMap, item: CallStackItem): OpenInfo => {
   const { location } = item
-  const { scriptId, lineNumber, columnNumber } = location
+  const { columnNumber, lineNumber, scriptId } = location
   const script = parsedScripts[scriptId]
-  const { url, scriptLanguage } = script
+  const { scriptLanguage, url } = script
 
   if (isSupportedOpenUri(url)) {
     return {
-      uri: url,
+      columnIndex: columnNumber,
       languageId: scriptLanguage,
       rowIndex: lineNumber,
-      columnIndex: columnNumber,
+      uri: url,
     }
   }
   const debugUri = getDebugUri(id, scriptId)
   return {
-    uri: debugUri,
+    columnIndex: columnNumber,
     languageId: scriptLanguage,
     rowIndex: lineNumber,
-    columnIndex: columnNumber,
+    uri: debugUri,
   }
 }

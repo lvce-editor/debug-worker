@@ -4,7 +4,7 @@ export const skip = true
 
 export const name = 'sample.debug-provider-error-not-found'
 
-export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
+export const test: Test = async ({ expect, Extension, FileSystem, Locator, SideBar, Workspace }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await Workspace.setPath(tmpDir)

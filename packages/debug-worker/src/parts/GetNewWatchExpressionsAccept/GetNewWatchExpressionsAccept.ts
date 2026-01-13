@@ -34,8 +34,8 @@ export const getNewWatchExpressionsAccept = async (
 
   const newExpression: WatchExpression = {
     expression: editingValue,
-    value: null,
     isEditing: false,
+    value: null,
   }
 
   const newWatchExpressions1 = watchExpressions.toSpliced(editingIndex, 1, newExpression)

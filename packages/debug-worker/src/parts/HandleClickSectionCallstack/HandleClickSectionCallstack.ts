@@ -9,8 +9,8 @@ export const handleClickSectionCallstack = (state: RunAndDebugState): RunAndDebu
   const newState: RunAndDebugState = {
     ...state,
     callStackExpanded: !callStackExpanded,
-    selectedIndex: getSectionIndex(state, DebugRowName.CallStack),
     focus: WhenExpression.FocusDebugRow,
+    selectedIndex: getSectionIndex(state, DebugRowName.CallStack),
   }
   return updateVisibleRows(newState)
 }

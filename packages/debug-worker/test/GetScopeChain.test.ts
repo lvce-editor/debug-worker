@@ -10,8 +10,8 @@ test('getScopeChain - basic scope chain', async () => {
   const thisObject = { type: 'object' }
   const scopeChain = [
     {
-      type: 'local',
       object: { objectId: '1' },
+      type: 'local',
     },
   ]
   const knownProperties = {
@@ -36,16 +36,16 @@ test('getScopeChain - basic scope chain', async () => {
 
 test('getScopeChain - with exception', async () => {
   const params = {
-    reason: 'exception',
     data: {
       description: 'Test error',
     },
+    reason: 'exception',
   }
   const thisObject = { type: 'object' }
   const scopeChain = [
     {
-      type: 'local',
       object: { objectId: '1' },
+      type: 'local',
     },
   ]
   const knownProperties = {}

@@ -11,7 +11,7 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: number, tokenColoringEnabled: boolean): readonly VirtualDomNode[] => {
-  const { indent, key, value, valueType, expanded, tokens, index } = row
+  const { expanded, indent, index, key, tokens, value, valueType } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
 
@@ -21,10 +21,10 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
     valueChildren = []
     for (let i = 0; i < tokens.length; i += 2) {
       valueChildren.push({
-        type: VirtualDomElements.Span,
-        className: `DebugToken DebugToken${tokens[i + 1]}`,
         childCount: 1,
         children: [VirtualDomHelpers.text(tokens[i])],
+        className: `DebugToken DebugToken${tokens[i + 1]}`,
+        type: VirtualDomElements.Span,
       })
     }
   } else {
@@ -33,27 +33,27 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
 
   return [
     {
-      type: VirtualDomElements.Div,
-      className: className,
-      role: AriaRoles.TreeItem,
       ariaExpanded: expanded,
       ariaLevel: 3,
-      paddingLeft: indent,
-      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
       childCount: 3,
+      className: className,
       'data-index': index,
+      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
+      paddingLeft: indent,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Span,
-      className: 'DebugValue DebugPropertyKey',
       childCount: 1,
+      className: 'DebugValue DebugPropertyKey',
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text(key),
     separator,
     {
-      type: VirtualDomElements.Span,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, GetDebugValueClassName.getDebugValueClassName(valueType)),
       childCount: hasTokens ? valueChildren.length / 2 : 1,
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, GetDebugValueClassName.getDebugValueClassName(valueType)),
+      type: VirtualDomElements.Span,
     },
     ...valueChildren,
   ]

@@ -9,8 +9,8 @@ export const handleClickSectionBreakPoints = (state: RunAndDebugState): RunAndDe
   const newState: RunAndDebugState = {
     ...state,
     breakPointsExpanded: !breakPointsExpanded,
-    selectedIndex: getSectionIndex(state, DebugRowName.BreakPoints),
     focus: WhenExpression.FocusDebugRow,
+    selectedIndex: getSectionIndex(state, DebugRowName.BreakPoints),
   }
   return updateVisibleRows(newState)
 }

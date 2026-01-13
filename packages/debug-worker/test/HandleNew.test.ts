@@ -34,7 +34,7 @@ test.skip('handleNew calls addWatchExpression when selected row is a watch expre
   expect(result.watchExpressions).toHaveLength(2)
   expect(result.watchExpressions[1]).toEqual({
     expression: '',
-    value: null,
     isEditing: true,
+    value: null,
   })
 })

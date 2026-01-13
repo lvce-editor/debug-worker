@@ -6,16 +6,16 @@ import { selectPreviousRow } from '../src/parts/SelectPreviousRow/SelectPrevious
 
 test('selectPreviousRow decrements selectedIndex', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 5, visibleRows: [mockRow, mockRow, mockRow, mockRow, mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -25,16 +25,16 @@ test('selectPreviousRow decrements selectedIndex', () => {
 
 test('selectPreviousRow does not go below -1', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -43,16 +43,16 @@ test('selectPreviousRow does not go below -1', () => {
 
 test('selectPreviousRow stays at -1 when already at -1', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -1, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -67,16 +67,16 @@ test('selectPreviousRow handles empty visibleRows array', () => {
 
 test('selectPreviousRow handles negative selectedIndex input', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: -5, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)
@@ -85,16 +85,16 @@ test('selectPreviousRow handles negative selectedIndex input', () => {
 
 test('selectPreviousRow handles selectedIndex beyond array bounds', () => {
   const mockRow: DebugRow = {
-    type: 1,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: 1,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 10, visibleRows: [mockRow, mockRow] }
   const result = selectPreviousRow(state)

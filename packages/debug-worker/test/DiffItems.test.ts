@@ -15,14 +15,14 @@ test('isEqual - different scopeChain', () => {
     ...createDefaultState(0),
     scopeChain: [
       {
-        objectId: 'different',
+        flags: 0,
         indent: 0,
         key: 'different',
         label: '',
+        objectId: 'different',
         type: 0,
         value: '',
         valueType: '',
-        flags: 0,
       },
     ] as readonly ScopeChainItem[],
   }

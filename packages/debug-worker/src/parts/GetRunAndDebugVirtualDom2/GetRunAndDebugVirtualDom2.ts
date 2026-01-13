@@ -7,11 +7,11 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 export const getRunAndDebugVirtualDom2 = (rows: readonly DebugRow[], selectedIndex: number, tokenColoringEnabled: boolean): readonly VirtualDomNode[] => {
   return [
     {
-      type: VirtualDomElements.Div,
-      className: 'Viewlet RunAndDebug',
-      tabIndex: 0,
       childCount: rows.length,
+      className: 'Viewlet RunAndDebug',
       role: AriaRoles.Tree,
+      tabIndex: 0,
+      type: VirtualDomElements.Div,
     },
     ...rows.flatMap((row, index) => GetRunAndDebugRowVirtualDom.getRunAndDebugRowVirtualDom(row, selectedIndex, index, tokenColoringEnabled)),
   ]

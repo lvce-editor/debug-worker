@@ -11,14 +11,14 @@ test('should return actions when watch is expanded', () => {
   const actions = getWatchActions(true)
   expect(actions).toEqual([
     {
+      icon: '+',
       id: InputName.AddWatchExpression,
       title: 'Add new watch expression',
-      icon: '+',
     },
     {
+      icon: '↻',
       id: InputName.RefreshWatchExpressions,
       title: 'Refresh watch expressions',
-      icon: '↻',
     },
   ])
 })

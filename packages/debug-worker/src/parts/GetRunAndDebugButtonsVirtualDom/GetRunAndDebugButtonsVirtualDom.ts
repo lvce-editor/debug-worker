@@ -10,11 +10,11 @@ export const getRunAndDebugButtonsVirtualDom = (debugState: number): readonly Vi
   const debugButtons = GetDebugButtons.getDebugButtons(debugState)
   const dom = [
     {
-      type: VirtualDomElements.Div,
-      className: ClassNames.DebugButtons,
       childCount: debugButtons.length,
-      role: AriaRoles.ToolBar,
+      className: ClassNames.DebugButtons,
       onClick: DomEventListenerFunctions.HandleClickDebugButton,
+      role: AriaRoles.ToolBar,
+      type: VirtualDomElements.Div,
     },
     ...debugButtons.flatMap(GetDebugButtonVirtualDom.getDebugButtonVirtualDom),
   ]

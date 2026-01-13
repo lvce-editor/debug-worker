@@ -6,10 +6,10 @@ export const {
   handleDebugPaused,
   handleDebugResumed,
   handleDebugScriptParsed,
+  openUri,
+  sendMessagePortToEditorWorker,
   sendMessagePortToExtensionHostWorker,
   set,
   showContextMenu,
   showErrorDialog,
-  openUri,
-  sendMessagePortToEditorWorker,
 } = RendererWorker

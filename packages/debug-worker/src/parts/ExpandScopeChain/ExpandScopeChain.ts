@@ -19,11 +19,11 @@ export const expandScopeChain = async (
   const newExpandedIds = [...expandedIds, objectId]
   const newState: RunAndDebugState = {
     ...state,
-    scopeChain: newScopeChain,
     expandedIds: newExpandedIds,
-    scopeFocusedIndex: scopeChainIndex,
     focus: WhenExpression.FocusDebugRow,
     focusedIndex: index,
+    scopeChain: newScopeChain,
+    scopeFocusedIndex: scopeChainIndex,
     selectedIndex: index,
   }
   return updateVisibleRows(newState)

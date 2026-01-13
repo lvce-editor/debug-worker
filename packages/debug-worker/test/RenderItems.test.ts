@@ -22,14 +22,14 @@ test.skip('getRunAndDebugVisibleRows - unavailable debug state returns message r
 
   expect(rows).toHaveLength(1)
   expect(rows[0]).toEqual({
-    type: DebugRowType.Message,
-    text: DebugStrings.noScriptRunning(),
-    expanded: false,
-    key: 'no-script-running',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
+    key: 'no-script-running',
+    name: '',
+    text: DebugStrings.noScriptRunning(),
+    type: DebugRowType.Message,
+    value: '',
+    valueType: '',
   })
 })

@@ -30,8 +30,8 @@ test('should update watch expression with value on blur', async () => {
   expect(result.watchExpressions).toHaveLength(1)
   expect(result.watchExpressions[0]).toEqual({
     expression: 'x + y',
-    value: null,
     isEditing: false,
+    value: null,
   })
   expect(result.focus).toBe(1299)
   expect(result.editingValue).toBe('')

@@ -6,12 +6,12 @@ import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 export const handleResumed = (state: RunAndDebugState): RunAndDebugState => {
   const newState = {
     ...state,
-    debugState: DebugState.Default,
-    scopeChain: [],
+    callFrameId: '',
     callStack: [],
+    debugState: DebugState.Default,
     pausedMessage: '',
     pausedReason: DebugPausedReason.None,
-    callFrameId: '',
+    scopeChain: [],
   }
   return updateVisibleRows(newState)
 }

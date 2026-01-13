@@ -21,16 +21,16 @@ test('openAtPausedLocation - with call stack', async () => {
     ...createDefaultState(mockKey),
     callStack: [
       {
-        functionName: 'testFunction',
         functionLocation: {
-          scriptId: 'test-script',
-          lineNumber: 10,
           columnNumber: 5,
+          lineNumber: 10,
+          scriptId: 'test-script',
         },
+        functionName: 'testFunction',
         location: {
-          scriptId: 'test-script',
-          lineNumber: 10,
           columnNumber: 5,
+          lineNumber: 10,
+          scriptId: 'test-script',
         },
       },
     ],
@@ -61,9 +61,9 @@ test('openAtPausedLocation - with call stack', async () => {
     expect.any(String),
     true,
     {
+      columnIndex: 5,
       languageId: 'javascript',
       rowIndex: 10,
-      columnIndex: 5,
     },
   ])
 })

@@ -11,8 +11,8 @@ test('handleClickWatchExpressionDelete removes the correct watch expression', as
   expect(newState.watchExpressions).toHaveLength(1)
   expect(newState.watchExpressions[0]).toEqual({
     expression: 'a + b',
-    value: null,
     isEditing: true,
+    value: null,
   })
 })
 

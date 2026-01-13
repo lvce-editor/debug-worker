@@ -4,7 +4,7 @@ export const name = 'sample.debug-provider-scope'
 
 export const skip = 1
 
-export const test: Test = async ({ FileSystem, Workspace, Extension, SideBar, Locator, expect }) => {
+export const test: Test = async ({ expect, Extension, FileSystem, Locator, SideBar, Workspace }) => {
   // arrange
   await SideBar.open('Explorer')
   const tmpDir = await FileSystem.getTmpDir()

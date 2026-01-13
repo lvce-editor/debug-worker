@@ -3,7 +3,7 @@ import type { ViewletCommand } from '../ViewletCommand/ViewletCommand.ts'
 import { getFocusSelector } from '../GetFocusSelector/GetFocusSelector.ts'
 
 export const renderFocus = (oldState: RunAndDebugState, newState: RunAndDebugState): ViewletCommand => {
-  const { uid: id, focus } = newState
+  const { focus, uid: id } = newState
   const selector = getFocusSelector(focus)
   if (!selector) {
     return ['Viewlet.focusElementByName', id, '']

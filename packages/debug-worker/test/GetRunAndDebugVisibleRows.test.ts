@@ -13,18 +13,18 @@ test.skip('should return watch section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[0]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.watch(),
-    expanded: false,
-    key: 'watch',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: 'Watch',
-    description: '',
     actions: [],
-    setSize: 1,
+    description: '',
+    expanded: false,
+    indent: 0,
+    key: 'watch',
+    name: 'Watch',
     posInset: 1,
+    setSize: 1,
+    text: DebugStrings.watch(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })
 
@@ -32,18 +32,18 @@ test('should return breakpoints section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[1]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.breakPoints(),
-    expanded: false,
-    key: 'breakpoints',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.BreakPoints,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 1,
-    setSize: 4,
+    key: 'breakpoints',
+    name: DebugRowName.BreakPoints,
     posInset: 2,
+    setSize: 4,
+    text: DebugStrings.breakPoints(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })
 
@@ -51,51 +51,51 @@ test('should return expanded breakpoints section with all exceptions', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
     breakPointsExpanded: true,
-    exceptionBreakPoints: ExceptionBreakPoints.All,
     debugState: DebugState.Paused,
+    exceptionBreakPoints: ExceptionBreakPoints.All,
   }
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[1]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.breakPoints(),
-    expanded: true,
-    key: 'breakpoints',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.BreakPoints,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 1,
-    setSize: 4,
+    key: 'breakpoints',
+    name: DebugRowName.BreakPoints,
     posInset: 2,
+    setSize: 4,
+    text: DebugStrings.breakPoints(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
   expect(rows[2]).toEqual({
-    type: DebugRowType.CheckBox,
-    text: DebugStrings.pauseOnExceptions(),
-    expanded: true,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: InputName.PauseOnExceptions,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 2,
-    setSize: 2,
+    key: '',
+    name: InputName.PauseOnExceptions,
     posInset: 2,
+    setSize: 2,
+    text: DebugStrings.pauseOnExceptions(),
+    type: DebugRowType.CheckBox,
+    value: '',
+    valueType: '',
   })
   expect(rows[3]).toEqual({
-    type: DebugRowType.CheckBox,
-    text: DebugStrings.pauseOnUncaughtExceptions(),
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: InputName.PauseOnUncaughtExceptions,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 3,
-    setSize: 2,
+    key: '',
+    name: InputName.PauseOnUncaughtExceptions,
     posInset: 3,
+    setSize: 2,
+    text: DebugStrings.pauseOnUncaughtExceptions(),
+    type: DebugRowType.CheckBox,
+    value: '',
+    valueType: '',
   })
 })
 
@@ -103,55 +103,55 @@ test('should return scope section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[2]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.scope(),
-    expanded: false,
-    key: 'scope',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.Scope,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 2,
-    setSize: 4,
+    key: 'scope',
+    name: DebugRowName.Scope,
     posInset: 1,
+    setSize: 4,
+    text: DebugStrings.scope(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })
 
 test.skip('should return expanded scope section with not paused message', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    scopeExpanded: true,
     debugState: DebugState.Paused,
+    scopeExpanded: true,
   }
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[2]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.scope(),
-    expanded: true,
-    key: 'scope',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.Scope,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 2,
-    setSize: 1,
+    key: 'scope',
+    name: DebugRowName.Scope,
     posInset: 1,
+    setSize: 1,
+    text: DebugStrings.scope(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
   expect(rows[3]).toEqual({
-    type: DebugRowType.Message,
-    text: DebugStrings.notPaused(),
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 3,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 2,
+    setSize: 1,
+    text: DebugStrings.notPaused(),
+    type: DebugRowType.Message,
+    value: '',
+    valueType: '',
   })
 })
 
@@ -159,18 +159,18 @@ test('should return call stack section with default state', () => {
   const state: RunAndDebugState = createDefaultState()
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[3]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.callStack(),
-    expanded: false,
-    key: 'callstack',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.CallStack,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 3,
-    setSize: 1,
+    key: 'callstack',
+    name: DebugRowName.CallStack,
     posInset: 1,
+    setSize: 1,
+    text: DebugStrings.callStack(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })
 
@@ -181,46 +181,46 @@ test('should return expanded call stack section with not paused message', () => 
   }
   const rows = getRunAndDebugVisibleRows(state)
   expect(rows[3]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.callStack(),
-    expanded: true,
-    key: 'callstack',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.CallStack,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 3,
-    setSize: 4,
+    key: 'callstack',
+    name: DebugRowName.CallStack,
     posInset: 4,
+    setSize: 4,
+    text: DebugStrings.callStack(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
   expect(rows[4]).toEqual({
-    type: DebugRowType.Message,
-    text: DebugStrings.notPaused(),
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 4,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 2,
+    setSize: 1,
+    text: DebugStrings.notPaused(),
+    type: DebugRowType.Message,
+    value: '',
+    valueType: '',
   })
 })
 
 test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
   const callStack = [
     {
+      functionLocation: { columnNumber: 1, lineNumber: 1, scriptId: '1' },
       functionName: 'main',
-      functionLocation: { scriptId: '1', lineNumber: 1, columnNumber: 1 },
-      location: { scriptId: '1', lineNumber: 10, columnNumber: 5 },
+      location: { columnNumber: 5, lineNumber: 10, scriptId: '1' },
     },
     {
+      functionLocation: { columnNumber: 1, lineNumber: 1, scriptId: '2' },
       functionName: 'helper',
-      functionLocation: { scriptId: '2', lineNumber: 1, columnNumber: 1 },
-      location: { scriptId: '2', lineNumber: 5, columnNumber: 3 },
+      location: { columnNumber: 3, lineNumber: 5, scriptId: '2' },
     },
   ]
   const parsedScripts = {
@@ -229,9 +229,9 @@ test('getRunAndDebugVisibleRows: callstack rows have correct index', () => {
   }
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    callStackVisible: true,
-    callStackExpanded: true,
     callStack,
+    callStackExpanded: true,
+    callStackVisible: true,
     parsedScripts,
   }
   const rows = getRunAndDebugVisibleRows(state)

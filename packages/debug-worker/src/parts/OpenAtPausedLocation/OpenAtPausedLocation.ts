@@ -18,7 +18,7 @@ export const openAtPausedLocation = async (): Promise<void> => {
   }
   const first = callStack[0]
   const { functionLocation } = first
-  const { scriptId, lineNumber, columnNumber } = functionLocation
+  const { columnNumber, lineNumber, scriptId } = functionLocation
   const uri = getDebugUri(key, scriptId)
   const rowIndex = lineNumber
   const columnIndex = columnNumber

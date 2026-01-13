@@ -9,32 +9,32 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 const labelNode: VirtualDomNode = {
-  type: VirtualDomElements.Div,
-  className: ClassNames.CallStackLabel,
   childCount: 1,
+  className: ClassNames.CallStackLabel,
+  type: VirtualDomElements.Div,
 }
 
 const descriptionNode: VirtualDomNode = {
-  type: VirtualDomElements.Div,
-  className: ClassNames.CallStackDescription,
   childCount: 1,
+  className: ClassNames.CallStackDescription,
+  type: VirtualDomElements.Div,
 }
 
 export const renderCallStack = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { text, description, hasArrow, index } = row
+  const { description, hasArrow, index, text } = row
   const childCount = hasArrow ? 3 : 2
   const arrowNodes = getArrowNodes(hasArrow)
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName('DebugRow DebugRowCallStack', isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount,
-      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      className,
       'data-index': index,
+      onClick: DomEventListenerFunctions.HandleClickCallStackItem,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     ...arrowNodes,
     labelNode,

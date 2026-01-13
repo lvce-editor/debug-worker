@@ -20,15 +20,15 @@ export const collapseScopeChain = (
 ): RunAndDebugState => {
   const { cache } = state
   const newExpandedIds = Arrays.removeElement(expandedIds, element.objectId)
-  const { newScopeChain, newCache } = getCollapsedScopeChain(cache, scopeChain, element, scopeChainIndex)
+  const { newCache, newScopeChain } = getCollapsedScopeChain(cache, scopeChain, element, scopeChainIndex)
   const newState: RunAndDebugState = {
     ...state,
-    expandedIds: newExpandedIds,
-    scopeChain: newScopeChain,
-    scopeFocusedIndex: scopeChainIndex,
     cache: newCache,
+    expandedIds: newExpandedIds,
     focus: WhenExpression.FocusDebugRow,
     focusedIndex: index,
+    scopeChain: newScopeChain,
+    scopeFocusedIndex: scopeChainIndex,
     selectedIndex: index,
   }
   return updateVisibleRows(newState)

@@ -7,28 +7,28 @@ import * as VirtualDomHelpers from '../src/parts/VirtualDomHelpers/VirtualDomHel
 
 test('renderWatchMessage', () => {
   const row: DebugRow = {
-    type: DebugRowType.WatchMessage,
-    text: 'test message',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: '',
+    name: '',
     posInset: 1,
+    setSize: 1,
+    text: 'test message',
+    type: DebugRowType.WatchMessage,
+    value: '',
+    valueType: '',
   }
   const result = renderWatchMessage(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: 'DebugRow WatchMessage',
-      childCount: 1,
-      'data-index': 0,
       ariaPosInSet: 1,
       ariaSetSize: 1,
+      childCount: 1,
+      className: 'DebugRow WatchMessage',
+      'data-index': 0,
+      type: VirtualDomElements.Div,
     },
 
     VirtualDomHelpers.text('test message'),

@@ -6,8 +6,8 @@ const mockState = createDefaultState()
 
 test('getDebugPropertyValueLabel = number', () => {
   const value = {
-    type: 'number',
     description: '1',
+    type: 'number',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe('1')
 })
@@ -29,26 +29,24 @@ test('getDebugPropertyValueLabel - undefined', () => {
 
 test('getDebugPropertyValueLabel - symbol', () => {
   const value = {
-    type: 'symbol',
     description: 'Symbol(before)',
+    type: 'symbol',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe('Symbol(before)')
 })
 
 test('getDebugPropertyValueLabel - object', () => {
   const value = {
-    type: 'object',
     description: 'process',
+    type: 'object',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe('process')
 })
 
 test('getDebugPropertyValueLabel - object with preview', () => {
   const value = {
-    type: 'object',
     description: 'obj',
     preview: {
-      type: 'object',
       description: 'Object',
       overflow: false,
       properties: [
@@ -58,17 +56,17 @@ test('getDebugPropertyValueLabel - object with preview', () => {
           value: '🦄🌈✨👋🌎🌍🌏✨🌈🦄',
         },
       ],
+      type: 'object',
     },
+    type: 'object',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe("{message:'🦄🌈✨👋🌎🌍🌏✨🌈🦄'}")
 })
 
 test('getDebugPropertyValueLabel - class instance', () => {
   const value = {
-    type: 'object',
     description: 'IncomingMessage',
     preview: {
-      type: 'object',
       description: 'IncomingMessage',
       overflow: true,
       properties: [
@@ -78,15 +76,17 @@ test('getDebugPropertyValueLabel - class instance', () => {
           value: 'ReadableState',
         },
       ],
+      type: 'object',
     },
+    type: 'object',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe('IncomingMessage {_readableState:ReadableState}')
 })
 
 test('getDebugPropertyValueLabel - function', () => {
   const value = {
-    type: 'function',
     description: '(req, res) => {}',
+    type: 'function',
   }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)).toBe('(req, res) => {}')
 })
@@ -107,8 +107,8 @@ test('getDebugPropertyValueLabel - other', () => {
 test('getDebugPropertyValueLabel - truncates long description', () => {
   const longDescription = 'a'.repeat(150)
   const value = {
-    type: 'function',
     description: longDescription,
+    type: 'function',
   }
   const truncatedState = { ...mockState, maxDescriptionLength: 50 }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, truncatedState.maxDescriptionLength)).toBe('a'.repeat(50) + '...')
@@ -117,8 +117,8 @@ test('getDebugPropertyValueLabel - truncates long description', () => {
 test('getDebugPropertyValueLabel - does not truncate short description', () => {
   const shortDescription = 'short'
   const value = {
-    type: 'function',
     description: shortDescription,
+    type: 'function',
   }
   const truncatedState = { ...mockState, maxDescriptionLength: 50 }
   expect(GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, truncatedState.maxDescriptionLength)).toBe('short')
@@ -127,8 +127,8 @@ test('getDebugPropertyValueLabel - does not truncate short description', () => {
 test('getDebugPropertyValueLabel - truncates very long description to default length', () => {
   const veryLongDescription = 'a'.repeat(20_000) // 20k characters
   const value = {
-    type: 'function',
     description: veryLongDescription,
+    type: 'function',
   }
   // Use default state with maxDescriptionLength: 100
   const result = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(value, mockState.maxDescriptionLength)

@@ -1,5 +1,5 @@
 export interface DebugButton {
-  readonly title: string
-  readonly icon: string
   readonly fn: string
+  readonly icon: string
+  readonly title: string
 }

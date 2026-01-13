@@ -9,7 +9,7 @@ test('addWatchExpression', async () => {
   expect(newState.watchExpressions).toHaveLength(1)
   expect(newState.watchExpressions[0]).toEqual({
     expression: 'x + y',
-    value: null,
     isEditing: true,
+    value: null,
   })
 })

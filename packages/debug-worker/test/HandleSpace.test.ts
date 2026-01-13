@@ -16,16 +16,16 @@ test('handleSpace does nothing when no row is selected', async () => {
 
 test('handleSpace does nothing for non-checkbox rows', async () => {
   const mockRow = {
-    type: DebugRowType.SectionHeading,
-    text: 'test',
-    expanded: false,
-    key: 'test',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: 'test',
+    name: '',
+    text: 'test',
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [mockRow] }
   const result = await handleSpace(state)
@@ -50,16 +50,16 @@ test('handleSpace toggles checkbox rows', async () => {
   ExtensionHost.set(mockExtensionHost)
 
   const checkboxRow = {
-    type: DebugRowType.CheckBox,
-    text: 'Pause on Exceptions',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: InputName.PauseOnExceptions,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: '',
+    name: InputName.PauseOnExceptions,
+    text: 'Pause on Exceptions',
+    type: DebugRowType.CheckBox,
+    value: '',
+    valueType: '',
   }
   const state: RunAndDebugState = { ...createDefaultState(), selectedIndex: 0, visibleRows: [checkboxRow] }
   const result = await handleSpace(state)

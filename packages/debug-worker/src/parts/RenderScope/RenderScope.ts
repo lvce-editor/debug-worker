@@ -10,26 +10,26 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { key, expanded, index } = row
+  const { expanded, index, key } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       ariaExpanded: expanded,
       ariaLevel: 2,
       childCount: 2,
-      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
-      'data-name': key,
+      className,
       'data-index': index,
+      'data-name': key,
+      onPointerDown: DomEventListenerFunctions.HandleClickScopeValue,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
     {
-      type: VirtualDomElements.Span,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugValueScopeName),
       childCount: 1,
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugValueScopeName),
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text(key),
   ]

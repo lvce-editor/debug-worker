@@ -10,39 +10,39 @@ import * as VirtualDomElements from '../src/parts/VirtualDomElements/VirtualDomE
 
 test('renderInputField', () => {
   const row: DebugRow = {
-    type: DebugRowType.InputField,
-    text: 'test input',
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: 'test-input',
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
+    key: '',
+    name: 'test-input',
+    text: 'test input',
+    type: DebugRowType.InputField,
+    value: '',
+    valueType: '',
   }
   const result = renderInputField(row, -1, 0)
   expect(result).toEqual([
     {
-      type: VirtualDomElements.Div,
-      className: `${ClassNames.DebugRow} ${ClassNames.DebugRowInputField}`,
-      role: AriaRoles.TreeItem,
       ariaLevel: 2,
       childCount: 1,
+      className: `${ClassNames.DebugRow} ${ClassNames.DebugRowInputField}`,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Input,
-      inputType: InputType.Text,
-      spellcheck: false,
       autocapitalize: 'off',
       autocorrect: 'off',
-      className: ClassNames.InputBox,
-      name: 'test-input',
-      value: 'test input',
       childCount: 0,
-      onInput: DomEventListenerFunctions.HandleInputFieldChange,
-      onBlur: DomEventListenerFunctions.HandleInputBlur,
+      className: ClassNames.InputBox,
       id: 'test-input',
+      inputType: InputType.Text,
+      name: 'test-input',
+      onBlur: DomEventListenerFunctions.HandleInputBlur,
+      onInput: DomEventListenerFunctions.HandleInputFieldChange,
+      spellcheck: false,
+      type: VirtualDomElements.Input,
+      value: 'test input',
     },
   ])
 })

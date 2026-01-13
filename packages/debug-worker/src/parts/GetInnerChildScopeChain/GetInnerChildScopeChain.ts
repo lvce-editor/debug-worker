@@ -21,14 +21,14 @@ export const getInnerChildScopeChain = async (
   for (const child of childScopes.result.result) {
     const valueLabel = GetDebugPropertyValueLabel.getDebugPropertyValueLabel(child.value || child.get || {}, maxDescriptionLength)
     childScopeChain.push({
-      type: DebugScopeChainType.Property,
+      flags: DebugItemFlags.None,
+      indent: indent + 10,
       key: child.name,
+      label: '',
+      objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
+      type: DebugScopeChainType.Property,
       value: valueLabel,
       valueType: GetDebugValueType.getDebugValueType(child),
-      objectId: GetDebugValueObjectId.getDebugValueObjectId(child),
-      indent: indent + 10,
-      label: '',
-      flags: DebugItemFlags.None,
     })
   }
   return childScopeChain

@@ -10,9 +10,9 @@ export const getActionsDom = (actions: readonly DebugRowAction[]): readonly Virt
   }
   return [
     {
-      type: Div,
-      className: ClassNames.DebugSectionActions,
       childCount: actions.length,
+      className: ClassNames.DebugSectionActions,
+      type: Div,
     },
     ...actions.flatMap(GetActionDom.getActionDom),
   ]

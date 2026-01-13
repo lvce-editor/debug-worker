@@ -11,39 +11,39 @@ import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
 export const renderWatchExpression = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
-  const { value, key, index } = row
+  const { index, key, value } = row
   const isSelected = rowIndex === selectedIndex
   const className = getDebugRowClassName(ClassNames.DebugRow, isSelected)
   return [
     {
-      type: VirtualDomElements.Div,
-      className,
-      role: AriaRoles.TreeItem,
       childCount: 4,
+      className,
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpression, // TODO use doubleclick
       onContextMenu: DomEventListenerFunctions.HandleWatchExpressionContextMenu,
+      role: AriaRoles.TreeItem,
+      type: VirtualDomElements.Div,
     },
     {
-      type: VirtualDomElements.Span,
-      className: ClassNames.DebugValueScopeName,
       childCount: 1,
+      className: ClassNames.DebugValueScopeName,
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text(key),
     separator,
     {
-      type: VirtualDomElements.Span,
-      className: ClassNames.DebugValue,
       childCount: 1,
+      className: ClassNames.DebugValue,
+      type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text(value),
     {
-      type: VirtualDomElements.Button,
-      title: DebugStrings.deleteWatchExpression(),
+      childCount: 1,
       className: MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction, ClassNames.DeleteWatchExpression),
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
-      childCount: 1,
+      title: DebugStrings.deleteWatchExpression(),
+      type: VirtualDomElements.Button,
     },
     VirtualDomHelpers.text('×'),
   ]

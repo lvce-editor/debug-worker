@@ -1,6 +1,6 @@
 export interface OpenInfo {
-  readonly uri: string
+  readonly columnIndex: number
   readonly languageId: string
   readonly rowIndex: number
-  readonly columnIndex: number
+  readonly uri: string
 }

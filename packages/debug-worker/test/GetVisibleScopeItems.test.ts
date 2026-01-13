@@ -10,29 +10,29 @@ test('getVisibleScopeItems - empty scope chain', () => {
 test('getVisibleScopeItems - single item not expanded', () => {
   const scopeChain = [
     {
-      objectId: '1',
-      valueType: 'object',
+      flags: DebugItemFlags.None,
       indent: 0,
+      index: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: DebugItemFlags.None,
-      index: 0,
+      valueType: 'object',
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, [], 0)
   expect(result).toEqual([
     {
-      objectId: '1',
-      valueType: 'object',
+      flags: 6,
       indent: 0,
+      index: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: 6,
-      index: 0,
+      valueType: 'object',
     },
   ])
 })
@@ -40,29 +40,29 @@ test('getVisibleScopeItems - single item not expanded', () => {
 test('getVisibleScopeItems - single item expanded', () => {
   const scopeChain = [
     {
-      objectId: '1',
-      valueType: 'object',
+      flags: DebugItemFlags.None,
       indent: 0,
+      index: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: DebugItemFlags.None,
-      index: 0,
+      valueType: 'object',
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 0)
   expect(result).toEqual([
     {
-      objectId: '1',
-      valueType: 'object',
+      flags: 5,
       indent: 0,
+      index: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: 5,
-      index: 0,
+      valueType: 'object',
     },
   ])
 })
@@ -70,73 +70,73 @@ test('getVisibleScopeItems - single item expanded', () => {
 test('getVisibleScopeItems - multiple items with different states', () => {
   const scopeChain = [
     {
-      objectId: '1',
-      valueType: 'object',
-      indent: 0,
-      key: '',
-      label: '',
-      type: 0,
-      value: '',
       flags: DebugItemFlags.None,
+      indent: 0,
       index: 0,
-    },
-    {
-      objectId: '2',
-      valueType: 'string',
-      indent: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: DebugItemFlags.None,
-      index: 1,
-    },
-    {
-      objectId: '3',
       valueType: 'object',
+    },
+    {
+      flags: DebugItemFlags.None,
       indent: 0,
+      index: 1,
       key: '',
       label: '',
+      objectId: '2',
       type: 0,
       value: '',
+      valueType: 'string',
+    },
+    {
       flags: DebugItemFlags.None,
+      indent: 0,
       index: 2,
+      key: '',
+      label: '',
+      objectId: '3',
+      type: 0,
+      value: '',
+      valueType: 'object',
     },
   ]
   const result = GetVisibleScopeItems.getVisibleScopeItems(scopeChain, ['1'], 1)
   expect(result).toEqual([
     {
-      objectId: '1',
-      valueType: 'object',
-      indent: 0,
-      key: '',
-      label: '',
-      type: 0,
-      value: '',
       flags: DebugItemFlags.Expanded,
+      indent: 0,
       index: 0,
-    },
-    {
-      objectId: '2',
-      valueType: 'string',
-      indent: 0,
       key: '',
       label: '',
+      objectId: '1',
       type: 0,
       value: '',
-      flags: DebugItemFlags.Focused,
-      index: 1,
-    },
-    {
-      objectId: '3',
       valueType: 'object',
+    },
+    {
+      flags: DebugItemFlags.Focused,
       indent: 0,
+      index: 1,
       key: '',
       label: '',
+      objectId: '2',
       type: 0,
       value: '',
+      valueType: 'string',
+    },
+    {
       flags: DebugItemFlags.Collapsed,
+      indent: 0,
       index: 2,
+      key: '',
+      label: '',
+      objectId: '3',
+      type: 0,
+      value: '',
+      valueType: 'object',
     },
   ])
 })

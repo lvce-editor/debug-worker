@@ -13,88 +13,88 @@ test('getRunAndDebugVisibleRowsScope returns collapsed section when scopeExpande
   const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows).toHaveLength(1)
   expect(rows[0]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.scope(),
-    expanded: false,
-    key: DebugSectionId.Scope,
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.Scope,
     description: '',
+    expanded: false,
+    indent: 0,
     index: 0,
-    setSize: 4,
+    key: DebugSectionId.Scope,
+    name: DebugRowName.Scope,
     posInset: 1,
+    setSize: 4,
+    text: DebugStrings.scope(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })
 
 test.skip('getRunAndDebugVisibleRowsScope returns not paused message when scopeExpanded is true and scopeChain is empty', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    scopeExpanded: true,
-    scopeChain: [],
     debugState: DebugState.Paused,
+    scopeChain: [],
+    scopeExpanded: true,
   }
   const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows).toHaveLength(2)
   expect(rows[0]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.scope(),
-    expanded: true,
-    key: DebugSectionId.Scope,
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.Scope,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 0,
-    setSize: 1,
+    key: DebugSectionId.Scope,
+    name: DebugRowName.Scope,
     posInset: 1,
+    setSize: 1,
+    text: DebugStrings.scope(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
   expect(rows[1]).toEqual({
-    type: DebugRowType.Message,
-    text: DebugStrings.notPaused(),
-    expanded: false,
-    key: '',
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
+    key: '',
+    name: '',
+    text: DebugStrings.notPaused(),
+    type: DebugRowType.Message,
+    value: '',
+    valueType: '',
   })
 })
 
 test('getRunAndDebugVisibleRowsScope returns scope items when scopeExpanded is true and scopeChain has items', () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    scopeExpanded: true,
     expandedIds: ['1'],
     scopeChain: [
       {
-        type: 1,
-        key: '1',
-        objectId: '1',
-        valueType: 'object',
-        indent: 0,
-        label: 'Local',
-        value: 'Local',
         flags: 0,
+        indent: 0,
+        key: '1',
+        label: 'Local',
+        objectId: '1',
+        type: 1,
+        value: 'Local',
+        valueType: 'object',
       },
     ],
+    scopeExpanded: true,
   }
   const rows = getRunAndDebugVisibleRowsScope(state, 0, 4, 0)
   expect(rows[0]).toEqual({
-    type: DebugRowType.SectionHeading,
-    text: DebugStrings.scope(),
-    expanded: true,
-    key: DebugSectionId.Scope,
-    value: '',
-    indent: 0,
-    valueType: '',
-    name: DebugRowName.Scope,
     description: '',
+    expanded: true,
+    indent: 0,
     index: 0,
-    setSize: 4,
+    key: DebugSectionId.Scope,
+    name: DebugRowName.Scope,
     posInset: 1,
+    setSize: 4,
+    text: DebugStrings.scope(),
+    type: DebugRowType.SectionHeading,
+    value: '',
+    valueType: '',
   })
 })

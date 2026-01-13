@@ -2,9 +2,9 @@ import type { Highlight } from '../Highlight/Highlight.ts'
 import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 const emptyHighlight: Highlight = {
-  uri: '',
-  rowIndex: 0,
   columnIndex: 0,
+  rowIndex: 0,
+  uri: '',
 }
 
 export const getHighlight = (uid: number): Highlight => {
@@ -13,20 +13,20 @@ export const getHighlight = (uid: number): Highlight => {
     return emptyHighlight
   }
   const { newState } = state
-  const { parsedScripts, callStack } = newState
+  const { callStack, parsedScripts } = newState
   if (callStack.length === 0) {
     return emptyHighlight
   }
   const top = callStack[0]
   const { location } = top
-  const { scriptId, lineNumber, columnNumber } = location
+  const { columnNumber, lineNumber, scriptId } = location
   const script = parsedScripts[scriptId]
   if (!script) {
     return emptyHighlight
   }
   return {
-    uri: script.url,
-    rowIndex: lineNumber,
     columnIndex: columnNumber,
+    rowIndex: lineNumber,
+    uri: script.url,
   }
 }

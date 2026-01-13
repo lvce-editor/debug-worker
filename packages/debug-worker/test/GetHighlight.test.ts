@@ -7,9 +7,9 @@ import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugSt
 test('returns empty highlight when state does not exist', () => {
   const highlight = getHighlight(1)
   expect(highlight).toEqual({
-    uri: '',
-    rowIndex: 0,
     columnIndex: 0,
+    rowIndex: 0,
+    uri: '',
   })
 })
 
@@ -17,9 +17,9 @@ test('returns empty highlight when call stack is empty', () => {
   createDefaultState(1)
   const highlight = getHighlight(1)
   expect(highlight).toEqual({
-    uri: '',
-    rowIndex: 0,
     columnIndex: 0,
+    rowIndex: 0,
+    uri: '',
   })
 })
 
@@ -29,17 +29,17 @@ test('returns highlight from top of call stack', () => {
     ...state,
     callStack: [
       {
-        location: {
-          scriptId: 'script1',
-          lineNumber: 10,
-          columnNumber: 5,
-        },
         functionLocation: {
-          scriptId: 'script1',
-          lineNumber: 0,
           columnNumber: 0,
+          lineNumber: 0,
+          scriptId: 'script1',
         },
         functionName: '',
+        location: {
+          columnNumber: 5,
+          lineNumber: 10,
+          scriptId: 'script1',
+        },
       },
     ],
     parsedScripts: {
@@ -53,8 +53,8 @@ test('returns highlight from top of call stack', () => {
   RunAndDebugStates.set(1, newState, newState)
   const highlight = getHighlight(1)
   expect(highlight).toEqual({
-    uri: 'file:///test.ts',
-    rowIndex: 10,
     columnIndex: 5,
+    rowIndex: 10,
+    uri: 'file:///test.ts',
   })
 })

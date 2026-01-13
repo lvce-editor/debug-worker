@@ -8,9 +8,9 @@ export const handleClickSectionScope = (state: RunAndDebugState): RunAndDebugSta
   const { scopeExpanded } = state
   const newState: RunAndDebugState = {
     ...state,
+    focus: WhenExpression.FocusDebugRow,
     scopeExpanded: !scopeExpanded,
     selectedIndex: getSectionIndex(state, DebugRowName.Scope),
-    focus: WhenExpression.FocusDebugRow,
   }
   return updateVisibleRows(newState)
 }

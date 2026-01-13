@@ -22,8 +22,8 @@ test.skip('getPausedInfo2', async () => {
   ]
   const mockCallStack = ['stack1']
   const mockPausedStatus = {
-    reason: 'test-reason',
     data: {},
+    reason: 'test-reason',
   }
   const mockScripts: any[] = []
   const mockScriptMap: ParsedScriptMap = {}
@@ -88,12 +88,12 @@ test.skip('getPausedInfo2', async () => {
   try {
     const result = await getPausedInfo2(mockDebugId, maxDescriptionLength)
     expect(result).toEqual({
-      scopeChain: ['scope1'],
-      callStack: ['stack1'],
-      pausedReason: 'test-reason',
-      pausedMessage: 'test message',
       callFrameId: 'frame1',
+      callStack: ['stack1'],
       expandedIds: ['scope1'],
+      pausedMessage: 'test message',
+      pausedReason: 'test-reason',
+      scopeChain: ['scope1'],
       scriptMap: mockScriptMap,
     })
   } finally {

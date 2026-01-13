@@ -4,11 +4,11 @@ import { setPauseOnExceptions } from '../SetPauseOnExceptions/SetPauseOnExceptio
 
 const getNewExceptionState = (exceptionState: number): number => {
   switch (exceptionState) {
+    case ExceptionBreakPoints.All:
+      return ExceptionBreakPoints.None
     case ExceptionBreakPoints.None:
       return ExceptionBreakPoints.Uncaught
     case ExceptionBreakPoints.Uncaught:
-      return ExceptionBreakPoints.None
-    case ExceptionBreakPoints.All:
       return ExceptionBreakPoints.None
     default:
       return exceptionState

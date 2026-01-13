@@ -60,7 +60,7 @@ export const handleDebugInput = (state: RunAndDebugState, value: any): RunAndDeb
 }
 
 export const handleEvaluate = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
-  const { debugInputValue, callFrameId, debugId } = state
+  const { callFrameId, debugId, debugInputValue } = state
   const result = await Debug.evaluate(debugId, debugInputValue, callFrameId)
   // @ts-ignore
   const actualResult = result.result.result.value

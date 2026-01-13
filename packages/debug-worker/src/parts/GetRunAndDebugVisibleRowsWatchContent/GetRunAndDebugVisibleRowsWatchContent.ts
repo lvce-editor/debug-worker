@@ -11,33 +11,33 @@ const formatValue = (value: any): string => {
 const renderWatchExpression = (expression: string, value: any, isEditing: boolean, relativeIndex: number, index: number, setSize: number): DebugRow => {
   if (isEditing) {
     return {
-      type: DebugRowType.InputField,
-      text: '',
-      expanded: false,
-      key: 'new-watch-expression',
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: InputName.WatchExpressionInput,
       description: '',
+      expanded: false,
+      indent: 0,
       index,
-      setSize,
+      key: 'new-watch-expression',
+      name: InputName.WatchExpressionInput,
       posInset: relativeIndex + 1,
+      setSize,
+      text: '',
+      type: DebugRowType.InputField,
+      value: '',
+      valueType: '',
     }
   }
   return {
-    type: DebugRowType.WatchExpression,
-    text: expression,
-    expanded: false,
-    key: expression,
-    value: formatValue(value),
-    indent: 0,
-    valueType: '',
-    name: '',
     description: '',
+    expanded: false,
+    indent: 0,
     index,
-    setSize,
+    key: expression,
+    name: '',
     posInset: relativeIndex + 1,
+    setSize,
+    text: expression,
+    type: DebugRowType.WatchExpression,
+    value: formatValue(value),
+    valueType: '',
   }
 }
 
@@ -46,18 +46,18 @@ export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly
 
   if (watchExpressions.length === 0) {
     rows.push({
-      type: DebugRowType.WatchMessage,
-      text: DebugStrings.noWatchExpression(),
-      expanded: false,
-      key: '',
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: '',
       description: '',
+      expanded: false,
+      indent: 0,
       index: startIndex + 1,
-      setSize: 1,
+      key: '',
+      name: '',
       posInset: 1,
+      setSize: 1,
+      text: DebugStrings.noWatchExpression(),
+      type: DebugRowType.WatchMessage,
+      value: '',
+      valueType: '',
     })
   } else {
     const setSize = watchExpressions.length

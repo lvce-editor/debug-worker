@@ -15,25 +15,25 @@ test('handleArrowLeft returns the same state', async () => {
 test('handleArrowLeft collapses expanded watch section heading', async () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    watchExpanded: true,
     selectedIndex: 0,
     visibleRows: [
       {
-        type: DebugRowType.SectionHeading,
-        text: 'Watch',
-        expanded: true,
-        key: DebugSectionId.Watch,
-        value: '',
-        indent: 0,
-        valueType: '',
-        name: DebugRowName.Watch,
-        description: '',
         actions: [],
+        description: '',
+        expanded: true,
+        indent: 0,
         index: 0,
-        setSize: 1,
+        key: DebugSectionId.Watch,
+        name: DebugRowName.Watch,
         posInset: 1,
+        setSize: 1,
+        text: 'Watch',
+        type: DebugRowType.SectionHeading,
+        value: '',
+        valueType: '',
       },
     ],
+    watchExpanded: true,
   }
   const result = await handleArrowLeft(state)
   expect(result.watchExpanded).toBe(false)
@@ -42,25 +42,25 @@ test('handleArrowLeft collapses expanded watch section heading', async () => {
 test('handleArrowLeft does nothing if watch section heading is already collapsed', async () => {
   const state: RunAndDebugState = {
     ...createDefaultState(),
-    watchExpanded: false,
     selectedIndex: 0,
     visibleRows: [
       {
-        type: DebugRowType.SectionHeading,
-        text: 'Watch',
-        expanded: false,
-        key: DebugSectionId.Watch,
-        value: '',
-        indent: 0,
-        valueType: '',
-        name: DebugRowName.Watch,
-        description: '',
         actions: [],
+        description: '',
+        expanded: false,
+        indent: 0,
         index: 0,
-        setSize: 1,
+        key: DebugSectionId.Watch,
+        name: DebugRowName.Watch,
         posInset: 1,
+        setSize: 1,
+        text: 'Watch',
+        type: DebugRowType.SectionHeading,
+        value: '',
+        valueType: '',
       },
     ],
+    watchExpanded: false,
   }
   const result = await handleArrowLeft(state)
   expect(result).toBe(state)

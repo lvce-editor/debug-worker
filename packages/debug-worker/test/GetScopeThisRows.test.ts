@@ -5,32 +5,32 @@ import { getScopeThisRows } from '../src/parts/ScopeRenderers/GetScopeThisRows.t
 
 test('getScopeThisRows', () => {
   const scope: Scope = {
+    flags: 0,
     indent: 1,
     key: 'this',
-    value: 'test',
-    valueType: 'string',
     label: '',
     objectId: '',
     type: 0,
-    flags: 0,
+    value: 'test',
+    valueType: 'string',
   }
   const result = getScopeThisRows(scope, 0, 0)
   expect(result).toEqual([
     {
-      type: DebugRowType.Value,
-      text: '',
-      tokens: ['test', 'Identifier'],
-      expanded: false,
-      key: 'this',
-      value: 'test',
-      indent: 1,
-      valueType: 'string',
-      name: '',
       description: '',
+      expanded: false,
+      indent: 1,
       index: 0,
-      setSize: 1,
+      key: 'this',
+      name: '',
       posInset: 1,
       scopeChainIndex: 0,
+      setSize: 1,
+      text: '',
+      tokens: ['test', 'Identifier'],
+      type: DebugRowType.Value,
+      value: 'test',
+      valueType: 'string',
     },
   ])
 })

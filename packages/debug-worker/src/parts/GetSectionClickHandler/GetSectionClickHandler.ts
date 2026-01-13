@@ -8,14 +8,14 @@ import { handleClickSectionWatch } from '../HandleClickSectionWatch/HandleClickS
 
 export const getSectionClickHandler = (id: string): SectionClickHandler => {
   switch (id) {
-    case DebugSectionId.Watch:
-      return handleClickSectionWatch
     case DebugSectionId.BreakPoints:
       return handleClickSectionBreakPoints
-    case DebugSectionId.Scope:
-      return handleClickSectionScope
     case DebugSectionId.CallStack:
       return handleClickSectionCallstack
+    case DebugSectionId.Scope:
+      return handleClickSectionScope
+    case DebugSectionId.Watch:
+      return handleClickSectionWatch
     default:
       return handleClickSectionUnknown
   }

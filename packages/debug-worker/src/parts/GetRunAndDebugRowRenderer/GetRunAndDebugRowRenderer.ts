@@ -12,26 +12,26 @@ import { renderMessage, renderNoop } from '../RunAndDebugRowRenderers/RunAndDebu
 
 export const getRowRenderer = (type: number): DebugRowRenderer => {
   switch (type) {
-    case DebugRowType.Message:
-      return renderMessage
-    case DebugRowType.SectionHeading:
-      return GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading
     case DebugRowType.CallStack:
       return renderCallStack
-    case DebugRowType.Scope:
-      return renderScope
-    case DebugRowType.Value:
-    case DebugRowType.Property:
-    case DebugRowType.Exception:
-      return renderValue
     case DebugRowType.CheckBox:
       return renderCheckBox
-    case DebugRowType.WatchMessage:
-      return renderWatchMessage
-    case DebugRowType.WatchExpression:
-      return renderWatchExpression
+    case DebugRowType.Exception:
+    case DebugRowType.Property:
+    case DebugRowType.Value:
+      return renderValue
     case DebugRowType.InputField:
       return renderInputField
+    case DebugRowType.Message:
+      return renderMessage
+    case DebugRowType.Scope:
+      return renderScope
+    case DebugRowType.SectionHeading:
+      return GetRunAndDebugRowSectionHeadingVirtualDom.renderSectionHeading
+    case DebugRowType.WatchExpression:
+      return renderWatchExpression
+    case DebugRowType.WatchMessage:
+      return renderWatchMessage
     default:
       return renderNoop
   }

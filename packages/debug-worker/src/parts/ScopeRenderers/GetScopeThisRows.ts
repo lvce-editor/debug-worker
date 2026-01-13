@@ -8,20 +8,20 @@ export const getScopeThisRows = (scope: Scope, relativeIndex: number, index: num
   const tokens = tokenizeValue(value)
   return [
     {
-      type: DebugRowType.Value,
-      text: '',
-      tokens,
-      expanded: false,
-      key,
-      value,
-      indent,
-      valueType,
-      name: '',
       description: '',
+      expanded: false,
+      indent,
       index,
-      setSize: 1,
+      key,
+      name: '',
       posInset: 1,
       scopeChainIndex: relativeIndex,
+      setSize: 1,
+      text: '',
+      tokens,
+      type: DebugRowType.Value,
+      value,
+      valueType,
     },
   ]
 }

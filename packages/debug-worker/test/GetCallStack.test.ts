@@ -9,24 +9,24 @@ test('getCallStack - returns empty array for empty input', () => {
 test('getCallStack - transforms call frames correctly', () => {
   const callFrames = [
     {
-      functionName: 'testFunction',
       functionLocation: 'test.js:1:1',
+      functionName: 'testFunction',
     },
     {
-      functionName: '',
       functionLocation: 'test.js:2:2',
+      functionName: '',
     },
   ]
 
   const result = getCallStack(callFrames)
   expect(result).toEqual([
     {
-      functionName: 'testFunction',
       functionLocation: 'test.js:1:1',
+      functionName: 'testFunction',
     },
     {
-      functionName: '(anonymous)',
       functionLocation: 'test.js:2:2',
+      functionName: '(anonymous)',
     },
   ])
 })

@@ -10,18 +10,18 @@ import * as RenderSelection from '../RenderSelection/RenderSelection.ts'
 
 export const getRenderer = (diffType: number): Renderer<RunAndDebugState> => {
   switch (diffType) {
-    case DiffType.RenderItems:
-      return RenderItems.renderItems
-    case DiffType.RenderFocusContext:
-      return RenderFocusContext.renderFocusContext
     case DiffType.RenderFocus:
       return RenderFocus.renderFocus
-    case DiffType.RenderValue:
-      return RenderInputValue.renderInputValue
-    case DiffType.RenderSelection:
-      return RenderSelection.renderSelection
+    case DiffType.RenderFocusContext:
+      return RenderFocusContext.renderFocusContext
+    case DiffType.RenderItems:
+      return RenderItems.renderItems
     case DiffType.RenderPauseOnExceptions:
       return RenderPauseOnExceptions.renderPauseOnExceptions
+    case DiffType.RenderSelection:
+      return RenderSelection.renderSelection
+    case DiffType.RenderValue:
+      return RenderInputValue.renderInputValue
     default:
       throw new Error('unknown renderer')
   }

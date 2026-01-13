@@ -16,19 +16,19 @@ export const getRunAndDebugVisibleRowsWatch = (state: RunAndDebugState, startInd
 
   const rows: DebugRow[] = [
     {
-      type: DebugRowType.SectionHeading,
-      text: DebugStrings.watch(),
-      expanded: watchExpanded,
-      key: DebugSectionId.Watch,
-      value: '',
-      indent: 0,
-      valueType: '',
-      name: DebugRowName.Watch,
-      description: '',
       actions: getWatchActions(watchExpanded),
+      description: '',
+      expanded: watchExpanded,
+      indent: 0,
       index: 0,
-      setSize: topLevelCount,
+      key: DebugSectionId.Watch,
+      name: DebugRowName.Watch,
       posInset: topLevelIndex + 1,
+      setSize: topLevelCount,
+      text: DebugStrings.watch(),
+      type: DebugRowType.SectionHeading,
+      value: '',
+      valueType: '',
     },
   ]
 

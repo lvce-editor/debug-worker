@@ -8,14 +8,14 @@ import { getScopeThisRows } from '../ScopeRenderers/GetScopeThisRows.ts'
 
 export const getScopeRenderer = (type: number): ScopeRenderer => {
   switch (type) {
-    case DebugScopeChainType.This:
-      return getScopeThisRows
     case DebugScopeChainType.Exception:
       return getScopeExceptionRows
-    case DebugScopeChainType.Scope:
-      return getScopeScopeRows
     case DebugScopeChainType.Property:
       return getScopePropertyRows
+    case DebugScopeChainType.Scope:
+      return getScopeScopeRows
+    case DebugScopeChainType.This:
+      return getScopeThisRows
     default:
       return getNoopRows
   }

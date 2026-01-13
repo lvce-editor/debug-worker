@@ -11,7 +11,7 @@ test('getScopeLabel - local', () => {
 })
 
 test('getScopeLabel - closure with name', () => {
-  const element = { type: DebugScopeType.Closure, name: 'testClosure' }
+  const element = { name: 'testClosure', type: DebugScopeType.Closure }
   const result = DebugDisplay.getScopeLabel(element)
   expect(result).toBe(DebugStrings.namedClosure('testClosure'))
 })

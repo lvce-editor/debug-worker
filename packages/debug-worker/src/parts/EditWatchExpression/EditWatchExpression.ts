@@ -17,12 +17,12 @@ export const editWatchExpression = (state: RunAndDebugState, index: number): Run
   const newWatchExpressions = watchExpressions.toSpliced(index, 1, newItem)
   const newState: RunAndDebugState = {
     ...state,
-    watchExpressions: newWatchExpressions,
+    editingselectionend: item.expression.length,
+    editingselectionstart: 0,
+    editingValue: item.expression,
     focus: WhenExpression.FocusDebugWatchInput,
     inputSource: InputSource.Script,
-    editingValue: item.expression,
-    editingselectionstart: 0,
-    editingselectionend: item.expression.length,
+    watchExpressions: newWatchExpressions,
   }
   return updateVisibleRows(newState)
 }

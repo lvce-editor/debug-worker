@@ -5,12 +5,12 @@ import { setPauseOnExceptions } from '../SetPauseOnExceptions/SetPauseOnExceptio
 export const handleClickPauseOnExceptions = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
   const { exceptionBreakPoints } = state
   switch (exceptionBreakPoints) {
+    case ExceptionBreakPoints.All:
+      return setPauseOnExceptions(state, ExceptionBreakPoints.None)
     case ExceptionBreakPoints.None:
       return setPauseOnExceptions(state, ExceptionBreakPoints.All)
     case ExceptionBreakPoints.Uncaught:
       return setPauseOnExceptions(state, ExceptionBreakPoints.All)
-    case ExceptionBreakPoints.All:
-      return setPauseOnExceptions(state, ExceptionBreakPoints.None)
     default:
       return state
   }

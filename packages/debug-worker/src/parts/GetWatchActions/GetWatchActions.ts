@@ -7,14 +7,14 @@ export const getWatchActions = (watchExpanded: boolean): readonly DebugRowAction
   }
   return [
     {
+      icon: '+',
       id: InputName.AddWatchExpression,
       title: 'Add new watch expression',
-      icon: '+',
     },
     {
+      icon: '↻',
       id: InputName.RefreshWatchExpressions,
       title: 'Refresh watch expressions',
-      icon: '↻',
     },
   ]
 }
