@@ -28,6 +28,25 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
     ]
   }
 
+  if (state.debugState === DebugState.MissingProvider) {
+    return [
+      {
+        description: '',
+        expanded: false,
+        indent: 0,
+        index: 0,
+        key: 'missing-debug-provider',
+        name: '',
+        posInset: 1,
+        setSize: 1,
+        text: state.debugProviderMessage,
+        type: DebugRowType.MissingDebugProvider,
+        value: '',
+        valueType: '',
+      },
+    ]
+  }
+
   const { topLevelCount } = state
   const watchRows = getRunAndDebugVisibleRowsWatch(state, 0, topLevelCount, 0)
   const breakPointsRows = getRunAndDebugVisibleRowsBreakPoints(state, watchRows.length, topLevelCount, 1)

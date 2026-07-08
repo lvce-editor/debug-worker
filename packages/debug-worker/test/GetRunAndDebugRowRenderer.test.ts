@@ -6,6 +6,7 @@ import { renderCallStack } from '../src/parts/RenderCallStack/RenderCallStack.ts
 import { renderCheckBox } from '../src/parts/RenderCheckBox/RenderCheckBox.ts'
 import { renderValue } from '../src/parts/RenderDebugValue/RenderDebugValue.ts'
 import { renderInputField } from '../src/parts/RenderInputField/RenderInputField.ts'
+import { renderMissingDebugProvider } from '../src/parts/RenderMissingDebugProvider/RenderMissingDebugProvider.ts'
 import { renderScope } from '../src/parts/RenderScope/RenderScope.ts'
 import { renderWatchExpression } from '../src/parts/RenderWatchExpression/RenderWatchExpression.ts'
 import { renderWatchMessage } from '../src/parts/RenderWatchMessage/RenderWatchMessage.ts'
@@ -23,5 +24,6 @@ test('getRowRenderer', () => {
   expect(getRowRenderer(DebugRowType.WatchMessage)).toBe(renderWatchMessage)
   expect(getRowRenderer(DebugRowType.WatchExpression)).toBe(renderWatchExpression)
   expect(getRowRenderer(DebugRowType.InputField)).toBe(renderInputField)
+  expect(getRowRenderer(DebugRowType.MissingDebugProvider)).toBe(renderMissingDebugProvider)
   expect(getRowRenderer(999)).toBe(renderNoop)
 })

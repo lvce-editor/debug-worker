@@ -13,6 +13,7 @@ export const createDefaultState = (uid = 0): RunAndDebugState => {
     debugId: 0,
     debugInputValue: '',
     debugOutputValue: '',
+    debugProviderMessage: '',
     debugState: 0,
     disposed: false,
     editingselectionend: 0,

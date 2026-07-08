@@ -17,6 +17,7 @@ export const create = (id: number, uri: string, x: number, y: number, width: num
     debugId: 0,
     debugInputValue: '',
     debugOutputValue: '',
+    debugProviderMessage: '',
     debugState: DebugState.None,
     disposed: false,
     editingselectionend: 0,

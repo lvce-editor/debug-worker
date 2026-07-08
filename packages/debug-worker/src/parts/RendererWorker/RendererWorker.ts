@@ -13,3 +13,7 @@ export const {
   showContextMenu,
   showErrorDialog,
 } = RendererWorker
+
+export const openExtensions = async (): Promise<void> => {
+  await RendererWorker.invoke('SideBar.show', 'Extensions')
+}
