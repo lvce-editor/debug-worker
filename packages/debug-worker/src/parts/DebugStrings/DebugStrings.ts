@@ -134,3 +134,13 @@ export const refreshWatchExpressions = (): string => {
 export const noScriptRunning = (): string => {
   return I18NString.i18nString(UiStrings.NoScriptRunning)
 }
+
+export const noDebugProviderFound = (debugProvider: string): string => {
+  return I18NString.i18nString(UiStrings.NoDebugProviderFound, {
+    PH1: debugProvider,
+  })
+}
+
+export const openExtensions = (): string => {
+  return I18NString.i18nString(UiStrings.OpenExtensions)
+}

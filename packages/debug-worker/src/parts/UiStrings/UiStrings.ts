@@ -13,6 +13,8 @@ export const Module = 'Module'
 export const NamedClosure = 'Closure ({PH1})'
 export const NoScriptRunning =
   'No script running. To enable debugging, start a Node.js script with debugging enabled (e.g. node --inspect your-script.js) and connect to it.'
+export const NoDebugProviderFound = 'No debug provider "{PH1}" found.'
+export const OpenExtensions = 'Open Extensions'
 export const NotPaused = 'Not Paused'
 export const Pause = 'Pause'
 export const Restart = 'Restart'

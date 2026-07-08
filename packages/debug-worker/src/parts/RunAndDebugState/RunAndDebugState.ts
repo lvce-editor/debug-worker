@@ -15,6 +15,7 @@ export interface RunAndDebugState {
   readonly debugId: any
   readonly debugInputValue: string
   readonly debugOutputValue: string
+  readonly debugProviderMessage: string
   readonly debugState: number
   readonly disposed: boolean
   readonly editingselectionend: number

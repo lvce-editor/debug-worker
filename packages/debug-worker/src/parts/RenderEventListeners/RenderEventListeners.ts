@@ -90,6 +90,10 @@ export const renderEventListeners = (): readonly DomEventListener[] => {
       params: ['handleClickSectionAction', 'event.target.name'],
     },
     {
+      name: DomEventListenerFunctions.HandleClickOpenExtensions,
+      params: ['handleClickOpenExtensions'],
+    },
+    {
       name: DomEventListenerFunctions.HandleInputBlur,
       params: ['handleInputBlur'],
     },

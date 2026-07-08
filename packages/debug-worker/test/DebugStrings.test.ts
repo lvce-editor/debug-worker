@@ -130,3 +130,11 @@ test('noScriptRunning', () => {
     'No script running. To enable debugging, start a Node.js script with debugging enabled (e.g. node --inspect your-script.js) and connect to it.',
   )
 })
+
+test('noDebugProviderFound', () => {
+  expect(DebugStrings.noDebugProviderFound('node-debug')).toBe('No debug provider "node-debug" found.')
+})
+
+test('openExtensions', () => {
+  expect(DebugStrings.openExtensions()).toBe('Open Extensions')
+})

@@ -19,6 +19,7 @@ export const commandIds: readonly string[] = [
   'handleClickCallStackItem',
   'handleClickCheckBox',
   'handleClickDebugButton',
+  'handleClickOpenExtensions',
   'handleClickPauseOnExceptions',
   'handleClickPauseOnUncaughtExceptions',
   'handleClickScopeValue',
