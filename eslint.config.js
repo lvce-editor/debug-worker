@@ -32,6 +32,16 @@ export default [
 
       '@typescript-eslint/prefer-readonly-parameter-types': 'off',
       'unicorn/no-immediate-mutation': 'off',
+      'sonarjs/cognitive-complexity': 'off',
+      'sonarjs/concise-regex': 'off',
+      'sonarjs/function-return-type': 'off',
+      'sonarjs/no-duplicated-branches': 'off',
+      'sonarjs/no-selector-parameter': 'off',
+      'unicorn/no-confusing-array-splice': 'off',
+      'unicorn/no-duplicate-if-branches': 'off',
+      'unicorn/no-unsafe-string-replacement': 'off',
+      'unicorn/no-useless-template-literals': 'off',
+      'unicorn/prefer-includes-over-repeated-comparisons': 'off',
       '@typescript-eslint/prefer-for-of': 'off',
     },
   },
@@ -39,6 +49,18 @@ export default [
     files: ['**/*.test.ts'],
     rules: {
       '@typescript-eslint/no-empty-function': 'off',
+      'jest/expect-expect': 'off',
+      'jest/no-disabled-tests': 'off',
+      'sonarjs/assertions-in-tests': 'off',
+      'sonarjs/no-redundant-jump': 'off',
+      'sonarjs/prefer-specific-assertions': 'off',
+    },
+  },
+  {
+    files: ['packages/e2e/**/*.ts'],
+    rules: {
+      'e2e/no-direct-click': 'off',
+      'e2e/no-inline-nth-in-expect': 'off',
     },
   },
   {

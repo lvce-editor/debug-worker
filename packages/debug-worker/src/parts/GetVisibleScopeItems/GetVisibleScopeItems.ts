@@ -3,10 +3,7 @@ import type { ScopeChainItem } from '../ScopeChainItem/ScopeChainItem.ts'
 import * as DebugItemFlags from '../DebugItemFlags/DebugItemFlags.ts'
 
 const getExpandable = (valueType: any): boolean => {
-  if (valueType === 'object') {
-    return true
-  }
-  return false
+  return valueType === 'object'
 }
 
 const getFlags = (isExpanded: boolean, isExpandable: boolean, isFocused: boolean): number => {

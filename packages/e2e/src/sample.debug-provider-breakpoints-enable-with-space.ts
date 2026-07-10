@@ -1,4 +1,4 @@
-import { type Test } from '@lvce-editor/test-with-playwright'
+import type { Test } from '@lvce-editor/test-with-playwright'
 
 export const name = 'sample.debug-provider-enable-breakpoint-with-space'
 
@@ -9,7 +9,7 @@ export const test: Test = async ({ Command, expect, Extension, FileSystem, Locat
   await SideBar.open('Explorer')
   const tmpDir = await FileSystem.getTmpDir()
   await Workspace.setPath(tmpDir)
-  const extensionUrl = new URL(`../fixtures/${name}`, import.meta.url).toString()
+  const extensionUrl = new URL(`../fixtures/${name}`, import.meta.url).href
   await Extension.addWebExtension(extensionUrl)
   await SideBar.open('Run And Debug')
   const debugButtonOne = Locator('.DebugButton').nth(0)

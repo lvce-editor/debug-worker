@@ -64,7 +64,7 @@ export const getRunAndDebugVisibleRowsWatchContent = (watchExpressions: readonly
     for (const watchExpression of watchExpressions) {
       // TODO simplify index
       const index = watchExpressions.indexOf(watchExpression)
-      rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value, watchExpression.isEditing || false, index, startIndex + index, setSize))
+      rows.push(renderWatchExpression(watchExpression.expression, watchExpression.value, watchExpression.isEditing, index, startIndex + index, setSize))
     }
   }
 

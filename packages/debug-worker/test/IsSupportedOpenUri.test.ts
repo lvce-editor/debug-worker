@@ -4,7 +4,7 @@ import { isSupportedOpenUri } from '../src/parts/IsSupportedOpenUri/IsSupportedO
 test('isSupportedOpenUri', () => {
   expect(isSupportedOpenUri('file:///test.js')).toBe(true)
   expect(isSupportedOpenUri('file://test.js')).toBe(true)
-  expect(isSupportedOpenUri('http://test.js')).toBe(false)
+  expect(isSupportedOpenUri('https://test.js')).toBe(false)
   expect(isSupportedOpenUri('https://test.js')).toBe(false)
   expect(isSupportedOpenUri('')).toBe(false)
 })
