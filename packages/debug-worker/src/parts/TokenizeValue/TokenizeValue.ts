@@ -199,10 +199,12 @@ const readOperator = (input: string, current: number, tokens: string[]): number 
   let maxLength = 0
   let pos = current
   for (const op of operators) {
-    if (input.slice(pos, pos + op.length) === op && op.length > maxLength) {
-      maxLength = op.length
-      operator = op
+    if (!(input.slice(pos, pos + op.length) === op && op.length > maxLength)) {
+      continue
     }
+
+    maxLength = op.length
+    operator = op
   }
   if (operator) {
     tokens.push(operator, 'Operator')

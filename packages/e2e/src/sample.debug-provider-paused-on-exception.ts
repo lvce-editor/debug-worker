@@ -8,7 +8,7 @@ export const test: Test = async ({ expect, Extension, FileSystem, Locator, SideB
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await Workspace.setPath(tmpDir)
-  await Extension.addWebExtension(new URL(`../fixtures/${name}`, import.meta.url).toString())
+  await Extension.addWebExtension(new URL(`../fixtures/${name}`, import.meta.url).href)
 
   // act
   await SideBar.open('Run And Debug')

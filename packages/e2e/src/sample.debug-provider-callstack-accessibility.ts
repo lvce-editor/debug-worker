@@ -9,7 +9,7 @@ export const test: Test = async ({ expect, Extension, FileSystem, Locator, SideB
   await SideBar.open('Explorer')
   const tmpDir = await FileSystem.getTmpDir()
   await Workspace.setPath(tmpDir)
-  const extensionUrl = new URL(`../fixtures/${name}`, import.meta.url).toString()
+  const extensionUrl = new URL(`../fixtures/${name}`, import.meta.url).href
   await Extension.addWebExtension(extensionUrl)
 
   // act
