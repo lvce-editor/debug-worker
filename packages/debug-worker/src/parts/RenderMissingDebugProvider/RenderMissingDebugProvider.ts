@@ -2,6 +2,7 @@ import type { DebugRow } from '../DebugRow/DebugRow.ts'
 import type { VirtualDomNode } from '../VirtualDomNode/VirtualDomNode.ts'
 import * as DebugStrings from '../DebugStrings/DebugStrings.ts'
 import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEventListenerFunctions.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -22,7 +23,7 @@ export const renderMissingDebugProvider = (row: DebugRow): readonly VirtualDomNo
     VirtualDomHelpers.text(row.text),
     {
       childCount: 1,
-      className: 'Button ButtonSecondary MissingDebugProviderButton',
+      className: MergeClassNames.mergeClassNames('Button', 'ButtonSecondary', 'MissingDebugProviderButton'),
       onClick: DomEventListenerFunctions.HandleClickOpenExtensions,
       title: DebugStrings.openExtensions(),
       type: VirtualDomElements.Button,
