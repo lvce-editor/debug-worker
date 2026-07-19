@@ -3,6 +3,7 @@ import * as actions from '@lvce-editor/eslint-plugin-github-actions'
 
 export default [
   ...config.default,
+  ...config.recommendedVirtualDom,
   ...actions.default,
 
   {
@@ -54,6 +55,12 @@ export default [
       'sonarjs/assertions-in-tests': 'off',
       'sonarjs/no-redundant-jump': 'off',
       'sonarjs/prefer-specific-assertions': 'off',
+      'virtual-dom/no-inline-event-handlers': 'off',
+      'virtual-dom/no-inline-style': 'off',
+      'virtual-dom/no-object-attribute-values': 'off',
+      'virtual-dom/prefer-constants': 'off',
+      'virtual-dom/prefer-merge-class-names': 'off',
+      'virtual-dom/prefer-state-destructuring': 'off',
     },
   },
   {
@@ -66,6 +73,18 @@ export default [
   {
     rules: {
       '@cspell/spellchecker': 'off',
+    },
+  },
+  {
+    files: ['packages/debug-worker/src/parts/RenderDebugValue/RenderDebugValue.ts'],
+    rules: {
+      'virtual-dom/no-object-attribute-values': 'off',
+    },
+  },
+  {
+    files: ['packages/debug-worker/src/parts/RenderMissingDebugProvider/RenderMissingDebugProvider.ts'],
+    rules: {
+      'virtual-dom/no-inline-style': 'off',
     },
   },
 ]

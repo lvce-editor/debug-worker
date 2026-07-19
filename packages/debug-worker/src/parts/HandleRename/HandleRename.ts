@@ -4,13 +4,13 @@ import { editWatchExpression } from '../EditWatchExpression/EditWatchExpression.
 import { getRunAndDebugVisibleRows } from '../GetRunAndDebugVisibleRows/GetRunAndDebugVisibleRows.ts'
 
 export const handleRename = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
-  const { selectedIndex } = state
+  const { selectedIndex, watchExpressions } = state
   const rows = getRunAndDebugVisibleRows(state)
   const row = rows[selectedIndex]
 
   if (row && row.type === DebugRowType.WatchExpression && row.index !== undefined) {
     const watchIndex = row.index
-    const watchExpression = state.watchExpressions[watchIndex]
+    const watchExpression = watchExpressions[watchIndex]
 
     if (watchExpression && !watchExpression.isEditing) {
       return editWatchExpression(state, watchIndex)

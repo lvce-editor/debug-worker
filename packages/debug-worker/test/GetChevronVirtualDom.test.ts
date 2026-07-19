@@ -6,7 +6,7 @@ test('getChevronDownVirtualDom', () => {
   const result = GetChevronVirtualDom.getChevronDownVirtualDom()
   expect(result).toEqual({
     childCount: 0,
-    className: 'Chevron MaskIconChevronDown ',
+    className: 'Chevron MaskIconChevronDown',
     type: VirtualDomElements.Div,
   })
 })
@@ -24,7 +24,7 @@ test('getChevronRightVirtualDom', () => {
   const result = GetChevronVirtualDom.getChevronRightVirtualDom()
   expect(result).toEqual({
     childCount: 0,
-    className: 'Chevron MaskIconChevronRight ',
+    className: 'Chevron MaskIconChevronRight',
     type: VirtualDomElements.Div,
   })
 })

@@ -23,7 +23,7 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
       valueChildren.push({
         childCount: 1,
         children: [VirtualDomHelpers.text(tokens[i])],
-        className: `DebugToken DebugToken${tokens[i + 1]}`,
+        className: MergeClassNames.mergeClassNames(ClassNames.DebugToken, `DebugToken${tokens[i + 1]}`),
         type: VirtualDomElements.Span,
       })
     }
@@ -45,7 +45,7 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
     },
     {
       childCount: 1,
-      className: 'DebugValue DebugPropertyKey',
+      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugPropertyKey),
       type: VirtualDomElements.Span,
     },
     VirtualDomHelpers.text(key),

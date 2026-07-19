@@ -9,7 +9,8 @@ import { getRunAndDebugVisibleRowsScope } from '../GetRunAndDebugVisibleRowsScop
 import { getRunAndDebugVisibleRowsWatch } from '../GetRunAndDebugVisibleRowsWatch/GetRunAndDebugVisibleRowsWatch.ts'
 
 export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly DebugRow[] => {
-  if (state.debugState === DebugState.Unavailable) {
+  const { debugProviderMessage, debugState, topLevelCount } = state
+  if (debugState === DebugState.Unavailable) {
     return [
       {
         description: '',
@@ -28,7 +29,7 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
     ]
   }
 
-  if (state.debugState === DebugState.MissingProvider) {
+  if (debugState === DebugState.MissingProvider) {
     return [
       {
         description: '',
@@ -39,7 +40,7 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
         name: '',
         posInset: 1,
         setSize: 1,
-        text: state.debugProviderMessage,
+        text: debugProviderMessage,
         type: DebugRowType.MissingDebugProvider,
         value: '',
         valueType: '',
@@ -47,7 +48,6 @@ export const getRunAndDebugVisibleRows = (state: RunAndDebugState): readonly Deb
     ]
   }
 
-  const { topLevelCount } = state
   const watchRows = getRunAndDebugVisibleRowsWatch(state, 0, topLevelCount, 0)
   const breakPointsRows = getRunAndDebugVisibleRowsBreakPoints(state, watchRows.length, topLevelCount, 1)
   const scopeRows = getRunAndDebugVisibleRowsScope(state, watchRows.length + breakPointsRows.length, topLevelCount, 2)

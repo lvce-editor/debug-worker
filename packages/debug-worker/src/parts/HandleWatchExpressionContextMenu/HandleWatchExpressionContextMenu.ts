@@ -5,13 +5,14 @@ import { parseIndex } from '../ParseIndex/ParseIndex.ts'
 import * as RunAndDebugStates from '../RunAndDebugStates/RunAndDebugStates.ts'
 
 export const handleWatchExpressionContextMenu = async (state: RunAndDebugState, x: number, y: number, dataIndex: string): Promise<RunAndDebugState> => {
+  const { uid } = state
   const index = parseIndex(dataIndex)
   const newState: RunAndDebugState = {
     ...state,
     focusedIndex: index,
   }
-  const { oldState } = RunAndDebugStates.get(state.uid)
-  RunAndDebugStates.set(state.uid, oldState, newState)
+  const { oldState } = RunAndDebugStates.get(uid)
+  RunAndDebugStates.set(uid, oldState, newState)
   await ContextMenu.show(x, y, MenuEntryId.DebugWatchExpression)
   return state
 }
