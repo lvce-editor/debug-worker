@@ -10,6 +10,18 @@ import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const debugValueScopeNameNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.DebugValueScopeName,
+  type: VirtualDomElements.Span,
+}
+
+const debugValueNode: VirtualDomNode = {
+  childCount: 1,
+  className: ClassNames.DebugValue,
+  type: VirtualDomElements.Span,
+}
+
 export const renderWatchExpression = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { index, key, value } = row
   const isSelected = rowIndex === selectedIndex
@@ -24,18 +36,10 @@ export const renderWatchExpression = (row: DebugRow, selectedIndex: number, rowI
       role: AriaRoles.TreeItem,
       type: VirtualDomElements.Div,
     },
-    {
-      childCount: 1,
-      className: ClassNames.DebugValueScopeName,
-      type: VirtualDomElements.Span,
-    },
+    debugValueScopeNameNode,
     VirtualDomHelpers.text(key),
     separator,
-    {
-      childCount: 1,
-      className: ClassNames.DebugValue,
-      type: VirtualDomElements.Span,
-    },
+    debugValueNode,
     VirtualDomHelpers.text(value),
     {
       childCount: 1,

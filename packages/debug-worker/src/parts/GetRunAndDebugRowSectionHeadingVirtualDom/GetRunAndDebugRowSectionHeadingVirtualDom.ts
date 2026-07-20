@@ -6,6 +6,7 @@ import * as DomEventListenerFunctions from '../DomEventListenerFunctions/DomEven
 import * as GetActionsDom from '../GetActionsDom/GetActionsDom.ts'
 import * as GetChevronVirtualDom from '../GetChevronVirtualDom/GetChevronVirtualDom.ts'
 import { getDebugRowClassName } from '../GetDebugRowClassName/GetDebugRowClassName.ts'
+import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
@@ -13,7 +14,7 @@ export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIn
   const { actions, expanded, index, key, posInset, setSize, text } = row
   const hasActions = actions && actions.length > 0
   const isSelected = rowIndex === selectedIndex
-  const className = getDebugRowClassName(ClassNames.DebugSectionHeader + ' ' + ClassNames.DebugRow, isSelected)
+  const className = getDebugRowClassName(MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, ClassNames.DebugRow), isSelected)
   const nodes: VirtualDomNode[] = [
     {
       ariaExpanded: expanded,
