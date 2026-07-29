@@ -9,6 +9,12 @@ import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const debugScopeNameNode: VirtualDomNode = {
+  childCount: 1,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugValueScopeName),
+  type: VirtualDomElements.Span,
+}
+
 export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { expanded, index, key } = row
   const isSelected = rowIndex === selectedIndex
@@ -26,11 +32,7 @@ export const renderScope = (row: DebugRow, selectedIndex: number, rowIndex: numb
       type: VirtualDomElements.Div,
     },
     expanded ? GetChevronVirtualDom.getChevronDownVirtualDom() : GetChevronVirtualDom.getChevronRightVirtualDom(),
-    {
-      childCount: 1,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugValueScopeName),
-      type: VirtualDomElements.Span,
-    },
+    debugScopeNameNode,
     VirtualDomHelpers.text(key),
   ]
 }
