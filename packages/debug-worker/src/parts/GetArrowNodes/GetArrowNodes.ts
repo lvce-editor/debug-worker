@@ -9,17 +9,16 @@ const callStackArrowNode: VirtualDomNode = {
   type: VirtualDomElements.Div,
 }
 
+const arrowRightNode: VirtualDomNode = {
+  childCount: 0,
+  className: MergeClassNames.mergeClassNames('MaskIcon', 'MaskIconArrowRight'),
+  type: VirtualDomElements.Div,
+}
+
 export const getArrowNodes = (hasArrow: boolean | undefined): readonly VirtualDomNode[] => {
   if (!hasArrow) {
     return []
   }
 
-  return [
-    callStackArrowNode,
-    {
-      childCount: 0,
-      className: MergeClassNames.mergeClassNames('MaskIcon', 'MaskIconArrowRight'),
-      type: VirtualDomElements.Div,
-    },
-  ]
+  return [callStackArrowNode, arrowRightNode]
 }

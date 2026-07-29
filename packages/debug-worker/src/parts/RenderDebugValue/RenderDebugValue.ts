@@ -10,6 +10,12 @@ import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const debugPropertyKeyNode: VirtualDomNode = {
+  childCount: 1,
+  className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugPropertyKey),
+  type: VirtualDomElements.Span,
+}
+
 export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: number, tokenColoringEnabled: boolean): readonly VirtualDomNode[] => {
   const { expanded, indent, index, key, tokens, value, valueType } = row
   const isSelected = rowIndex === selectedIndex
@@ -43,11 +49,7 @@ export const renderValue = (row: DebugRow, selectedIndex: number, rowIndex: numb
       role: AriaRoles.TreeItem,
       type: VirtualDomElements.Div,
     },
-    {
-      childCount: 1,
-      className: MergeClassNames.mergeClassNames(ClassNames.DebugValue, ClassNames.DebugPropertyKey),
-      type: VirtualDomElements.Span,
-    },
+    debugPropertyKeyNode,
     VirtualDomHelpers.text(key),
     separator,
     {
