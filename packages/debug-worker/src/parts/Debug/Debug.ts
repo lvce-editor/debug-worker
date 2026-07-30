@@ -4,18 +4,8 @@ import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts
 import { getKey, openAtPausedLocation } from '../OpenAtPausedLocation/OpenAtPausedLocation.ts'
 import { updateDebugInfo } from '../UpdateDebugInfo/UpdateDebugInfo.ts'
 
-export const create = (debugId: any): any => {
-  return {
-    debugId,
-  }
-}
-
 export const start = async (id: any): Promise<any> => {
   return ExtensionHostDebug.start(id)
-}
-
-export const listProcesses = async (id: any): Promise<any> => {
-  return ExtensionHostDebug.listProcesses(id)
 }
 
 export const resume = async (id: any): Promise<any> => {
@@ -36,10 +26,6 @@ export const stepInto = async (id: any): Promise<any> => {
 
 export const stepOut = async (id: any): Promise<any> => {
   return ExtensionHostDebug.stepOut(id)
-}
-
-export const step = async (id: any): Promise<any> => {
-  return ExtensionHostDebug.step(id)
 }
 
 export const setPauseOnExceptions = async (id: any, value: any): Promise<any> => {

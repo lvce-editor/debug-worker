@@ -71,28 +71,6 @@ export const handleEvaluate = async (state: RunAndDebugState): Promise<RunAndDeb
   }
 }
 
-export const handleArrowLeft = (state: RunAndDebugState): RunAndDebugState => {
-  const { focusedIndex } = state
-  if (focusedIndex === 2) {
-    return {
-      ...state,
-      scopeExpanded: false,
-    }
-  }
-  return state
-}
-
-export const handleArrowRight = (state: RunAndDebugState): RunAndDebugState => {
-  const { focusedIndex } = state
-  if (focusedIndex === 2) {
-    return {
-      ...state,
-      scopeExpanded: true,
-    }
-  }
-  return state
-}
-
 export const handleArrowUp = (state: RunAndDebugState): RunAndDebugState => {
   return state
 }
