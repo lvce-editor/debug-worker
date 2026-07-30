@@ -53,14 +53,6 @@ export const stepOut = (debugId: any): Promise<void> => {
   })
 }
 
-export const step = (debugId: any): Promise<void> => {
-  return ExecuteProvider.executeProvider({
-    event: getDebugEvent(debugId),
-    method: 'ExtensionHostDebug.step',
-    params: [debugId],
-  })
-}
-
 export const setPauseOnExceptions = (debugId: any, value: any): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: getDebugEvent(debugId),
@@ -114,14 +106,6 @@ export const getCallStack = (debugId: any): Promise<any> => {
     event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.getCallStack',
     params: [debugId],
-  })
-}
-
-export const getScopeChain = (debugId: any, callFrameId: any): Promise<any> => {
-  return ExecuteProvider.executeProvider({
-    event: getDebugEvent(debugId),
-    method: 'ExtensionHostDebug.getScopeChain',
-    params: [debugId, callFrameId],
   })
 }
 

@@ -127,10 +127,6 @@ export const addWatchExpression = (): string => {
   return I18NString.i18nString(UiStrings.AddWatchExpression)
 }
 
-export const refreshWatchExpressions = (): string => {
-  return I18NString.i18nString(UiStrings.RefreshWatchExpressions)
-}
-
 export const noScriptRunning = (): string => {
   return I18NString.i18nString(UiStrings.NoScriptRunning)
 }

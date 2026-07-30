@@ -24,18 +24,3 @@ export interface DebugRow {
   readonly value: string
   readonly valueType: string | number // TODO convert to number
 }
-
-export interface DebugRowBase {
-  readonly type: number
-}
-
-export interface DebugRowHeading {
-  readonly actions: readonly DebugRowAction[]
-  readonly expanded: boolean
-  readonly heading: string
-}
-
-export interface DebugRowBreakPoints {
-  readonly label: string
-  readonly name: string
-}
