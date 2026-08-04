@@ -2,7 +2,7 @@ import { test, expect, jest } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { evaluateWatchExpressions } from '../src/parts/EvaluateWatchExpressions/EvaluateWatchExpressions.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const debugId = 1
 const callFrameId = 2
@@ -21,7 +21,7 @@ test('evaluateWatchExpressions - all succeed', async () => {
     },
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
   const watchExpressions = [
     { expression: 'a + b', isEditing: false, value: null },
     { expression: 'x * y', isEditing: false, value: null },
@@ -51,7 +51,7 @@ test('evaluateWatchExpressions - one fails', async () => {
     },
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
   const watchExpressions = [
     { expression: 'ok', isEditing: false, value: null },
     { expression: 'fail', isEditing: false, value: null },

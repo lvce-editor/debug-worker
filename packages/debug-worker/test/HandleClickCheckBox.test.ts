@@ -6,6 +6,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickCheckBox } from '../src/parts/HandleClickCheckBox/HandleClickCheckBox.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('handleClickCheckBox with pause-on-exceptions', async () => {
   const mockRendererWorker = MockRpc.create({
@@ -22,7 +23,7 @@ test('handleClickCheckBox with pause-on-exceptions', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
   const state: RunAndDebugState = createDefaultState()
   const result = await handleClickCheckBox(state, InputName.PauseOnExceptions)
   expect(result).toBeDefined()
@@ -43,7 +44,7 @@ test('handleClickCheckBox with pause-on-uncaught-exceptions', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
   const state: RunAndDebugState = createDefaultState()
   const result = await handleClickCheckBox(state, InputName.PauseOnUncaughtExceptions)
   expect(result).toBeDefined()
@@ -64,7 +65,7 @@ test('handleClickCheckBox with invalid name throws error', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
   const state: RunAndDebugState = createDefaultState()
   expect(() => handleClickCheckBox(state, 'invalid-name')).toThrow('unknown input name')
 })

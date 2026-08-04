@@ -1,287 +1,77 @@
 import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import * as RpcRegistry from '@lvce-editor/rpc-registry'
-import { RpcId } from '@lvce-editor/rpc-registry'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import * as ExtensionHostDebug from '../src/parts/ExtensionHostDebug/ExtensionHostDebug.ts'
 
 const mockDebugId = 'test-debug-id'
+const mockEvent = `onDebug:${mockDebugId}`
+
+const setMockExtensionHost = (expectedMethod: string, expectedParams: readonly unknown[], result: unknown): void => {
+  const mockExtensionHost = MockRpc.create({
+    commandMap: {},
+    invoke: (method: string, ...params: readonly unknown[]) => {
+      expect([method, ...params]).toEqual(['Extensions.executeProvidersByEvent', mockEvent, expectedMethod, ...expectedParams])
+      return [result]
+    },
+  })
+  ExtensionHost.set(mockExtensionHost)
+}
 
 test('listProcesses', async () => {
   const mockProcesses = [{ id: 1 }, { id: 2 }]
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.listProcesses') {
-        return mockProcesses
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.listProcesses(mockDebugId)
-  expect(result).toEqual(mockProcesses)
+  setMockExtensionHost('ExtensionHostDebug.listProcesses', [mockDebugId], mockProcesses)
+  await expect(ExtensionHostDebug.listProcesses(mockDebugId)).resolves.toEqual(mockProcesses)
 })
 
-test('resume', async () => {
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.resume') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  await ExtensionHostDebug.resume(mockDebugId)
-})
-
-test('pause', async () => {
-  const mockResult = { status: 'paused' }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.pause') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.pause(mockDebugId)
-  expect(result).toEqual(mockResult)
-})
-
-test('stepOver', async () => {
-  const mockResult = { status: 'stepped' }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepOver') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.stepOver(mockDebugId)
-  expect(result).toEqual(mockResult)
-})
-
-test('stepInto', async () => {
-  const mockResult = { status: 'stepped' }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepInto') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.stepInto(mockDebugId)
-  expect(result).toEqual(mockResult)
-})
-
-test('stepOut', async () => {
-  const mockResult = { status: 'stepped' }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.stepOut') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.stepOut(mockDebugId)
-  expect(result).toEqual(mockResult)
+test.each([
+  ['resume', ExtensionHostDebug.resume, 'ExtensionHostDebug.resume'],
+  ['pause', ExtensionHostDebug.pause, 'ExtensionHostDebug.pause'],
+  ['stepOver', ExtensionHostDebug.stepOver, 'ExtensionHostDebug.stepOver'],
+  ['stepInto', ExtensionHostDebug.stepInto, 'ExtensionHostDebug.stepInto'],
+  ['stepOut', ExtensionHostDebug.stepOut, 'ExtensionHostDebug.stepOut'],
+  ['start', ExtensionHostDebug.start, 'ExtensionHostDebug.start'],
+] as const)('%s routes through executeProvidersByEvent', async (name, execute, expectedMethod) => {
+  const mockResult = { name }
+  setMockExtensionHost(expectedMethod, [mockDebugId], mockResult)
+  await expect(execute(mockDebugId)).resolves.toEqual(mockResult)
 })
 
 test('setPauseOnExceptions', async () => {
-  const mockValue = true
   const mockResult = { status: 'updated' }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.setPauseOnExceptions') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.setPauseOnExceptions(mockDebugId, mockValue)
-  expect(result).toEqual(mockResult)
+  setMockExtensionHost('ExtensionHostDebug.setPauseOnExceptions', [mockDebugId, true], mockResult)
+  await expect(ExtensionHostDebug.setPauseOnExceptions(mockDebugId, true)).resolves.toEqual(mockResult)
 })
 
 test('getProperties', async () => {
-  const mockObjectId = 'obj-123'
   const mockProperties = [{ name: 'prop1', value: 'value1' }]
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.getProperties') {
-        return mockProperties
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.getProperties(mockDebugId, mockObjectId)
-  expect(result).toEqual(mockProperties)
+  setMockExtensionHost('ExtensionHostDebug.getProperties', [mockDebugId, 'obj-123'], mockProperties)
+  await expect(ExtensionHostDebug.getProperties(mockDebugId, 'obj-123')).resolves.toEqual(mockProperties)
 })
 
 test('evaluate', async () => {
-  const mockExpression = 'x + y'
-  const mockCallFrameId = 'frame-123'
   const mockResult = { result: 42 }
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.evaluate') {
-        return mockResult
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.evaluate(mockDebugId, mockExpression, mockCallFrameId)
-  expect(result).toEqual(mockResult)
+  setMockExtensionHost('ExtensionHostDebug.evaluate', [mockDebugId, 'x + y', 'frame-123'], mockResult)
+  await expect(ExtensionHostDebug.evaluate(mockDebugId, 'x + y', 'frame-123')).resolves.toEqual(mockResult)
 })
 
 test('getScriptSource', async () => {
-  const mockScriptId = 'script-123'
   const mockSource = 'function test() { return true; }'
-  const mockExtensionHost = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.getScriptSource') {
-        return mockSource
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  const mockRendererWorker = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  ExtensionHost.set(mockExtensionHost)
-  RendererWorker.set(mockRendererWorker)
-  const result = await ExtensionHostDebug.getScriptSource(mockDebugId, mockScriptId)
-  expect(result).toEqual(mockSource)
+  setMockExtensionHost('ExtensionHostDebug.getScriptSource', [mockDebugId, 'script-123'], mockSource)
+  await expect(ExtensionHostDebug.getScriptSource(mockDebugId, 'script-123')).resolves.toBe(mockSource)
 })
 
-test.skip('addWatchExpression', async () => {
-  const mockRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.addWatchExpression') {
-        return {}
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
-  RpcRegistry.set(RpcId.RendererWorker, mockRpc)
+test('addWatchExpression', async () => {
+  setMockExtensionHost('ExtensionHostDebug.addWatchExpression', [mockDebugId, 'x + y'], undefined)
+  await expect(ExtensionHostDebug.addWatchExpression(mockDebugId, 'x + y')).resolves.toBeUndefined()
+})
 
-  await ExtensionHostDebug.addWatchExpression('debug-1', 'x + y')
+test('reports a missing provider when no extension handles the event', async () => {
+  const mockExtensionHost = MockRpc.create({
+    commandMap: {},
+    invoke: () => [],
+  })
+  ExtensionHost.set(mockExtensionHost)
+  await expect(ExtensionHostDebug.start(mockDebugId)).rejects.toThrow(
+    'Failed to execute debug provider: no debug provider "test-debug-id" found',
+  )
 })

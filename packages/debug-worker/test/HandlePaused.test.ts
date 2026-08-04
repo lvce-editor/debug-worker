@@ -4,8 +4,8 @@ import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handlePaused, togglePause } from '../src/parts/HandlePaused/HandlePaused.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise<void> => {
   const mockRpc = MockRpc.create({
@@ -13,7 +13,7 @@ const setupMocks = async (invokeImpl: (method: string) => Promise<any>): Promise
     invoke: invokeImpl,
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
 }
 
 test.skip('handlePaused updates state correctly', async () => {

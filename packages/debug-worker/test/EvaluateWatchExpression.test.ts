@@ -2,7 +2,7 @@ import { expect, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { evaluateWatchExpression } from '../src/parts/EvaluateWatchExpression/EvaluateWatchExpression.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('evaluateWatchExpression', async () => {
   const mockRpc = MockRpc.create({
@@ -20,7 +20,7 @@ test('evaluateWatchExpression', async () => {
     },
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
   const expression = 'x + y'
   const result = await evaluateWatchExpression(123, 456, expression)
   expect(result).toEqual({ result: 'evaluated result' })

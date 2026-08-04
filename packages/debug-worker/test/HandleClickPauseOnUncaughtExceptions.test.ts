@@ -6,6 +6,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickPauseOnUncaughtExceptions } from '../src/parts/HandleClickPauseOnUncaughtExceptions/HandleClickPauseOnUncaughtExceptions.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const setupRendererAndExtensionHost = async (): Promise<void> => {
   const mockRendererWorker = MockRpc.create({
@@ -28,7 +29,7 @@ const setupRendererAndExtensionHost = async (): Promise<void> => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
 }
 
 test('handleClickPauseOnUncaughtExceptions - from None to Uncaught', async () => {

@@ -4,8 +4,8 @@ import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { refreshWatchExpression } from '../src/parts/RefreshWatchExpression/RefreshWatchExpression.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('refreshWatchExpression - when not paused, returns same state', async () => {
   const state: RunAndDebugState = {
@@ -38,7 +38,7 @@ test('refreshWatchExpression - when paused, evaluates all expressions', async ()
     },
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
 
   const state: RunAndDebugState = {
     ...createDefaultState(),

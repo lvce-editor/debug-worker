@@ -3,9 +3,9 @@ import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebugState.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickDebugButton } from '../src/parts/HandleClickDebugButton/HandleClickDebugButton.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const called: string[] = []
 const mockRpc = MockRpc.create({
@@ -19,7 +19,7 @@ const mockRpc = MockRpc.create({
 beforeEach(() => {
   called.length = 0
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
 })
 
 test('pause button calls ExtensionHostDebug.pause', async () => {
