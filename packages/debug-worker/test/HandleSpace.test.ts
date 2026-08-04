@@ -7,6 +7,7 @@ import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleSpace } from '../src/parts/HandleSpace/HandleSpace.ts'
 import * as InputName from '../src/parts/InputName/InputName.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('handleSpace does nothing when no row is selected', async () => {
   const state: RunAndDebugState = createDefaultState()
@@ -47,7 +48,7 @@ test('handleSpace toggles checkbox rows', async () => {
     commandMap: {},
     invoke: () => undefined,
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
 
   const checkboxRow = {
     description: '',

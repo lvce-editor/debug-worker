@@ -6,6 +6,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ExceptionBreakPoints from '../src/parts/ExceptionBreakPoints/ExceptionBreakPoints.ts'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { handleClickPauseOnExceptions } from '../src/parts/HandleClickPauseOnExceptions/HandleClickPauseOnExceptions.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('handleClickPauseOnExceptions toggles from None to All', async () => {
   const mockRendererWorker = MockRpc.create({
@@ -28,7 +29,7 @@ test('handleClickPauseOnExceptions toggles from None to All', async () => {
       return
     },
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
 
   const state: RunAndDebugState = createDefaultState()
   const newState = await handleClickPauseOnExceptions(state)
@@ -56,7 +57,7 @@ test('handleClickPauseOnExceptions toggles from Uncaught to All', async () => {
       return
     },
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
 
   const state = {
     ...createDefaultState(),
@@ -87,7 +88,7 @@ test('handleClickPauseOnExceptions toggles from All to None', async () => {
       return
     },
   })
-  ExtensionHost.set(mockExtensionHost)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
   const state = {
     ...createDefaultState(),
     exceptionBreakPoints: ExceptionBreakPoints.All,

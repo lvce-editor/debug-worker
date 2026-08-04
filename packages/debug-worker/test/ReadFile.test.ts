@@ -5,6 +5,7 @@ import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaul
 import * as ReadFile from '../src/parts/ReadFile/ReadFile.js'
 import { readFile } from '../src/parts/ReadFile/ReadFile.ts'
 import * as RunAndDebugStates from '../src/parts/RunAndDebugStates/RunAndDebugStates.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('should correctly parse URI and return empty string for invalid input', async () => {
   const result = await ReadFile.readFile('invalid-uri')
@@ -42,7 +43,7 @@ test('readFile', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  ExtensionHost.set(mockExtensionHostRpc)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHostRpc.invoke))
 
   const mockRendererWorkerRpc = MockRpc.create({
     commandMap: {},
@@ -79,7 +80,7 @@ test('readFile - no instance found', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  ExtensionHost.set(mockExtensionHostRpc)
+  ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHostRpc.invoke))
 
   const mockRendererWorkerRpc = MockRpc.create({
     commandMap: {},

@@ -5,7 +5,7 @@ import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebug
 import type { ScopeChainItem } from '../src/parts/ScopeChainItem/ScopeChainItem.ts'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import { expandScopeChain } from '../src/parts/ExpandScopeChain/ExpandScopeChain.ts'
-import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
+import { setExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test('expandScopeChain', async () => {
   const state: RunAndDebugState = createDefaultState()
@@ -67,7 +67,7 @@ test('expandScopeChain', async () => {
     },
   })
   RendererWorker.set(mockRpc)
-  ExtensionHost.set(mockRpc)
+  setExtensionHostProviderMock(mockRpc.invoke)
 
   const result = await expandScopeChain(state, expandedIds, scopeChain, element, index, debugId, 0)
 

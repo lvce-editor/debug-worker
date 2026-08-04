@@ -3,6 +3,7 @@ import { MockRpc } from '@lvce-editor/rpc'
 import { RendererWorker } from '@lvce-editor/rpc-registry'
 import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { getInnerChildScopeChain } from '../src/parts/GetInnerChildScopeChain/GetInnerChildScopeChain.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const mockRpc = MockRpc.create({
   commandMap: {},
@@ -33,7 +34,7 @@ const mockExtensionHost = MockRpc.create({
   },
 })
 
-ExtensionHost.set(mockExtensionHost)
+ExtensionHost.set(createExtensionHostProviderMock(mockExtensionHost.invoke))
 
 test('should return cached value if available', async () => {
   const cache = {

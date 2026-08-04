@@ -4,6 +4,7 @@ import { RpcId } from '@lvce-editor/rpc-registry'
 import type { ParsedScriptMap } from '../src/parts/ParsedScriptMap/ParsedScriptMap.ts'
 import { getPausedInfo2 } from '../src/parts/GetPausedInfo2/GetPausedInfo2.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 test.skip('getPausedInfo2', async () => {
   const mockDebugId = 'test-debug-id'
@@ -71,7 +72,7 @@ test.skip('getPausedInfo2', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
+  RpcRegistry.set(RpcId.ExtensionHostWorker, createExtensionHostProviderMock(mockRpc.invoke))
 
   // Register mock RPC for RendererWorker
   const mockRendererWorkerRpc = MockRpc.create({

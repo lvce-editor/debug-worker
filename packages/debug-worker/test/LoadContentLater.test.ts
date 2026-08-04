@@ -1,6 +1,5 @@
 import { expect, jest, test } from '@jest/globals'
 import { MockRpc } from '@lvce-editor/rpc'
-import { RendererWorker } from '@lvce-editor/rpc-registry'
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as DebugRowType from '../src/parts/DebugRowType/DebugRowType.ts'
 import * as DebugState from '../src/parts/DebugState/DebugState.ts'
@@ -9,28 +8,18 @@ import * as ExtensionHost from '../src/parts/ExtensionHost/ExtensionHost.ts'
 import { loadContentLater } from '../src/parts/LoadContentLater/LoadContentLater.ts'
 
 test('loadContentLater shows missing debug provider message', async () => {
-  const rendererWorkerRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
   const extensionHostRpc = MockRpc.create({
     commandMap: {},
     invoke: (method: string) => {
-      if (method === 'ExtensionHostDebug.start') {
-        throw new Error('Failed to execute debug provider: no debug provider "node-debug" found')
+      if (method === 'Extensions.executeProvidersByEvent') {
+        return []
       }
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RendererWorker.set(rendererWorkerRpc)
   ExtensionHost.set(extensionHostRpc)
 
-  const result = await loadContentLater(createDefaultState(1))
+  const result = await loadContentLater({ ...createDefaultState(1), debugId: 'node-debug' })
 
   expect(result.debugState).toBe(DebugState.MissingProvider)
   expect(result.debugProviderMessage).toBe(DebugStrings.noDebugProviderFound('node-debug'))
@@ -53,15 +42,6 @@ test('loadContentLater shows missing debug provider message', async () => {
 })
 
 test('loadContentLater rethrows other start errors', async () => {
-  const rendererWorkerRpc = MockRpc.create({
-    commandMap: {},
-    invoke: (method: string) => {
-      if (method === 'ExtensionHostManagement.activateByEvent') {
-        return undefined
-      }
-      throw new Error(`unexpected method ${method}`)
-    },
-  })
   const error = new Error('startup failed')
   const extensionHostRpc = MockRpc.create({
     commandMap: {},
@@ -69,7 +49,6 @@ test('loadContentLater rethrows other start errors', async () => {
       throw error
     }),
   })
-  RendererWorker.set(rendererWorkerRpc)
   ExtensionHost.set(extensionHostRpc)
 
   await expect(loadContentLater(createDefaultState(1))).rejects.toBe(error)

@@ -5,6 +5,7 @@ import type { RunAndDebugState } from '../src/parts/RunAndDebugState/RunAndDebug
 import { createDefaultState } from '../src/parts/CreateDefaultState/CreateDefaultState.ts'
 import * as RpcRegistry from '../src/parts/RpcRegistry/RpcRegistry.ts'
 import { setPauseOnExceptions } from '../src/parts/SetPauseOnExceptions/SetPauseOnExceptions.ts'
+import { createExtensionHostProviderMock } from './MockExtensionHost.ts'
 
 const setupRendererWorker = async (): Promise<void> => {
   const mockRendererWorkerRpc = MockRpc.create({
@@ -25,7 +26,7 @@ test('setPauseOnExceptions - success', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
+  RpcRegistry.set(RpcId.ExtensionHostWorker, createExtensionHostProviderMock(mockRpc.invoke))
 
   const state: RunAndDebugState = createDefaultState()
   const value = true
@@ -50,7 +51,7 @@ test('setPauseOnExceptions - error', async () => {
       throw new Error(`unexpected method ${method}`)
     },
   })
-  RpcRegistry.set(RpcId.ExtensionHostWorker, mockRpc)
+  RpcRegistry.set(RpcId.ExtensionHostWorker, createExtensionHostProviderMock(mockRpc.invoke))
 
   const state: RunAndDebugState = createDefaultState()
   const value = true
