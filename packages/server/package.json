@@ -12,6 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@lvce-editor/server": "^0.103.19",
-    "@lvce-editor/static-server": "0.99.14"
+    "@lvce-editor/static-server": "0.103.19"
   }
 }
