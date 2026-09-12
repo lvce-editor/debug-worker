@@ -6,6 +6,8 @@ import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const buttonClassName = MergeClassNames.mergeClassNames('Button', 'ButtonSecondary', 'MissingDebugProviderButton')
+
 const missingDebugProviderNode: VirtualDomNode = {
   childCount: 2,
   className: 'MissingDebugProvider',
@@ -27,7 +29,7 @@ export const renderMissingDebugProvider = (row: DebugRow): readonly VirtualDomNo
     VirtualDomHelpers.text(row.text),
     {
       childCount: 1,
-      className: MergeClassNames.mergeClassNames('Button', 'ButtonSecondary', 'MissingDebugProviderButton'),
+      className: buttonClassName,
       onClick: DomEventListenerFunctions.HandleClickOpenExtensions,
       title: DebugStrings.openExtensions(),
       type: VirtualDomElements.Button,

@@ -10,11 +10,13 @@ import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const sectionHeaderClassName = MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, ClassNames.DebugRow)
+
 export const renderSectionHeading = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { actions, expanded, index, key, posInset, setSize, text } = row
   const hasActions = actions && actions.length > 0
   const isSelected = rowIndex === selectedIndex
-  const className = getDebugRowClassName(MergeClassNames.mergeClassNames(ClassNames.DebugSectionHeader, ClassNames.DebugRow), isSelected)
+  const className = getDebugRowClassName(sectionHeaderClassName, isSelected)
   const nodes: VirtualDomNode[] = [
     {
       ariaExpanded: expanded,
