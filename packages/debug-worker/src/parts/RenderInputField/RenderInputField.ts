@@ -8,10 +8,12 @@ import * as InputType from '../InputType/InputType.ts'
 import * as MergeClassNames from '../MergeClassNames/MergeClassNames.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 
+const inputFieldClassName = MergeClassNames.mergeClassNames(ClassNames.DebugRow, ClassNames.DebugRowInputField)
+
 export const renderInputField = (row: DebugRow, selectedIndex: number, rowIndex: number): readonly VirtualDomNode[] => {
   const { name, text } = row
   const isSelected = rowIndex === selectedIndex
-  const className = getDebugRowClassName(MergeClassNames.mergeClassNames(ClassNames.DebugRow, ClassNames.DebugRowInputField), isSelected)
+  const className = getDebugRowClassName(inputFieldClassName, isSelected)
   return [
     {
       ariaLevel: 2,

@@ -10,6 +10,8 @@ import { separator } from '../Separator/Separator.ts'
 import * as VirtualDomElements from '../VirtualDomElements/VirtualDomElements.ts'
 import * as VirtualDomHelpers from '../VirtualDomHelpers/VirtualDomHelpers.ts'
 
+const deleteButtonClassName = MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction, ClassNames.DeleteWatchExpression)
+
 const debugValueScopeNameNode: VirtualDomNode = {
   childCount: 1,
   className: ClassNames.DebugValueScopeName,
@@ -43,7 +45,7 @@ export const renderWatchExpression = (row: DebugRow, selectedIndex: number, rowI
     VirtualDomHelpers.text(value),
     {
       childCount: 1,
-      className: MergeClassNames.mergeClassNames(ClassNames.IconButton, ClassNames.DebugSectionAction, ClassNames.DeleteWatchExpression),
+      className: deleteButtonClassName,
       'data-index': index,
       onClick: DomEventListenerFunctions.HandleClickWatchExpressionDelete,
       title: DebugStrings.deleteWatchExpression(),
