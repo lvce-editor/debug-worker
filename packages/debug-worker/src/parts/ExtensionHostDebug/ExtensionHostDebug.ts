@@ -61,11 +61,11 @@ export const setPauseOnExceptions = (debugId: any, value: any): Promise<void> =>
   })
 }
 
-export const start = (debugId: any): Promise<void> => {
+export const start = (debugId: any, webSocketDebuggerUrl?: string): Promise<void> => {
   return ExecuteProvider.executeProvider({
     event: getDebugEvent(debugId),
     method: 'ExtensionHostDebug.start',
-    params: [debugId],
+    params: webSocketDebuggerUrl === undefined ? [debugId] : [debugId, webSocketDebuggerUrl],
   })
 }
 

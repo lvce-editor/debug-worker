@@ -65,13 +65,17 @@ test('addWatchExpression', async () => {
   await expect(ExtensionHostDebug.addWatchExpression(mockDebugId, 'x + y')).resolves.toBeUndefined()
 })
 
+test('start forwards an explicit debugger endpoint', async () => {
+  const webSocketDebuggerUrl = 'ws://127.0.0.1:9230/target'
+  setMockExtensionHost('ExtensionHostDebug.start', [mockDebugId, webSocketDebuggerUrl], undefined)
+  await expect(ExtensionHostDebug.start(mockDebugId, webSocketDebuggerUrl)).resolves.toBeUndefined()
+})
+
 test('reports a missing provider when no extension handles the event', async () => {
   const mockExtensionHost = MockRpc.create({
     commandMap: {},
     invoke: () => [],
   })
   ExtensionHost.set(mockExtensionHost)
-  await expect(ExtensionHostDebug.start(mockDebugId)).rejects.toThrow(
-    'Failed to execute debug provider: no debug provider "test-debug-id" found',
-  )
+  await expect(ExtensionHostDebug.start(mockDebugId)).rejects.toThrow('Failed to execute debug provider: no debug provider "test-debug-id" found')
 })

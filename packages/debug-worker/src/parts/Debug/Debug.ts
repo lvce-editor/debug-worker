@@ -4,8 +4,8 @@ import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts
 import { getKey, openAtPausedLocation } from '../OpenAtPausedLocation/OpenAtPausedLocation.ts'
 import { updateDebugInfo } from '../UpdateDebugInfo/UpdateDebugInfo.ts'
 
-export const start = async (id: any): Promise<any> => {
-  return ExtensionHostDebug.start(id)
+export const start = async (id: any, webSocketDebuggerUrl?: string): Promise<any> => {
+  return ExtensionHostDebug.start(id, webSocketDebuggerUrl)
 }
 
 export const resume = async (id: any): Promise<any> => {
