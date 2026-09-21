@@ -79,6 +79,7 @@ export const commandMap = {
   'Initialize.initialize': Initialize.initialize,
   'RunAndDebug.acceptWatchExpressionEdit': WrapCommand.wrapCommand(acceptWatchExpressionEdit),
   'RunAndDebug.addWatchExpression': WrapCommand.wrapCommand(addWatchExpression),
+  'RunAndDebug.attach': WrapCommand.wrapCommand(LoadContentLater.loadContentLater),
   'RunAndDebug.cancelWatchExpressionEdit': WrapCommand.wrapCommand(cancelWatchExpressionEdit),
   'RunAndDebug.create': Create.create,
   'RunAndDebug.deleteAllWatchExpressions': deleteAllWatchExpressions,

@@ -6,10 +6,10 @@ import * as ExtensionHostDebug from '../ExtensionHostDebug/ExtensionHostDebug.ts
 import * as IsNoDebugProviderFound from '../IsNoDebugProviderFound/IsNoDebugProviderFound.ts'
 import { updateVisibleRows } from '../UpdateVisibleRows/UpdateVisibleRows.ts'
 
-export const loadContentLater = async (state: RunAndDebugState): Promise<RunAndDebugState> => {
+export const loadContentLater = async (state: RunAndDebugState, webSocketDebuggerUrl?: string): Promise<RunAndDebugState> => {
   const { debugId } = state
   try {
-    await Debug.start(debugId)
+    await Debug.start(debugId, webSocketDebuggerUrl)
   } catch (error) {
     if (!IsNoDebugProviderFound.isNoDebugProviderFound(error)) {
       throw error
