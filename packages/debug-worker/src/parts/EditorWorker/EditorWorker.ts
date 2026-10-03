@@ -1,3 +1,5 @@
 import { EditorWorker } from '@lvce-editor/rpc-registry'
 
-export const { dispose, set, updateDebugInfo } = EditorWorker
+export const dispose = EditorWorker.dispose
+export const set = EditorWorker.set
+export const updateDebugInfo = EditorWorker.updateDebugInfo
